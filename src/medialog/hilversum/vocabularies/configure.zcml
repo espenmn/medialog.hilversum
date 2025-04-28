@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="medialog.hilversum">
+
+    <!-- -*- extra stuff goes here -*- -->
+
+    <utility
+        component=".leerjaren_vocabulary.LeerjarenVocabularyFactory"
+        name="medialog.hilversum.LeerjarenVocabulary"
+    />
+
+
+    <utility
+        component=".v_otypen_vocabulary.VOtypenVocabularyFactory"
+        name="medialog.hilversum.VOtypenVocabulary"
+    />
+
+
+    <utility
+        component=".onderwijstype_vocabulary.OnderwijstypeVocabularyFactory"
+        name="medialog.hilversum.OnderwijstypeVocabulary"
+    />
+
+
+    <utility
+        component=".schooljaar_vocabulary.SchooljaarVocabularyFactory"
+        name="medialog.hilversum.SchooljaarVocabulary"
+    />
+
+
+    <utility
+        component=".aanbieder_vocabulary.AanbiederVocabularyFactory"
+        name="medialog.hilversum.AanbiederVocabulary"
+    />
+
+
+    <utility
+        component=".thema_vocabulary.ThemaVocabularyFactory"
+        name="medialog.hilversum.ThemaVocabulary"
+    />
+
+
+    <utility
+        component=".discipline_vocabulary.DisciplineVocabularyFactory"
+        name="medialog.hilversum.DisciplineVocabulary"
+    />
+
+
+</configure>

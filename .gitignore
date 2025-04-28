@@ -1,0 +1,12 @@
+bin/*
+docs/*
+eggs/*
+venv/*
+parts/*
+develop-egg
+medialog.hilversum.egg-info
+develop-eggs/*
+*egg-info/*
+src/medialog.hilversum.egg-info/*
+var
+var/*

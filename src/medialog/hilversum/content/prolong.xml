@@ -1,0 +1,325 @@
+<model
+    xmlns="http://namespaces.plone.org/supermodel/schema"
+    xmlns:security="http://namespaces.plone.org/supermodel/security"
+    xmlns:form="http://namespaces.plone.org/supermodel/form"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="medialog.hilversum">
+
+  <schema>
+	 lessen	Uitvoering op school	Speelvlak	Verduistering	Opbouwtijd	Min. aantal leerlingen	Max. aantal leerlingen prijsberekening	Ruimte op school	Clusters	Programma	Discipline	Thema	Lesmateriaal URL	Aanbieder	Bemiddelaar	Vaste ruimte	Vaste gezelschappen	Vaste personen	Blokje persoon inplannen	Schooljaar	Duur	Max. aantal leerlingen	Onderwijstype	VO typen	Leerjaren	Inschrijfbaar	Prijs per	Tarief leerling/groep	Tarief begeleider	Max. aantal leerlingen prijsberekening	Totaalprijs	Omschrijving	Url meer informatie	Startdatum	Einddatum	Notitie	Extra info bij inschrijven	Extra info in communicatie	Verstuur evaluatiemail	Url evaluatieformulier	Ondertekening emails	Extern ID	Code	Vinkje materiaal	Pakketten	Volgeboekt	Podia/Musea	ID
+    <fieldname="naam" type="plone.schema.Text">
+      <description/>
+      <title>Naam</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="type" type="plone.schema.Text">
+      <description/>
+      <title>Type</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="expertise_aanbod" type="plone.schema.Text">
+      <description/>
+      <title>Expertise aanbod</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+ 
+    
+    <fieldname="aantal_lessen" type="plone.schema.Text">
+      <description/>
+      <title>Aantal lessen</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="uitvoering_op_school" type="plone.schema.Text">
+      <description/>
+      <title>Uitvoering op school</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="speelvlak" type="plone.schema.Text">
+      <description/>
+      <title>Speelvlak</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="verduistering" type="plone.schema.Text">
+      <description/>
+      <title>Verduistering</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+ 
+    
+    <fieldname="opbouwtijd" type="plone.schema.Text">
+      <description/>
+      <title>Opbouwtijd</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="min_aantal_leerlingen" type="plone.schema.Text">
+      <description/>
+      <title>Min. aantal leerlingen</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="max_aantal_leerlingen_ prijsberekening" type="plone.schema.Text">
+      <description/>
+      <title>Max. aantal leerlingen prijsberekening</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="ruimte_op_school" type="plone.schema.Text">
+      <description/>
+      <title>Ruimte op school</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="clusters" type="plone.schema.Choice">
+      <description/>
+      <title>Clusters</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    
+    <fieldname="programma" type="plone.schema.Text">
+      <description/>
+      <title>Programma</title>
+      <required>True</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="discipline" type="plone.schema.Choice">
+      <description/>
+      <title>Discipline</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field18" type="plone.schema.Text">
+      <description/>
+      <title>field18</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field19" type="plone.schema.Text">
+      <description/>
+      <title>field19</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field20" type="plone.schema.Text">
+      <description/>
+      <title>field20</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field21" type="plone.schema.Text">
+      <description/>
+      <title>field21</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field22" type="plone.schema.Text">
+      <description/>
+      <title>field22</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field23" type="plone.schema.Choice">
+      <description/>
+      <title>field23</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field24" type="plone.schema.Text">
+      <description/>
+      <title>field24</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field25" type="plone.schema.Text">
+      <description/>
+      <title>field25</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field26" type="plone.schema.Choice">
+      <description/>
+      <title>field26</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field27" type="plone.schema.Choice">
+      <description/>
+      <title>field27</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field28" type="plone.schema.Choice">
+      <description/>
+      <title>field28</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field29" type="plone.schema.Text">
+      <description/>
+      <title>field29</title>
+      <required>True</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field30" type="plone.schema.Text">
+      <description/>
+      <title>field30</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field31" type="plone.schema.Text">
+      <description/>
+      <title>field31</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field32" type="plone.schema.Text">
+      <description/>
+      <title>field32</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field33" type="plone.schema.Text">
+      <description/>
+      <title>field33</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field34" type="plone.schema.Text">
+      <description/>
+      <title>field34</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field35" type="plone.schema.Text">
+      <description/>
+      <title>field35</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+    
+    <fieldname="field36" type="plone.schema.Text">
+      <description/>
+      <title>field36</title>
+      <required>True</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field37" type="plone.schema.Text">
+      <description/>
+      <title>field37</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field38" type="plone.schema.Text">
+      <description/>
+      <title>field38</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname="field39" type="plone.schema.Text">
+      <description/>
+      <title>field39</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod0" type="plone.schema.Text">
+      <description/>
+      <title> aanod0</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod1" type="plone.schema.Text">
+      <description/>
+      <title> aanod1</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod2" type="plone.schema.Text">
+      <description/>
+      <title> aanod2</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod3" type="plone.schema.Text">
+      <description/>
+      <title> aanod3</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod4" type="plone.schema.Text">
+      <description/>
+      <title> aanod4</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod5" type="plone.schema.Text">
+      <description/>
+      <title> aanod5</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod6" type="plone.schema.Text">
+      <description/>
+      <title> aanod6</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+    <fieldname=" aanod7" type="plone.schema.Text">
+      <description/>
+      <title> aanod7</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+    
+  </schema>
+ 
+
+</model>
