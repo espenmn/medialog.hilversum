@@ -10,8 +10,10 @@ from plone.app.textfield.value import RichTextValue
 from plone.rfc822.interfaces import IPrimaryFieldInfo
 from zope.lifecycleevent import modified
 import transaction
+import plone.api
 
 import pandas as pd
+from io import BytesIO
 from pandas import *
 import openpyxl
  
@@ -19,94 +21,87 @@ import openpyxl
 #import re
 
 def handler(obj, event):
-    """ Event handler
+    """ Crete content from CSV file
     """
-    #print(u"{0} on object {1}".format(event.__class__, obj.absolute_url()))
+    
+    blob = obj.csv_file  # This is a NamedBlobFile
 
-    excelfile = '/Users/rolf/Desktop/xxxl.xlsx'
+    if blob is not None:
+        data = blob.data  # raw bytes
+        df = pd.read_excel(BytesIO(data))
+        print(df)
 
-    df = pd.read_excel('xxxl.xlsx')
-    print(df)
+        my_dict = df.to_dict(orient='index')
+        
+        portal = plone.api.portal.get()
 
-    my_dict = df.to_dict(orient='index')
-
-
-    #Main script here
-    # Iterate the loop to read the cell values
-    #in case we just want to rerun some
-    for i in range(0, len(my_dict)):
-        #
-        # old_id = my_dict[i].get('ID old')
-        the_dict = my_dict[i]
-
-
+        # Main script here
+        # Iterate the loop to read the cell values
+        
         # check if item exists
         # Add content if not
         # update fields
         # overwrite or not??
-        
-        #if item exists:
-            #for key, value etc.
-        
-        for key, value in the_dict:
-            #do something
-            # check if item exists
-            # add content
-            # add fields by the loop
+            
+        for i in range(0, len(my_dict)):
+            the_dict = my_dict[i]
+            the_title = the_dict['Naam']
+            print(the_dict)
+            import pdb; pdb.set_trace()
+            
 
-            a =1
-
-        # brains = app.skipshistorie.portal_catalog(id=plone_id)
-
-        # if brains:
-        #     add_metadata(brains[0])
-        # else:
-        #     brains = app.skipshistorie.portal_catalog(portal_type="Document")
-        #     transaction.commit()
-
-
-
-    # def add_metadata(brain):
-    #     obj = brain.getObject()
-    #     for key, value in my_dict[i].items():
-    #         #print(key)
-    #         # if key=='type':
-    #         #     key = 'skipstype'
-    #         # if key=='del':
-    #         #     key = 'del_'
-
-    #         if value and str(value).lower() != 'nan':
-    #             setattr(obj, key.lower().replace(" ", ""), value)
-    #         else:
-    #             #import pdb; import pdb; pdb.set_trace()
-    #             setattr(obj, key.lower().replace(" ", ""), None)
-
-
-    # if brains:
-    #     print('Total  objects: ')
-    #     print(len(brains))
-    #     ant = 0
-    #     ## Use reversed since maybe the last finished or not
-    #     for brain in reversed(brains):
-
-    #         #obj = brain.getObject()
-    #         #main_folder = brain.getObject().getPhysicalPath()[2]
-    #         #import pdb; pdb.set_trace()
-    #         obj = brain.getObject()
-    #         parent = get_first_folder(obj)
-    #         #import pdb; pdb.set_trace()
-
-    #         # check for document if we change things later
-    #         if parent:
-    #             if brain.portal_type == 'Document':
-    #                 #Add tag from first folder
-    #                 tags = obj.subject + (parent.Title(), )
-    #                 print(parent.Title())
-    #                 ant = ant+1
-    #                 print(ant)
-    #                 obj.subject =   tuple(set(tags))
-    #                 modified(obj)
-
-
-    print(ant)
-    transaction.commit()
+            obj = plone.api.content.create(
+                type='Prolong',
+                the_type = the_dict["Type"],
+                expertise_aanbod = the_dict["Expertise aanbod"],
+                aantal_lessen = the_dict["Aantal lessen"],
+                uitvoering_op_school = the_dict["Uitvoering op school"],
+                speelvlak = the_dict["Speelvlak"],
+                verduistering = the_dict["Verduistering"],
+                opbouwtijd = the_dict["Opbouwtijd"],
+                min_aantal_leerlingen = the_dict["Min. aantal leerlingen"],
+                ruimte_op_school = the_dict["Ruimte op school"],
+                clusters = the_dict["Clusters"],
+                programma = the_dict["Programma"],
+                discipline = the_dict["Discipline"],
+                thema = the_dict["Thema"],
+                lesmateriaal_url = the_dict["Lesmateriaal URL"],
+                aanbieder = the_dict["Aanbieder"],
+                bemiddelaar = the_dict["Bemiddelaar"],
+                vaste_ruimte = the_dict["Vaste ruimte"],
+                vaste_gezelschappen = the_dict["Vaste gezelschappen"],
+                vaste_personen = the_dict["Vaste personen"],
+                blokje_persoon_inplannen = the_dict["Blokje persoon inplannen"],
+                schooljaar = the_dict["Schooljaar"],
+                duur = the_dict["Duur"],
+                max_aantal_leerlingen = the_dict["Max. aantal leerlingen"],
+                onderwijstype = the_dict["Onderwijstype"],
+                vo_typen = the_dict["VO typen"],
+                leerjaren = the_dict["Leerjaren"],
+                inschrijfbaar = the_dict["Inschrijfbaar"],
+                prijs_per = the_dict["Prijs per"],
+                tarief_leerling_groep = the_dict["Tarief leerling/groep"],
+                tarief_begeleider = the_dict["Tarief begeleider"],
+                max_aantal_leerlingen_prijsberekening = the_dict["Max. aantal leerlingen prijsberekening"],
+                totaalprijs = the_dict["Totaalprijs"],
+                omschrijving = the_dict["Omschrijving"],
+                url_meer_informatie = the_dict["Url meer informatie"],
+                startdatum = the_dict["Startdatum"],
+                einddatum = the_dict["Einddatum"],
+                notitie = the_dict["Notitie"],
+                extra_info_bij_inschrijven = the_dict["Extra info bij inschrijven"],
+                extra_info_in_communicatie = the_dict["Extra info in communicatie"],
+                verstuur_evaluatiemail = the_dict["Verstuur evaluatiemail"],
+                url_evaluatieformulier = the_dict["Url evaluatieformulier"],
+                ondertekening_emails = the_dict["Ondertekening emails"],
+                extern_id = the_dict["Extern ID"],
+                code = the_dict["Code"],
+                vinkje_materiaal = the_dict["Vinkje materiaal"],
+                pakketten = the_dict["Pakketten"],
+                volgeboekt = the_dict["Volgeboekt"],
+                podia_musea = the_dict["Podia/Musea"],
+                id = the_dict["ID"],
+                container=portal
+            )
+  
+        transaction.commit()

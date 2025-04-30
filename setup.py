@@ -51,7 +51,10 @@ setup(
     install_requires=[
         'setuptools',
         # -*- Extra requirements: -*-
-        'z3c.jbot',
+        #'z3c.jbot',
+        'pandas', 
+        'numpy',
+        'openpyxl',
         'plone.api>=1.8.4',
         'plone.app.dexterity',
     ],

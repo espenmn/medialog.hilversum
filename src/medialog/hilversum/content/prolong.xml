@@ -1,325 +1,378 @@
-<model
-    xmlns="http://namespaces.plone.org/supermodel/schema"
-    xmlns:security="http://namespaces.plone.org/supermodel/security"
-    xmlns:form="http://namespaces.plone.org/supermodel/form"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="medialog.hilversum">
+<model xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+  xmlns:form="http://namespaces.plone.org/supermodel/form"
+  xmlns:security="http://namespaces.plone.org/supermodel/security"
+  xmlns:indexer="http://namespaces.plone.org/supermodel/indexer"
+  xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+  xmlns:users="http://namespaces.plone.org/supermodel/users"
+  xmlns="http://namespaces.plone.org/supermodel/schema" i18n:domain="medialog.hilversum">
 
   <schema>
-	 lessen	Uitvoering op school	Speelvlak	Verduistering	Opbouwtijd	Min. aantal leerlingen	Max. aantal leerlingen prijsberekening	Ruimte op school	Clusters	Programma	Discipline	Thema	Lesmateriaal URL	Aanbieder	Bemiddelaar	Vaste ruimte	Vaste gezelschappen	Vaste personen	Blokje persoon inplannen	Schooljaar	Duur	Max. aantal leerlingen	Onderwijstype	VO typen	Leerjaren	Inschrijfbaar	Prijs per	Tarief leerling/groep	Tarief begeleider	Max. aantal leerlingen prijsberekening	Totaalprijs	Omschrijving	Url meer informatie	Startdatum	Einddatum	Notitie	Extra info bij inschrijven	Extra info in communicatie	Verstuur evaluatiemail	Url evaluatieformulier	Ondertekening emails	Extern ID	Code	Vinkje materiaal	Pakketten	Volgeboekt	Podia/Musea	ID
-    <fieldname="naam" type="plone.schema.Text">
+    <field name="naam" type="zope.schema.TextLine">
       <description/>
       <title>Naam</title>
       <required>True</required>
       <widget hidden="False"/>
     </field>
-    
-    <fieldname="type" type="plone.schema.Text">
+
+    <field name="the_type" type="zope.schema.TextLine">
       <description/>
       <title>Type</title>
       <required>True</required>
       <widget hidden="False"/>
     </field>
-    
-    <fieldname="expertise_aanbod" type="plone.schema.Text">
+
+    <field name="expertise_aanbod" type="zope.schema.TextLine">
       <description/>
       <title>Expertise aanbod</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
- 
-    
-    <fieldname="aantal_lessen" type="plone.schema.Text">
+
+    <field name="aantal_lessen" type="zope.schema.TextLine">
       <description/>
       <title>Aantal lessen</title>
-      <required>False</required>
+      <required>True</required>
       <widget hidden="False"/>
     </field>
-    
-    <fieldname="uitvoering_op_school" type="plone.schema.Text">
+
+    <field name="uitvoering_op_school" type="zope.schema.TextLine">
       <description/>
       <title>Uitvoering op school</title>
       <required>False</required>
-      <widget hidden="True"/>
+      <widget hidden="False"/>
     </field>
-    
-    <fieldname="speelvlak" type="plone.schema.Text">
+
+    <field name="speelvlak" type="zope.schema.TextLine">
       <description/>
       <title>Speelvlak</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="verduistering" type="plone.schema.Text">
+
+    <field name="verduistering" type="zope.schema.TextLine">
       <description/>
       <title>Verduistering</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
- 
-    
-    <fieldname="opbouwtijd" type="plone.schema.Text">
+
+    <field name="opbouwtijd" type="zope.schema.TextLine">
       <description/>
       <title>Opbouwtijd</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="min_aantal_leerlingen" type="plone.schema.Text">
+
+    <field name="min_aantal_leerlingen" type="zope.schema.TextLine">
       <description/>
       <title>Min. aantal leerlingen</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="max_aantal_leerlingen_ prijsberekening" type="plone.schema.Text">
+
+    <field name="max_aantal_leerlingen_prijsberekening" type="zope.schema.TextLine">
+      <description/>
+      <title>Max. aantal leerlingen prijsberekening</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="ruimte_op_school" type="zope.schema.TextLine">
+      <description/>
+      <title>Ruimte op school</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="clusters" type="zope.schema.TextLine">
+      <description/>
+      <title>Clusters</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="programma" type="zope.schema.TextLine">
+      <description/>
+      <title>Programma</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="discipline" type="zope.schema.Choice">
+      <description/>
+      <title>Discipline</title>
+      <required>False</required>
+      <widget hidden="True"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="thema" type="zope.schema.Choice">
+      <description/>
+      <title>Thema</title>
+      <required>False</required>
+      <widget hidden="False"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="lesmateriaal_url" type="zope.schema.TextLine">
+      <description/>
+      <title>Lesmateriaal URL</title>
+      <required>True</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="aanbieder" type="zope.schema.Choice">
+      <description/>
+      <title>Aanbieder</title>
+      <required>False</required>
+      <widget hidden="True"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="bemiddelaar" type="zope.schema.TextLine">
+      <description/>
+      <title>Bemiddelaar</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="vaste_ruimte" type="zope.schema.TextLine">
+      <description/>
+      <title>Vaste ruimte</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="vaste_gezelschappen" type="zope.schema.TextLine">
+      <description/>
+      <title>Vaste gezelschappen</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="vaste_personen" type="zope.schema.TextLine">
+      <description/>
+      <title>Vaste personen</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="blokje_persoon_inplannen" type="zope.schema.TextLine">
+      <description/>
+      <title>Blokje persoon inplannen</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="schooljaar" type="zope.schema.Choice">
+      <description/>
+      <title>Schooljaar</title>
+      <required>True</required>
+      <widget hidden="False"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="duur" type="zope.schema.TextLine">
+      <description/>
+      <title>Duur</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="max_aantal_leerlingen" type="zope.schema.TextLine">
+      <description/>
+      <title>Max. aantal leerlingen</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="onderwijstype" type="zope.schema.Choice">
+      <description/>
+      <title>Onderwijstype</title>
+      <required>True</required>
+      <widget hidden="False"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="vo_typen" type="zope.schema.Choice">
+      <description/>
+      <title>VO typen</title>
+      <required>True</required>
+      <widget hidden="False"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="leerjaren" type="zope.schema.Choice">
+      <description/>
+      <title>Leerjaren</title>
+      <required>False</required>
+      <widget hidden="False"/>
+      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+    </field>
+
+    <field name="inschrijfbaar" type="zope.schema.TextLine">
+      <description/>
+      <title>Inschrijfbaar</title>
+      <required>True</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="prijs_per" type="zope.schema.TextLine">
+      <description/>
+      <title>Prijs per</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="tarief_leerling_groep" type="zope.schema.TextLine">
+      <description/>
+      <title>Tarief leerling/groep</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="tarief_begeleider" type="zope.schema.TextLine">
+      <description/>
+      <title>Tarief begeleider</title>
+      <required>True</required>
+      <widget hidden="False"/>
+    </field>
+
+    <field name="max_aantal_leerlingen_prijsberekening" type="zope.schema.TextLine">
       <description/>
       <title>Max. aantal leerlingen prijsberekening</title>
       <required>True</required>
       <widget hidden="False"/>
     </field>
-    
-    <fieldname="ruimte_op_school" type="plone.schema.Text">
+
+    <field name="totaalprijs" type="zope.schema.TextLine">
       <description/>
-      <title>Ruimte op school</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="clusters" type="plone.schema.Choice">
-      <description/>
-      <title>Clusters</title>
+      <title>Totaalprijs</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    
-    <fieldname="programma" type="plone.schema.Text">
+
+    <field name="omschrijving" type="zope.schema.TextLine">
       <description/>
-      <title>Programma</title>
-      <required>True</required>
-      <widget hidden="True"/>
-    </field>
-    
-    <fieldname="discipline" type="plone.schema.Choice">
-      <description/>
-      <title>Discipline</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-    
-    <fieldname="field18" type="plone.schema.Text">
-      <description/>
-      <title>field18</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-    
-    <fieldname="field19" type="plone.schema.Text">
-      <description/>
-      <title>field19</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-    
-    <fieldname="field20" type="plone.schema.Text">
-      <description/>
-      <title>field20</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-    
-    <fieldname="field21" type="plone.schema.Text">
-      <description/>
-      <title>field21</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field22" type="plone.schema.Text">
-      <description/>
-      <title>field22</title>
+      <title>Omschrijving</title>
       <required>True</required>
       <widget hidden="False"/>
     </field>
-    
-    <fieldname="field23" type="plone.schema.Choice">
+
+    <field name="url_meer_informatie" type="zope.schema.TextLine">
       <description/>
-      <title>field23</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field24" type="plone.schema.Text">
-      <description/>
-      <title>field24</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field25" type="plone.schema.Text">
-      <description/>
-      <title>field25</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field26" type="plone.schema.Choice">
-      <description/>
-      <title>field26</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field27" type="plone.schema.Choice">
-      <description/>
-      <title>field27</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field28" type="plone.schema.Choice">
-      <description/>
-      <title>field28</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field29" type="plone.schema.Text">
-      <description/>
-      <title>field29</title>
+      <title>Url meer informatie</title>
       <required>True</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="field30" type="plone.schema.Text">
+
+    <field name="startdatum" type="zope.schema.TextLine">
       <description/>
-      <title>field30</title>
+      <title>Startdatum</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="field31" type="plone.schema.Text">
+
+    <field name="einddatum" type="zope.schema.TextLine">
       <description/>
-      <title>field31</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field32" type="plone.schema.Text">
-      <description/>
-      <title>field32</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field33" type="plone.schema.Text">
-      <description/>
-      <title>field33</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field34" type="plone.schema.Text">
-      <description/>
-      <title>field34</title>
+      <title>Einddatum</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="field35" type="plone.schema.Text">
+
+    <field name="notitie" type="zope.schema.TextLine">
       <description/>
-      <title>field35</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-    
-    <fieldname="field36" type="plone.schema.Text">
-      <description/>
-      <title>field36</title>
-      <required>True</required>
-      <widget hidden="True"/>
-    </field>
-    
-    <fieldname="field37" type="plone.schema.Text">
-      <description/>
-      <title>field37</title>
+      <title>Notitie</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="field38" type="plone.schema.Text">
+
+    <field name="extra_info_bij_inschrijven" type="zope.schema.TextLine">
       <description/>
-      <title>field38</title>
+      <title>Extra info bij inschrijven</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname="field39" type="plone.schema.Text">
+
+    <field name="extra_info_in_communicatie" type="zope.schema.Text">
       <description/>
-      <title>field39</title>
+      <title>Extra info in communicatie</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod0" type="plone.schema.Text">
+
+    <field name="verstuur_evaluatiemail" type="zope.schema.TextLine">
       <description/>
-      <title> aanod0</title>
+      <title>Verstuur evaluatiemail</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod1" type="plone.schema.Text">
+
+    <field name="url_evaluatieformulier" type="zope.schema.TextLine">
       <description/>
-      <title> aanod1</title>
+      <title>Url evaluatieformulier</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod2" type="plone.schema.Text">
+
+    <field name="ondertekening_emails" type="zope.schema.TextLine">
       <description/>
-      <title> aanod2</title>
+      <title>Ondertekening emails</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod3" type="plone.schema.Text">
+
+    <field name="extern_id" type="zope.schema.TextLine">
       <description/>
-      <title> aanod3</title>
+      <title>Extern ID</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod4" type="plone.schema.Text">
+
+    <field name="code" type="zope.schema.TextLine">
       <description/>
-      <title> aanod4</title>
+      <title>Code</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod5" type="plone.schema.Text">
+
+    <field name="vinkje_materiaal" type="zope.schema.TextLine">
       <description/>
-      <title> aanod5</title>
+      <title>Vinkje materiaal</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod6" type="plone.schema.Text">
+
+    <field name="pakketten" type="zope.schema.TextLine">
       <description/>
-      <title> aanod6</title>
+      <title>Pakketten</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
-    <fieldname=" aanod7" type="plone.schema.Text">
+
+    <field name="volgeboekt" type="zope.schema.TextLine">
       <description/>
-      <title> aanod7</title>
+      <title>Volgeboekt</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
-    
+
+    <field name="podia_musea" type="zope.schema.TextLine">
+      <description/>
+      <title>Podia/Musea</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
+    <field name="id" type="zope.schema.TextLine">
+      <description/>
+      <title>ID</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
   </schema>
- 
+
 
 </model>

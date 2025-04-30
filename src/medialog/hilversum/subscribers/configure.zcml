@@ -4,10 +4,14 @@
 
  <!-- -*- extra stuff goes here -*- -->
 
-  <subscriber for="plone.dexterity.interfaces.IDexterityContent
+  <subscriber for="medialog.hilversum.content.csv_file.ICsvFile
                    zope.lifecycleevent.interfaces.IObjectModifiedEvent"
               handler=".generate_prolong_content.handler"
               />
 
+  <subscriber for="medialog.hilversum.content.csv_file.ICsvFile
+                   zope.lifecycleevent.interfaces.IObjectAddedEvent"
+              handler=".generate_prolong_content.handler"
+              />
 
 </configure>

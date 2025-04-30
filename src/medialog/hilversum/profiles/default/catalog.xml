@@ -1,4 +1,209 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-  <!--<column value="my_meta_column"/>-->
+  <index name="bemiddelaar" meta_type="FieldIndex">
+    <indexed_attr value="bemiddelaar"/>
+  </index>
+  <index name="blokje_persoon_inplannen" meta_type="FieldIndex">
+    <indexed_attr value="blokje_persoon_inplannen"/>
+  </index>
+  <index name="clusters" meta_type="FieldIndex">
+    <indexed_attr value="clusters"/>
+  </index>
+  <index name="code" meta_type="FieldIndex">
+    <indexed_attr value="code"/>
+  </index>
+  <index name="discipline" meta_type="KeywordIndex">
+    <indexed_attr value="discipline"/>
+  </index>
+  <index name="duur" meta_type="FieldIndex">
+    <indexed_attr value="duur"/>
+  </index>
+  <index name="einddatum" meta_type="FieldIndex">
+    <indexed_attr value="einddatum"/>
+  </index>
+  <index name="expertise_aanbod" meta_type="FieldIndex">
+    <indexed_attr value="expertise_aanbod"/>
+  </index>
+  <index name="extern_id" meta_type="FieldIndex">
+    <indexed_attr value="extern_id"/>
+  </index>
+  <index name="extra_info_bij_inschrijven" meta_type="FieldIndex">
+    <indexed_attr value="extra_info_bij_inschrijven"/>
+  </index>
+  <index name="extra_info_in_communicatie" meta_type="FieldIndex">
+    <indexed_attr value="extra_info_in_communicatie"/>
+  </index>
+  <index name="id" meta_type="FieldIndex">
+    <indexed_attr value="id"/>
+  </index>
+  <index name="inschrijfbaar" meta_type="FieldIndex">
+    <indexed_attr value="inschrijfbaar"/>
+  </index>
+  <index name="leerjaren" meta_type="KeywordIndex">
+    <indexed_attr value="leerjaren"/>
+  </index>
+  <index name="lesmateriaal_url" meta_type="FieldIndex">
+    <indexed_attr value="lesmateriaal_url"/>
+  </index>
+  <index name="max_aantal_leerlingen_prijsberekening" meta_type="FieldIndex">
+    <indexed_attr value="max_aantal_leerlingen_prijsberekening"/>
+  </index>
+  <index name="max_aantal_leerlingen_prijsberekening" meta_type="FieldIndex">
+    <indexed_attr value="max_aantal_leerlingen_prijsberekening"/>
+  </index>
+  <index name="max_aantal_leerlingen" meta_type="FieldIndex">
+    <indexed_attr value="max_aantal_leerlingen"/>
+  </index>
+  <index name="min_aantal_leerlingen" meta_type="FieldIndex">
+    <indexed_attr value="min_aantal_leerlingen"/>
+  </index>
+  <index name="notitie" meta_type="FieldIndex">
+    <indexed_attr value="notitie"/>
+  </index>
+  <index name="naam" meta_type="FieldIndex">
+    <indexed_attr value="naam"/>
+  </index>
+  <index name="omschrijving" meta_type="FieldIndex">
+    <indexed_attr value="omschrijving"/>
+  </index>
+  <index name="ondertekening_emails" meta_type="FieldIndex">
+    <indexed_attr value="ondertekening_emails"/>
+  </index>
+  <index name="onderwijstype" meta_type="KeywordIndex">
+    <indexed_attr value="onderwijstype"/>
+  </index>
+  <index name="opbouwtijd" meta_type="FieldIndex">
+    <indexed_attr value="opbouwtijd"/>
+  </index>
+  <index name="pakketten" meta_type="FieldIndex">
+    <indexed_attr value="pakketten"/>
+  </index>
+  <index name="podia_musea" meta_type="FieldIndex">
+    <indexed_attr value="podia_musea"/>
+  </index>
+  <index name="prijs_per" meta_type="FieldIndex">
+    <indexed_attr value="prijs_per"/>
+  </index>
+  <index name="programma" meta_type="FieldIndex">
+    <indexed_attr value="programma"/>
+  </index>
+  <index name="ruimte_op_school" meta_type="FieldIndex">
+    <indexed_attr value="ruimte_op_school"/>
+  </index>
+  <index name="schooljaar" meta_type="FieldIndex">
+    <indexed_attr value="schooljaar"/>
+  </index>
+  <index name="speelvlak" meta_type="FieldIndex">
+    <indexed_attr value="speelvlak"/>
+  </index>
+  <index name="startdatum" meta_type="FieldIndex">
+    <indexed_attr value="startdatum"/>
+  </index>
+  <index name="tarief_begeleider" meta_type="FieldIndex">
+    <indexed_attr value="tarief_begeleider"/>
+  </index>
+  <index name="tarief_leerling_groep" meta_type="FieldIndex">
+    <indexed_attr value="tarief_leerling_groep"/>
+  </index>
+  <index name="thema" meta_type="KeywordIndex">
+    <indexed_attr value="thema"/>
+  </index>
+  <index name="totaalprijs" meta_type="FieldIndex">
+    <indexed_attr value="totaalprijs"/>
+  </index>
+  <index name="the_type" meta_type="FieldIndex">
+    <indexed_attr value="the_type"/>
+  </index>
+  <index name="uitvoering_op_school" meta_type="FieldIndex">
+    <indexed_attr value="uitvoering_op_school"/>
+  </index>
+  <index name="url_evaluatieformulier" meta_type="FieldIndex">
+    <indexed_attr value="url_evaluatieformulier"/>
+  </index>
+  <index name="url_meer_informatie" meta_type="FieldIndex">
+    <indexed_attr value="url_meer_informatie"/>
+  </index>
+  <index name="vaste_gezelschappen" meta_type="FieldIndex">
+    <indexed_attr value="vaste_gezelschappen"/>
+  </index>
+  <index name="vaste_personen" meta_type="FieldIndex">
+    <indexed_attr value="vaste_personen"/>
+  </index>
+  <index name="vaste_ruimte" meta_type="FieldIndex">
+    <indexed_attr value="vaste_ruimte"/>
+  </index>
+  <index name="verduistering" meta_type="FieldIndex">
+    <indexed_attr value="verduistering"/>
+  </index>
+  <index name="verstuur_evaluatiemail" meta_type="FieldIndex">
+    <indexed_attr value="verstuur_evaluatiemail"/>
+  </index>
+  <index name="vinkje_materiaal" meta_type="FieldIndex">
+    <indexed_attr value="vinkje_materiaal"/>
+  </index>
+  <index name="vo_typen" meta_type="FieldIndex">
+    <indexed_attr value="vo_typen"/>
+  </index>
+  <index name="volgeboekt" meta_type="FieldIndex">
+    <indexed_attr value="volgeboekt"/>
+  </index>
+  <index name="aanbieder" meta_type="KeywordIndex">
+    <indexed_attr value="aanbieder"/>
+  </index>
+  <index name="aantal_lessen" meta_type="FieldIndex">
+    <indexed_attr value="aantal_lessen"/>
+  </index>
+
+
+  <column value="bemiddelaar"/>
+  <column value="blokje_persoon_inplannen"/>
+  <column value="clusters"/>
+  <column value="code"/>
+  <column value="discipline"/>
+  <column value="duur"/>
+  <column value="einddatum"/>
+  <column value="expertise_aanbod"/>
+  <column value="extern_id"/>
+  <column value="extra_info_bij_inschrijven"/>
+  <column value="extra_info_in_communicatie"/>
+  <column value="id"/>
+  <column value="inschrijfbaar"/>
+  <column value="leerjaren"/>
+  <column value="lesmateriaal_url"/>
+  <column value="max_aantal_leerlingen_prijsberekening"/>
+  <column value="max_aantal_leerlingen_prijsberekening"/>
+  <column value="max_aantal_leerlingen"/>
+  <column value="min_aantal_leerlingen"/>
+  <column value="notitie"/>
+  <column value="naam"/>
+  <column value="omschrijving"/>
+  <column value="ondertekening_emails"/>
+  <column value="onderwijstype"/>
+  <column value="opbouwtijd"/>
+  <column value="pakketten"/>
+  <column value="podia_musea"/>
+  <column value="prijs_per"/>
+  <column value="programma"/>
+  <column value="ruimte_op_school"/>
+  <column value="schooljaar"/>
+  <column value="speelvlak"/>
+  <column value="startdatum"/>
+  <column value="tarief_begeleider"/>
+  <column value="tarief_leerling_groep"/>
+  <column value="thema"/>
+  <column value="totaalprijs"/>
+  <column value="the_type"/>
+  <column value="uitvoering_op_school"/>
+  <column value="url_evaluatieformulier"/>
+  <column value="url_meer_informatie"/>
+  <column value="vaste_gezelschappen"/>
+  <column value="vaste_personen"/>
+  <column value="vaste_ruimte"/>
+  <column value="verduistering"/>
+  <column value="verstuur_evaluatiemail"/>
+  <column value="vinkje_materiaal"/>
+  <column value="vo_typen"/>
+  <column value="volgeboekt"/>
+  <column value="aanbieder"/>
+  <column value="aantal_lessen"/>
 </object>

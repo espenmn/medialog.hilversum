@@ -46,25 +46,7 @@
 
   <include package=".subscribers" />
 
-    <include package=".vocabularies" />
-
-
-    <include package=".vocabularies" />
-
-
-    <include package=".vocabularies" />
-
-
-    <include package=".vocabularies" />
-
-
-    <include package=".vocabularies" />
-
-
-    <include package=".vocabularies" />
-
-
-    <include package=".vocabularies" />
+  <include package=".vocabularies" /> 
 
 
 </configure>

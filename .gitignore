@@ -10,3 +10,11 @@ develop-eggs/*
 src/medialog.hilversum.egg-info/*
 var
 var/*
+src/medialog/hilversum/content/__pycache__/__init__.cpython-310.pyc
+*.pyc
+.vscode/settings.json
+.vscode/vs-recipe-generated-settings.json
+.mr.developer.cfg
+.installed.cfg
+.vscode/.env
+test_plone60.cfg
