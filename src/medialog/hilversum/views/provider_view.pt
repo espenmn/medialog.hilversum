@@ -1,15 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:metal="http://xml.zope.org/namespaces/metal"
-  xmlns:tal="http://xml.zope.org/namespaces/tal"
-  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
-  <body>
-    <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core">
-        Name of Provider (for example Museum)
-        Provider should be content, so it is possible to sort by google etc
-        <p tal:repeat="courses view/courses">[List of courses here]</p>
-      </metal:block>
-    </metal:content-core>
-  </body>
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+    <body>
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core">
+                <p class="documentDescription>">Provider should be content, so it is possible to sort by google etc</p>
 
-</html>
+                <table class="listin plain">
+                    <tr>
+                        <th>Naam</th>
+                        <th>Type</th>
+                        <th>Aantal Lesssen</th>
+                        <th>Uitvoering op school</th>
+                        <th>Duur</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Prijs Per<th>
+                            <th>Max aantal leerlinge</th>
+                            <th>Extra info bij inschrijven</th>
+                            <th>Inschrijfbaar</th>
+                        </tr>
+                        <tr tal:repeat="course view/courses">
+                            <td><a href="${course/getURL}">${course/naam}</a></td>
+                            <td>${course/the_type}</td>
+
+                            <td>${course/aantal_lessen}</td>
+                            <td>${course/uitvoering_op_school}</td>
+                            <td>${course/duur}</td>
+                            <td>${course/startdatum}</td>
+                            <td>${course/einddatum}</td>
+                            <td>${course/prijs_per}</td>
+                            <td>
+                                <span tal:repeat="value course/tarief_leerling_groep">${value} </span>
+                            </td>
+                            <td>${course/max_aantal_leerlingen}</td>
+                            <td>${course/extra_info_bij_inschrijven}</td>
+                            <td>${course/inschrijfbaar}</td>
+                        </tr>
+                    </table>
+                </metal:block>
+            </metal:content-core>
+        </body>
+    </html>

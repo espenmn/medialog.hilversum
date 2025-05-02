@@ -6,82 +6,106 @@
     <metal:content-core fill-slot="content">
       <metal:block define-macro="content-core">
 
-       [Button] Link to form to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
+        <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
+        <hr/>
 
-        <h2>${context/Title}</h2>
-        <p class="documentDescription">${context/the_type}</p>
 
         <div class="flex">
           <div class="course_text">
+            <h2>${context/Title}</h2>
+            <p class="documentDescription">${context/the_type}</p>
             <h4>Disiplines</h4>
             <p>
 
               <span tal:repeat="disiplin context/discipline">
-            [image] ${disiplin} 
+               <img src="https://cdn-icons-png.freepik.com/256/2970/2970785.png" alt="disiplin-image" width="30"> ${disiplin} 
               </span>
             </p>
             <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
           </div>
 
-
           <div class="course_info">
-        Image here
-            <div  class="green_box">
-            <table>
-              <tr>
-                <td><b>Naam: </b></td>
-                <td>${context/naam}</td>
-              </tr>
-              <tr>
-                <td><b>Aantal lessen:  </b></td>
-                <td>${context/aantal_lessen}</td>
-              </tr>
-              <tr>
-                <td><b>Uitvoering op school:  </b></td>
-                <td>${context/uitvoering_op_school}</td>
-              </tr>
-              <tr>
-                <td><b>Duur:  </b></td>
-                <td>${context/duur}</td>
-              </tr>
-              <tr>
-                <td><b>Startdatum:  </b></td>
-                <td>${context/startdatum}</td>
-              </tr>
-              <tr>
-                <td><b>Einddatum:  </b></td>
-                <td>${context/einddatum}</td>
-              </tr>
-              <tr>
-                <td><b>Prijs per:  </b></td>
-                <td>${context/prijs_per}</td>
-              </tr>
-              <tr>
-                <td><b>Tarief leerling/groep:  </b></td>
-                <td><span tal:repeat="value context/tarief_leerling_groep">${value} </span></td>
-              </tr>
-              <tr>
-                <td><b>Max. aantal leerlingen:  </b></td>
-                <td>${context/max_aantal_leerlingen}</td>
-              </tr>
-              <tr>
-                <td><b>Extra info bij inschrijven:  </b></td>
-                <td>${context/extra_info_bij_inschrijven}</td>
-              </tr>
-              <tr>
-                <td><b>Inschrijfbaar:  </b></td>
-                <td>${context/inschrijfbaar}</td>
-              </tr>
-            </table>
+            <img src="https://www.gymfinitykids.com/wp-content/uploads/2024/04/kid-smiling.jpg" width="350" alt="course_image"/>
+            <div class="green_box">
+              <table>
+                <tr>
+                  <td>
+                    <b>Naam: </b>
+                  </td>
+                  <td>${context/naam}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Aantal lessen:  </b>
+                  </td>
+                  <td>${context/aantal_lessen}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Uitvoering op school:  </b>
+                  </td>
+                  <td>${context/uitvoering_op_school}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Duur:  </b>
+                  </td>
+                  <td>${context/duur}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Startdatum:  </b>
+                  </td>
+                  <td>${context/startdatum}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Einddatum:  </b>
+                  </td>
+                  <td>${context/einddatum}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Prijs per:  </b>
+                  </td>
+                  <td>${context/prijs_per}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Tarief leerling/groep:  </b>
+                  </td>
+                  <td>
+                    <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Max. aantal leerlingen:  </b>
+                  </td>
+                  <td>${context/max_aantal_leerlingen}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Extra info bij inschrijven:  </b>
+                  </td>
+                  <td>${context/extra_info_bij_inschrijven}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Inschrijfbaar:  </b>
+                  </td>
+                  <td>${context/inschrijfbaar}</td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
 
-  <style>
-    .flex {display:  flex; justify-content:  space-between;} 
-    .flex > div {width:  auto; max-widht:  900px;}
-    .green_box { background:   lightblue; padding:   1rem;}
-  </style>
+        <style>
+    .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap} 
+    .flex > div {width:  auto; max-widht:  900px; min-width: 300px;}
+    .green_box { background:   lightblue; padding:   1rem; margin-top: 1rem}
+        </style>
 
       </metal:block>
     </metal:content-core>

@@ -4,6 +4,7 @@
 from Products.Five.browser import BrowserView
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.utils import getToolByName
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -21,8 +22,14 @@ class ProviderView(BrowserView):
         # Implement your own actions:
         return self.index()
     
-    def aanbieders(self):
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
+    
+    def courses(self):
+        # return self.context.portal_catalog(portal_type=['Prolong']d)
+        return self.context.portal_catalog(portal_type=['Prolong'], aanbieder=self.context.Title())
         
-        return 'list of items for the provider'
+        
+    # def aanbieders(self):
+        # context = self.context
+        # catalog = getToolByName(context, 'portal_catalog')
+        
+        # return 'list of items for the provider'

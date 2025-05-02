@@ -35,6 +35,7 @@ def handler(obj, event):
     
     #disable 'replace setting' so it does not overwrite next time
     setattr(obj, 'replace_content', False)
+    obj.reindexObject()
 
     if blob is not None:
         data = blob.data  # raw bytes
@@ -135,6 +136,9 @@ def handler(obj, event):
                     container=portal
                 )
                 
+            else:
+                object = portal.get(the_id)
+                
             if replace_content or not item_exist:
                 print(the_title)
             
@@ -164,11 +168,11 @@ def handler(obj, event):
                                 # can remove this next line later
                                 value_type = list
                                 
-                        
+                        #Create AAnbieder
                         if key == 'aanbieder':
                             for item_name in value:
                                 aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
-                                if portal.get(aan_id, False):
+                                if not portal.get(aan_id, False):
                                     aanbieder = plone.api.content.create(
                                         type='Aanbieder',
                                         title = item_name,
