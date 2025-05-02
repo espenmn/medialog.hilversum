@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="medialog.hilversum.AddAanbieder"
+        title="medialog.hilversum: Add Aanbieder"
+    />
+
+
+    <permission
         id="medialog.hilversum.AddCsvFile"
         title="medialog.hilversum: Add CsvFile"
     />

@@ -9,10 +9,26 @@
   <browser:page
     name="prolong-view"
     for="*"
-    class=".prolong_view.ProlongView"
     template="prolong_view.pt"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
 
+    <browser:page
+    name="prolongs-view"
+    for="*"
+    class=".prolong_view.ProlongView"
+    template="prolongs_view.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
+    <browser:page
+    name="provider-view"
+    for="*"
+    class=".provider_view.ProviderView"
+    template="provider_view.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
 </configure>

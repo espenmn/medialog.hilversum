@@ -4,4 +4,5 @@
   <!--<object name="example_ct" meta_type="Dexterity FTI"/>-->
   <object name="Prolong" meta_type="Dexterity FTI"/>
   <object name="CsvFile" meta_type="Dexterity FTI"/>
+  <object name="Aanbieder" meta_type="Dexterity FTI"/>
 </object>

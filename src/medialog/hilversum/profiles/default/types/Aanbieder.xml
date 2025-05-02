@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    name="Prolong"
+    name="Aanbieder"
     meta_type="Dexterity FTI"
     i18n:domain="medialog.hilversum">
 
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Prolong</property>
+      name="title">Aanbieder</property>
   <property
       i18n:translate=""
       name="description"></property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">Prolong</property>
+  <property name="factory">Aanbieder</property>
   <property name="icon_expr"></property>
   <property name="link_target"></property>
 
   <!-- Hierarchy control -->
   <property name="global_allow">True</property>
   <!-- Schema, class and security -->
-  <property name="add_permission">medialog.hilversum.AddProlong</property>
+  <property name="add_permission">medialog.hilversum.AddAanbieder</property>
   <property name="klass">plone.dexterity.content.Item</property>
-  <property name="model_file">medialog.hilversum.content:prolong.xml</property>
+  <property name="model_file">medialog.hilversum.content:aanbieder.xml</property>
   <property name="model_source"></property>
   <property name="schema"></property>
 
@@ -49,12 +49,12 @@
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++Prolong</property>
+  <property name="add_view_expr">string:${folder_url}/++add++Aanbieder</property>
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
   <property name="view_methods">
-    <element value="prolong-view"/>
+    <element value="view"/>
   </property>
 
   <!-- Method aliases -->

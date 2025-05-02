@@ -8,11 +8,11 @@ from Products.CMFCore.utils import getToolByName
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class IProlongView(Interface):
+class IProviderView(Interface):
     """ Marker Interface for IProlongView"""
 
 
-class ProlongView(BrowserView):
+class ProviderView(BrowserView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
     # template = ViewPageTemplateFile('prolong_view.pt')
@@ -25,10 +25,4 @@ class ProlongView(BrowserView):
         context = self.context
         catalog = getToolByName(context, 'portal_catalog')
         
-        # Get unique values from 'aanbieder' index
-        index = catalog._catalog.getIndex('aanbieder')
-        if hasattr(index, 'uniqueValues'):
-            return  index.uniqueValues()
-        else:
-            return None
- 
+        return 'list of items for the provider'

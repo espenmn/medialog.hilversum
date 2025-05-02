@@ -88,7 +88,7 @@
     <field name="clusters" type="zope.schema.TextLine">
       <description/>
       <title>Clusters</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="False"/>
     </field>
 
@@ -99,35 +99,35 @@
       <widget hidden="False"/>
     </field>
 
-    <field name="discipline" type="zope.schema.Choice">
+    <field name="discipline" type="zope.schema.List">
       <description/>
       <title>Discipline</title>
       <required>False</required>
       <widget hidden="True"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+        <value_type type="zope.schema.TextLine" />
     </field>
 
-    <field name="thema" type="zope.schema.Choice">
+    <field name="thema" type="zope.schema.List">
       <description/>
       <title>Thema</title>
       <required>False</required>
       <widget hidden="False"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+        <value_type type="zope.schema.TextLine" />
     </field>
 
-    <field name="lesmateriaal_url" type="zope.schema.TextLine">
+    <field name="lesmateriaal_url" type="zope.schema.URI">
       <description/>
       <title>Lesmateriaal URL</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="True"/>
     </field>
 
-    <field name="aanbieder" type="zope.schema.Choice">
+    <field name="aanbieder" type="zope.schema.List">
       <description/>
       <title>Aanbieder</title>
       <required>False</required>
       <widget hidden="True"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+        <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="bemiddelaar" type="zope.schema.TextLine">
@@ -165,12 +165,11 @@
       <widget hidden="False"/>
     </field>
 
-    <field name="schooljaar" type="zope.schema.Choice">
+    <field name="schooljaar" type="zope.schema.TextLine">
       <description/>
       <title>Schooljaar</title>
-      <required>True</required>
-      <widget hidden="False"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+      <required>False</required>
+      <widget hidden="False"/> 
     </field>
 
     <field name="duur" type="zope.schema.Int">
@@ -187,28 +186,28 @@
       <widget hidden="False"/>
     </field>
 
-    <field name="onderwijstype" type="zope.schema.Choice">
+    <field name="onderwijstype" type="zope.schema.List">
       <description/>
       <title>Onderwijstype</title>
       <required>True</required>
       <widget hidden="False"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+        <value_type type="zope.schema.TextLine" />
     </field>
 
-    <field name="vo_typen" type="zope.schema.Choice">
+    <field name="vo_typen" type="zope.schema.List">
       <description/>
       <title>VO typen</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="False"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+        <value_type type="zope.schema.TextLine" />
     </field>
 
-    <field name="leerjaren" type="zope.schema.Choice">
+    <field name="leerjaren" type="zope.schema.List">
       <description/>
       <title>Leerjaren</title>
       <required>False</required>
       <widget hidden="False"/>
-      <vocabulary>medialog.hilversum.OnderwijstypeVocabulary</vocabulary>
+      <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="inschrijfbaar" type="zope.schema.TextLine">
@@ -225,24 +224,25 @@
       <widget hidden="True"/>
     </field>
 
-    <field name="tarief_leerling_groep" type="zope.schema.TextLine">
+    <field name="tarief_leerling_groep" type="zope.schema.List">
       <description/>
       <title>Tarief leerling/groep</title>
       <required>False</required>
       <widget hidden="False"/>
+       <value_type type="zope.schema.Int" />
     </field>
 
     <field name="tarief_begeleider" type="zope.schema.TextLine">
       <description/>
       <title>Tarief begeleider</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="False"/>
     </field>
 
     <field name="max_aantal_leerlingen_prijsberekening" type="zope.schema.TextLine">
       <description/>
       <title>Max. aantal leerlingen prijsberekening</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="False"/>
     </field>
 
@@ -256,25 +256,25 @@
     <field name="omschrijving" type="zope.schema.TextLine">
       <description/>
       <title>Omschrijving</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="False"/>
     </field>
 
-    <field name="url_meer_informatie" type="zope.schema.TextLine">
+    <field name="url_meer_informatie" type="zope.schema.URI">
       <description/>
       <title>Url meer informatie</title>
-      <required>True</required>
+      <required>False</required>
       <widget hidden="True"/>
     </field>
 
-    <field name="startdatum" type="zope.schema.TextLine">
+    <field name="startdatum" type="zope.schema.Date">
       <description/>
       <title>Startdatum</title>
       <required>False</required>
       <widget hidden="True"/>
     </field>
 
-    <field name="einddatum" type="zope.schema.TextLine">
+    <field name="einddatum" type="zope.schema.Date">
       <description/>
       <title>Einddatum</title>
       <required>False</required>

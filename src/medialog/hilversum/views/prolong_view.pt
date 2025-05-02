@@ -1,18 +1,90 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="medialog.hilversum"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core">
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content">
+      <metal:block define-macro="content-core">
 
-      <h2 i18n:translate="">Sample View</h2>
-      <!--<div tal:replace="view/my_custom_view_method" />-->
-      <!--<div tal:replace="context/my_custom_field" />-->
+       [Button] Link to form to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
 
-  </metal:block>
-  </metal:content-core>
-</body>
+        <h2>${context/Title}</h2>
+        <p class="documentDescription">${context/the_type}</p>
+
+        <div class="flex">
+          <div class="course_text">
+            <h4>Disiplines</h4>
+            <p>
+
+              <span tal:repeat="disiplin context/discipline">
+            [image] ${disiplin} 
+              </span>
+            </p>
+            <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
+          </div>
+
+
+          <div class="course_info">
+        Image here
+            <div  class="green_box">
+            <table>
+              <tr>
+                <td><b>Naam: </b></td>
+                <td>${context/naam}</td>
+              </tr>
+              <tr>
+                <td><b>Aantal lessen:  </b></td>
+                <td>${context/aantal_lessen}</td>
+              </tr>
+              <tr>
+                <td><b>Uitvoering op school:  </b></td>
+                <td>${context/uitvoering_op_school}</td>
+              </tr>
+              <tr>
+                <td><b>Duur:  </b></td>
+                <td>${context/duur}</td>
+              </tr>
+              <tr>
+                <td><b>Startdatum:  </b></td>
+                <td>${context/startdatum}</td>
+              </tr>
+              <tr>
+                <td><b>Einddatum:  </b></td>
+                <td>${context/einddatum}</td>
+              </tr>
+              <tr>
+                <td><b>Prijs per:  </b></td>
+                <td>${context/prijs_per}</td>
+              </tr>
+              <tr>
+                <td><b>Tarief leerling/groep:  </b></td>
+                <td><span tal:repeat="value context/tarief_leerling_groep">${value} </span></td>
+              </tr>
+              <tr>
+                <td><b>Max. aantal leerlingen:  </b></td>
+                <td>${context/max_aantal_leerlingen}</td>
+              </tr>
+              <tr>
+                <td><b>Extra info bij inschrijven:  </b></td>
+                <td>${context/extra_info_bij_inschrijven}</td>
+              </tr>
+              <tr>
+                <td><b>Inschrijfbaar:  </b></td>
+                <td>${context/inschrijfbaar}</td>
+              </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+
+  <style>
+    .flex {display:  flex; justify-content:  space-between;} 
+    .flex > div {width:  auto; max-widht:  900px;}
+    .green_box { background:   lightblue; padding:   1rem;}
+  </style>
+
+      </metal:block>
+    </metal:content-core>
+  </body>
+
 </html>

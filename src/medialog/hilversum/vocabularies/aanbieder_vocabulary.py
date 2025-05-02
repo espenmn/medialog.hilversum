@@ -8,7 +8,8 @@ from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-
+from zope.interface import implementer
+from Products.CMFCore.utils import getToolByName
 
 class VocabItem(object):
     def __init__(self, token, value):
@@ -18,34 +19,24 @@ class VocabItem(object):
 
 @implementer(IVocabularyFactory)
 class AanbiederVocabulary(object):
-    """
+    """ Shows all Aanbieders
     """
 
+
+@implementer(IVocabularyFactory)
+class AanbiederVocabulary(object):
     def __call__(self, context):
-        # Just an example list of content for our vocabulary,
-        # this can be any static or dynamic data, a catalog result for example.
-        items = [
-            VocabItem(u'sony-a7r-iii', _(u'Sony Aplha 7R III')),
-            VocabItem(u'canon-5d-iv', _(u'Canon 5D IV')),
-        ]
+        catalog = getToolByName(context, 'portal_catalog')
+        
+        # Get unique values from 'aanbieder' index
+        index = catalog._catalog.getIndex('aanbieder')
+        if hasattr(index, 'uniqueValues'):
+            unique_values = index.uniqueValues()
+        else:
+            unique_values = []
 
-        # Fix context if you are using the vocabulary in DataGridField.
-        # See https://github.com/collective/collective.z3cform.datagridfield/issues/31:  # NOQA: 501
-        if not IDexterityContent.providedBy(context):
-            req = getRequest()
-            context = req.PARENTS[0]
-
-        # create a list of SimpleTerm items:
-        terms = []
-        for item in items:
-            terms.append(
-                SimpleTerm(
-                    value=item.token,
-                    token=str(item.token),
-                    title=item.value,
-                )
-            )
-        # Create a SimpleVocabulary from the terms list and return it:
+        # Create terms and vocabulary
+        terms = [SimpleTerm(value=u, token=str(u), title=str(u)) for u in unique_values]
         return SimpleVocabulary(terms)
 
 
