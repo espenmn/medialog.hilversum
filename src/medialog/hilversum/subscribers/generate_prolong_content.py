@@ -39,7 +39,14 @@ def handler(obj, event):
 
     if blob is not None:
         data = blob.data  # raw bytes
-        df = pd.read_excel(BytesIO(data))
+        #Check if it is excel or CSV or nothing
+        if blob.filename.endswith('.xlsx') or blob.filename.endswith('.xls'):
+            df = pd.read_excel(BytesIO(data))
+        elif blob.filename.endswith('.csv'):
+            df = pd.read_csv(BytesIO(data))  # read CSV from bytes
+        else:
+            pass
+
         print(df)
         my_dict = df.to_dict(orient='index')        
         portal = plone.api.portal.get()
@@ -63,20 +70,16 @@ def handler(obj, event):
             "Datetime": Timestamp # Same here, use datetime.datetime if needed
         }
 
-        # Main script here
-        # Iterate the loop to read the cell values
-        
+        # A  loop to read the cell values
         # check if item exists
-        # Add content if not
-        # update fields
-        # overwrite or not??
+        # Add content if not / # update fields / overwrite or not
             
-        # for i in range(0, len(my_dict)):
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
             the_title = the_dict['Naam']
             the_id = str(the_dict['ID'])
             
+            # Fields to use to add content and their names
             field_map = {
                 "naam" : the_dict['Naam'],
                 "the_type" : the_dict["Type"],
@@ -152,34 +155,19 @@ def handler(obj, event):
                         # map bootstrap fields to comparable imported fields (types)
                         python_type = field_type_map.get(field_type, None)
                         
-                        # if value == "test":
-                        #     import pdb; pdb.set_trace()
-                        #     pass
-                        
                         #floats should be ints
                         if isinstance(value, float):
                             value = int(value)
                             # can remove this next line later
                             value_type = int
                             
+                        #convert strings to list for 'list' fields
                         if python_type == list:
                             if isinstance(value, str):
                                 value = re.split(r"[,\|]", value)
                                 # can remove this next line later
                                 value_type = list
                                 
-                        #Create AAnbieder
-                        if key == 'aanbieder':
-                            for item_name in value:
-                                aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
-                                if not portal.get(aan_id, False):
-                                    aanbieder = plone.api.content.create(
-                                        type='Aanbieder',
-                                        title = item_name,
-                                        id = aan_id,                
-                                        container=portal
-                                    )
-                                            
                             
                         # convert list of strings to list of ints for these
                         if key in ['tarief_leerling_groep']:
@@ -204,6 +192,31 @@ def handler(obj, event):
                             # Convert to datetime.date
                             value = value.date()
                             
+
+                        #Create AAnbieder
+                        if key == 'aanbieder':
+                            for item_name in value:
+                                aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
+                                if not portal.get(aan_id, False):
+                                    aanbieder = plone.api.content.create(
+                                        type='Aanbieder',
+                                        title = item_name,
+                                        id = aan_id,                
+                                        container=portal
+                                    )
+                                else:
+                                    aanbieder = portal.get(aan_id)
+                                
+                                subjects = list(aanbieder.Subject())
+
+                                # Add the new keyword if it's not already present
+                        
+                        #Add keywords to 'aanbieder'. Needs to be added after aanbieder is added
+                        #If this is not the 'order', we need to sort the list first /  TO DO / Check
+                        if key == 'discipline':
+                            aanbieder.setSubject(value) 
+                            
+                        
                         # can use this to test if we have other field types
                         # if value_type:
                         #     if python_type != value_type:
@@ -213,11 +226,10 @@ def handler(obj, event):
                         #         print(key)
                         #         print('different')
                         
-                        
                         setattr(object, key, value)  
                         
-                transaction.commit()        
+                transaction.commit()  # TO DO, check if this is needed      
                 object.reindexObject()  # Ensure catalog is updated  
                 
-    obj.reindexObject()
+    # obj.reindexObject()
         
