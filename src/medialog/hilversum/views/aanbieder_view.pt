@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+    <body>
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core">
+
+                <h2>Anbod van ${context/Title}</h2>
+
+                <div class="grid">
+                    <div tal:repeat="course view/courses" class="green_box">
+                        <div class="padding-1">
+                            <span tal:repeat="disiplin course/discipline">
+                                <img src="https://cdn-icons-png.freepik.com/256/2970/2970785.png" alt="{disiplin}-image" width="23"> ${disiplin} 
+                            </span> &nbsp;
+                        </div>
+                        <a href="${course/getURL}">
+                            <img src="https://www.gymfinitykids.com/wp-content/uploads/2024/04/kid-smiling.jpg" alt="leadimage ${course/naam}" />
+                            <div class="padding-1">
+                                    <h4>${course/naam}</h4>
+                                    <p>${course/the_type}</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <style>
+                    .green_box { background:  lightblue;}
+                    .padding-1 {padding: 1rem}
+                    a {text-decoration: none}                    
+ 
+                    .grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 10pt;
+                    }
+
+                    .grid > div {
+                    max-width: 900px;
+                    }
+ 
+                    </style>
+                </metal:block>
+            </metal:content-core>
+        </body>
+    </html>

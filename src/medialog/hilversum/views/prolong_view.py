@@ -32,3 +32,14 @@ class ProlongView(BrowserView):
         else:
             return None
  
+    # get keyword by calling with  index name
+    def get_keyword(self, keyword):
+        context = self.context
+        catalog = getToolByName(context, 'portal_catalog')
+        
+        # Get unique values from 'aanbieder' index
+        index = catalog._catalog.getIndex(keyword)
+        if hasattr(index, 'uniqueValues'):
+            return  index.uniqueValues()
+        else:
+            return None

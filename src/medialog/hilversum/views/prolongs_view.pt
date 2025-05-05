@@ -6,13 +6,15 @@
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core">
 
-      <label for="dropdown">Choose an option:</label>
-<select id="dropdown" name="dropdown">
-  <option value="">--Please choose an option--</option>
-    <option tal:repeat="aanbieder view/aanbieders" value="${aanbieder}"> ${aanbieder}</option>
-</select>
+        <div class="filter">
+          <label for="dropdown">Choose an option:</label>
+          <select id="dropdown" name="dropdown">
+            <option value="">--Please choose an option--</option>
+            <option tal:repeat="aanbieder view/aanbieders" value="${aanbieder}"> ${aanbieder}</option>
+          </select>
+        </div>
 
-        
+
 
       </metal:block>
     </metal:content-core>

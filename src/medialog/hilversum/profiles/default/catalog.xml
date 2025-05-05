@@ -9,8 +9,8 @@
   <index name="clusters" meta_type="FieldIndex">
     <indexed_attr value="clusters"/>
   </index>
-  <index name="code" meta_type="FieldIndex">
-    <indexed_attr value="code"/>
+  <index name="the_code" meta_type="FieldIndex">
+    <indexed_attr value="the_code"/>
   </index>
   <index name="discipline" meta_type="KeywordIndex">
     <indexed_attr value="discipline"/>
@@ -158,7 +158,7 @@
   <column value="bemiddelaar"/>
   <column value="blokje_persoon_inplannen"/>
   <column value="clusters"/>
-  <column value="code"/>
+  <column value="the_code"/>
   <column value="discipline"/>
   <column value="duur"/>
   <column value="einddatum"/>

@@ -45,6 +45,7 @@ def handler(obj, event):
         elif blob.filename.endswith('.csv'):
             df = pd.read_csv(BytesIO(data))  # read CSV from bytes
         else:
+            # Alternatively, we could try to read it  ( try: / except Exception: )
             pass
 
         print(df)
@@ -125,7 +126,7 @@ def handler(obj, event):
                 "url_evaluatieformulier" : the_dict["Url evaluatieformulier"],
                 "ondertekening_emails" : the_dict["Ondertekening emails"],
                 "extern_id" : the_dict["Extern ID"],
-                "code" : the_dict["Code"], 
+                "the_code" : the_dict["Code"], 
             }
             
             #Create content only if it does not exist
@@ -141,12 +142,15 @@ def handler(obj, event):
                 
             else:
                 object = portal.get(the_id)
-                
-            if replace_content or not item_exist:
-                print(the_title)
+            
+            
+            if replace_content or not item_exist != False:
+                # if replace_content or not item_exist:
+                # import pdb; pdb.set_trace()
+                # print( str(i) + ' : ' + the_title)
             
                 for key, value in field_map.items():
-                    print(key + " : " + str(value))
+                    print(str(i) + ' ' + key + " : " + str(value))
                     
                     if value and pd.notna(value) and value != "":
                         value_type = type(value)
@@ -168,7 +172,11 @@ def handler(obj, event):
                                 # can remove this next line later
                                 value_type = list
                                 
-                            
+                        # Convert ints to string if field is string
+                        if python_type == str:
+                            value = str(value)
+                                
+                        
                         # convert list of strings to list of ints for these
                         if key in ['tarief_leerling_groep']:
                             if value_type == list:
@@ -192,7 +200,9 @@ def handler(obj, event):
                             # Convert to datetime.date
                             value = value.date()
                             
-
+                        if key == 'discipline':
+                            subjekter = value
+                            
                         #Create AAnbieder
                         if key == 'aanbieder':
                             for item_name in value:
@@ -207,17 +217,15 @@ def handler(obj, event):
                                 else:
                                     aanbieder = portal.get(aan_id)
                                 
-                                subjects = list(aanbieder.Subject())
-
-                                # Add the new keyword if it's not already present
-                        
-                        #Add keywords to 'aanbieder'. Needs to be added after aanbieder is added
-                        #If this is not the 'order', we need to sort the list first /  TO DO / Check
-                        if key == 'discipline':
-                            aanbieder.setSubject(value) 
+                                # subjects = list(aanbieder.Subject())
+                                #Add keywords to 'aanbieder'. Needs to be added after aanbieder is added
+                                #If this is not the 'order', we need to sort the list first /  TO DO / Check                        
+                                if subjekter:
+                                    aanbieder.setSubject(subjekter)                                 
                             
                         
                         # can use this to test if we have other field types
+                        # Maybe check for None type
                         # if value_type:
                         #     if python_type != value_type:
                         #         import pdb; pdb.set_trace()  
@@ -228,7 +236,7 @@ def handler(obj, event):
                         
                         setattr(object, key, value)  
                         
-                transaction.commit()  # TO DO, check if this is needed      
+                # transaction.commit()  # TO DO, check if this is needed      
                 object.reindexObject()  # Ensure catalog is updated  
                 
     # obj.reindexObject()

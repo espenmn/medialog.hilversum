@@ -330,7 +330,7 @@
       <widget hidden="True"/>
     </field>
 
-    <field name="code" type="zope.schema.TextLine">
+    <field name="the_code" type="zope.schema.TextLine">
       <description/>
       <title>Code</title>
       <required>False</required>
