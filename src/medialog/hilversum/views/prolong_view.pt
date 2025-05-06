@@ -8,6 +8,7 @@
 
         <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
         <hr/>
+        <!-- <p>&nbsp;</p> -->
 
 
         <div class="flex">
@@ -21,18 +22,34 @@
                <img src="https://cdn-icons-png.freepik.com/256/2970/2970785.png" alt="disiplin-image" width="30"> ${disiplin} 
               </span>
             </p>
-            <div tal:condition="context/lead_image">
-                    <img tal:attributes="src context/@@images/lead_image/preview;
-                       alt context/Title" class="prolong-lead-image" />
-            </div>
+            
             <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
-            <div tal:condition="context/body"
-              tal:content="structure context/body/output">
+            <hr/>
+            <div tal:condition="context/text"
+              tal:content="structure context/text/output|None">
           </div>
           </div>
 
           <div class="course_info">
-            <img src="https://www.gymfinitykids.com/wp-content/uploads/2024/04/kid-smiling.jpg" width="350" alt="course_image"/>
+            <div class="lead-image-wrapper"
+              tal:define="scale context/@@images;
+                          img python:scale.scale('full', width=300, height=300)"
+              tal:condition="img">
+              <img tal:replace="structure python: img.tag()" />
+          </div>
+
+          <tal:define tal:define="scales context/@@images;
+                 thumbnail python: scales.scale('image', width=400);">
+               
+                <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                width thumbnail/width;
+                                height thumbnail/height" />
+
+                <img tal:condition="not: thumbnail" 
+                  src="https://medias.artmajeur.com/standard/17523289_36-renzo-vier-vrouwen-canvas.jpg" 
+                  width="380" alt="course_image"/> 
+            </tal:define>
+
             <div class="green_box">
               <table>
                 <tr>

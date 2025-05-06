@@ -27,12 +27,7 @@
   <index name="extern_id" meta_type="FieldIndex">
     <indexed_attr value="extern_id"/>
   </index>
-  <index name="extra_info_bij_inschrijven" meta_type="FieldIndex">
-    <indexed_attr value="extra_info_bij_inschrijven"/>
-  </index>
-  <index name="extra_info_in_communicatie" meta_type="FieldIndex">
-    <indexed_attr value="extra_info_in_communicatie"/>
-  </index>
+ 
   <index name="id" meta_type="FieldIndex">
     <indexed_attr value="id"/>
   </index>
@@ -164,8 +159,8 @@
   <column value="einddatum"/>
   <column value="expertise_aanbod"/>
   <column value="extern_id"/>
-  <column value="extra_info_bij_inschrijven"/>
-  <column value="extra_info_in_communicatie"/>
+  <!-- <column value="extra_info_bij_inschrijven"/>
+  <column value="extra_info_in_communicatie"/> -->
   <column value="id"/>
   <column value="inschrijfbaar"/>
   <column value="leerjaren"/>

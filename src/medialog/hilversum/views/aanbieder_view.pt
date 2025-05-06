@@ -5,12 +5,18 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
-                <div tal:condition="context/lead_image">
-                    <img tal:attributes="src context/@@images/lead_image/preview;
-                       alt context/Title" class="aanbieder-lead-image" />
+                <!-- <tal:define tal:define="scales context/@@images;
+                        thumbnail python: scales.scale('image', width=400);">
+                    
+                        <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                        width thumbnail/width;
+                                        height thumbnail/height" />
+        
+                </tal:define> -->
+                <div tal:condition="context/text"
+                    tal:content="structure context/text/output|None">
                 </div>
-                <div tal:condition="context/body" tal:content="structure context/body/output">
-                </div>
+
 
                 <h2>Anbod van ${context/Title}</h2>
                 <div class="grid">
@@ -32,7 +38,8 @@
                     <style>
                     .green_box { background:  lightblue;}
                     .padding-1 {padding: 1rem}
-                    a {text-decoration: none}                    
+                    a {text-decoration: none}  
+                    .newsImageContainer img { max-width: 100px;}                  
  
                     .grid {
                     display: grid;

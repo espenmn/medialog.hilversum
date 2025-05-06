@@ -21,16 +21,16 @@ class ProlongView(BrowserView):
         # Implement your own actions:
         return self.index()
     
-    def aanbieders(self):
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
+    # def aanbieders(self):
+    #     context = self.context
+    #     catalog = getToolByName(context, 'portal_catalog')
         
-        # Get unique values from 'aanbieder' index
-        index = catalog._catalog.getIndex('aanbieder')
-        if hasattr(index, 'uniqueValues'):
-            return  index.uniqueValues()
-        else:
-            return None
+    #     # Get unique values from 'aanbieder' index
+    #     index = catalog._catalog.getIndex('aanbieder')
+    #     if hasattr(index, 'uniqueValues'):
+    #         return  index.uniqueValues()
+    #     else:
+    #         return None
  
     # get keyword by calling with  index name
     def get_keyword(self, keyword):
@@ -40,6 +40,36 @@ class ProlongView(BrowserView):
         # Get unique values from 'aanbieder' index
         index = catalog._catalog.getIndex(keyword)
         if hasattr(index, 'uniqueValues'):
-            return  index.uniqueValues()
+            return  sorted(index.uniqueValues())
         else:
             return None
+        
+    def get_keywords(self): 
+        return {
+                "discipline": "Discipline",  
+                "the_type": "Type",
+                "programma": "Programma",               
+                "ruimte_op_school": "Ruimte op school",
+                "thema": "Thema",
+                "aanbieder": "Aanbieder",
+                "bemiddelaar": "Bemiddelaar",
+                "vaste_ruimte": "Vaste ruimte",
+                "vaste_personen": "Vaste personen",
+                "inschrijfbaar": "Inschrijfbaar",
+                "naam": 'Naam',
+                "expertise_aanbod": "Expertise aanbod",
+                "aantal_lessen": "Aantal lessen",
+                "uitvoering_op_school": "Uitvoering op school",
+                "verduistering": "Verduistering",
+                "opbouwtijd": "Opbouwtijd",
+                "min_aantal_leerlingen": "Min. aantal leerlingen",
+                "vaste_gezelschappen": "Vaste gezelschappen",
+                "blokje_persoon_inplannen": "Blokje persoon inplannen",
+                "schooljaar": "Schooljaar",
+                "duur": "Duur",
+                "max_aantal_leerlingen": "Max. aantal leerlingen",
+                "onderwijstype": "Onderwijstype",
+                "leerjaren": "Leerjaren",
+                 "tarief_leerling_groep": "Tarief leerling/groep",
+                "tarief_begeleider": "Tarief begeleider"
+        }
