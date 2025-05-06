@@ -5,23 +5,28 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
+                <div tal:condition="context/lead_image">
+                    <img tal:attributes="src context/@@images/lead_image/preview;
+                       alt context/Title" class="aanbieder-lead-image" />
+                </div>
+                <div tal:condition="context/body" tal:content="structure context/body/output">
+                </div>
 
                 <h2>Anbod van ${context/Title}</h2>
-
                 <div class="grid">
                     <div tal:repeat="course view/courses" class="green_box">
                         <div class="padding-1">
                             <span tal:repeat="disiplin course/discipline">
                                 <img src="https://cdn-icons-png.freepik.com/256/2970/2970785.png" alt="{disiplin}-image" width="23"> ${disiplin} 
-                            </span> &nbsp;
-                        </div>
-                        <a href="${course/getURL}">
-                            <img src="https://www.gymfinitykids.com/wp-content/uploads/2024/04/kid-smiling.jpg" alt="leadimage ${course/naam}" />
-                            <div class="padding-1">
+                                </span> &nbsp;
+                            </div>
+                            <a href="${course/getURL}">
+                                <img src="https://www.gymfinitykids.com/wp-content/uploads/2024/04/kid-smiling.jpg" alt="leadimage ${course/naam}" />
+                                <div class="padding-1">
                                     <h4>${course/naam}</h4>
                                     <p>${course/the_type}</p>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <style>

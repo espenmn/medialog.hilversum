@@ -14,8 +14,6 @@
           </select>
         </div>
 
-
-
       </metal:block>
     </metal:content-core>
   </body>
