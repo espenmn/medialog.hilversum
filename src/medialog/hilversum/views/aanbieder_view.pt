@@ -46,7 +46,9 @@
                             </div>
                         </div>
                     </div>
-                    <style>
+                </div>
+                <style>
+                  
                     .doubleborder{ background: white; border: 2px solid steelblue; padding: 2px; height: 100%}
                     .green_box { background:  lightblue; height: 100%}
                     .padding-1 {padding: 1rem}
@@ -65,8 +67,8 @@
                     max-width: 900px;
                     }
  
-                    </style>
-                </metal:block>
-            </metal:content-core>
-        </body>
-    </html>
+                </style>
+            </metal:block>
+        </metal:content-core>
+    </body>
+</html>
