@@ -42,8 +42,8 @@ def handler(obj, event):
         #Check if it is excel or CSV or nothing
         if blob.filename.endswith('.xlsx') or blob.filename.endswith('.xls'):
             df = pd.read_excel(BytesIO(data))
-        elif blob.filename.endswith('.csv'):
-            df = pd.read_csv(BytesIO(data))  # read CSV from bytes
+        elif blob.filename.endswith('.csv'): 
+            df = pd.read_csv(BytesIO(data), sep=';', engine='python')  # read CSV from bytes
         else:
             # Alternatively, we could try to read it  ( try: / except Exception: )
             pass
