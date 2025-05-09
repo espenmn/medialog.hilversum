@@ -24,26 +24,29 @@
                             <div class="green_box">
                                 <div class="padding-1">
                                     <span tal:repeat="disiplin course/discipline">
-                                        <img src="https://cdn-icons-png.freepik.com/256/2970/2970785.png" alt="{disiplin}-image" width="23"> ${disiplin} 
-                                        </span> &nbsp;
-                                    </div>
-                                    <a href="${course/getURL}" tal:define="obj course/getObject">
-                                        <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
-                                            <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                        <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")'>
+                                            <img src="++plone++medialog.hilversum/${image}.png" alt="${disiplin} icon" width="23" />
+                                        </tal:define>
+                                        ${disiplin} 
+                                    </span> &nbsp;
+                                </div>
+                                <a href="${course/getURL}" tal:define="obj course/getObject">
+                                    <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                                        <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
 
-                                            <img tal:condition="not: thumbnail" src="https://medias.artmajeur.com/standard/17523289_36-renzo-vier-vrouwen-canvas.jpg" width="380" alt="course_image"/>
-                                        </div>
-                                        <div class="padding-1">
-                                            <h4>${course/naam}</h4>
-                                            <p>${course/the_type}</p>
-                                        </div>
-                                    </a>
-                                </div>
+                                        <img tal:condition="not: thumbnail" src="https://medias.artmajeur.com/standard/17523289_36-renzo-vier-vrouwen-canvas.jpg" width="380" alt="course_image"/>
+                                    </div>
+                                    <div class="padding-1">
+                                        <h4>${course/naam}</h4>
+                                        <p>${course/the_type}</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <style>
+                    </div>
+                    <style>
                     .doubleborder{ background: white; border: 2px solid steelblue; padding: 2px; height: 100%}
                     .green_box { background:  lightblue; height: 100%}
                     .padding-1 {padding: 1rem}
@@ -62,8 +65,8 @@
                     max-width: 900px;
                     }
  
-                        </style>
-                    </metal:block>
-                </metal:content-core>
-            </body>
-        </html>
+                    </style>
+                </metal:block>
+            </metal:content-core>
+        </body>
+    </html>

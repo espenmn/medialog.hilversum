@@ -1,18 +1,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="medialog.hilversum"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core">
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+  <body>
 
-      <h2 i18n:translate="">Sample View</h2>
-      <!--<div tal:replace="view/my_custom_view_method" />-->
-      <!--<div tal:replace="context/my_custom_field" />-->
+    <metal:content-core fill-slot="content-core">
+      <metal:block define-macro="content-core">
 
-  </metal:block>
-  </metal:content-core>
-</body>
+        <div class="flex">
+          <tal:loop tal:repeat="item view/results">
+
+            <div class="greybox" tal:define="obj item/getObject">
+              <a tal:attributes="href item/getURL">
+    
+                  
+                  <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                    <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                    width thumbnail/width;
+                                    height thumbnail/height" />
+                    <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
+                  </div>
+                  <h2>${item/Title}</h2>
+
+                 
+              </a>
+            </div>
+
+          </tal:loop>
+        </div>
+        <style>
+        .greybox {background: whitesmoke; margin: 1rem; padding: 1rem; text-align: center; min-width: 400px;  width: 22% }
+      .imagediv.logo { max-width: 150px; max-height: 80px; margin: 1rem; text-align: center; margin: auto}
+      .imagediv.logo img { width: auto; max-width: 130px; max-height: 50px; margin: 1rem 1rem 2rem;}
+    .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap}  
+        </style>
+      </metal:block>
+    </metal:content-core>
+  </body>
 </html>
+
+ 
