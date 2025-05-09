@@ -6,15 +6,38 @@
 
  <!-- -*- extra stuff goes here -*- -->
 
+ <!-- class IAanbieder -->
+
   <browser:viewlet
      name="filter-viewlet"
-     for="plone.app.contenttypes.interfaces.IDocument"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     for="medialog.hilversum.content.aanbieder.IAanbieder"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
      template="filter-viewlet.pt"
      permission="zope2.View"
      />
+
+  <!-- <browser:viewlet
+     name="filter-viewlet"
+     for="*"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".filter_viewlet.FilterViewlet"
+     template="filter-viewlet.pt"
+     permission="zope2.View"
+     /> -->
+
+  <browser:viewlet
+     name="filter-viewlet"
+     for="medialog.hilversum.content.prolong.IProlong"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".filter_viewlet.FilterViewlet"
+     template="filter-viewlet.pt"
+     permission="zope2.View"
+     />
+
 
 
 </configure>

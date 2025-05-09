@@ -22,9 +22,10 @@
   <!-- Schema, class and security -->
   <property name="add_permission">medialog.hilversum.AddAanbieder</property>
   <property name="klass">plone.dexterity.content.Item</property>
-  <property name="model_file">medialog.hilversum.content:aanbieder.xml</property>
+  <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema"></property>
+  <property name="schema">medialog.hilversum.content.aanbieder.IAanbieder</property>
+ 
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">

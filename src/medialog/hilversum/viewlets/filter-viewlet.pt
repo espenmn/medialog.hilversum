@@ -1,3 +1,51 @@
-<div class="days_to_conf">
-    ${view/message}
+<div class="container filtercontainer">
+  <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
+            Toggle Filters <span id="filter-icon">▶</span>
+  </button>
+  <div class="filter flex hidden" id="filter-section">
+
+    <tal:repeat tal:repeat="keyword  view/keyword">
+      <tal:define tal:define="key keyword/name; title keyword/title">
+        <select id="dropdown-${key}" name="dropdown-${key}">
+          <option value="">${title}</option>
+          <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
+        </select>
+      </tal:define>
+    </tal:repeat>
+
+    <script>
+            $(document).ready(function () { $('select[id^="dropdown-"]').on('change', function () {
+                var key = this.id.replace('dropdown-', '');
+                var item = $(this).val();
+
+                if (key && item) {
+                  var baseUrl = 'http://ubuntu.local:8605/5mai/a-collection/';
+                  var query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item) + '&discipline_op=or';
+                  window.location.href = baseUrl + '?' + query;
+                }
+              });
+            });
+    </script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const toggle = document.getElementById('filter-toggle');
+              const filterSection = document.getElementById('filter-section');
+              const icon = document.getElementById('filter-icon');
+
+              toggle.addEventListener('click', function () {
+                filterSection.classList.toggle('hidden');
+                icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
+              });
+            });
+    </script>
+    <style>
+            select {width: 12%; max-width: 180px; min-width: 150px; margin: 3px}
+            .flex {display: flex; flex-wrap:wrap; background: lightblue; padding: 10px;border-radius: 7px;}
+            .hidden {display: none}
+            #filter-toggle {  margin-bottom: 10px }
+            .filtercontainer {margin-bottom: 2rem;}
+    </style>
+  </div>
+
 </div>
+      

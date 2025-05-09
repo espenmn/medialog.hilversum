@@ -133,7 +133,7 @@ def handler(obj, event):
             item_exist = portal.get(the_id, False)
             
             if not item_exist:
-                object = plone.api.content.create(
+                prolong = plone.api.content.create(
                     type='Prolong',
                     title = the_title,
                     id = the_id,                
@@ -141,8 +141,7 @@ def handler(obj, event):
                 )
                 
             else:
-                object = portal.get(the_id)
-            
+                prolong = portal.get(the_id)            
             
             if replace_content or not item_exist != False:
                 # if replace_content or not item_exist:
@@ -224,20 +223,10 @@ def handler(obj, event):
                                     aanbieder.setSubject(subjekter)                                 
                             
                         
-                        # can use this to test if we have other field types
-                        # Maybe check for None type
-                        # if value_type:
-                        #     if python_type != value_type:
-                        #         import pdb; pdb.set_trace()  
-                        #         print(python_type)
-                        #         print(value_type)
-                        #         print(key)
-                        #         print('different')
-                        
-                        setattr(object, key, value)  
+                        setattr(prolong, key, value)  
                         
                 # transaction.commit()  # TO DO, check if this is needed      
-                object.reindexObject()  # Ensure catalog is updated  
+                prolong.reindexObject()  # Ensure catalog is updated for this Prolong 
                 
     # obj.reindexObject()
         
