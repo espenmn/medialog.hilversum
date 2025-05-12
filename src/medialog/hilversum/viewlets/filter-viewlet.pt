@@ -2,17 +2,28 @@
   <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
-  <div class="filter flex hidden" id="filter-section">
+  <div class="contaiener  hidden" id="filter-section">
+    <div class="filter flex">
+      <div class="disciplin" tal:repeat="disiplin view/get_discipline">
+        <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")'>
+          <a href="a-collection/?collectionfilter=1&discipline=${disiplin}">
+            <img src="++plone++medialog.hilversum/${image}.png" alt="${disiplin} icon" />
+          </a>
+        </tal:define>
+      </div>
+    </div>
 
-    <tal:repeat tal:repeat="keyword  view/keyword">
-      <tal:define tal:define="key keyword/name; title keyword/title">
-        <select id="dropdown-${key}" name="dropdown-${key}">
-          <option value="">${title}</option>
-          <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
-        </select>
-      </tal:define>
-    </tal:repeat>
+    <div class="filter flex">
 
+      <tal:repeat tal:repeat="keyword  view/keyword">
+        <tal:define tal:define="key keyword/name; title keyword/title">
+          <select id="dropdown-${key}" name="dropdown-${key}">
+            <option value="">${title}</option>
+            <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
+          </select>
+        </tal:define>
+      </tal:repeat>
+    </div>
     <script>
             $(document).ready(function () { $('select[id^="dropdown-"]').on('change', function () {
                 var key = this.id.replace('dropdown-', '');
@@ -40,10 +51,14 @@
     </script>
     <style>
             select {width: 12%; max-width: 180px; min-width: 150px; margin: 3px}
-            .flex {display: flex; flex-wrap:wrap; background: lightblue; padding: 10px;border-radius: 7px;}
-            .hidden {display: none}
+            .flex {display: flex; flex-wrap:wrap; }
+            .flex {display: flex; flex-wrap:wrap; 
+            #filter-section {background: lightblue; padding: 10px;border-radius: 7px;}
+             #filter-section background: lightblue; padding: 10px;border-radius: 7px;}
+            .hidden {display: none !important}
             #filter-toggle {  margin-bottom: 10px }
             .filtercontainer {margin-bottom: 2rem;}
+            .disciplin { width: 40px; height: 40;}
     </style>
   </div>
 

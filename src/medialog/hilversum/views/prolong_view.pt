@@ -19,7 +19,8 @@
             <p>
 
               <span tal:repeat="disiplin context/discipline">
-               <img src="https://cdn-icons-png.freepik.com/256/2970/2970785.png" alt="disiplin-image" width="30"> ${disiplin} 
+               <img  tal:define='image python: disiplin.lower().replace(" ", "_")' 
+                src="++plone++medialog.hilversum/${image}.png" alt="${disiplin}-image" width="30"> ${disiplin} 
               </span>
             </p>
             
@@ -46,7 +47,7 @@
                                 height thumbnail/height" />
 
                 <img tal:condition="not: thumbnail" 
-                  src="https://medias.artmajeur.com/standard/17523289_36-renzo-vier-vrouwen-canvas.jpg" 
+                  src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" 
                   width="380" alt="course_image"/> 
             </tal:define>
 

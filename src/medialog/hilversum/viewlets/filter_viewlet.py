@@ -12,6 +12,15 @@ class FilterViewlet(ViewletBase):
         self.keyword = self.get_keyword()
         self.keywords = self.get_keywords()
 
+    # get keyword by calling with  index name
+    def get_discipline(self):
+        context = self.context
+        catalog = getToolByName(context, 'portal_catalog')
+        index = catalog._catalog.getIndex('discipline')
+        if hasattr(index, 'uniqueValues'):
+            return sorted(index.uniqueValues())
+        return None
+
 
     # get keyword by calling with  index name
     def get_keyword(self):

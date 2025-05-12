@@ -17,18 +17,17 @@
                 </div>
 
 
-                <h2>Anbod van ${context/Title}</h2>
+                <h2>Anbod van ${context/Title}:</h2>
                 <div class="grid">
                     <div tal:repeat="course view/courses">
                         <div class="doubleborder">
                             <div class="green_box">
-                                <div class="padding-1">
-                                    <span tal:repeat="disiplin course/discipline">
+                                <div class="padding-1 flex">
+                                    <div class="discipline" tal:repeat="disiplin course/discipline">
                                         <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")'>
-                                            <img src="++plone++medialog.hilversum/${image}.png" alt="${disiplin} icon" width="23" />
-                                        </tal:define>
-                                        ${disiplin} 
-                                    </span> &nbsp;
+                                            <img src="++plone++medialog.hilversum/${image}.png" alt="${disiplin} icon" />
+                                        </tal:define>                                       
+                                    </div>  
                                 </div>
                                 <a href="${course/getURL}" tal:define="obj course/getObject">
                                     <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
@@ -36,7 +35,7 @@
                                     width thumbnail/width;
                                     height thumbnail/height" />
 
-                                        <img tal:condition="not: thumbnail" src="https://medias.artmajeur.com/standard/17523289_36-renzo-vier-vrouwen-canvas.jpg" width="380" alt="course_image"/>
+                                        <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
                                     </div>
                                     <div class="padding-1">
                                         <h4>${course/naam}</h4>
@@ -54,8 +53,12 @@
                     .padding-1 {padding: 1rem}
                     a {text-decoration: none}  
                     .newsImageContainer img { max-width: 100px;}   
-                    .imagediv {height: 200px; background: red;}           
+                    .imagediv {height: 200px; }           
                     .imagediv img {width: 100%; height: 100%; object-fit: cover;}   
+
+                    .discipline { background: white; height: 34px; width: 28px; padding: 2px 2px 1px; border: 1px solid steelblue; margin-right: 4px;}
+
+                    .flex {display: flex; flex-wrap: wrap}
  
                     .grid {
                         display: grid;
