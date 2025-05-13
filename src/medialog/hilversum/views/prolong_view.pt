@@ -156,16 +156,16 @@
               </div>
             </div>
           </div>
-        </div>
 
 
-        <style>
+
+          <style>
     .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap} 
     .flex > div {width:  auto; max-widht:  900px; min-width: 300px;}
     .green_box {  margin-top: 1rem}
-        </style>
+          </style>
 
-      </metal:block>
-    </metal:content-core>
-  </body>
-</html>
+        </metal:block>
+      </metal:content-core>
+    </body>
+  </html>
