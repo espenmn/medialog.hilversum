@@ -84,7 +84,7 @@
                   <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
                 </tal:define>
 
-                <div class="green_box custom-background1">
+                <div class="green_box custom-background1 padding-20 white">
                   <table>
                     <tr>
                       <td>
