@@ -9,39 +9,43 @@
                 <hr/>
                 <p class="documentDescription>">Provider should be content, so it is possible to sort by google etc</p>
 
-                <table class="listin plain sortable pat-tablesorter listing  ">
-                    <tr>
-                        <th>Naam</th>
-                        <th>Type</th>
-                        <th>Aantal Lesssen</th>
-                        <th>Uitvoering op school</th>
-                        <th>Duur</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Prijs Per</th>
-                        <th>Max aantal leerlinge</th>
-                        <th>Extra info bij inschrijven</th>
-                        <th>Inschrijfbaar</th>
-                    </tr>
-                    <tr tal:repeat="course view/courses|None">
-                        <td>
-                            <a href="${course/getURL}">${course/naam|None}</a>
-                        </td>
-                        <td>${course/the_type|None}</td>
+                <table class="table-success table-striped sortable pat-tablesorter">
+                    <thead>
+                        <tr>
+                            <th>Naam</th>
+                            <th>Type</th>
+                            <th>Aantal Lessen</th>
+                            <th>Uitvoering op school</th>
+                            <th>Duur</th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Prijs Per</th>
+                            <th>Max aantal leerlinge</th>
+                            <th>Extra info bij inschrijven</th>
+                            <th>Inschrijfbaar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr tal:repeat="course view/courses|None">
+                            <td>
+                                <a href="${course/getURL}">${course/naam|None}</a>
+                            </td>
+                            <td>${course/the_type|None}</td>
 
-                        <td>${course/aantal_lessen|None}</td>
-                        <td>${course/uitvoering_op_schoo|None}</td>
-                        <td>${course/duur|None}</td>
-                        <td>${course/startdatum|None}</td>
-                        <td>${course/einddatum|None}</td>
-                        <td>${course/prijs_per|None}</td>
-                        <td>
-                            <span tal:repeat="value course/tarief_leerling_groep|None">${value} </span>
-                        </td>
-                        <td>${course/max_aantal_leerlingen|None}</td>
-                        <td>${course/extra_info_bij_inschrijven|None}</td>
-                        <td>${course/inschrijfbaar|None}</td>
-                    </tr>
+                            <td>${course/aantal_lessen|None}</td>
+                            <td>${course/uitvoering_op_schoo|None}</td>
+                            <td>${course/duur|None}</td>
+                            <td>${course/startdatum|None}</td>
+                            <td>${course/einddatum|None}</td>
+                            <td>${course/prijs_per|None}</td>
+                            <td>
+                                <span tal:repeat="value course/tarief_leerling_groep|None">${value} </span>
+                            </td>
+                            <td>${course/max_aantal_leerlingen|None}</td>
+                            <td>${course/extra_info_bij_inschrijven|None}</td>
+                            <td>${course/inschrijfbaar|None}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </metal:block>
         </metal:content-core>
