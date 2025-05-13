@@ -12,7 +12,8 @@
             <option tal:repeat="aanbieder view/aanbieders" value="${aanbieder}"> ${aanbieder}</option>
           </select-->
           <!-- loop all keyword-->
-          <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">Toggle Filters <span id="filter-icon">▶</span></button>
+          <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" 
+            i18translate="">Toggle Filters <span id="filter-icon">▶</span></button>
           <div class="filter flex hidden" id="filter-section">
         
             <tal:repeat tal:repeat="keyword python: view.get_keywords()">
@@ -33,7 +34,7 @@
                 var item = $(this).val();
 
                 if (key && item) {
-                  var baseUrl = '${portal_url}/aambieders-collection/';
+                  var baseUrl = '${portal_url}/prolongs-collection/';
                   var query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item) + '&discipline_op=or';
                   window.location.href = baseUrl + '?' + query;
                 }
