@@ -28,7 +28,7 @@
               <div tal:condition="context/text" tal:content="structure context/text/output|None">
               </div>
 
-              <h4>Probably some fields here:</h4>
+              <h4>Probably some fields here, or in the box to the left:</h4>
 
               <p>${context/the_type}</p>
               <p>${context/aantal_lessen}</p>
