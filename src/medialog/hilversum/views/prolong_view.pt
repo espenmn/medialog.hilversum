@@ -24,7 +24,7 @@
               </p>
 
               <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
-              <hr/>
+              <!-- <hr/> -->
               <div tal:condition="context/text" tal:content="structure context/text/output|None">
               </div>
 
@@ -85,52 +85,55 @@
                 </tal:define>
 
                 <div class="green_box custom-background1 padding-20 white">
+                  <p>
+                    <b>Aanvullende activiteit informatie</b>
+                  </p>
                   <table>
                     <tr>
                       <td>
-                        <b>Naam: </b>
+                        <span>Naam: </span>
                       </td>
                       <td>${context/naam}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Aantal lessen:  </b>
+                        <span>Aantal lessen: </span>
                       </td>
                       <td>${context/aantal_lessen}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Uitvoering op school:  </b>
+                        <span>Uitvoering op school: </span>
                       </td>
                       <td>${context/uitvoering_op_school}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Duur:  </b>
+                        <span>Duur: </span>
                       </td>
                       <td>${context/duur}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Startdatum:  </b>
+                        <span>Startdatum: </span>
                       </td>
                       <td>${context/startdatum}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Einddatum:  </b>
+                        <span>Einddatum: </span>
                       </td>
                       <td>${context/einddatum}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Prijs per:  </b>
+                        <span>Prijs per: </span>
                       </td>
                       <td>${context/prijs_per}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Tarief leerling/groep:  </b>
+                        <span>Tarief leerling/groep: </span>
                       </td>
                       <td>
                         <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
@@ -138,19 +141,19 @@
                     </tr>
                     <tr>
                       <td>
-                        <b>Max. aantal leerlingen:  </b>
+                        <span>Max. aantal leerlingen: </span>
                       </td>
                       <td>${context/max_aantal_leerlingen}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Extra info bij inschrijven:  </b>
+                        <span>Extra info bij inschrijven: </span>
                       </td>
                       <td>${context/extra_info_bij_inschrijven}</td>
                     </tr>
                     <tr>
                       <td>
-                        <b>Inschrijfbaar:  </b>
+                        <span>Inschrijfbaar: </span>
                       </td>
                       <td>${context/inschrijfbaar}</td>
                     </tr>
@@ -158,15 +161,17 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <style>
+        <style>
     .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap} 
     .flex > div {width:  auto; max-widht:  900px; min-width: 300px;}
     .green_box {  margin-top: 1rem}
-            </style>
+        </style>
 
-          </metal:block>
-        </metal:content-core>
-      </body>
+      </metal:block>
+    </metal:content-core>
+  </body>
 
-    </html>
+</html>
