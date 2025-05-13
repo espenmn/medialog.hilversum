@@ -3,14 +3,15 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
-    <metal:content-core fill-slot="content-core">
+    <metal:content-core fill-slot="content">
       <metal:block define-macro="content-core">
         <p>
           <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'</p>
         <div class="flex">
           <div class="course_text">
-            <!-- <h2>${context/Title}</h2>
-            <p class="documentDescription">${context/the_type}</p> -->
+            <h1 class="documentFirstHeading">${context/Title}</h1> 
+            
+            <p class="documentDescription lead">${context/Descriptopm}</p> 
             <!-- <h4>Disiplines</h4> -->
             <p>
 
