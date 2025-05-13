@@ -68,7 +68,7 @@
 
               </div>
 
-              <div class="course_info white custom-background1 padding-20">
+              <div class="course_info">
                 <div class="lead-image-wrapper" tal:define="scale context/@@images;
                           img python:scale.scale('full', width=300, height=300)" tal:condition="img">
                   <img tal:replace="structure python: img.tag()" />
