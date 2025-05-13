@@ -68,7 +68,7 @@
 
               </div>
 
-              <div class="course_info">
+              <div class="course_info white custom-background1 padding-20">
                 <div class="lead-image-wrapper" tal:define="scale context/@@images;
                           img python:scale.scale('full', width=300, height=300)" tal:condition="img">
                   <img tal:replace="structure python: img.tag()" />
@@ -84,7 +84,7 @@
                   <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
                 </tal:define>
 
-                <div class="green_box">
+                <div class="green_box custom-background1">
                   <table>
                     <tr>
                       <td>
@@ -162,7 +162,7 @@
             <style>
     .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap} 
     .flex > div {width:  auto; max-widht:  900px; min-width: 300px;}
-    .green_box { background:   lightblue; padding:   1rem; margin-top: 1rem}
+    .green_box {  margin-top: 1rem}
             </style>
 
           </metal:block>

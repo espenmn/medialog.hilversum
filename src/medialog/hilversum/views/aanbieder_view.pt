@@ -24,7 +24,7 @@
                 <div class="grid">
                     <div tal:repeat="course view/courses">
                         <div class="doubleborder">
-                            <div class="green_box">
+                            <div class="green_box custom-background1">
                                 <div class="padding-1 flex">
                                     <div class="discipline" tal:repeat="disiplin course/discipline">
                                         <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")'>
@@ -52,7 +52,7 @@
                 <style>
                   
                     .doubleborder{ background: white; border: 2px solid steelblue; padding: 2px; height: 100%}
-                    .green_box { background:  lightblue; height: 100%}
+                    .green_box { height: 100%}
                     .padding-1 {padding: 1rem}
                     a {text-decoration: none}  
                     .newsImageContainer img { max-width: 100px;}   
