@@ -15,7 +15,7 @@
           <div class="course_text">
             <h2>${context/Title}</h2>
             <p class="documentDescription">${context/the_type}</p>
-            <h4>Disiplines</h4>
+            <!-- <h4>Disiplines</h4> -->
             <p>
 
               <span tal:repeat="disiplin context/discipline">
