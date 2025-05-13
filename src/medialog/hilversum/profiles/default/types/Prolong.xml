@@ -52,7 +52,7 @@
   <property name="add_view_expr">string:${folder_url}/++add++Prolong</property>
   <property name="default_view">prolong-view</property>
   <property name="default_view_fallback">False</property>
-  <property name="immediate_view">view</property>
+  <property name="immediate_view">prolong-view</property>
   <property name="view_methods">
     <element value="prolong-view"/>
   </property>

@@ -53,7 +53,7 @@
   <property name="add_view_expr">string:${folder_url}/++add++Aanbieder</property>
   <property name="default_view">aanbieder-view</property>
   <property name="default_view_fallback">False</property>
-  <property name="immediate_view">view</property>
+  <property name="immediate_view">aanbieder-view</property>
   <property name="view_methods">
     <element value="aanbieder-view"/>
   </property>

@@ -24,22 +24,22 @@
                             <th>Extra info bij inschrijven</th>
                             <th>Inschrijfbaar</th>
                         </tr>
-                        <tr tal:repeat="course view/courses">
-                            <td><a href="${course/getURL}">${course/naam}</a></td>
-                            <td>${course/the_type}</td>
+                        <tr tal:repeat="course view/courses|None">
+                            <td><a href="${course/getURL}">${course/naam|None}</a></td>
+                            <td>${course/the_type|None}</td>
 
-                            <td>${course/aantal_lessen}</td>
-                            <td>${course/uitvoering_op_school}</td>
-                            <td>${course/duur}</td>
-                            <td>${course/startdatum}</td>
-                            <td>${course/einddatum}</td>
-                            <td>${course/prijs_per}</td>
+                            <td>${course/aantal_lessen|None}</td>
+                            <td>${course/uitvoering_op_schoo|None}</td>
+                            <td>${course/duur|None}</td>
+                            <td>${course/startdatum|None}</td>
+                            <td>${course/einddatum|None}</td>
+                            <td>${course/prijs_per|None}</td>
                             <td>
-                                <span tal:repeat="value course/tarief_leerling_groep">${value} </span>
+                                <span tal:repeat="value course/tarief_leerling_groep|None">${value} </span>
                             </td>
-                            <td>${course/max_aantal_leerlingen}</td>
-                            <td>${course/extra_info_bij_inschrijven}</td>
-                            <td>${course/inschrijfbaar}</td>
+                            <td>${course/max_aantal_leerlingen|None}</td>
+                            <td>${course/extra_info_bij_inschrijven|None}</td>
+                            <td>${course/inschrijfbaar|None}</td>
                         </tr>
                     </table>
                 </metal:block>
