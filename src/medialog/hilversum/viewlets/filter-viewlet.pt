@@ -1,4 +1,7 @@
-<div class="container filtercontainer">
+<div class="container filtercontainer" tal:define="site_url view/site_url">
+
+ 
+
   <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
@@ -6,7 +9,7 @@
     <div class="filter flex">
       <div class="disciplin" tal:repeat="disiplin view/get_discipline">
         <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")'>
-          <a href="a-collection/?collectionfilter=1&discipline=${disiplin}">
+          <a href="${site_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin}">
             <img src="++plone++medialog.hilversum/${image}.png" alt="${disiplin} icon" />
           </a>
         </tal:define>
@@ -30,7 +33,7 @@
                 var item = $(this).val();
 
                 if (key && item) {
-                  var baseUrl = 'http://ubuntu.local:8605/5mai/a-collection/';
+                  var baseUrl = '${site_url}/prolongs-collection/';
                   var query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item) + '&discipline_op=or';
                   window.location.href = baseUrl + '?' + query;
                 }

@@ -3,6 +3,7 @@
 from plone.app.layout.viewlets import ViewletBase
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
+from plone import api
 
 
 
@@ -11,7 +12,11 @@ class FilterViewlet(ViewletBase):
     def update(self):
         self.keyword = self.get_keyword()
         self.keywords = self.get_keywords()
-
+        self.site_url = self.site_url()
+        
+    def site_url(self):
+        return api.portal.get().absolute_url()
+        
     # get keyword by calling with  index name
     def get_discipline(self):
         context = self.context

@@ -4,7 +4,7 @@
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
     <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core">
+      <metal:block define-macro="content-core" tal:define="portal_url view/portal_url">
   
           <!-- <label for="dropdown">Choose an option:</label> -->
           <!-- <select id="dropdown" name="dropdown"> -->
@@ -33,7 +33,7 @@
                 var item = $(this).val();
 
                 if (key && item) {
-                  var baseUrl = 'http://ubuntu.local:8605/5mai/a-collection/';
+                  var baseUrl = '${portal_url}/aambieders-collection/';
                   var query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item) + '&discipline_op=or';
                   window.location.href = baseUrl + '?' + query;
                 }

@@ -5,8 +5,11 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
+                 <a class="btn button btn-standalone btn-success" 
+                    href="${context/getURL|context/absolute_url}/aanbieder-view">Aanbieder view</a>
+                <hr/>
                 <p class="documentDescription>">Provider should be content, so it is possible to sort by google etc</p>
-
+                
                 <table class="listin plain">
                     <tr>
                         <th>Naam</th>

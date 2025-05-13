@@ -13,6 +13,9 @@
                                         height thumbnail/height" />
         
                 </tal:define> -->
+
+                <a class="btn button btn-standalone btn-success" href="${context/getURL|context/absolute_url}/provider-view">Provider view</a>
+                <hr/>
                 <div tal:condition="context/text" tal:content="structure context/text/output|None">
                 </div>
 

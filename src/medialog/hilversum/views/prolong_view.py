@@ -4,6 +4,7 @@
 from Products.Five.browser import BrowserView
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
+from plone import api
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -20,6 +21,9 @@ class ProlongView(BrowserView):
     def __call__(self):
         # Implement your own actions:
         return self.index()
+    
+    def portal_url(self):
+        return api.portal.get().absolute_url()
     
     # def aanbieders(self):
     #     context = self.context
