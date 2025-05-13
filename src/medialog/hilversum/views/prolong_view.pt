@@ -11,7 +11,7 @@
           <div class="course_text">
             <h1 class="documentFirstHeading">${context/Title}</h1> 
             
-            <p class="documentDescription lead">${context/Descriptopm}</p> 
+            <p class="documentDescription lead">${context/Description}</p> 
             <!-- <h4>Disiplines</h4> -->
             <p>
 
