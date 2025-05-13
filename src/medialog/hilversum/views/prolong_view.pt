@@ -15,7 +15,7 @@
             <p>
 
               <span tal:repeat="disiplin context/discipline">
-                <img tal:define='image python: disiplin.lower().replace(" ", "_")' src="++plone++medialog.hilversum/${image}.png" alt="${disiplin}-image" width="30"> ${disiplin} 
+                <img tal:define='image python: disiplin.lower().replace(" ", "_")' src="++plone++medialog.hilversum/${image}.png" alt="${disiplin}-image"> ${disiplin} 
                 </span>
               </p>
 
