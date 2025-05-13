@@ -9,7 +9,7 @@
                 <hr/>
                 <p class="documentDescription>">Provider should be content, so it is possible to sort by google etc</p>
 
-                <table class="listin xplain sortable pat-tablesorter listing  ">">
+                <table class="listin plain sortable pat-tablesorter listing  ">
                     <tr>
                         <th>Naam</th>
                         <th>Type</th>
@@ -51,7 +51,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/filtertable@0.1.2/filtertable.min.js"></script>
     <script>
             $(function(){
-            $('table.sortable').tablesorter({ sortList: [[2,0],] });
+            $('table.sortable').tablesorter({ sortList: [[1,0],] });
             });
     </script>
 
