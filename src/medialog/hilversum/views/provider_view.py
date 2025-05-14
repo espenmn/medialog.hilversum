@@ -26,7 +26,8 @@ class ProviderView(BrowserView):
     def courses(self):
         # return self.context.portal_catalog(portal_type=['Prolong']d)
         return self.context.portal_catalog(portal_type=['Prolong'], aanbieder=self.context.Title())
-        
+   
+
         
     # def aanbieders(self):
         # context = self.context

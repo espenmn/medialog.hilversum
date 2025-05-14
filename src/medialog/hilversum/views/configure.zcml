@@ -19,6 +19,7 @@
     name="prolong-view"
     for="*"
     template="prolong_view.pt"
+    class=".prolong_view.ProlongView"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />

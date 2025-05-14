@@ -5,6 +5,9 @@ from Products.Five.browser import BrowserView
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 from plone import api
+from zope.component import getUtility
+from plone.resource.interfaces import IResourceDirectory
+
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -47,6 +50,17 @@ class ProlongView(BrowserView):
             return  sorted(index.uniqueValues())
         else:
             return None
+        
+        
+    def courses(self):
+        # return self.context.portal_catalog(portal_type=['Prolong']d)
+        return self.context.portal_catalog(portal_type=['Prolong'], aanbieder=self.context.aanbieder)
+   
+    # get the icons so we can check if they exist for the current course
+    def get_discipline_images(self):
+        resource_dir = getUtility(IResourceDirectory, name='++plone++medialog.hilversum')
+        return  resource_dir.listDirectory() 
+        
         
     def get_keywords(self): 
         return {
