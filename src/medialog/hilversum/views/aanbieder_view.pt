@@ -19,62 +19,82 @@
                 <div tal:condition="context/text" tal:content="structure context/text/output|None">
                 </div>
 
-
                 <h2>Anbod van ${context/Title}:</h2>
-                <div class="grid">
+                <div class="grid" tal:define="icons view/get_discipline_images">
                     <div tal:repeat="course view/courses">
-                        <div class="doubleborder">
-                            <div class="green_box custom-background1">
-                                <div class="padding-1 flex">
-                                    <div class="discipline" tal:repeat="disiplin course/discipline">
-                                        <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")'>
-                                            <img src="++plone++medialog.hilversum/${image}.png" alt="${disiplin} icon" />
-                                        </tal:define>                                       
-                                    </div>  
+                        <div class="green_box">
+                            <div class="padding-1 flex flex_start custom-background1 padding-5">
+                            
+                                <div class="discipline" tal:repeat="disiplin course/discipline">
+                                    <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")+".png"'>
+                                        <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" alt="${disiplin} icon" />
+                                        <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" alt="${disiplin} icon" />
+                                    </tal:define>
                                 </div>
-                                <a href="${course/getURL}" tal:define="obj course/getObject">
-                                    <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
-                                        <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                <div class="discipline" tal:repeat="disiplin course/discipline">
+                                    <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")+".png"'>
+                                        <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" alt="${disiplin} icon" />
+                                        <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" alt="${disiplin} icon" />
+                                    </tal:define>
+                                </div>
+                                &nbsp;
+                            </div>
+                            <a href="${course/getURL}" tal:define="obj course/getObject">
+                                <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                                    <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
+                                    <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
+                                </div>
+                            </a>
+                            <div class="padding-10 padding-5-0 custom-backgrund1">
 
-                                        <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
-                                    </div>
-                                    <div class="padding-1">
-                                        <h4>${course/naam}</h4>
-                                        <p>${course/the_type}</p>
-                                    </div>
-                                </a>
-                            </div>
+                                <h4>
+                                    <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
+                                </h4>
+
+                                <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
+                                <p class="padding-0 margin-0 dark-grey">
+                                    <b>Geschikt voor: </b> ${course/schooljaar|None}
+                                </p>
+                                <p class="padding-0 margin-0 dark-grey">
+                                    <b>Startdatum: </b> ${course/startdatum}
+                                </p>
+                                <p class="padding-0 margin-0 dark-grey">
+                                    <b>Prijs per:</b> ${course/prijs_per}
+                                </p>
+
+                            </div> 
+                            <div class="custom-background2 white padding-10 margin-top-auto center text-center">Bekijk het aanbod</div>
+
                         </div>
                     </div>
                 </div>
                 <style>
-                  
-                    .doubleborder{ background: white; border: 2px solid steelblue; padding: 2px; height: 100%}
-                    .green_box { height: 100%}
-                    .padding-1 {padding: 1rem}
+                    .padding-5 {padding: 5px}
+                    .green_box { height: 100%; width: 100%; display: flex; flex-direction: column; background: #FCFBFB;}
+                    .green_box h4 a { text-decoration: none }
+                    .margin-top-auto {margin-top: auto}
                     a {text-decoration: none}  
                     .newsImageContainer img { max-width: 100px;}   
                     .imagediv {height: 200px; }           
                     .imagediv img {width: 100%; height: 100%; object-fit: cover;}   
-
-                    .discipline { background: white; height: 34px; width: 28px; padding: 2px 2px 1px; border: 1px solid steelblue; margin-right: 4px;}
-
+                    .padding-0 {padding: 0}
+                    .discipline { background: white; height: 32px; width: 28px; padding: 1px 2px 0;  margin-left: 0; margin-right: 4px; }
                     .flex {display: flex; flex-wrap: wrap}
+                    div.flex_start {justify-content: flex-start;  }                    
  
                     .grid {
                         display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                        gap: 10pt;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 337px));
+                        gap: 24px; 
                     }
-
-                    .grid > div {
-                    max-width: 900px;
-                    }
+             
  
                 </style>
             </metal:block>
         </metal:content-core>
     </body>
 </html>
+
+

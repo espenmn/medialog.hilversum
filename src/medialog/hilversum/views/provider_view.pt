@@ -5,12 +5,12 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
-                <a class="btn button btn-standalone btn-success" href="${context/getURL|context/absolute_url}/aanbieder-view">Aanbieder view</a>
+                <a class="btn button xbtn-standalone xbtn-success plone-background" href="${context/getURL|context/absolute_url}/aanbieder-view">Aanbieder view</a>
                 <hr/>
                 <p class="documentDescription>">Provider should be content, so it is possible to sort by google etc</p>
 
-                <table class="table-success listing table-striped sortable pat-tablesorter">
-                    <thead>
+                <table class="listing table-striped sortable pat-tablesorter">
+                    <thead class="custom-background1">
                         <tr>
                             <th>Naam</th>
                             <th>Type</th>
@@ -20,6 +20,7 @@
                             <th>Start</th>
                             <th>End</th>
                             <th>Prijs Per</th>
+                            <th>Tarief Leerling Groep</th>
                             <th>Max aantal leerlinge</th>
                             <th>Extra info bij inschrijven</th>
                             <th>Inschrijfbaar</th>
@@ -33,7 +34,7 @@
                             <td>${course/the_type|None}</td>
 
                             <td>${course/aantal_lessen|None}</td>
-                            <td>${course/uitvoering_op_schoo|None}</td>
+                            <td>${course/uitvoering_op_school|None}</td>
                             <td>${course/duur|None}</td>
                             <td>${course/startdatum|None}</td>
                             <td>${course/einddatum|None}</td>
@@ -47,16 +48,24 @@
                         </tr>
                     </tbody>
                 </table>
-            </metal:block>
-        </metal:content-core>
 
+                <style>
+                    table.sortable thead th {
+                        background-color: #DDD; /* grey background */
+                    }
 
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesorter@2.32.0/dist/js/jquery.tablesorter.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/filtertable@0.1.2/filtertable.min.js"></script>
-        <script>
-            $(function(){
-            $('table.sortable').tablesorter({ sortList: [[1,0],] });
-            });
-        </script>
-    </body>
-</html>
+                </style>
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesorter@2.32.0/dist/js/jquery.tablesorter.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/filtertable@0.1.2/filtertable.min.js"></script>
+                    <script>
+                jQuery(function(){
+                    jQuery('table.sortable').tablesorter({ sortList: [[0,0],] });
+                });
+                    </script>
+                </metal:block>
+            </metal:content-core>
+
+        </body>
+    </html>
