@@ -221,6 +221,9 @@
             </tal:repeat>
           </div>
         </div>
+        <style>
+          .course_info {max-width: 450px;}
+        </style>
 
       </metal:block>
     </metal:content-core>
