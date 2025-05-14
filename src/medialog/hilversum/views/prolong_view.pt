@@ -62,13 +62,13 @@
             </div>
 
             <tal:define tal:define="scales context/@@images;
-                 thumbnail python: scales.scale('image', width=460);">
+                 thumbnail python: scales.scale('image', width=500);">
 
               <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
                                 height thumbnail/height" />
 
-              <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="460" alt="course_image"/>
+              <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="500" alt="course_image"/>
             </tal:define>
 
             <div class="green_box custom-background1 padding-20 white">
