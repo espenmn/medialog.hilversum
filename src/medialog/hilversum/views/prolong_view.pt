@@ -57,12 +57,12 @@
 
           <div class="course_info">
             <div class="lead-image-wrapper" tal:define="scale context/@@images;
-                          img python:scale.scale('full')" tal:condition="img">
+                          img python:scale.scale('full', width=300, height=300)" tal:condition="img">
               <img tal:replace="structure python: img.tag()" />
             </div>
 
             <tal:define tal:define="scales context/@@images;
-                 thumbnail python: scales.scale('image', width=400);">
+                 thumbnail python: scales.scale('image', width=460);">
 
               <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
