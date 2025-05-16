@@ -7,7 +7,7 @@
     <div class="filter flex">
       <div class="disciplin" tal:repeat="disiplin view/get_discipline">    
           <a  tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" 
-              href="${site_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin_name}">
+              href="${site_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin_name}">
             <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" alt="${disiplin} icon" />
           </a>        
       </div>
@@ -24,42 +24,6 @@
         </tal:define>
       </tal:repeat>
     </div>
-    <script>
-            $(document).ready(function () { $('select[id^="dropdown-"]').on('change', function () {
-                var key = this.id.replace('dropdown-', '');
-                var item = $(this).val();
-
-                if (key && item) {
-                  var baseUrl = '${site_url}/prolongs-collection/';
-                  var query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item) + '&discipline_op=or';
-                  window.location.href = baseUrl + '?' + query;
-                }
-              });
-            });
-    </script>
-    <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              const toggle = document.getElementById('filter-toggle');
-              const filterSection = document.getElementById('filter-section');
-              const icon = document.getElementById('filter-icon');
-
-              toggle.addEventListener('click', function () {
-                filterSection.classList.toggle('hidden');
-                icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
-              });
-            });
-    </script>
-    <style>
-            select {width: 12%; max-width: 180px; min-width: 150px; margin: 3px}
-            .flex {display: flex; flex-wrap:wrap; }
-            .flex {display: flex; flex-wrap:wrap; 
-            #filter-section {background: lightblue; padding: 10px;border-radius: 7px;}
-             #filter-section background: lightblue; padding: 10px;border-radius: 7px;}
-            .hidden {display: none !important}
-            #filter-toggle {  margin-bottom: 10px }
-            .filtercontainer {margin-bottom: 2rem;}
-            .disciplin { width: 40px; height: 40;}
-    </style>
   </div>
 
 </div>

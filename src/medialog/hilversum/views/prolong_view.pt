@@ -16,7 +16,7 @@
             <p class="documentDescription lead">${context/Description}</p>
             <p>
               <span tal:repeat="disiplin context/discipline">
-                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
                   <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/></a>
               </span>
             </p>
@@ -161,29 +161,6 @@
         <hr/>
 
 
-        <style>
-                    .padding-5 {padding: 5px}
-                    .green_box { display: flex; flex-direction: column; background: #FCFBFB;}
-                    .green_box a { text-decoration: none; font-weight: bold }
-                    .margin-top-auto {margin-top: auto}
-                    a {text-decoration: none}  
-                    .newsImageContainer img { max-width: 100px;}   
-                    .imagediv {height: 200px; }           
-                    .imagediv img {width: 100%; height: 100%; object-fit: cover;}   
-                    .padding-0 {padding: 0}
-                    .discipline { background: white; height: 32px; width: 28px; padding: 1px 2px 0;  margin-left: 0; margin-right: 4px; }
-                    div.flex_start {justify-content: flex-start; flex-direction: row !important }    
-                    .gap-1 { gap: 1rem }                
- 
-                    .grid {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(250px, 332px));
-                        gap: 24px; 
-                    }
-             
- 
-        </style>
-
         <div class="xcontainer">
           <h2>Andere Anbod van ${python: "".join(context.aanbieder)}:</h2>
 
@@ -232,12 +209,7 @@
             </tal:repeat>
           </div>
         </div>
-        <style>
-          .course_info {max-width: 480px; min-width: 330px}
-          .small { font-size: 0.8rem;}
-          .no-underline {text-decoration: none !important}
-        </style>
-
+        
       </metal:block>
     </metal:content-core>
   </body>

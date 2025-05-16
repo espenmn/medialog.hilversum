@@ -59,6 +59,18 @@ def post_install(context):
                         {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['prolong', 'Prolong']},
                 ]
         )
+        
+    if not portal.get('prolong-collection', False):
+        collection =  api.content.create(
+                type='Collection',
+                container=portal,
+                id='prolong-collection',
+                title='Prolong Overview',
+                layout="prolong-folder-view",
+                query = [
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['prolong', 'Prolong']},
+                ]
+        )
 
     if not portal.get('prolongs-collections', False):
         collection =  api.content.create(

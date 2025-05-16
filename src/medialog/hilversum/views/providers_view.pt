@@ -23,13 +23,7 @@
 
           </tal:loop>
         </div>
-        <style>
-        .gap-1 { gap:1rem }  
-        .greybox {background: whitesmoke; margin: 1rem; padding: 1rem; text-align: center; min-width: 400px;  width: 22% }
-      .imagediv.logo { max-width: 150px; max-height: 80px; margin: 1rem; text-align: center; margin: auto}
-      .imagediv.logo img { width: auto; max-width: 130px; max-height: 50px; margin: 1rem 1rem 2rem;}
-    .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap}  
-        </style>
+ 
       </metal:block>
     </metal:content-core>
   </body>

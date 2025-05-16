@@ -7,6 +7,15 @@
  <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
+    name="prolong-listing"
+    for="plone.app.contenttypes.interfaces.ICollection"
+    class=".prolong_listing.ProlongListing"
+    template="prolong_listing.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
+  <browser:page
     name="providers-view"
     for="plone.app.contenttypes.interfaces.ICollection"
     class=".providers_view.ProvidersView"

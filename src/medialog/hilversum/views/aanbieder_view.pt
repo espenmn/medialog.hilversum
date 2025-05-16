@@ -17,7 +17,7 @@
 
                     <p>
                         <span tal:repeat="disiplin context/Subject">
-                            <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                            <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
                                 <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
                             </a>
                         </span>
@@ -37,7 +37,7 @@
                                 <div class="padding-1 flex flex_start custom-background1 padding-5">
 
                                     <div class="discipline" tal:repeat="disiplin course/discipline">
-                                        <a href="${portal_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin}">
+                                        <a href="${portal_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin}">
                                             <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
                                                 <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" />
                                                 <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" title="${disiplin}" alt="${disiplin} icon" />
@@ -78,29 +78,6 @@
                         </div>
                     </div>
 
-
-                    <style>
-                    .padding-5 {padding: 5px}
-                    .green_box { height: 100%; width: 100%; display: flex; flex-direction: column; background: #FCFBFB;}
-                    .green_box a { text-decoration: none; font-weight: bold }
-                    .margin-top-auto {margin-top: auto}
-                    a {text-decoration: none}  
-                    .newsImageContainer img { max-width: 100px;}   
-                    .imagediv {height: 200px; }           
-                    .imagediv img {width: 100%; height: 100%; object-fit: cover;}   
-                    .padding-0 {padding: 0}
-                    .discipline { background: white; height: 32px; width: 28px; padding: 1px 2px 0;  margin-left: 0; margin-right: 4px; }
-                    div.flex_start {justify-content: flex-start; flex-direction: row !important }                    
-
-                    
-                    .grid {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(250px, 337px));
-                        gap: 24px; 
-                    }
-             
- 
-                    </style>
                 </tal:define>
             </metal:block>
         </metal:content-core>
