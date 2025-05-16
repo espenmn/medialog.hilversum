@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // const key = select.id;
             var key = this.id.replace('dropdown-', '');
 
+            select.classList.remove('enabled');
+
             if (key && item) {
                 select.classList.add('enabled');
                 const siteUrl = document.body.dataset.portalUrl;
