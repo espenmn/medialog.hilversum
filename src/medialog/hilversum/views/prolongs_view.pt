@@ -21,7 +21,7 @@
             <tal:define tal:define="key keyword; title python: view.get_keywords()[keyword]">
               <!-- <label for="dropdown-${key}">${title}</label> -->
               <select id="dropdown-${key}" name="dropdown-${key}">
-                <option value="">${title}</option>
+                <option value="" class="choose-one">${title}</option>
                 <option tal:repeat="item python:view.get_keyword(key)" value="${item}">${item}</option>
               </select>
             </tal:define>

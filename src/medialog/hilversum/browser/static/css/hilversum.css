@@ -2,12 +2,13 @@
 .course_info { max-width: 480px; min-width: 330px}
 .disciplin { width: 40px; height: 40;}
 .discipline { background: white; height: 32px; width: 28px; padding: 1px 2px 0; margin-left: 0; margin-right: 4px;}
+.filter select.enabled { background: green; color:white;}
 .filtercontainer {margin-bottom: 2rem;}
 .flex {display:  flex; justify-content:  space-between; flex-wrap: wrap}  
 .gap-1 { gap: 1rem}  
 .green_box { height: 100%; width: 100%; display: flex; flex-direction: column; background: #FCFBFB;}
 .green_box:hover { box-shadow: 0 0 13px #AAA}
-.green_box:hover a { text-decoration: underline; background: #FFFFEE}
+.green_box:hover a { text-decoration: underline;}
 .green_box a { text-decoration: none; font-weight: bold}
 .greybox {background: whitesmoke; margin: 1rem; padding: 1rem; text-align: center; min-width: 400px;  width: 22% }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 332px)); gap: 24px;}
@@ -19,10 +20,11 @@
 .margin-top-auto { margin-top: auto}
 .newsImageContainer img { max-width: 100px;}
 .no-underline { text-decoration: none !important}
+option.choose_one { color: #555}
 .padding-0 { padding: 0}
 .padding-5 { padding: 5px}
 .small { font-size: 0.8rem;}
-#filter-section {background: lightblue; padding: 10px;border-radius: 7px;}
+div.dropdowns {background: whitesmoke; padding: 10px;border-radius: 7px; margin-bottom: 1rem;}
 #filter-toggle {  margin-bottom: 10px }
 #filter-toggle select, .filter.flex select {width: 12%; max-width: 180px; min-width: 150px; margin: 3px}
 a { text-decoration: none}

@@ -1,30 +1,30 @@
 <div class="container filtercontainer padding-20-0" tal:define="site_url view/site_url">
+
+ <!-- ${view/selected_filters} -->
  
   <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
   <div class="contaiener  hidden" id="filter-section">
-    <div class="filter flex">
-      <div class="disciplin" tal:repeat="disiplin view/get_discipline">    
-          <a  tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" 
-              href="${site_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin_name}">
-            <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" alt="${disiplin} icon" />
-          </a>        
-      </div>
-    </div>
 
-    <div class="filter flex">
-
+  <div class="filter flex">
       <tal:repeat tal:repeat="keyword  view/keyword">
         <tal:define tal:define="key keyword/name; title keyword/title">
           <select id="dropdown-${key}" name="dropdown-${key}">
-            <option value="">${title}</option>
+            <option value="" class="choose_one">${title}</option>
             <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
           </select>
         </tal:define>
       </tal:repeat>
     </div>
+    <div class="filter flex">
+      <div class="disciplin" tal:repeat="disiplin view/get_discipline">    
+          <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" 
+              href="${site_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
+            <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" alt="${disiplin} icon" />
+          </a>        
+      </div>
+    </div>    
   </div>
-
 </div>
       

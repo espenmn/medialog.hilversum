@@ -5,6 +5,7 @@ from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 from plone import api
 
+from urllib.parse import unquote
 
 
 class FilterViewlet(ViewletBase):
@@ -13,6 +14,17 @@ class FilterViewlet(ViewletBase):
         self.keyword = self.get_keyword()
         self.keywords = self.get_keywords()
         self.site_url = self.site_url()
+        
+    # def selected_filters(self):
+    #     request = self.request
+    #     # Or loop through all query parameters
+    #     all_params = {
+    #         k: unquote(v) if isinstance(v, str) else v
+    #         for k, v in request.form.items()
+    #         if v
+    #     }
+
+    #     return all_params  # or selected, depending on what you want
         
     def site_url(self):
         return api.portal.get().absolute_url()
