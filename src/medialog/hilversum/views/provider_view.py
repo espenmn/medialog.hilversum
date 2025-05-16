@@ -4,7 +4,7 @@
 from Products.Five.browser import BrowserView
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.utils import getToolByName
+from plone import api
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -28,6 +28,8 @@ class ProviderView(BrowserView):
         return self.context.portal_catalog(portal_type=['Prolong'], aanbieder=self.context.Title())
    
 
+    def portal_url(self):
+        return api.portal.get().absolute_url()
         
     # def aanbieders(self):
         # context = self.context

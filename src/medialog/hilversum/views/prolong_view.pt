@@ -7,17 +7,21 @@
       <metal:block define-macro="content-core">
         <p>
           <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'</p>
-        <div class="flex">
+        <div class="flex gap-1" tal:define="portal_url view/portal_url">
           <div class="course_text">
-            <h1 class="documentFirstHeading">${context/Title}</h1>
+            <h1 class="documentFirstHeading">
+              <a href="${context/absolute_url}" class="no-underline"><span class="custom-color2 bold">${context/Title}</span></a>
+              <span class="small"> – ${python: "".join(context.aanbieder)}</span>
+            </h1>
             <p class="documentDescription lead">${context/Description}</p>
             <p>
-
               <span tal:repeat="disiplin context/discipline">
-                <img tal:define='image python: disiplin.lower().replace(" ", "_")' src="++plone++medialog.hilversum/${image}.png" alt="${disiplin}-image" /> ${disiplin} 
+                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                  <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/></a>
               </span>
             </p>
 
+            <div class="margin-10-0">${context/omschrijving}</div>
             <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
             <!-- <hr/> -->
             <div tal:condition="context/text" tal:content="structure context/text/output|None">
@@ -43,15 +47,21 @@
             <p>${context/schooljaar}</p>
             <p>${context/duur}</p>
             <p>${context/max_aantal_leerlingen}</p>
-            <p><span tal:repeat="item context/onderwijstype">${item}</span></p>
-            <p><span tal:repeat="item context/vo_typen">${item}</span></p>
-            <p><span tal:repeat="item context/leerjaren">${item}</span></p>
+            <p>
+              <span tal:repeat="item context/onderwijstype">${item}</span>
+            </p>
+            <p>
+              <span tal:repeat="item context/vo_typen">${item}</span>
+            </p>
+            <p>
+              <span tal:repeat="item context/leerjaren">${item}</span>
+            </p>
             <p>
               <span tal:repeat="item context/tarief_leerling_groep">${item}</span>
             </p>
             <p>${context/tarief_begeleider}</p>
             <p>${context/max_aantal_leerlingen_prijsberekening}</p>
-            <p>${context/omschrijving}</p>
+
 
           </div>
 
@@ -162,7 +172,8 @@
                     .imagediv img {width: 100%; height: 100%; object-fit: cover;}   
                     .padding-0 {padding: 0}
                     .discipline { background: white; height: 32px; width: 28px; padding: 1px 2px 0;  margin-left: 0; margin-right: 4px; }
-                    div.flex_start {justify-content: flex-start; flex-direction: row !important }                    
+                    div.flex_start {justify-content: flex-start; flex-direction: row !important }    
+                    .gap-1 { gap: 1rem }                
  
                     .grid {
                         display: grid;
@@ -175,7 +186,7 @@
 
         <div class="xcontainer">
           <h2>Andere Anbod van ${python: "".join(context.aanbieder)}:</h2>
-           
+
           <div class="grid" tal:define="icons view/get_discipline_images">
             <tal:repeat tal:repeat="course view/courses">
               <div class="green_box">
@@ -222,7 +233,9 @@
           </div>
         </div>
         <style>
-          .course_info {max-width: 450px;}
+          .course_info {max-width: 480px; min-width: 330px}
+          .small { font-size: 0.8rem;}
+          .no-underline {text-decoration: none !important}
         </style>
 
       </metal:block>

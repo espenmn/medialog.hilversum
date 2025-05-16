@@ -7,13 +7,14 @@ from Products.CMFCore.utils import getToolByName
 from plone import api
 from zope.component import getUtility
 from plone.resource.interfaces import IResourceDirectory
-
+from Products.Five.browser import BrowserView
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class IProlongView(Interface):
     """ Marker Interface for IProlongView"""
+
 
 
 class ProlongView(BrowserView):
@@ -64,7 +65,8 @@ class ProlongView(BrowserView):
         
     def get_keywords(self): 
         return {
-                "discipline": "Discipline",  
+                # "discipline": "Discipline",  
+                "discipline": "Leerlijn / Discipline",
                 "the_type": "Type",
                 "programma": "Programma",               
                 "ruimte_op_school": "Ruimte op school",

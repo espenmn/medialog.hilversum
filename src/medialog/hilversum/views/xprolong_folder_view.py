@@ -3,7 +3,6 @@
 # from medialog.hilversum import _
 from Products.Five.browser import BrowserView
 from zope.interface import Interface
-# from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from plone.resource.interfaces import IResourceDirectory
 from plone import api
@@ -12,20 +11,16 @@ from plone import api
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class IAanbiederView(Interface):
-    """ Marker Interface for IAanbiederView"""
+
+class IProlongFolderView(Interface):
+    """ Marker Interface for IProlongFolderView"""
 
 
-class AanbiederView(BrowserView):
+class ProlongFolderView(BrowserView):
     
     def __call__(self):
         # Implement your own actions:
-        return self.index()
-    
-    
-    def courses(self):
-        # return self.context.portal_catalog(portal_type=['Prolong']d)
-        return self.context.portal_catalog(portal_type=['Prolong'], aanbieder=self.context.Title())
+        return super(ProlongFolderView, self).__call__()
     
     # get the icons so we can check if they exist for the current course
     def get_discipline_images(self):

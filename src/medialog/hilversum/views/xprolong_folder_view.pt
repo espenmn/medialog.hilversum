@@ -6,15 +6,6 @@
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
                 <tal:define tal:define="icons view/get_discipline_images">
-                    <!-- <tal:define tal:define="scales context/@@images;
-                        thumbnail python: scales.scale('image', width=400);">
-                    
-                        <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
-                                        width thumbnail/width;
-                                        height thumbnail/height" />
-        
-                </tal:define> -->
-
                     <p>
                         <span tal:repeat="disiplin context/Subject">
                             <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/prolongs-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
@@ -22,17 +13,11 @@
                             </a>
                         </span>
                     </p>
+                     
+                    <div tal:condition="context/text" tal:content="structure context/text/output|None"></div>
 
-                    <a class="btn button btn-standalone" href="${context/getURL|context/absolute_url}/provider-view">
-                        <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
- Provider view</a>
-                    <hr/>
-                    <div tal:condition="context/text" tal:content="structure context/text/output|None">
-                    </div>
-
-                    <h2>Anbod van ${context/Title}:</h2>
                     <div class="grid">
-                        <div tal:repeat="course view/courses">
+                        <div tal:repeat="course view/results">
                             <div class="green_box">
                                 <div class="padding-1 flex flex_start custom-background1 padding-5">
 
@@ -76,6 +61,7 @@
 
                             </div>
                         </div>
+               
                     </div>
 
 

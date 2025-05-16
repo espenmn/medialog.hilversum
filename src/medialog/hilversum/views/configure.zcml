@@ -24,6 +24,15 @@
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
 
+  <browser:page
+    name="prolong-folder-view"
+    for="plone.app.contenttypes.interfaces.ICollection"
+    template="prolong_folder_view.pt"
+    class=".prolong_folder_view.ProlongFolderView"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
     <browser:page
     name="prolongs-view"
     for="*"

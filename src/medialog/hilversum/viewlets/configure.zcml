@@ -11,17 +11,38 @@
   <browser:viewlet
      name="filter-viewlet"
      for="medialog.hilversum.content.aanbieder.IAanbieder"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
      template="filter-viewlet.pt"
      permission="zope2.View"
      />
 
-  <!-- <browser:viewlet
+
+  <browser:viewlet
+     name="filter-viewlet"
+     for="medialog.hilversum.views.aanbieder_view.IAanbiederView"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".filter_viewlet.FilterViewlet"
+     template="filter-viewlet.pt"
+     permission="zope2.View"
+     />
+
+  <browser:viewlet
+     name="filter-viewlet"
+     for="medialog.hilversum.views.prolong_view.IProlongView"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".filter_viewlet.FilterViewlet"
+     template="filter-viewlet.pt"
+     permission="zope2.View"
+     />
+ 
+ <!-- <browser:viewlet
      name="filter-viewlet"
      for="*"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
      template="filter-viewlet.pt"
@@ -31,12 +52,22 @@
   <browser:viewlet
      name="filter-viewlet"
      for="medialog.hilversum.content.prolong.IProlong"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
      template="filter-viewlet.pt"
      permission="zope2.View"
      />
+
+  <browser:viewlet
+     name="filter-viewlet"
+     for="plone.app.contenttypes.interfaces.ICollection"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".filter_viewlet.FilterViewlet"
+     template="filter-viewlet.pt"
+     permission="zope2.View"
+     />    
 
 
 

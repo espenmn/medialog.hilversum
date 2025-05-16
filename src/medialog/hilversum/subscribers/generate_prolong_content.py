@@ -77,7 +77,7 @@ def handler(obj, event):
             
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
-            the_title = the_dict['Naam']
+            the_title = str(the_dict['Naam'])
             the_id = str(the_dict['ID'])
             
             # Fields to use to add content and their names
@@ -94,7 +94,8 @@ def handler(obj, event):
                 "ruimte_op_school" : the_dict["Ruimte op school"],
                 "clusters" : the_dict["Clusters"],
                 "programma" : the_dict["Programma"],
-                "discipline" : the_dict["Discipline"],
+                # "discipline" : the_dict["Discipline"],
+                "discipline": the_dict["Leerlijn / Discipline"],
                 "thema" : the_dict["Thema"],
                 "lesmateriaal_url" : the_dict["Lesmateriaal URL"],
                 "aanbieder" : the_dict["Aanbieder"],
@@ -113,8 +114,8 @@ def handler(obj, event):
                 "prijs_per" : the_dict["Prijs per"],
                 "tarief_leerling_groep" : the_dict["Tarief leerling/groep"],
                 "tarief_begeleider" : the_dict["Tarief begeleider"],
-                "max_aantal_leerlingen_prijsberekening" : the_dict["Max. aantal leerlingen prijsberekening"],
-                "totaalprijs" : the_dict["Totaalprijs"],
+                # "max_aantal_leerlingen_prijsberekening" : the_dict["Max. aantal leerlingen prijsberekening"],
+                # "totaalprijs" : the_dict["Totaalprijs"],
                 "omschrijving" : the_dict["Omschrijving"],
                 "url_meer_informatie" : the_dict["Url meer informatie"],
                 "startdatum" : the_dict["Startdatum"],
@@ -130,7 +131,8 @@ def handler(obj, event):
             }
             
             #Create content only if it does not exist
-            item_exist = portal.get(the_id, False)
+            item_exist = portal.get(the_id, False)            
+            
             
             if not item_exist:
                 prolong = plone.api.content.create(
@@ -158,6 +160,26 @@ def handler(obj, event):
                         # map bootstrap fields to comparable imported fields (types)
                         python_type = field_type_map.get(field_type, None)
                         
+                        # Convert ints to string if field is string
+                        if python_type == str:
+                            value = str(value)
+                        
+                        # CSV file has wrong data format for some entries
+                        # Excel file also has similar problems
+                        if isinstance(value, datetime.datetime):
+                            value = value.date()
+                            
+                        if value_type == Timestamp:        
+                            # Convert to datetime.date
+                            value = value.date()
+                        
+                        #due to bug 'bad csv files', we need to convert more dates 
+                        #some dates have wrong syntax, need to fix them
+                        if key in ['startdatum',  'einddatum' ] and isinstance(value, str):
+                            # For unknow reason, the CSV users 0025 for year 2025 etc
+                            value = value.replace("-00", "-20")
+                            value = datetime.datetime.strptime(value, '%d-%m-%Y').date()                    
+                        
                         #floats should be ints
                         if isinstance(value, float):
                             value = int(value)
@@ -170,11 +192,7 @@ def handler(obj, event):
                                 value = re.split(r"[,\|]", value)
                                 # can remove this next line later
                                 value_type = list
-                                
-                        # Convert ints to string if field is string
-                        if python_type == str:
-                            value = str(value)
-                                
+                                                                
                         
                         # convert list of strings to list of ints for these
                         if key in ['tarief_leerling_groep']:
@@ -194,15 +212,11 @@ def handler(obj, event):
                             else:
                                 value = str(value)
                                 
-                         
-                        if value_type == Timestamp:        
-                            # Convert to datetime.date
-                            value = value.date()
-                            
+
                         if key == 'discipline':
                             subjekter = value
                             
-                        #Create AAnbieder
+                        #Create AAnbieder(s)
                         if key == 'aanbieder':
                             for item_name in value:
                                 aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
@@ -225,7 +239,8 @@ def handler(obj, event):
                         
                         setattr(prolong, key, value)  
                         
-                # transaction.commit()  # TO DO, check if this is needed      
+                # transaction.commit()  # TO DO, check if this is needed  
+                prolong.setTitle(the_title)  
                 prolong.reindexObject()  # Ensure catalog is updated for this Prolong 
                 
     # obj.reindexObject()

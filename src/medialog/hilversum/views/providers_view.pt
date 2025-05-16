@@ -7,28 +7,24 @@
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core">
 
-        <div class="flex">
+        <div class="flex gap-1">
           <tal:loop tal:repeat="item view/results">
-
             <div class="greybox" tal:define="obj item/getObject">
               <a tal:attributes="href item/getURL">
-    
-                  
                   <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
                     <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
                     <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
                   </div>
-                  <h2>${item/Title}</h2>
-
-                 
+                  <h2>${item/Title}</h2>                 
               </a>
             </div>
 
           </tal:loop>
         </div>
         <style>
+        .gap-1 { gap:1rem }  
         .greybox {background: whitesmoke; margin: 1rem; padding: 1rem; text-align: center; min-width: 400px;  width: 22% }
       .imagediv.logo { max-width: 150px; max-height: 80px; margin: 1rem; text-align: center; margin: auto}
       .imagediv.logo img { width: auto; max-width: 130px; max-height: 50px; margin: 1rem 1rem 2rem;}

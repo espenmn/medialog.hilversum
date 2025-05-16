@@ -62,6 +62,7 @@
             .flex {display: flex; flex-wrap:wrap; background: lightblue; padding: 10px;border-radius: 7px;}
             .hidden {display: none !important}
             #filter-toggle {  margin-bottom: 10px }
+            .gap-1 { gap:1rem }  
           </style>
  
  
