@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggle = document.getElementById('filter-toggle');
     const filterSection = document.getElementById('filter-section');
     const icon = document.getElementById('filter-icon');
-
     const urlParams = new URLSearchParams(window.location.search);
     const collectionFilter = urlParams.get("collectionfilter");
 
@@ -25,15 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
             var key = this.id.replace('dropdown-', '');
 
             select.classList.remove('enabled');
+            const siteUrl = document.body.dataset.portalUrl;
+            const baseUrl = siteUrl + '/prolong-collection';
+            varl url = baseUrl;
 
             if (key && item) {
                 select.classList.add('enabled');
-                const siteUrl = document.body.dataset.portalUrl;
-                const baseUrl = siteUrl + '/prolong-collection';
-                
                 const query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item.replace(/^ /, ''));
-                const url = baseUrl + '?' + query;
-                
+                url = baseUrl + '?' + query;
+            }  
 
                 fetch(url, {
                     headers: {
@@ -57,7 +56,38 @@ document.addEventListener('DOMContentLoaded', function () {
                     .catch(error => {
                         console.error('Error fetching filtered content:', error);
                     });
-            }
+            
         });
     });
 });
+
+// need to allow cookies for this
+
+ 
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".favorite-button").forEach(button => {
+    button.addEventListener("click", function () {
+      const id = this.getAttribute("data-id");
+
+      // Get current cookie (if any)
+      let favorites = getCookie("favorites");
+      let favArray = favorites ? favorites.split(",") : [];
+
+      // Avoid duplicates
+      if (!favArray.includes(id)) {
+        favArray.push(id);
+      }
+
+      // Set updated cookie (expires in 30 days)
+      document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
+      
+      alert("Added to favorites!");
+    });
+  });
+
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+    return match ? match[2] : null;
+  }
+});
+ 
