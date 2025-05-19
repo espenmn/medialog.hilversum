@@ -64,26 +64,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // need to allow cookies for this
-
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".buttonFavorit").forEach(button => {
         button.addEventListener("click", function () {
             const id = this.getAttribute("data-id");
+            const remove = this.getAttribute("data-remove") === "1";
 
             // Get current cookie (if any)
             let favorites = getCookie("favorites");
             let favArray = favorites ? favorites.split(",") : [];
 
-            // Avoid duplicates
-            if (!favArray.includes(id)) {
-                favArray.push(id);
+            if (remove) {
+                // Remove the ID if it exists
+                favArray = favArray.filter(fav => fav !== id);
+                alert("Removed from favorites!");
+            } else {
+                // Add ID if it doesn't exist
+                if (!favArray.includes(id)) {
+                    favArray.push(id);
+                    alert("Added to favorites!");
+                }
             }
 
             // Set updated cookie (expires in 30 days)
             document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
-
-            alert("Added to favorites!");
         });
     });
 
