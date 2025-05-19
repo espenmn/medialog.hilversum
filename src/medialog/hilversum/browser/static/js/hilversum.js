@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
         icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
     }
 
-    toggle.addEventListener('click', function () {
-        filterSection.classList.toggle('hidden');
-        icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
-    });
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            filterSection.classList.toggle('hidden');
+            icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
+        });
+    }
 
     const selects = document.querySelectorAll('select[id^="dropdown-"]');
 
@@ -26,68 +28,68 @@ document.addEventListener('DOMContentLoaded', function () {
             select.classList.remove('enabled');
             const siteUrl = document.body.dataset.portalUrl;
             const baseUrl = siteUrl + '/prolong-collection';
-            varl url = baseUrl;
+            var url = baseUrl;
 
             if (key && item) {
                 select.classList.add('enabled');
                 const query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item.replace(/^ /, ''));
                 url = baseUrl + '?' + query;
-            }  
+            }
 
-                fetch(url, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
+            fetch(url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newContent = doc.querySelector('#content-core');
+                    const contentTarget = document.querySelector('#content-core');
+
+                    if (newContent && contentTarget) {
+                        contentTarget.innerHTML = newContent.innerHTML;
                     }
                 })
-                    .then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
-                        return response.text();
-                    })
-                    .then(html => {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        const newContent = doc.querySelector('#content-core');
-                        const contentTarget = document.querySelector('#content-core');
+                .catch(error => {
+                    console.error('Error fetching filtered content:', error);
+                });
 
-                        if (newContent && contentTarget) {
-                            contentTarget.innerHTML = newContent.innerHTML;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching filtered content:', error);
-                    });
-            
         });
     });
 });
 
 // need to allow cookies for this
 
- 
+
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".favorite-button").forEach(button => {
-    button.addEventListener("click", function () {
-      const id = this.getAttribute("data-id");
+    document.querySelectorAll(".buttonFavorit").forEach(button => {
+        button.addEventListener("click", function () {
+            const id = this.getAttribute("data-id");
 
-      // Get current cookie (if any)
-      let favorites = getCookie("favorites");
-      let favArray = favorites ? favorites.split(",") : [];
+            // Get current cookie (if any)
+            let favorites = getCookie("favorites");
+            let favArray = favorites ? favorites.split(",") : [];
 
-      // Avoid duplicates
-      if (!favArray.includes(id)) {
-        favArray.push(id);
-      }
+            // Avoid duplicates
+            if (!favArray.includes(id)) {
+                favArray.push(id);
+            }
 
-      // Set updated cookie (expires in 30 days)
-      document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
-      
-      alert("Added to favorites!");
+            // Set updated cookie (expires in 30 days)
+            document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
+
+            alert("Added to favorites!");
+        });
     });
-  });
 
-  function getCookie(name) {
-    const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-    return match ? match[2] : null;
-  }
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+        return match ? match[2] : null;
+    }
 });
- 
+

@@ -90,7 +90,7 @@
 
               <div class="aanbodMeta__box__label">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
               <div class="aanbodMeta__box__buttons">
-                <a href="${view/portal_url}/favorieten-view/" class="aanbodMeta__box__buttons__list font-XS">Naar favorieten</a>
+                <a href="${view/portal_url}/favoriten-view" class="aanbodMeta__box__buttons__list font-XS">Naar favorieten</a>
               </div>
 
             </div>

@@ -1,18 +1,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="medialog.hilversum"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core">
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content">
+      <metal:block define-macro="content">
 
-      <h2 i18n:translate="">Sample View</h2>
-      <!--<div tal:replace="view/my_custom_view_method" />-->
-      <!--<div tal:replace="context/my_custom_field" />-->
+        <h2 i18n:translate="">Favorieten</h2>
+        <div class="grid">
+          <div tal:repeat="course view/get_favorites">
+            <div class="green_box">
+               
+              <a href="${course/getURL}" tal:define="obj course/getObject">
+                <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                  <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                    width thumbnail/width;
+                                    height thumbnail/height" />
+                  <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
+                </div>
+              </a>
+              <div class="padding-10 padding-5-0 custom-backgrund1">
+                <h4>
+                  <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
+                </h4>
+                <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
+                <p class="padding-0 margin-0 dark-grey">
+                  <b>Geschikt voor: </b> ${course/schooljaar|None}
+                </p>
+                <p class="padding-0 margin-0 dark-grey">
+                  <b>Startdatum: </b> ${course/startdatum}
+                </p>
+                <p class="padding-0 margin-0 dark-grey">
+                  <b>Prijs per:</b> ${course/prijs_per}
+                </p>
 
-  </metal:block>
-  </metal:content-core>
-</body>
+              </div>
+              <div class="custom-background2 white padding-10 margin-top-auto center text-center">
+                <a class="white" href="${course/getURL}">Bekijk het aanbod</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </metal:block>
+    </metal:content-core>
+  </body>
 </html>
