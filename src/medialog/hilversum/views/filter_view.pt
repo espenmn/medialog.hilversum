@@ -1,18 +1,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="medialog.hilversum"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core">
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" 
+  i18n:domain="medialog.hilversum" 
+  metal:use-macro="context/main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:block define-macro="content-core">
 
-      <h2 i18n:translate="">Sample View</h2>
-      <!--<div tal:replace="view/my_custom_view_method" />-->
-      <!--<div tal:replace="context/my_custom_field" />-->
+        <div class="gridAanbodArchive__filter visible" style="visibility: visible; opacity: 1;">
+          <section class="filter" data-control="filter" style="transform: translateX(0px);">
+            <div class="filter__content">
 
-  </metal:block>
-  </metal:content-core>
-</body>
+              <div class="filter__header">
+                <button class="filter__shareButton" data-open-sharefilter="">Deel filte</button>
+                <div class="filter__headerTop">
+                  <h3 class="filter__title font-M--bold">Verfijn je resultaten</h3>
+                  <button type="button" class="filter__close">Close</button>
+                </div>
+              </div>              <!--filter-header-->
+
+              <div class="filter__body" tal:repeat="keyword view/keyword">
+                <div class="filter__body__wrapper schooljaar" data-accordion="" tal:define="key keyword/name; title keyword/title">
+                  <div class="filter__categoryTitle btn button btn-success" data-toggle="">
+                    <span>${title}</span>
+                  </div>
+                  <div class="filter__options" data-content=""  style="display: none;">
+                    <fieldset class="filter__options__container" data-filter-group="dropdown-${key}">
+                      <label class="filter__option">
+                        <select id="dropdown-${key}" name="dropdown-${key}">
+                          <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
+                        </select>
+                      </label>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>              <!--filter-body-->
+
+            </div>            <!--filter-content-->
+
+
+          </section>
+        </div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("[data-toggle]").forEach(function (toggle) {
+              toggle.addEventListener("click", function () {
+                const wrapper = toggle.closest(".filter__body__wrapper");
+                const content = wrapper.querySelector("[data-content]");
+
+                if (content.style.display === "none" || content.style.display === "") {
+                  content.style.display = "block";
+                } else {
+                  content.style.display = "none";
+                }
+              });
+            });
+          });
+        </script>
+
+
+      </metal:block>
+    </metal:content-core>
+  </body>
 </html>

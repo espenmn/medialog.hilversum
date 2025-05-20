@@ -4,6 +4,9 @@ from plone.app.layout.viewlets import ViewletBase
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 from plone import api
+from medialog.hilversum.keywords import get_keywords as keywords
+from medialog.hilversum.keywords import get_keywords as discipline
+
 
 from urllib.parse import unquote
 
@@ -31,12 +34,7 @@ class FilterViewlet(ViewletBase):
         
     # get keyword by calling with  index name
     def get_discipline(self):
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
-        index = catalog._catalog.getIndex('discipline')
-        if hasattr(index, 'uniqueValues'):
-            return sorted(index.uniqueValues())
-        return None
+        return discipline(self)
 
 
     # get keyword by calling with  index name
@@ -53,36 +51,9 @@ class FilterViewlet(ViewletBase):
                 filters.append({'name': keyword[0], 'title' : keyword[1], 'vals': sorted(index.uniqueValues())})
             
         return filters
-        
-    def get_keywords(self): 
-        return [
-                ["discipline",  "Discipline"],  
-                ["the_type",  "Type"],
-                ["programma",  "Programma"],               
-                ["ruimte_op_school",  "Ruimte op school"],
-                ["thema",  "Thema"],
-                ["aanbieder",  "Aanbieder"],
-                ["bemiddelaar",  "Bemiddelaar"],
-                ["vaste_ruimte",  "Vaste ruimte"],
-                ["vaste_personen",  "Vaste personen"],
-                ["inschrijfbaar",  "Inschrijfbaar"],
-                ["naam",  'Naam'],
-                ["expertise_aanbod",  "Expertise aanbod"],
-                ["aantal_lessen",  "Aantal lessen"],
-                ["uitvoering_op_school",  "Uitvoering op school"],
-                ["verduistering",  "Verduistering"],
-                ["opbouwtijd",  "Opbouwtijd"],
-                ["min_aantal_leerlingen",  "Min. aantal leerlingen"],
-                ["vaste_gezelschappen",  "Vaste gezelschappen"],
-                ["blokje_persoon_inplannen",  "Blokje persoon inplannen"],
-                ["schooljaar",  "Schooljaar"],
-                ["duur",  "Duur"],
-                ["max_aantal_leerlingen",  "Max. aantal leerlingen"],
-                ["onderwijstype",  "Onderwijstype"],
-                ["leerjaren",  "Leerjaren"],
-                ["tarief_leerling_groep",  "Tarief leerling/groep"],
-                ["tarief_begeleider",  "Tarief begeleider"]
-        ]
+    
+    def get_keywords(self):  
+        return keywords(self)
         
         
     def index(self):
