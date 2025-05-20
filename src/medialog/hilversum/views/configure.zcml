@@ -7,6 +7,15 @@
  <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
+    name="filter-view"
+    for="plone.app.contenttypes.interfaces.ICollection"
+    class=".filter_view.FilterView"
+    template="filter_view.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
+  <browser:page
     name="favoriten-view"
     for="*"
     class=".favoriten_view.FavoritenView"
