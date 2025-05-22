@@ -85,7 +85,7 @@ def post_install(context):
         )
         
 
-    if not portal.get('proloogs-listing', False):
+    if not portal.get('proloog-listing', False):
         collection =  api.content.create(
                 type='Collection',
                 container=portal,
