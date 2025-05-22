@@ -41,8 +41,8 @@ class ProloogView(BrowserView):
             return None
         
     def courses(self):
-        # return self.context.portal_catalog(portal_type=['proloog']d)
-        return self.context.portal_catalog(portal_type=['proloog'], aanbieder=self.context.aanbieder)
+        # return self.context.portal_catalog(portal_type=['Proloog']d)
+        return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.aanbieder)
    
     # get the icons so we can check if they exist for the current course
     def get_discipline_images(self):
@@ -57,5 +57,37 @@ class ProloogView(BrowserView):
             return self.context.UID() in uids
         return None
 
+    # def get_keywords(self): 
+    #     return keywords()
+    
+    
     def get_keywords(self): 
-        return keywords
+        return {
+                # "discipline": "Discipline",  
+                "discipline": "Leerlijn / Discipline",
+                "the_type": "Type",
+                "programma": "Programma",               
+                "ruimte_op_school": "Ruimte op school",
+                "thema": "Thema",
+                "aanbieder": "Aanbieder",
+                "bemiddelaar": "Bemiddelaar",
+                "vaste_ruimte": "Vaste ruimte",
+                "vaste_personen": "Vaste personen",
+                "inschrijfbaar": "Inschrijfbaar",
+                "naam": 'Naam',
+                "expertise_aanbod": "Expertise aanbod",
+                "aantal_lessen": "Aantal lessen",
+                "uitvoering_op_school": "Uitvoering op school",
+                "verduistering": "Verduistering",
+                "opbouwtijd": "Opbouwtijd",
+                "min_aantal_leerlingen": "Min. aantal leerlingen",
+                "vaste_gezelschappen": "Vaste gezelschappen",
+                "blokje_persoon_inplannen": "Blokje persoon inplannen",
+                "schooljaar": "Schooljaar",
+                "duur": "Duur",
+                "max_aantal_leerlingen": "Max. aantal leerlingen",
+                "onderwijstype": "Onderwijstype",
+                "leerjaren": "Leerjaren",
+                 "tarief_leerling_groep": "Tarief leerling/groep",
+                "tarief_begeleider": "Tarief begeleider"
+        }

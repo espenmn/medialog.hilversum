@@ -15,7 +15,7 @@ class IProloogFolderView(Interface):
     """ Marker Interface for IProloogFolderView"""
 
 
-class proloogFolderView(CollectionView):
+class ProloogFolderView(CollectionView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
     # template = ViewPageTemplateFile('proloog_folder_view.pt')

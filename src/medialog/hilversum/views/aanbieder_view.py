@@ -24,8 +24,8 @@ class AanbiederView(BrowserView):
     
     
     def courses(self):
-        # return self.context.portal_catalog(portal_type=['proloog']d)
-        return self.context.portal_catalog(portal_type=['proloog'], aanbieder=self.context.Title())
+        # return self.context.portal_catalog(portal_type=['Proloog']d)
+        return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.Title())
     
     # get the icons so we can check if they exist for the current course
     def get_discipline_images(self):

@@ -27,7 +27,7 @@
   <browser:page
     name="proloog-listing"
     for="plone.app.contenttypes.interfaces.ICollection"
-    class=".proloog_listing.proloogListing"
+    class=".proloog_listing.ProloogListing"
     template="proloog_listing.pt"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
@@ -55,7 +55,7 @@
     name="proloog-folder-view"
     for="plone.app.contenttypes.interfaces.ICollection"
     template="proloog_folder_view.pt"
-    class=".proloog_folder_view.proloogFolderView"
+    class=".proloog_folder_view.ProloogFolderView"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
@@ -87,5 +87,4 @@
       layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
 
-    
 </configure>

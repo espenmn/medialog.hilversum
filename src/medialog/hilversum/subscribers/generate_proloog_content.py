@@ -8,7 +8,6 @@ from zope.component.hooks import setSite
 from plone.app.textfield import RichText
 from plone.app.textfield.value import RichTextValue
 from plone.rfc822.interfaces import IPrimaryFieldInfo
-from zope.lifecycleevent import modified
 import transaction
 import plone.api
 from zope.component import getUtility
@@ -16,6 +15,8 @@ from plone.dexterity.interfaces import IDexterityFTI
 import datetime
 from zope.schema import Date
 from zope.schema import getFields
+from Products.CMFCore.utils import getToolByName
+
 
 import pandas as pd
 from io import BytesIO
@@ -25,9 +26,59 @@ import re
 import chardet
 
 
- 
-#from bs4 import BeautifulSoup
-#import re
+
+def parse_date(value):
+    date_formats = ['%d-%m-%Y', '%d/%m/%y', '%Y-%m-%d', '%m/%d/%y', '%d.%m.%Y']
+    
+    for fmt in date_formats:
+        try:
+            return datetime.datetime.strptime(value, fmt).date() 
+            # return datetime.datetime.strptime(value, '%d-%m-%Y').date()   
+        except ValueError:
+            continue
+    return None  # Return None if no formats match
+
+
+def set_aanbieder_subjects(obj):
+    catalog = getToolByName(obj, 'portal_catalog')
+    index = catalog._catalog.getIndex('aanbieder')
+    
+    # First we need to clear the subject index
+    brains = plone.api.content.find(portal_type='Aanbieder')
+    for brain in brains:
+        obj = brain.getObject()
+        obj.setSubject([])  # Clear all subjects
+
+    if hasattr(index, 'uniqueValues'):
+        for aanbieder_name in sorted(index.uniqueValues()):
+            
+            # Find the Aanbieder object with matching Title
+            aanbieder_brains = plone.api.content.find(
+                portal_type='Aanbieder',
+                Title=aanbieder_name
+            )
+            if aanbieder_brains:                
+                aanbieder_obj = aanbieder_brains[0].getObject()
+
+                # Find Proloog items that reference this aanbieder
+                proloog_brains = catalog(
+                    portal_type='Proloog',
+                    aanbieder=aanbieder_name
+                )
+
+                for brain in proloog_brains:
+                    discipline = getattr(brain, 'discipline', None)
+                    
+                    if discipline:
+                        print(discipline)
+                        aanbieder_obj.setSubject(discipline)
+
+                # Step 4: Set Subject of Aanbieder to these values
+                aanbieder_obj.reindexObject(idxs=['Subject'])
+
+                    
+
+
 
 def handler(obj, event):
     """ Crete content from CSV file
@@ -87,6 +138,7 @@ def handler(obj, event):
             the_dict = my_dict[i]
             the_title = str(the_dict['Naam'])
             the_id = str(the_dict['ID'])
+            aanbieder = None
             
             # Fields to use to add content and their names
             # Added fallback if they do not exist
@@ -104,7 +156,8 @@ def handler(obj, event):
                 "clusters" : the_dict.get("Clusters", None),
                 "programma" : the_dict.get("Programma", None),
                 # "discipline" : the_dict.get("Discipline", None),
-                "discipline": the_dict.get("Leerlijn / Discipline", None),
+                # "discipline": the_dict.get("Leerlijn / Discipline", None),
+                "discipline": the_dict.get("Leerlijn / Discipline") or the_dict.get("Discipline") or None, 
                 "thema" : the_dict.get("Thema", None),
                 "lesmateriaal_url" : the_dict.get("Lesmateriaal URL", None),
                 "aanbieder" : the_dict.get("Aanbieder", None),
@@ -160,6 +213,7 @@ def handler(obj, event):
                 # print( str(i) + ' : ' + the_title)
             
                 for key, value in field_map.items():
+                    subjekter = None
                     # Replace only fields that are set in 'replace_fields'
                     if key in replace_fields or not item_exist != False:
                         print(str(i) + ' ' + key + " : " + str(value))
@@ -177,11 +231,11 @@ def handler(obj, event):
                             
                             # CSV file has wrong data format for some entries
                             # Excel file also has similar problems
-                            if isinstance(value, datetime.datetime):
+                            if value_type == Timestamp and not isinstance(value, datetime.datetime):        
+                                # Convert to datetime.date
                                 value = value.date()
                                 
-                            if value_type == Timestamp:        
-                                # Convert to datetime.date
+                            if isinstance(value, datetime.datetime):
                                 value = value.date()
                             
                             #due to bug 'bad csv files', we need to convert more dates 
@@ -189,7 +243,7 @@ def handler(obj, event):
                             if key in ['startdatum',  'einddatum' ] and isinstance(value, str):
                                 # For unknow reason, the CSV users 0025 for year 2025 etc
                                 value = value.replace("-00", "-20")
-                                value = datetime.datetime.strptime(value, '%d-%m-%Y').date()                    
+                                value = parse_date(value)                 
                             
                             #floats should be ints
                             if isinstance(value, float):
@@ -221,16 +275,16 @@ def handler(obj, event):
                                     #Remove unset values
                                     value = [str(x) for x in value]
                                 else:
-                                    value = str(value)
-                                    
-                            subjekter = None
+                                    value = str(value)                                    
+                            
                             if key == 'discipline':
-                                subjekter = value
+                                value = [val.strip() for val in value]
                                 
-                            #Create AAnbieder(s)
+                            # Create AAnbieder(s)
                             if key == 'aanbieder':
+                                value = [val.strip() for val in value]
                                 for item_name in value:
-                                    aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
+                                    aan_id = re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
                                     if not portal.get(aan_id, False):
                                         aanbieder = plone.api.content.create(
                                             type='Aanbieder',
@@ -243,18 +297,23 @@ def handler(obj, event):
                                     
                                     # subjects = list(aanbieder.Subject())
                                     #Add keywords to 'aanbieder'. Needs to be added after aanbieder is added
-                                    #If this is not the 'order', we need to sort the list first /  TO DO / Check                        
-                                    if subjekter:
-                                        aanbieder.setSubject(subjekter)                                 
+                                    #If this is not the 'order', we need to sort the list first /  TO DO / Check  
+                                                          
+                                                                    
                                 
-                            
+                            # update Prolog field 
                             setattr(proloog, key, value)  
-                            changes += 1
-                        
+                        else:
+                            setattr(proloog, key, None)  
+                            
+                    changes += 1
+                    
                 # transaction.commit()  # TO DO, check if this is needed  
                 proloog.setTitle(the_title)  
                 proloog.reindexObject()  # Ensure catalog is updated for this proloog 
     
+    # Update all Aanbieders with subject
+    set_aanbieder_subjects(obj)
     message = "{} changes".format(changes) 
     plone.api.portal.show_message(message=message, request=None, type='info') 
 

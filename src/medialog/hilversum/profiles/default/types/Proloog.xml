@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    name="proloog"
+    name="Proloog"
     meta_type="Dexterity FTI"
     i18n:domain="medialog.hilversum">
 
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">proloog</property>
+      name="title">Proloog</property>
   <property
       i18n:translate=""
       name="description"></property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">proloog</property>
+  <property name="factory">Proloog</property>
   <property name="icon_expr"></property>
   <property name="link_target"></property>
 

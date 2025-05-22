@@ -11,7 +11,7 @@ class IProloogListing(Interface):
     """ Marker Interface for IProloogListing"""
 
 
-class proloogListing(CollectionView):
+class ProloogListing(CollectionView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
     # template = ViewPageTemplateFile('proloog_listing.pt')

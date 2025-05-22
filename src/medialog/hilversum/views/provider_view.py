@@ -24,8 +24,8 @@ class ProviderView(BrowserView):
     
     
     def courses(self):
-        # return self.context.portal_catalog(portal_type=['proloog']d)
-        return self.context.portal_catalog(portal_type=['proloog'], aanbieder=self.context.Title())
+        # return self.context.portal_catalog(portal_type=['Proloog']d)
+        return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.Title())
    
 
     def portal_url(self):

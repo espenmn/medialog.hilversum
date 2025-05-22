@@ -83,6 +83,21 @@ def post_install(context):
                         {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
                 ]
         )
+        
+
+    if not portal.get('proloogs-listing', False):
+        collection =  api.content.create(
+                type='Collection',
+                container=portal,
+                id='proloog-listing',
+                title='Proloog Listing',
+                layout="proloog-listing",
+                query = [
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
+                ]
+        )    
+        
+        
 
 def uninstall(context):
     """Uninstall script"""

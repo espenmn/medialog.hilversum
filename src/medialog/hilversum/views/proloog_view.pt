@@ -3,9 +3,9 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
-    <metal:content-core fill-slot="content">
-      <metal:block define-macro="content-core">
-        <label>This is prolog_view.pt</label>
+    <metal:content fill-slot="content">
+      <metal:block define-macro="content">
+        <!-- <label>This is prolog_view.pt</label> -->
         <!-- <p>
           <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
           </p> -->
@@ -20,8 +20,9 @@
             <p class="documentDescription lead">${context/Description}</p>
             <p>
               <span tal:repeat="disiplin context/discipline">
-                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
-                  <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
+                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" 
+                  href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                  <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
                 </a>
               </span>
             </p>
@@ -119,7 +120,7 @@
 
             <div class="course_info">
               <div class="aanbodMeta__box aanbodMeta__box--shadow">
-                <button type="button btn btn-standalone btn-success" name="buttonFavorite" class="buttonFavorite custom-background1 white">
+                <button type="button" name="buttonFavorite" class="buttonFavorite custom-background3 white">
                   <svg fill="#FFF" height="20px" width="20px" version="1.1" id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 471.701 471.701" xml:space="preserve">
@@ -133,11 +134,11 @@
 		C444.801,187.101,434.001,213.101,414.401,232.701z"/>
                     </g>
                   </svg>
-                  <span tal:condition="not: view/is_favorite" class="buttonFavorit white" data-id="${context/UID}" i18translate="">Maak favoriet</span>
-                  <span tal:condition="view/is_favorite"      class="buttonFavorit white" data-id="${context/UID}" data-remove="1" i18translate="">Remove favoriet</span>
+                  <span tal:condition="not: view/is_favorite" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18translate="">Maak favoriet</span>
+                  <span tal:condition="view/is_favorite"      class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Remove favoriet</span>
                 </button>
 
-                <div class="aanbodMeta__box__label" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
+                <div class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
                 <div class="aanbodMeta__box__buttons"><a href="${view/portal_url}/favoriten-view" class="aanbodMeta_box" i18n:translate="">Naar favorieten</a></div>
 
               </div>
@@ -288,6 +289,6 @@
           </div>
 
         </metal:block>
-      </metal:content-core>
+      </metal:content>
     </body>
   </html>
