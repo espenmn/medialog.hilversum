@@ -62,10 +62,16 @@
 
 .green_box {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background: #FCFBFB;
 }
+
+.course_info .green_box {
+    height: auto;
+}
+ 
 
 .green_box:hover {
     box-shadow: 0 0 13px #AAA

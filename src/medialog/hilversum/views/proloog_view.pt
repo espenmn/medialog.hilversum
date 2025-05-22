@@ -5,10 +5,7 @@
   <body>
     <metal:content fill-slot="content">
       <metal:block define-macro="content">
-        <!-- <label>This is prolog_view.pt</label> -->
-        <!-- <p>
-          <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
-          </p> -->
+ 
         <div class="flex gap-1" tal:define="portal_url view/portal_url">
           <div class="course_text">
             <h1 class="documentFirstHeading">
@@ -20,8 +17,7 @@
             <p class="documentDescription lead">${context/Description}</p>
             <p>
               <span tal:repeat="disiplin context/discipline">
-                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" 
-                  href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
                   <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
                 </a>
               </span>
@@ -116,7 +112,7 @@
               </div>
 
             </div>
-          
+
 
             <div class="course_info">
               <div class="aanbodMeta__box aanbodMeta__box--shadow">
@@ -135,11 +131,13 @@
                     </g>
                   </svg>
                   <span tal:condition="not: view/is_favorite" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18translate="">Maak favoriet</span>
-                  <span tal:condition="view/is_favorite"      class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Remove favoriet</span>
+                  <span tal:condition="view/is_favorite" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Remove favoriet</span>
                 </button>
 
                 <div class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
-                <div class="aanbodMeta__box__buttons"><a href="${view/portal_url}/favoriten-view" class="aanbodMeta_box" i18n:translate="">Naar favorieten</a></div>
+                <div class="aanbodMeta__box__buttons">
+                  <a href="${view/portal_url}/favoriten-view" class="aanbodMeta_box" i18n:translate="">Naar favorieten</a>
+                </div>
 
               </div>
 

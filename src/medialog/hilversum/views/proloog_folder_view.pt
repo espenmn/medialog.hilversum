@@ -4,13 +4,12 @@
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
     <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core"  tal:define="batch view/batch">
+      <metal:block define-macro="content-core" tal:define="batch view/batch">
 
         <tal:define tal:define="icons view/get_discipline_images">
           <p>
             <span tal:repeat="disiplin context/Subject">
-              <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" 
-              href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+              <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
                 <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
               </a>
             </span>
@@ -64,9 +63,12 @@
             </div>
 
           </div>
-           <tal:batchnavigation
-    define="batchnavigation nocall:context/@@batchnavigation"
-    replace="structure python:batchnavigation(batch)" />
+          <div>
+            <hr/>
+          </div>
+          <div>
+            <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
+          </div>
         </tal:define>
       </metal:block>
     </metal:content-core>
