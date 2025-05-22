@@ -6,9 +6,9 @@
       metal:use-macro="context/main_template/macros/master">
 <body>
   <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core">
+  <metal:block define-macro="content-core" tal:define="batch view/batch">
 
-                <table class="listing table-striped sortable pat-tablesorter">
+                <table class="listing table-striped sortable pat-tablesorter" >
                     <thead class="custom-background1">
                         <tr>
                             <th>Naam</th>
@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr tal:repeat="course view/results|None">
+                        <tr tal:repeat="course view/batch|None">
                             <td>
                                 <a href="${course/getURL}">${course/naam|None}</a>
                             </td>
@@ -57,6 +57,10 @@
                     jQuery('table.sortable').tablesorter({ sortList: [[0,0],] });
                 });
                 </script>
+
+                <tal:batchnavigation
+    define="batchnavigation nocall:context/@@batchnavigation"
+    replace="structure python:batchnavigation(batch)" />
                  
   </metal:block>
   </metal:content-core>
