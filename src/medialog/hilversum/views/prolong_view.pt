@@ -5,6 +5,7 @@
   <body>
     <metal:content-core fill-slot="content">
       <metal:block define-macro="content-core">
+        <label>This is prolog_view.pt</label>
         <!-- <p>
           <a class="btn standalone button btn-primary success">Link to form</a> to order course, it probably needs to send an email to someone at the school, a website can not open 'something on a PC'
           </p> -->
@@ -31,215 +32,262 @@
             <div tal:condition="context/text" tal:content="structure context/text/output|None">
             </div>
 
-            <h4>Probably some fields here, or in the box to the left:</h4>
+            <div class="text_info_wrapper margin-20-0">
+              <p>
+                <strong class="course_label" i18n:translate="">Type:</strong>
+                <span>${context/the_type}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Aantal Lessen:</strong>
+                <span>${context/aantal_lessen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Uitvoering Op School:</strong>
+                <span>${context/uitvoering_op_school}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Clusters:</strong>
+                <span>${context/clusters}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Programma:</strong>
+                <span>${context/programma}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Thema:</strong>
+                <span tal:repeat="item context/thema">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Lesmateriaal Url:</strong>
+                <span>Should probably be hidden: 
+                  <a href="${context/lesmateriaal_url}">${context/lesmateriaal_url}</a>
+                </span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Aanbieder:</strong>
+                <span tal:repeat="item context/aanbieder">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Vaste Personen:</strong>
+                <span>${context/vaste_personen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Blokje Persoon Inplannen:</strong>
+                <span>${context/blokje_persoon_inplannen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Schooljaa:</strong>
+                <span>${context/schooljaar}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Duur:</strong>
+                <span>${context/duur}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Max Aantal Leerlingen:</strong>
+                <span>${context/max_aantal_leerlingen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">onderwijstype:</strong>
+                <span tal:repeat="item context/onderwijstype">${item}</span>
 
-            <p>${context/the_type}</p>
-            <p>${context/aantal_lessen}</p>
-            <p>${context/uitvoering_op_school}</p>
-            <p>${context/clusters}</p>
-            <p>${context/programma}</p>
-            <p>
-              <span tal:repeat="item context/thema">${item}</span>
-            </p>
-            <p>Should probably be hidden: <a href="${context/lesmateriaal_url}">${context/lesmateriaal_url}</a>
-            </p>
-            <p>
-              <span tal:repeat="item context/aanbieder">${item}</span>
-            </p>
-            <p>${context/vaste_personen}</p>
-            <p>${context/blokje_persoon_inplannen}</p>
-            <p>${context/schooljaar}</p>
-            <p>${context/duur}</p>
-            <p>${context/max_aantal_leerlingen}</p>
-            <p>
-              <span tal:repeat="item context/onderwijstype">${item}</span>
-            </p>
-            <p>
-              <span tal:repeat="item context/vo_typen">${item}</span>
-            </p>
-            <p>
-              <span tal:repeat="item context/leerjaren">${item}</span>
-            </p>
-            <p>
-              <span tal:repeat="item context/tarief_leerling_groep">${item}</span>
-            </p>
-            <p>${context/tarief_begeleider}</p>
-            <p>${context/max_aantal_leerlingen_prijsberekening}</p>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">VO typen:</strong>
+                <span tal:repeat="item context/vo_typen">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">leerjaren:</strong>
+                <span tal:repeat="item context/leerjaren">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Tarief Leerling Groep:</strong>
+                <span tal:repeat="item context/tarief_leerling_groep">${item}</span>
 
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Tarief Begeleider:</strong>
+                <span>${context/tarief_begeleider}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Max Aantal Leerlingen Prijsberekening:</strong>
+                <span>${context/max_aantal_leerlingen_prijsberekening}</p>
+              </div>
 
-          </div>
+            </div>
+          
 
-          <div class="course_info">
-            <div class="aanbodMeta__box aanbodMeta__box--shadow">
-              <button type="button btn btn-standalone btn-success" name="buttonFavorite" class="buttonFavorite custom-background1 white">
-                <svg fill="#FFF" height="20px" width="20px" version="1.1" id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 471.701 471.701" xml:space="preserve">
-                  <g>
-                    <path d="M433.601,67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7,13.6-92.4,38.3l-12.9,12.9l-13.1-13.1
+            <div class="course_info">
+              <div class="aanbodMeta__box aanbodMeta__box--shadow">
+                <button type="button btn btn-standalone btn-success" name="buttonFavorite" class="buttonFavorite custom-background1 white">
+                  <svg fill="#FFF" height="20px" width="20px" version="1.1" id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 471.701 471.701" xml:space="preserve">
+                    <g>
+                      <path d="M433.601,67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7,13.6-92.4,38.3l-12.9,12.9l-13.1-13.1
 		c-24.7-24.7-57.6-38.4-92.5-38.4c-34.8,0-67.6,13.6-92.2,38.2c-24.7,24.7-38.3,57.5-38.2,92.4c0,34.9,13.7,67.6,38.4,92.3
 		l187.8,187.8c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-3.9l188.2-187.5c24.7-24.7,38.3-57.5,38.3-92.4
 		C471.801,124.501,458.301,91.701,433.601,67.001z M414.401,232.701l-178.7,178l-178.3-178.3c-19.6-19.6-30.4-45.6-30.4-73.3
 		s10.7-53.7,30.3-73.2c19.5-19.5,45.5-30.3,73.1-30.3c27.7,0,53.8,10.8,73.4,30.4l22.6,22.6c5.3,5.3,13.8,5.3,19.1,0l22.4-22.4
 		c19.6-19.6,45.7-30.4,73.3-30.4c27.6,0,53.6,10.8,73.2,30.3c19.6,19.6,30.3,45.6,30.3,73.3
 		C444.801,187.101,434.001,213.101,414.401,232.701z"/>
-                  </g>
-                </svg>
-                <span class="buttonFavorit white" data-id="${context/UID}" i18translate="">Maak favoriet</span>
-              </button>
+                    </g>
+                  </svg>
+                  <span tal:condition="not: view/is_favorite" class="buttonFavorit white" data-id="${context/UID}" i18translate="">Maak favoriet</span>
+                  <span tal:condition="view/is_favorite"      class="buttonFavorit white" data-id="${context/UID}" data-remove="1" i18translate="">Remove favoriet</span>
+                </button>
 
-              <div class="aanbodMeta__box__label">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
-              <div class="aanbodMeta__box__buttons">
-                <a href="${view/portal_url}/favoriten-view" class="aanbodMeta__box__buttons__list font-XS">Naar favorieten</a>
+                <div class="aanbodMeta__box__label" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
+                <div class="aanbodMeta__box__buttons"><a href="${view/portal_url}/favoriten-view" class="aanbodMeta_box" i18n:translate="">Naar favorieten</a></div>
+
               </div>
 
-            </div>
 
-
-            <div class="lead-image-wrapper" tal:define="scale context/@@images;
+              <div class="lead-image-wrapper" tal:define="scale context/@@images;
                           img python:scale.scale('full', width=300, height=300)" tal:condition="img">
-              <img tal:replace="structure python: img.tag()" />
-            </div>
+                <img tal:replace="structure python: img.tag()" />
+              </div>
 
-            <tal:define tal:define="scales context/@@images;
+              <tal:define tal:define="scales context/@@images;
                  thumbnail python: scales.scale('image', width=500);">
 
-              <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
                                 height thumbnail/height" />
 
-              <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="500" alt="course_image"/>
-            </tal:define>
+                <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="500" alt="course_image"/>
+              </tal:define>
 
-            <div class="green_box custom-background1 padding-20 white">
-              <p>
-                <b>Aanvullende activiteit informatie</b>
-              </p>
-              <table>
-                <tr>
-                  <td>
-                    <span>Naam: </span>
-                  </td>
-                  <td>${context/naam}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Aantal lessen: </span>
-                  </td>
-                  <td>${context/aantal_lessen}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Uitvoering op school: </span>
-                  </td>
-                  <td>${context/uitvoering_op_school}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Duur: </span>
-                  </td>
-                  <td>${context/duur}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Startdatum: </span>
-                  </td>
-                  <td>${context/startdatum}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Einddatum: </span>
-                  </td>
-                  <td>${context/einddatum}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Prijs per: </span>
-                  </td>
-                  <td>${context/prijs_per}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Tarief leerling/groep: </span>
-                  </td>
-                  <td>
-                    <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Max. aantal leerlingen: </span>
-                  </td>
-                  <td>${context/max_aantal_leerlingen}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Extra info bij inschrijven: </span>
-                  </td>
-                  <td>${context/extra_info_bij_inschrijven}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Inschrijfbaar: </span>
-                  </td>
-                  <td>${context/inschrijfbaar}</td>
-                </tr>
-              </table>
+              <div class="green_box custom-background1 padding-20 white">
+                <p>
+                  <b>Aanvullende activiteit informatie</b>
+                </p>
+                <table>
+                  <tr>
+                    <td>
+                      <span>Naam: </span>
+                    </td>
+                    <td>${context/naam}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Aantal lessen: </span>
+                    </td>
+                    <td>${context/aantal_lessen}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Uitvoering op school: </span>
+                    </td>
+                    <td>${context/uitvoering_op_school}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Duur: </span>
+                    </td>
+                    <td>${context/duur}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Startdatum: </span>
+                    </td>
+                    <td>${context/startdatum}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Einddatum: </span>
+                    </td>
+                    <td>${context/einddatum}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Prijs per: </span>
+                    </td>
+                    <td>${context/prijs_per}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Tarief leerling/groep: </span>
+                    </td>
+                    <td>
+                      <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Max. aantal leerlingen: </span>
+                    </td>
+                    <td>${context/max_aantal_leerlingen}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Extra info bij inschrijven: </span>
+                    </td>
+                    <td>${context/extra_info_bij_inschrijven}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Inschrijfbaar: </span>
+                    </td>
+                    <td>${context/inschrijfbaar}</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-        <hr/>
+          <hr/>
 
 
-        <div class="container">
-          <h2>Andere Anbod van ${python: "".join(context.aanbieder)}:</h2>
+          <div class="container">
+            <h2>Andere Anbod van ${python: "".join(context.aanbieder)}:</h2>
 
-          <div class="grid" tal:define="icons view/get_discipline_images">
-            <tal:repeat tal:repeat="course view/courses">
-              <div class="green_box">
-                <div class="padding-1 flex flex_start custom-background1 padding-5">
+            <div class="grid" tal:define="icons view/get_discipline_images">
+              <tal:repeat tal:repeat="course view/courses">
+                <div class="green_box">
+                  <div class="padding-1 flex flex_start custom-background1 padding-5">
 
-                  <div class="discipline" tal:repeat="disiplin course/discipline">
-                    <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")+".png"'>
-                      <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" alt="${disiplin} icon" />
-                      <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" alt="${disiplin} icon" />
-                    </tal:define>
+                    <div class="discipline" tal:repeat="disiplin course/discipline">
+                      <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")+".png"'>
+                        <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" alt="${disiplin} icon" />
+                        <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" alt="${disiplin} icon" />
+                      </tal:define>
+                    </div>
+
                   </div>
-
-                </div>
-                <a href="${course/getURL}" tal:define="obj course/getObject">
-                  <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
-                    <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                  <a href="${course/getURL}" tal:define="obj course/getObject">
+                    <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                      <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
-                    <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
+                      <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
+                    </div>
+                  </a>
+                  <div class="padding-10 padding-5-0 custom-backgrund1">
+                    <h4>
+                      <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
+                    </h4>
+                    <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
+                    <p class="padding-0 margin-0 dark-grey">
+                      <b>Geschikt voor: </b> ${course/schooljaar|None}
+                    </p>
+                    <p class="padding-0 margin-0 dark-grey">
+                      <b>Startdatum: </b> ${course/startdatum}
+                    </p>
+                    <p class="padding-0 margin-0 dark-grey">
+                      <b>Prijs per:</b> ${course/prijs_per}
+                    </p>
+
                   </div>
-                </a>
-                <div class="padding-10 padding-5-0 custom-backgrund1">
-                  <h4>
-                    <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
-                  </h4>
-                  <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
-                  <p class="padding-0 margin-0 dark-grey">
-                    <b>Geschikt voor: </b> ${course/schooljaar|None}
-                  </p>
-                  <p class="padding-0 margin-0 dark-grey">
-                    <b>Startdatum: </b> ${course/startdatum}
-                  </p>
-                  <p class="padding-0 margin-0 dark-grey">
-                    <b>Prijs per:</b> ${course/prijs_per}
-                  </p>
+                  <div class="custom-background2 white padding-10 margin-top-auto center text-center">
+                    <a class="white" href="${course/getURL}">Bekijk het aanbod</a>
+                  </div>
 
                 </div>
-                <div class="custom-background2 white padding-10 margin-top-auto center text-center">
-                  <a class="white" href="${course/getURL}">Bekijk het aanbod</a>
-                </div>
-
-              </div>
-            </tal:repeat>
+              </tal:repeat>
+            </div>
           </div>
-        </div>
-      </metal:block>
-    </metal:content-core>
-  </body>
-</html>
+
+        </metal:block>
+      </metal:content-core>
+    </body>
+  </html>

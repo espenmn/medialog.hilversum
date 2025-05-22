@@ -13,6 +13,20 @@
     width: 30%;
 }
 
+/* .text_info_wrapper .course_label   { border-bottom: 1px solid #DDD; margin-right: 10px} */
+
+/* .text_info_wrapper p:first-child .course_label { border-top: 1px solid #DDD; } */
+
+.text_info_wrapper p { margin: 2px;  display: flex; }
+
+.course_label {
+    font-weight: 600;
+    color: #444; 
+    margin-right: 6px;
+}
+
+
+
 .disciplin {
     width: 40px;
     height: 40;

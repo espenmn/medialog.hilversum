@@ -19,8 +19,7 @@
             <div tal:repeat="course favorites">
               <div class="green_box">
                 <button type="button btn btn-standalone btn-success" name="buttonFavorite" class="buttonFavorite custom-background1 white">
-
-                  <span class="buttonFavorit" data-remove="1" data-id="${context/UID}" i18translate="">X</span>
+                  <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18translate="">X</span>
                 </button>
 
                 <a href="${course/getURL}" tal:define="obj course/getObject">

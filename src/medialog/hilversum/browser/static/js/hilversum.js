@@ -73,21 +73,27 @@ document.addEventListener("DOMContentLoaded", function () {
             // Get current cookie (if any)
             let favorites = getCookie("favorites");
             let favArray = favorites ? favorites.split(",") : [];
+            // console.log("Before removal:", favArray);
+            // console.log("ID to remove:", id);
 
             if (remove) {
                 // Remove the ID if it exists
                 favArray = favArray.filter(fav => fav !== id);
-                alert("Removed from favorites!");
+                // alert("Removed from favorites!");
             } else {
                 // Add ID if it doesn't exist
                 if (!favArray.includes(id)) {
                     favArray.push(id);
-                    alert("Added to favorites!");
+                    // alert("Added to favorites!");
                 }
             }
 
+            // console.log("After removal:", favArray);
+
             // Set updated cookie (expires in 30 days)
             document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
+            alert('reloading');
+            location.reload(); // Reload the page to reflect changes
         });
     });
 

@@ -5,29 +5,23 @@ from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 from plone import api
 from medialog.hilversum.keywords import get_keywords as keywords
-from medialog.hilversum.keywords import get_keywords as discipline
+from medialog.hilversum.keywords import get_discipline as discipline
+# from medialog.hilversum.keywords import get_keyword as keyword
+
 
 
 from urllib.parse import unquote
 
 
 class FilterViewlet(ViewletBase):
+            
+    def index(self):
+        return super(FilterViewlet, self).render()
 
     def update(self):
         self.keyword = self.get_keyword()
         self.keywords = self.get_keywords()
         self.site_url = self.site_url()
-        
-    # def selected_filters(self):
-    #     request = self.request
-    #     # Or loop through all query parameters
-    #     all_params = {
-    #         k: unquote(v) if isinstance(v, str) else v
-    #         for k, v in request.form.items()
-    #         if v
-    #     }
-
-    #     return all_params  # or selected, depending on what you want
         
     def site_url(self):
         return api.portal.get().absolute_url()
@@ -36,8 +30,7 @@ class FilterViewlet(ViewletBase):
     def get_discipline(self):
         return discipline(self)
 
-
-    # get keyword by calling with  index name
+    # get keyword by calling with all index name, as loop
     def get_keyword(self):
         filters = []
         context = self.context
@@ -53,8 +46,4 @@ class FilterViewlet(ViewletBase):
         return filters
     
     def get_keywords(self):  
-        return keywords(self)
-        
-        
-    def index(self):
-        return super(FilterViewlet, self).render()
+        return keywords(self)        

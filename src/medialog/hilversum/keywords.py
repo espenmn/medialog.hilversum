@@ -10,6 +10,7 @@ def get_discipline(self):
     index = catalog._catalog.getIndex('discipline')
     if hasattr(index, 'uniqueValues'):
         return sorted(index.uniqueValues())
+        # return [item.lstrip().item.rstrip().replace(' ', '_') for item in values]
     return None
 
 
