@@ -5,10 +5,10 @@
   <body>
 
     <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core">
+      <metal:block define-macro="content-core" tal:define="batch view/batch">
 
         <div class="flex gap-1">
-          <tal:loop tal:repeat="item view/results">
+          <tal:loop tal:repeat="item batch">
             <div class="greybox" tal:define="obj item/getObject">
               <a tal:attributes="href item/getURL">
                   <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
@@ -23,6 +23,12 @@
 
           </tal:loop>
         </div>
+        
+       <tal:batchnavigation
+    define="batchnavigation nocall:context/@@batchnavigation"
+    replace="structure python:batchnavigation(batch)" />
+ 
+
  
       </metal:block>
     </metal:content-core>

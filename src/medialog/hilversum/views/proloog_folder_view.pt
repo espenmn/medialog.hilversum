@@ -4,7 +4,7 @@
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
     <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core">
+      <metal:block define-macro="content-core"  tal:define="batch view/batch">
 
         <tal:define tal:define="icons view/get_discipline_images">
           <p>
@@ -19,7 +19,7 @@
           <div tal:condition="context/text" tal:content="structure context/text/output|None"></div>
 
           <div class="grid">
-            <div tal:repeat="course view/results">
+            <div tal:repeat="course batch">
               <div class="green_box">
                 <div class="padding-1 flex flex_start custom-background1 padding-5">
 
@@ -64,6 +64,9 @@
             </div>
 
           </div>
+           <tal:batchnavigation
+    define="batchnavigation nocall:context/@@batchnavigation"
+    replace="structure python:batchnavigation(batch)" />
         </tal:define>
       </metal:block>
     </metal:content-core>

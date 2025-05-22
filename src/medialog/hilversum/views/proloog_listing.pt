@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr tal:repeat="course view/batch|None">
+                        <tr tal:repeat="course batch|None">
                             <td>
                                 <a href="${course/getURL}">${course/naam|None}</a>
                             </td>
