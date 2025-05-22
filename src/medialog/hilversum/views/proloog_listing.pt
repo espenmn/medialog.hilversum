@@ -1,14 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="medialog.hilversum"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core" tal:define="batch view/batch">
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+    <body>
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core" tal:define="batch view/batch">
 
-                <table class="listing table-striped sortable pat-tablesorter" >
+                <table class="listing table-striped sortable pat-tablesorter">
                     <thead class="custom-background1">
                         <tr>
                             <th>Naam</th>
@@ -49,7 +47,7 @@
                 </table>
 
 
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css" />
                 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesorter@2.32.0/dist/js/jquery.tablesorter.min.js"></script>
                 <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/filtertable@0.1.2/filtertable.min.js"></script> -->
                 <script>
@@ -57,12 +55,15 @@
                     jQuery('table.sortable').tablesorter({ sortList: [[0,0],] });
                 });
                 </script>
+                <div>
+                    <hr/>
+                </div>
 
-                <tal:batchnavigation
-    define="batchnavigation nocall:context/@@batchnavigation"
-    replace="structure python:batchnavigation(batch)" />
-                 
-  </metal:block>
-  </metal:content-core>
-</body>
+                <div>
+                    <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
+                </div>
+
+            </metal:block>
+        </metal:content-core>
+    </body>
 </html>

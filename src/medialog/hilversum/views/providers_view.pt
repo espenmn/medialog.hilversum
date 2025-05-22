@@ -11,25 +11,29 @@
           <tal:loop tal:repeat="item batch">
             <div class="greybox" tal:define="obj item/getObject">
               <a tal:attributes="href item/getURL">
-                  <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
-                    <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                  <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
-                    <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
-                  </div>
-                  <h2>${item/Title}</h2>                 
+                  <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
+                </div>
+                <h2>${item/Title}</h2>
               </a>
             </div>
 
           </tal:loop>
         </div>
-        
-       <tal:batchnavigation
-    define="batchnavigation nocall:context/@@batchnavigation"
-    replace="structure python:batchnavigation(batch)" />
- 
 
- 
+        <div>
+          <hr/>
+        </div>
+
+        <div>
+          <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
+        </div>
+
+
+
       </metal:block>
     </metal:content-core>
   </body>

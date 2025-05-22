@@ -18,6 +18,8 @@ class IAanbiederView(Interface):
 
 class AanbiederView(BrowserView):
     
+    b_size = 3
+    
     def __call__(self):
         # Implement your own actions:
         return self.index()
