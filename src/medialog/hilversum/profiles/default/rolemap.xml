@@ -19,7 +19,7 @@
     </permission>
 
 
-    <permission name="medialog.hilversum: Add proloog" acquire="True">
+    <permission name="medialog.hilversum: Add Proloog" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
       <role name="Owner"/>
