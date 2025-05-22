@@ -5,6 +5,12 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <utility
+        component=".proloog_fields.ProloogFieldsFactory"
+        name="medialog.hilversum.ProloogFields"
+    />
+
+
+    <utility
         component=".leerjaren_vocabulary.LeerjarenVocabularyFactory"
         name="medialog.hilversum.LeerjarenVocabulary"
     />

@@ -20,22 +20,22 @@ class ViewsIntegrationTest(unittest.TestCase):
         api.content.create(self.portal, 'Folder', 'other-folder')
         api.content.create(self.portal, 'Document', 'front-page')
 
-    def test_prolong_listing_is_registered(self):
+    def test_proloog_listing_is_registered(self):
         view = getMultiAdapter(
             (self.portal['other-folder'], self.portal.REQUEST),
-            name='prolong-listing'
+            name='proloog-listing'
         )
-        self.assertTrue(view.__name__ == 'prolong-listing')
+        self.assertTrue(view.__name__ == 'proloog-listing')
         # self.assertTrue(
         #     'Sample View' in view(),
-        #     'Sample View is not found in prolong-listing'
+        #     'Sample View is not found in proloog-listing'
         # )
 
-    def test_prolong_listing_not_matching_interface(self):
+    def test_proloog_listing_not_matching_interface(self):
         with self.assertRaises(ComponentLookupError):
             getMultiAdapter(
                 (self.portal['front-page'], self.portal.REQUEST),
-                name='prolong-listing'
+                name='proloog-listing'
             )
 
 

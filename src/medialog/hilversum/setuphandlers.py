@@ -48,39 +48,39 @@ def post_install(context):
                 ]
         )
     
-    if not portal.get('prolongs-collection', False):
+    if not portal.get('proloogs-collection', False):
         collection =  api.content.create(
                 type='Collection',
                 container=portal,
-                id='prolongs-collection',
-                title='Prolongs',
+                id='proloogs-collection',
+                title='proloogs',
                 layout="full_view",
                 query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['prolong', 'Prolong']},
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['proloog', 'proloog']},
                 ]
         )
         
-    if not portal.get('prolong-collection', False):
+    if not portal.get('proloog-collection', False):
         collection =  api.content.create(
                 type='Collection',
                 container=portal,
-                id='prolong-collection',
-                title='Prolong Overview',
-                layout="prolong-folder-view",
+                id='proloog-collection',
+                title='proloog Overview',
+                layout="proloog-folder-view",
                 query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['prolong', 'Prolong']},
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['proloog', 'proloog']},
                 ]
         )
 
-    if not portal.get('prolongs-collections', False):
+    if not portal.get('proloogs-collections', False):
         collection =  api.content.create(
                 type='Collection',
                 container=portal,
-                id='prolongs-collections',
-                title='Prolong 2s',
-                layout="prolongs-view",
+                id='proloogs-collections',
+                title='proloog 2s',
+                layout="proloogs-view",
                 query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['prolong', 'Prolong']},
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['proloog', 'proloog']},
                 ]
         )
 

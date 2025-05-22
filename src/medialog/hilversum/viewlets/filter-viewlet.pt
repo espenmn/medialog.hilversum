@@ -20,7 +20,7 @@
     <div class="filter flex">
       <div class="disciplin" tal:repeat="disiplin view/get_discipline">    
           <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" 
-              href="${site_url}/prolong-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
+              href="${site_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
             <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" alt="${disiplin} icon" />
           </a>        
       </div>

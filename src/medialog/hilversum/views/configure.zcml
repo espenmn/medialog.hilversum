@@ -25,10 +25,10 @@
     />
 
   <browser:page
-    name="prolong-listing"
+    name="proloog-listing"
     for="plone.app.contenttypes.interfaces.ICollection"
-    class=".prolong_listing.ProlongListing"
-    template="prolong_listing.pt"
+    class=".proloog_listing.proloogListing"
+    template="proloog_listing.pt"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
@@ -43,28 +43,28 @@
     />
 
   <browser:page
-    name="prolong-view"
+    name="proloog-view"
     for="*"
-    template="prolong_view.pt"
-    class=".prolong_view.ProlongView"
+    template="proloog_view.pt"
+    class=".proloog_view.proloogView"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
 
   <browser:page
-    name="prolong-folder-view"
+    name="proloog-folder-view"
     for="plone.app.contenttypes.interfaces.ICollection"
-    template="prolong_folder_view.pt"
-    class=".prolong_folder_view.ProlongFolderView"
+    template="proloog_folder_view.pt"
+    class=".proloog_folder_view.proloogFolderView"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
 
     <browser:page
-    name="prolongs-view"
+    name="proloogs-view"
     for="*"
-    class=".prolong_view.ProlongView"
-    template="prolongs_view.pt"
+    class=".proloog_view.proloogView"
+    template="proloogs_view.pt"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />

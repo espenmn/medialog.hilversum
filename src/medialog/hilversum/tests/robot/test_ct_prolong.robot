@@ -4,7 +4,7 @@
 #
 # Run this robot test stand-alone:
 #
-#  $ bin/test -s medialog.hilversum -t test_prolong.robot --all
+#  $ bin/test -s medialog.hilversum -t test_proloog.robot --all
 #
 # Run this robot test with robot server (which is faster):
 #
@@ -14,7 +14,7 @@
 #
 # 2) Run robot tests:
 #
-# $ bin/robot /src/medialog/hilversum/tests/robot/test_prolong.robot
+# $ bin/robot /src/medialog/hilversum/tests/robot/test_proloog.robot
 #
 # See the http://docs.plone.org for further details (search for robot
 # framework).
@@ -34,18 +34,18 @@ Test Teardown  Close all browsers
 
 *** Test Cases ***************************************************************
 
-Scenario: As a site administrator I can add a Prolong
+Scenario: As a site administrator I can add a proloog
   Given a logged-in site administrator
-    and an add Prolong form
-   When I type 'My Prolong' into the title field
+    and an add proloog form
+   When I type 'My proloog' into the title field
     and I submit the form
-   Then a Prolong with the title 'My Prolong' has been created
+   Then a proloog with the title 'My proloog' has been created
 
-Scenario: As a site administrator I can view a Prolong
+Scenario: As a site administrator I can view a proloog
   Given a logged-in site administrator
-    and a Prolong 'My Prolong'
-   When I go to the Prolong view
-   Then I can see the Prolong title 'My Prolong'
+    and a proloog 'My proloog'
+   When I go to the proloog view
+   Then I can see the proloog title 'My proloog'
 
 
 *** Keywords *****************************************************************
@@ -55,11 +55,11 @@ Scenario: As a site administrator I can view a Prolong
 a logged-in site administrator
   Enable autologin as  Site Administrator
 
-an add Prolong form
-  Go To  ${PLONE_URL}/++add++Prolong
+an add proloog form
+  Go To  ${PLONE_URL}/++add++proloog
 
-a Prolong 'My Prolong'
-  Create content  type=Prolong  id=my-prolong  title=My Prolong
+a proloog 'My proloog'
+  Create content  type=proloog  id=my-proloog  title=My proloog
 
 # --- WHEN -------------------------------------------------------------------
 
@@ -69,18 +69,18 @@ I type '${title}' into the title field
 I submit the form
   Click Button  Save
 
-I go to the Prolong view
-  Go To  ${PLONE_URL}/my-prolong
+I go to the proloog view
+  Go To  ${PLONE_URL}/my-proloog
   Wait until page contains  Site Map
 
 
 # --- THEN -------------------------------------------------------------------
 
-a Prolong with the title '${title}' has been created
+a proloog with the title '${title}' has been created
   Wait until page contains  Site Map
   Page should contain  ${title}
   Page should contain  Item created
 
-I can see the Prolong title '${title}'
+I can see the proloog title '${title}'
   Wait until page contains  Site Map
   Page should contain  ${title}

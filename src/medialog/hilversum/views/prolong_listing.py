@@ -7,15 +7,15 @@ from zope.interface import Interface
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class IProlongListing(Interface):
-    """ Marker Interface for IProlongListing"""
+class IproloogListing(Interface):
+    """ Marker Interface for IproloogListing"""
 
 
-class ProlongListing(CollectionView):
+class proloogListing(CollectionView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
-    # template = ViewPageTemplateFile('prolong_listing.pt')
+    # template = ViewPageTemplateFile('proloog_listing.pt')
 
     def __call__(self):
         # Implement your own actions:
-        return super(ProlongListing, self).__call__()
+        return super(proloogListing, self).__call__()

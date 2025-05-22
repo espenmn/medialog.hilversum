@@ -11,18 +11,18 @@ from plone.resource.interfaces import IResourceDirectory
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class IProlongFolderView(Interface):
-    """ Marker Interface for IProlongFolderView"""
+class IproloogFolderView(Interface):
+    """ Marker Interface for IproloogFolderView"""
 
 
-class ProlongFolderView(CollectionView):
+class proloogFolderView(CollectionView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
-    # template = ViewPageTemplateFile('prolong_folder_view.pt')
+    # template = ViewPageTemplateFile('proloog_folder_view.pt')
 
     def __call__(self):
         # Implement your own actions:
-        return super(ProlongFolderView, self).__call__()
+        return super(proloogFolderView, self).__call__()
 
 
     def get_discipline_images(self):

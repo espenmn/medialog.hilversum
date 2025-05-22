@@ -45,6 +45,15 @@ class ICsvFile(model.Schema):
         required=False,
         default=False,
     )
+    
+    replace_fields = schema.List(
+        title=_(u'Override existing values'),
+        description=_(u'Should we replace existing values of content already added'),
+        required=False,
+        default=False,
+    )
+    
+    
 
 @implementer(ICsvFile)
 class CsvFile(Item):

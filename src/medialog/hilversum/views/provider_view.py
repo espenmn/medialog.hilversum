@@ -10,13 +10,13 @@ from plone import api
 
 
 class IProviderView(Interface):
-    """ Marker Interface for IProlongView"""
+    """ Marker Interface for IproloogView"""
 
 
 class ProviderView(BrowserView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
-    # template = ViewPageTemplateFile('prolong_view.pt')
+    # template = ViewPageTemplateFile('proloog_view.pt')
 
     def __call__(self):
         # Implement your own actions:
@@ -24,8 +24,8 @@ class ProviderView(BrowserView):
     
     
     def courses(self):
-        # return self.context.portal_catalog(portal_type=['Prolong']d)
-        return self.context.portal_catalog(portal_type=['Prolong'], aanbieder=self.context.Title())
+        # return self.context.portal_catalog(portal_type=['proloog']d)
+        return self.context.portal_catalog(portal_type=['proloog'], aanbieder=self.context.Title())
    
 
     def portal_url(self):

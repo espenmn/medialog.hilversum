@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             select.classList.remove('enabled');
             const siteUrl = document.body.dataset.portalUrl;
-            const baseUrl = siteUrl + '/prolong-collection';
+            const baseUrl = siteUrl + '/proloog-collection';
             var url = baseUrl;
 
             if (key && item) {
@@ -89,10 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // console.log("After removal:", favArray);
-
             // Set updated cookie (expires in 30 days)
             document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
-            alert('reloading');
+            // alert('reloading');
             location.reload(); // Reload the page to reflect changes
         });
     });

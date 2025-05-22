@@ -19,8 +19,8 @@
 
 
     <permission
-        id="medialog.hilversum.AddProlong"
-        title="medialog.hilversum: Add Prolong"
+        id="medialog.hilversum.Addproloog"
+        title="medialog.hilversum: Add proloog"
     />
 
 

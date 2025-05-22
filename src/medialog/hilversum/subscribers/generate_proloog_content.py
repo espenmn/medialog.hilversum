@@ -52,8 +52,8 @@ def handler(obj, event):
         my_dict = df.to_dict(orient='index')        
         portal = plone.api.portal.get()
         
-        # 'Prolong' is the portal_type name
-        fti = getUtility(IDexterityFTI, name='Prolong')
+        # 'proloog' is the portal_type name
+        fti = getUtility(IDexterityFTI, name='proloog')
         
         # Get schema to know what type the fields are
         schema = fti.lookupSchema()
@@ -135,15 +135,15 @@ def handler(obj, event):
             
             
             if not item_exist:
-                prolong = plone.api.content.create(
-                    type='Prolong',
+                proloog = plone.api.content.create(
+                    type='proloog',
                     title = the_title,
                     id = the_id,                
                     container=portal
                 )
                 
             else:
-                prolong = portal.get(the_id)            
+                proloog = portal.get(the_id)            
             
             if replace_content or not item_exist != False:
                 # if replace_content or not item_exist:
@@ -237,11 +237,11 @@ def handler(obj, event):
                                     aanbieder.setSubject(subjekter)                                 
                             
                         
-                        setattr(prolong, key, value)  
+                        setattr(proloog, key, value)  
                         
                 # transaction.commit()  # TO DO, check if this is needed  
-                prolong.setTitle(the_title)  
-                prolong.reindexObject()  # Ensure catalog is updated for this Prolong 
+                proloog.setTitle(the_title)  
+                proloog.reindexObject()  # Ensure catalog is updated for this proloog 
                 
     # obj.reindexObject()
         
