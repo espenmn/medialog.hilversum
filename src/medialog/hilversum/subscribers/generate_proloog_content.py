@@ -205,13 +205,15 @@ def handler(obj, event):
                 )
                 
             else:
-                proloog = portal.get(the_id)            
-            
-            if replace_content or not item_exist != False:
+                proloog = portal.get(the_id)    
+                
+                
+            ## check for replace and IMPORTANT, that the content type is 'Proloog'
+            if proloog.Type() == "Proloog" and (replace_content or not item_exist != False):
                 # if replace_content or not item_exist:
                 # import pdb; pdb.set_trace()
                 # print( str(i) + ' : ' + the_title)
-            
+                
                 for key, value in field_map.items():
                     subjekter = None
                     # Replace only fields that are set in 'replace_fields'
