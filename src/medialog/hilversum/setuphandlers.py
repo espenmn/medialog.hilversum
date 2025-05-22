@@ -53,10 +53,10 @@ def post_install(context):
                 type='Collection',
                 container=portal,
                 id='proloogs-collection',
-                title='proloogs',
+                title='Proloogs',
                 layout="full_view",
                 query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['proloog', 'proloog']},
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
                 ]
         )
         
@@ -65,10 +65,10 @@ def post_install(context):
                 type='Collection',
                 container=portal,
                 id='proloog-collection',
-                title='proloog Overview',
+                title='Proloog Overview',
                 layout="proloog-folder-view",
                 query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['proloog', 'proloog']},
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
                 ]
         )
 
@@ -77,10 +77,10 @@ def post_install(context):
                 type='Collection',
                 container=portal,
                 id='proloogs-collections',
-                title='proloog 2s',
+                title='Proloog 2s',
                 layout="proloogs-view",
                 query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['proloog', 'proloog']},
+                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
                 ]
         )
 

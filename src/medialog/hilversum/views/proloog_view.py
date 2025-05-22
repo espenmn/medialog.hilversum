@@ -13,13 +13,10 @@ from medialog.hilversum.keywords import get_keywords as keywords
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+class IProloogView(Interface):
+    """ Marker Interface for IProloogView"""
 
-class IproloogView(Interface):
-    """ Marker Interface for IproloogView"""
-
-
-
-class proloogView(BrowserView):
+class ProloogView(BrowserView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
     # template = ViewPageTemplateFile('proloog_view.pt')

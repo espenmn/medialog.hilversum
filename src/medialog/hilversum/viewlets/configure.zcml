@@ -31,7 +31,7 @@
 
   <browser:viewlet
      name="filter-viewlet"
-     for="medialog.hilversum.views.proloog_view.IproloogView"
+     for="medialog.hilversum.views.proloog_view.IProloogView"
      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
@@ -51,7 +51,7 @@
 
   <browser:viewlet
      name="filter-viewlet"
-     for="medialog.hilversum.content.proloog.Iproloog"
+     for="medialog.hilversum.content.proloog.IProloog"
      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"

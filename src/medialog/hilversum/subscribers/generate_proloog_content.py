@@ -22,6 +22,9 @@ from io import BytesIO
 from pandas import *
 import openpyxl
 import re
+import chardet
+
+
  
 #from bs4 import BeautifulSoup
 #import re
@@ -32,10 +35,12 @@ def handler(obj, event):
     
     blob = obj.csv_file  # This is a NamedBlobFile
     replace_content = obj.replace
+    replace_fields = obj.replace_fields
     
     #disable 'replace setting' so it does not overwrite next time
     setattr(obj, 'replace_content', False)
     obj.reindexObject()
+    changes = 0
 
     if blob is not None:
         data = blob.data  # raw bytes
@@ -43,7 +48,10 @@ def handler(obj, event):
         if blob.filename.endswith('.xlsx') or blob.filename.endswith('.xls'):
             df = pd.read_excel(BytesIO(data))
         elif blob.filename.endswith('.csv'): 
-            df = pd.read_csv(BytesIO(data), sep=';', engine='python')  # read CSV from bytes
+            # detect encoding
+            result = chardet.detect(data)
+            encoding = result['encoding']
+            df = pd.read_csv(BytesIO(data), sep=';', engine='python', encoding=encoding)  # read CSV from bytes
         else:
             # Alternatively, we could try to read it  ( try: / except Exception: )
             pass
@@ -53,7 +61,7 @@ def handler(obj, event):
         portal = plone.api.portal.get()
         
         # 'proloog' is the portal_type name
-        fti = getUtility(IDexterityFTI, name='proloog')
+        fti = getUtility(IDexterityFTI, name='Proloog')
         
         # Get schema to know what type the fields are
         schema = fti.lookupSchema()
@@ -81,53 +89,54 @@ def handler(obj, event):
             the_id = str(the_dict['ID'])
             
             # Fields to use to add content and their names
+            # Added fallback if they do not exist
             field_map = {
-                "naam" : the_dict['Naam'],
-                "the_type" : the_dict["Type"],
-                "expertise_aanbod" : the_dict["Expertise aanbod"],
-                "aantal_lessen" : the_dict["Aantal lessen"],
-                "uitvoering_op_school" : the_dict["Uitvoering op school"],
-                "speelvlak" : the_dict["Speelvlak"],
-                "verduistering" : the_dict["Verduistering"],
-                "opbouwtijd" : the_dict["Opbouwtijd"],
-                "min_aantal_leerlingen" : the_dict["Min. aantal leerlingen"],
-                "ruimte_op_school" : the_dict["Ruimte op school"],
-                "clusters" : the_dict["Clusters"],
-                "programma" : the_dict["Programma"],
-                # "discipline" : the_dict["Discipline"],
-                "discipline": the_dict["Leerlijn / Discipline"],
-                "thema" : the_dict["Thema"],
-                "lesmateriaal_url" : the_dict["Lesmateriaal URL"],
-                "aanbieder" : the_dict["Aanbieder"],
-                "bemiddelaar" : the_dict["Bemiddelaar"],
-                "vaste_ruimte" : the_dict["Vaste ruimte"],
-                "vaste_gezelschappen" : the_dict["Vaste gezelschappen"],
-                "vaste_personen" : the_dict["Vaste personen"],
-                "blokje_persoon_inplannen" : the_dict["Blokje persoon inplannen"],
-                "schooljaar" : the_dict["Schooljaar"],
-                "duur" : the_dict["Duur"],
-                "max_aantal_leerlingen" : the_dict["Max. aantal leerlingen"],
-                "onderwijstype" : the_dict["Onderwijstype"],
-                "vo_typen" : the_dict["VO typen"],
-                "leerjaren" : the_dict["Leerjaren"],
-                "inschrijfbaar" : the_dict["Inschrijfbaar"],
-                "prijs_per" : the_dict["Prijs per"],
-                "tarief_leerling_groep" : the_dict["Tarief leerling/groep"],
-                "tarief_begeleider" : the_dict["Tarief begeleider"],
-                # "max_aantal_leerlingen_prijsberekening" : the_dict["Max. aantal leerlingen prijsberekening"],
-                # "totaalprijs" : the_dict["Totaalprijs"],
-                "omschrijving" : the_dict["Omschrijving"],
-                "url_meer_informatie" : the_dict["Url meer informatie"],
-                "startdatum" : the_dict["Startdatum"],
-                "einddatum" : the_dict["Einddatum"],
-                "notitie" : the_dict["Notitie"],
-                "extra_info_bij_inschrijven" : the_dict["Extra info bij inschrijven"],
-                "extra_info_in_communicatie" : the_dict["Extra info in communicatie"],
-                "verstuur_evaluatiemail" : the_dict["Verstuur evaluatiemail"],
-                "url_evaluatieformulier" : the_dict["Url evaluatieformulier"],
-                "ondertekening_emails" : the_dict["Ondertekening emails"],
-                "extern_id" : the_dict["Extern ID"],
-                "the_code" : the_dict["Code"], 
+                "naam" : the_dict.get("Naam", None),
+                "the_type" : the_dict.get("Type", None),
+                "expertise_aanbod" : the_dict.get("Expertise aanbod", None),
+                "aantal_lessen" : the_dict.get("Aantal lessen", None),
+                "uitvoering_op_school" : the_dict.get("Uitvoering op school", None),
+                "speelvlak" : the_dict.get("Speelvlak", None),
+                "verduistering" : the_dict.get("Verduistering", None),
+                "opbouwtijd" : the_dict.get("Opbouwtijd", None),
+                "min_aantal_leerlingen" : the_dict.get("Min. aantal leerlingen", None),
+                "ruimte_op_school" : the_dict.get("Ruimte op school", None),
+                "clusters" : the_dict.get("Clusters", None),
+                "programma" : the_dict.get("Programma", None),
+                # "discipline" : the_dict.get("Discipline", None),
+                "discipline": the_dict.get("Leerlijn / Discipline", None),
+                "thema" : the_dict.get("Thema", None),
+                "lesmateriaal_url" : the_dict.get("Lesmateriaal URL", None),
+                "aanbieder" : the_dict.get("Aanbieder", None),
+                "bemiddelaar" : the_dict.get("Bemiddelaar", None),
+                "vaste_ruimte" : the_dict.get("Vaste ruimte", None),
+                "vaste_gezelschappen" : the_dict.get("Vaste gezelschappen", None),
+                "vaste_personen" : the_dict.get("Vaste personen", None),
+                "blokje_persoon_inplannen" : the_dict.get("Blokje persoon inplannen", None),
+                "schooljaar" : the_dict.get("Schooljaar", None),
+                "duur" : the_dict.get("Duur", None),
+                "max_aantal_leerlingen" : the_dict.get("Max. aantal leerlingen", None),
+                "onderwijstype" : the_dict.get("Onderwijstype", None),
+                "vo_typen" : the_dict.get("VO typen", None),
+                "leerjaren" : the_dict.get("Leerjaren", None),
+                "inschrijfbaar" : the_dict.get("Inschrijfbaar", None),
+                "prijs_per" : the_dict.get("Prijs per", None),
+                "tarief_leerling_groep" : the_dict.get("Tarief leerling/groep", None),
+                "tarief_begeleider" : the_dict.get("Tarief begeleider", None),
+                # "max_aantal_leerlingen_prijsberekening" : the_dict.get("Max. aantal leerlingen prijsberekening", None),
+                # "totaalprijs" : the_dict.get("Totaalprijs", None),
+                "omschrijving" : the_dict.get("Omschrijving", None),
+                "url_meer_informatie" : the_dict.get("Url meer informatie", None),
+                "startdatum" : the_dict.get("Startdatum", None),
+                "einddatum" : the_dict.get("Einddatum", None),
+                "notitie" : the_dict.get("Notitie", None),
+                "extra_info_bij_inschrijven" : the_dict.get("Extra info bij inschrijven", None),
+                "extra_info_in_communicatie" : the_dict.get("Extra info in communicatie", None),
+                "verstuur_evaluatiemail" : the_dict.get("Verstuur evaluatiemail", None),
+                "url_evaluatieformulier" : the_dict.get("Url evaluatieformulier", None),
+                "ondertekening_emails" : the_dict.get("Ondertekening emails", None),
+                "extern_id" : the_dict.get("Extern ID", None),
+                "the_code" : the_dict.get("Code", None), 
             }
             
             #Create content only if it does not exist
@@ -136,7 +145,7 @@ def handler(obj, event):
             
             if not item_exist:
                 proloog = plone.api.content.create(
-                    type='proloog',
+                    type='Proloog',
                     title = the_title,
                     id = the_id,                
                     container=portal
@@ -151,97 +160,104 @@ def handler(obj, event):
                 # print( str(i) + ' : ' + the_title)
             
                 for key, value in field_map.items():
-                    print(str(i) + ' ' + key + " : " + str(value))
+                    # Replace only fields that are set in 'replace_fields'
+                    if key in replace_fields or not item_exist != False:
+                        print(str(i) + ' ' + key + " : " + str(value))
                     
-                    if value and pd.notna(value) and value != "":
-                        value_type = type(value)
-                        field = getFields(schema)[key]
-                        field_type = type(field).__name__   
-                        # map bootstrap fields to comparable imported fields (types)
-                        python_type = field_type_map.get(field_type, None)
-                        
-                        # Convert ints to string if field is string
-                        if python_type == str:
-                            value = str(value)
-                        
-                        # CSV file has wrong data format for some entries
-                        # Excel file also has similar problems
-                        if isinstance(value, datetime.datetime):
-                            value = value.date()
+                        if value and pd.notna(value) and value != "":
+                            value_type = type(value)
+                            field = getFields(schema)[key]
+                            field_type = type(field).__name__   
+                            # map bootstrap fields to comparable imported fields (types)
+                            python_type = field_type_map.get(field_type, None)
                             
-                        if value_type == Timestamp:        
-                            # Convert to datetime.date
-                            value = value.date()
-                        
-                        #due to bug 'bad csv files', we need to convert more dates 
-                        #some dates have wrong syntax, need to fix them
-                        if key in ['startdatum',  'einddatum' ] and isinstance(value, str):
-                            # For unknow reason, the CSV users 0025 for year 2025 etc
-                            value = value.replace("-00", "-20")
-                            value = datetime.datetime.strptime(value, '%d-%m-%Y').date()                    
-                        
-                        #floats should be ints
-                        if isinstance(value, float):
-                            value = int(value)
-                            # can remove this next line later
-                            value_type = int
-                            
-                        #convert strings to list for 'list' fields
-                        if python_type == list:
-                            if isinstance(value, str):
-                                value = re.split(r"[,\|]", value)
-                                # can remove this next line later
-                                value_type = list
-                                                                
-                        
-                        # convert list of strings to list of ints for these
-                        if key in ['tarief_leerling_groep']:
-                            if value_type == list:
-                                #Remove unset values
-                                if 'nvt' in value:
-                                    value.remove('nvt')
-                                value = [int(x) for x in value]
-                            else:
-                                value = [value]
-                        
-                        #Not sure if leerjaren should be int, but it contains string ('ve')        
-                        if key in ['leerjaren']:
-                            if value_type == list:
-                                #Remove unset values
-                                value = [str(x) for x in value]
-                            else:
+                            # Convert ints to string if field is string
+                            if python_type == str:
                                 value = str(value)
-                                
-
-                        if key == 'discipline':
-                            subjekter = value
                             
-                        #Create AAnbieder(s)
-                        if key == 'aanbieder':
-                            for item_name in value:
-                                aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
-                                if not portal.get(aan_id, False):
-                                    aanbieder = plone.api.content.create(
-                                        type='Aanbieder',
-                                        title = item_name,
-                                        id = aan_id,                
-                                        container=portal
-                                    )
+                            # CSV file has wrong data format for some entries
+                            # Excel file also has similar problems
+                            if isinstance(value, datetime.datetime):
+                                value = value.date()
+                                
+                            if value_type == Timestamp:        
+                                # Convert to datetime.date
+                                value = value.date()
+                            
+                            #due to bug 'bad csv files', we need to convert more dates 
+                            #some dates have wrong syntax, need to fix them
+                            if key in ['startdatum',  'einddatum' ] and isinstance(value, str):
+                                # For unknow reason, the CSV users 0025 for year 2025 etc
+                                value = value.replace("-00", "-20")
+                                value = datetime.datetime.strptime(value, '%d-%m-%Y').date()                    
+                            
+                            #floats should be ints
+                            if isinstance(value, float):
+                                value = int(value)
+                                # can remove this next line later
+                                value_type = int
+                                
+                            #convert strings to list for 'list' fields
+                            if python_type == list:
+                                if isinstance(value, str):
+                                    value = re.split(r"[,\|]", value)
+                                    # can remove this next line later
+                                    value_type = list
+                                                                    
+                            
+                            # convert list of strings to list of ints for these
+                            if key in ['tarief_leerling_groep']:
+                                if value_type == list:
+                                    #Remove unset values
+                                    if 'nvt' in value:
+                                        value.remove('nvt')
+                                    value = [int(x) for x in value]
                                 else:
-                                    aanbieder = portal.get(aan_id)
-                                
-                                # subjects = list(aanbieder.Subject())
-                                #Add keywords to 'aanbieder'. Needs to be added after aanbieder is added
-                                #If this is not the 'order', we need to sort the list first /  TO DO / Check                        
-                                if subjekter:
-                                    aanbieder.setSubject(subjekter)                                 
+                                    value = [value]
                             
-                        
-                        setattr(proloog, key, value)  
+                            #Not sure if leerjaren should be int, but it contains string ('ve')        
+                            if key in ['leerjaren']:
+                                if value_type == list:
+                                    #Remove unset values
+                                    value = [str(x) for x in value]
+                                else:
+                                    value = str(value)
+                                    
+                            subjekter = None
+                            if key == 'discipline':
+                                subjekter = value
+                                
+                            #Create AAnbieder(s)
+                            if key == 'aanbieder':
+                                for item_name in value:
+                                    aan_id =   re.sub(r'[^a-z0-9]+', '-', item_name.lower()).strip('-')
+                                    if not portal.get(aan_id, False):
+                                        aanbieder = plone.api.content.create(
+                                            type='Aanbieder',
+                                            title = item_name,
+                                            id = aan_id,                
+                                            container=portal
+                                        )
+                                    else:
+                                        aanbieder = portal.get(aan_id)
+                                    
+                                    # subjects = list(aanbieder.Subject())
+                                    #Add keywords to 'aanbieder'. Needs to be added after aanbieder is added
+                                    #If this is not the 'order', we need to sort the list first /  TO DO / Check                        
+                                    if subjekter:
+                                        aanbieder.setSubject(subjekter)                                 
+                                
+                            
+                            setattr(proloog, key, value)  
+                            changes += 1
                         
                 # transaction.commit()  # TO DO, check if this is needed  
                 proloog.setTitle(the_title)  
                 proloog.reindexObject()  # Ensure catalog is updated for this proloog 
+    
+    message = "{} changes".format(changes) 
+    plone.api.portal.show_message(message=message, request=None, type='info') 
+
                 
     # obj.reindexObject()
         

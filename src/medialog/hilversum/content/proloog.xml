@@ -22,6 +22,13 @@
       <widget hidden="False"/>
     </field>
 
+    <field name="omschrijving" type="zope.schema.Text">
+      <description/>
+      <title>Omschrijving</title>
+      <required>False</required>
+      <widget hidden="False"/>
+    </field>
+
     <field name="expertise_aanbod" type="zope.schema.TextLine">
       <description/>
       <title>Expertise aanbod</title>
@@ -104,7 +111,7 @@
       <title>Discipline</title>
       <required>False</required>
       <widget hidden="True"/>
-        <value_type type="zope.schema.TextLine" />
+      <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="thema" type="zope.schema.List">
@@ -112,7 +119,7 @@
       <title>Thema</title>
       <required>False</required>
       <widget hidden="False"/>
-        <value_type type="zope.schema.TextLine" />
+      <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="lesmateriaal_url" type="zope.schema.URI">
@@ -127,7 +134,7 @@
       <title>Aanbieder</title>
       <required>False</required>
       <widget hidden="True"/>
-        <value_type type="zope.schema.TextLine" />
+      <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="bemiddelaar" type="zope.schema.TextLine">
@@ -169,7 +176,7 @@
       <description/>
       <title>Schooljaar</title>
       <required>False</required>
-      <widget hidden="False"/> 
+      <widget hidden="False"/>
     </field>
 
     <field name="duur" type="zope.schema.Int">
@@ -191,7 +198,7 @@
       <title>Onderwijstype</title>
       <required>True</required>
       <widget hidden="False"/>
-        <value_type type="zope.schema.TextLine" />
+      <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="vo_typen" type="zope.schema.List">
@@ -199,7 +206,7 @@
       <title>VO typen</title>
       <required>False</required>
       <widget hidden="False"/>
-        <value_type type="zope.schema.TextLine" />
+      <value_type type="zope.schema.TextLine" />
     </field>
 
     <field name="leerjaren" type="zope.schema.List">
@@ -229,7 +236,7 @@
       <title>Tarief leerling/groep</title>
       <required>False</required>
       <widget hidden="False"/>
-       <value_type type="zope.schema.Int" />
+      <value_type type="zope.schema.Int" />
     </field>
 
     <field name="tarief_begeleider" type="zope.schema.TextLine">
@@ -251,13 +258,6 @@
       <title>Totaalprijs</title>
       <required>False</required>
       <widget hidden="True"/>
-    </field>
-
-    <field name="omschrijving" type="zope.schema.TextLine">
-      <description/>
-      <title>Omschrijving</title>
-      <required>False</required>
-      <widget hidden="False"/>
     </field>
 
     <field name="url_meer_informatie" type="zope.schema.URI">

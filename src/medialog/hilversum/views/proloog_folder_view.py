@@ -11,8 +11,8 @@ from plone.resource.interfaces import IResourceDirectory
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class IproloogFolderView(Interface):
-    """ Marker Interface for IproloogFolderView"""
+class IProloogFolderView(Interface):
+    """ Marker Interface for IProloogFolderView"""
 
 
 class proloogFolderView(CollectionView):
@@ -22,7 +22,7 @@ class proloogFolderView(CollectionView):
 
     def __call__(self):
         # Implement your own actions:
-        return super(proloogFolderView, self).__call__()
+        return super(ProloogFolderView, self).__call__()
 
 
     def get_discipline_images(self):

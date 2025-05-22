@@ -46,7 +46,7 @@
     name="proloog-view"
     for="*"
     template="proloog_view.pt"
-    class=".proloog_view.proloogView"
+    class=".proloog_view.ProloogView"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
@@ -63,7 +63,7 @@
     <browser:page
     name="proloogs-view"
     for="*"
-    class=".proloog_view.proloogView"
+    class=".proloog_view.ProloogView"
     template="proloogs_view.pt"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"

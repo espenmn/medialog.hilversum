@@ -19,7 +19,7 @@
 
 
     <permission
-        id="medialog.hilversum.Addproloog"
+        id="medialog.hilversum.AddProloog"
         title="medialog.hilversum: Add proloog"
     />
 

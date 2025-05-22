@@ -20,12 +20,12 @@
   <!-- Hierarchy control -->
   <property name="global_allow">True</property>
   <!-- Schema, class and security -->
-  <property name="add_permission">medialog.hilversum.Addproloog</property>
-  <property name="klass">plone.dexterity.content.Item</property>
-  <property name="model_file">medialog.hilversum.content:proloog.xml</property>
+  <property name="add_permission">medialog.hilversum.AddProloog</property>
+  <property name="klass">medialog.hilversum.content.proloog.Proloog</property>
+  <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema"></property>
-
+  <property name="schema">medialog.hilversum.content.proloog.IProloog</property>
+ 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
     <!-- Details about all standard behaviors following can be read at

@@ -10,7 +10,7 @@ from plone import api
 
 
 class IProviderView(Interface):
-    """ Marker Interface for IproloogView"""
+    """ Marker Interface for IPView"""
 
 
 class ProviderView(BrowserView):

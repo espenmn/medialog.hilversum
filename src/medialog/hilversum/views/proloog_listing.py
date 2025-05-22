@@ -7,8 +7,8 @@ from zope.interface import Interface
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class IproloogListing(Interface):
-    """ Marker Interface for IproloogListing"""
+class IProloogListing(Interface):
+    """ Marker Interface for IProloogListing"""
 
 
 class proloogListing(CollectionView):
@@ -18,4 +18,4 @@ class proloogListing(CollectionView):
 
     def __call__(self):
         # Implement your own actions:
-        return super(proloogListing, self).__call__()
+        return super(ProloogListing, self).__call__()

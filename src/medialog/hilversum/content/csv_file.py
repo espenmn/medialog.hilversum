@@ -47,13 +47,13 @@ class ICsvFile(model.Schema):
     )
     
     replace_fields = schema.List(
-        title=_(u'Override existing values'),
-        description=_(u'Should we replace existing values of content already added'),
+        title=u"Select Proloog Fields to overwrite",
+        description=u"Select the fields to override.",
+        default=['naam', 'omschrijving'],
         required=False,
-        default=False,
+        value_type=schema.Choice(vocabulary='medialog.hilversum.ProloogFields')
     )
-    
-    
+
 
 @implementer(ICsvFile)
 class CsvFile(Item):
