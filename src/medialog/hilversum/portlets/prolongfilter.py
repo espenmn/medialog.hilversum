@@ -22,11 +22,11 @@ from urllib.parse import unquote
 
 class IProlongfilterPortlet(IPortletDataProvider):
     replace_fields = schema.List(
-        title=u"Select Proloog Fields to overwrite",
-        description=u"Select the fields to override.",
-        default=['naam', 'omschrijving'],
+        title=u"Select Proloog Fields for filters",
+        description=u"Select the filters you want",
+        default=['aanbieder', 'themea'],
         required=False,
-        value_type=schema.Choice(vocabulary='medialog.hilversum.ProloogFields')
+        value_type=schema.Choice(vocabulary='medialog.hilversum.PrologKeywords')
     )
 
 
@@ -48,12 +48,11 @@ class AddForm(base.AddForm):
     label = _(u'Add Filters')
     description = _(u'This portlet displays Filters.')
 
-    # def create(self, data):
-    #     return Assignment(
-    #         replace_fields.get('place_str', 'delhi,in'),
-    #     )
-
-
+    def create(self, data):
+        return Assignment(
+            replace_fields = data.get('replace_fields', []),
+    )
+        
 class EditForm(base.EditForm):
     schema = IProlongfilterPortlet
     form_fields = field.Fields(IProlongfilterPortlet)
@@ -77,6 +76,7 @@ class Renderer(base.Renderer):
         # self.discipline = discipline()
         self.anonymous = portal_state.anonymous()
         self.keyword = self.get_keyword()
+        self.filter_fields  = self.filter_fields()
 
     def render(self):
         return self._template()
@@ -87,6 +87,12 @@ class Renderer(base.Renderer):
         not an anonymous user."""
         return not self.anonymous and self.keyword
 
+    def filter_fields(self):
+        list = []
+        for field in self.data.replace_fields:
+            value = medialog.hilversum.PrologKeywords.getTerm(field)
+        return ['1', '2']
+    
     def site_url(self):
         return api.portal.get().absolute_url()
  
