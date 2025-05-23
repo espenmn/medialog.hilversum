@@ -1,11 +1,14 @@
-<div class="weather">
-    <h3>Weather Report</h3>
-    <span tal:content="view/weather_report"></span>
-    <br>
-    Pressure: 
-    <span tal:content="view/get_pressure"></span>
-    <br>
-    Humidity: 
-    <span tal:content="view/get_humidity"></span>
-    <br>
+<div class="green_box filtercontainer filter-section margin-20-0" tal:define="site_url view/site_url">
+    <div class="filter">
+        <div tal:repeat="keyword  view/keyword">
+            <tal:define tal:define="key keyword/name; title keyword/title">
+                <select id="dropdown-${key}" name="dropdown-${key}">
+                    <option value="" class="choose_one">${title}</option>
+                    <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
+                </select>
+            </tal:define>
+        </div>
+    </div>
 </div>
+ 
+      

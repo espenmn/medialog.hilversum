@@ -5,7 +5,7 @@
   <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
-  <div class="contaiener  hidden" id="filter-section">
+  <div class="container hidden" id="filter-section">
 
   <div class="filter flex">
       <tal:repeat tal:repeat="keyword  view/keyword">

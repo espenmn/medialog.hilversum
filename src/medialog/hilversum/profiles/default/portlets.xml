@@ -7,7 +7,7 @@
   <portlet
     addview="medialog.hilversum.portlets.Prolongfilter"
     title="ProlongFilter"
-    description="A portlet which can render weather of the given place."
+    description="A portlet which renders filters for collection."
     i18n:attributes="title title_prolongfilter;
                      description description_prolongfilter">
 
@@ -15,7 +15,6 @@
     left column and the footer too.
     -->
     <for interface="plone.app.portlets.interfaces.IColumn" />
-
     <!--
     This will enable the portlet in the dashboard.
     -->

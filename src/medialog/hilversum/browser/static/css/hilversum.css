@@ -169,6 +169,12 @@ div.dropdowns {
     margin-bottom: 10px
 }
 
+div.portletWrapper .filter-section select {
+    max-width: 80% !important;
+    min-width: 150px;
+    margin: 3px
+}
+
 #filter-toggle select,
 .filter.flex select {
     width: 12%;

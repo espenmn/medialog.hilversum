@@ -5,6 +5,12 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <utility
+        component=".prolog_keywords.PrologKeywordsFactory"
+        name="medialog.hilversum.PrologKeywords"
+    />
+
+
+    <utility
         component=".proloog_fields.ProloogFieldsFactory"
         name="medialog.hilversum.ProloogFields"
     />
