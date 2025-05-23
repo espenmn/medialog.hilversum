@@ -282,7 +282,7 @@ def handler(obj, event):
                             if key == 'discipline':
                                 value = [val.strip() for val in value]
                                 
-                            # Create AAnbieder(s)
+                            # Create Aanbieder(s)
                             if key == 'aanbieder':
                                 value = [val.strip() for val in value]
                                 for item_name in value:

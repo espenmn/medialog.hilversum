@@ -32,8 +32,6 @@
           <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
         </div>
 
-
-
       </metal:block>
     </metal:content-core>
   </body>
