@@ -5,84 +5,72 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
-                <div class="container">
-                    <div class="row">
-                        <tal:define tal:define="icons view/get_discipline_images">
-                            <!-- <tal:define tal:define="scales context/@@images;
-                        thumbnail python: scales.scale('image', width=400);">
-                    
-                        <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
-                                        width thumbnail/width;
-                                        height thumbnail/height" />
-        
-                </tal:define> -->
 
-                            <p>
-                                <span tal:repeat="disiplin context/Subject">
-                                    <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
-                                        <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
-                                    </a>
-                                </span>
-                            </p>
+                <tal:define tal:define="icons view/get_discipline_images">
+                    <p>
+                        <span tal:repeat="disiplin context/Subject">
+                            <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                                <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
+                            </a>
+                        </span>
+                    </p>
 
-                            <a class="btn button btn-standalone" href="${context/getURL|context/absolute_url}/provider-view">
-                                <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
+                    <a class="btn button btn-standalone" href="${context/getURL|context/absolute_url}/provider-view">
+                        <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
  Provider view</a>
-                            <hr/>
-                            <div tal:condition="context/text" tal:content="structure context/text/output|None">
-                            </div>
+                    <hr/>
+                    <div tal:condition="context/text" tal:content="structure context/text/output|None">
+                    </div>
 
-                            <h2>Anbod van ${context/Title}:</h2>
-                            <div class="grid">
-                                <div tal:repeat="course view/courses">
-                                    <div class="green_box">
-                                        <div class="padding-1 flex flex_start custom-background1 padding-5">
+                    <h2>Anbod van ${context/Title}:</h2>
+                    <div class="grid">
+                        <div tal:repeat="course view/courses">
+                            <div class="green_box">
+                                <div class="padding-1 flex flex_start custom-background1 padding-5">
 
-                                            <div class="discipline" tal:repeat="disiplin course/discipline">
-                                                <a href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin}">
-                                                    <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
-                                                        <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" />
-                                                        <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" title="${disiplin}" alt="${disiplin} icon" />
-                                                    </tal:define>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                        <a href="${course/getURL}" tal:define="obj course/getObject">
-                                            <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
-                                                <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
-                                    width thumbnail/width;
-                                    height thumbnail/height" />
-                                                <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
-                                            </div>
+                                    <div class="discipline" tal:repeat="disiplin course/discipline">
+                                        <a href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin}">
+                                            <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
+                                                <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" />
+                                                <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" title="${disiplin}" alt="${disiplin} icon" />
+                                            </tal:define>
                                         </a>
-                                        <div class="padding-10 padding-5-0 custom-backgrund1">
-                                            <h4>
-                                                <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
-                                            </h4>
-                                            <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
-                                            <p class="padding-0 margin-0 dark-grey">
-                                                <b>Geschikt voor: </b> ${course/schooljaar|None}
-                                            </p>
-                                            <p class="padding-0 margin-0 dark-grey">
-                                                <b>Startdatum: </b> ${course/startdatum}
-                                            </p>
-                                            <p class="padding-0 margin-0 dark-grey">
-                                                <b>Prijs per:</b> ${course/prijs_per}
-                                            </p>
-
-                                        </div>
-                                        <div class="custom-background2 white padding-10 margin-top-auto center text-center">
-                                            <a class="white" href="${course/getURL}">Bekijk het aanbod</a>
-                                        </div>
-
                                     </div>
+
                                 </div>
+                                <a href="${course/getURL}" tal:define="obj course/getObject">
+                                    <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                                        <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                                    width thumbnail/width;
+                                                    height thumbnail/height" />
+                                        <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
+                                    </div>
+                                </a>
+                                <div class="padding-10 padding-5-0 custom-backgrund1">
+                                    <h4>
+                                        <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
+                                    </h4>
+                                    <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
+                                    <p class="padding-0 margin-0 dark-grey">
+                                        <b>Geschikt voor: </b> ${course/schooljaar|None}
+                                    </p>
+                                    <p class="padding-0 margin-0 dark-grey">
+                                        <b>Startdatum: </b> ${course/startdatum}
+                                    </p>
+                                    <p class="padding-0 margin-0 dark-grey">
+                                        <b>Prijs per:</b> ${course/prijs_per}
+                                    </p>
+
+                                </div>
+                                <div class="custom-background2 white padding-10 margin-top-auto center text-center">
+                                    <a class="white" href="${course/getURL}">Bekijk het aanbod</a>
+                                </div>
+
                             </div>
                         </div>
+                    </div>
+                </tal:define>
 
-                    </tal:define>
-                </div>
             </metal:block>
         </metal:content-core>
     </body>
