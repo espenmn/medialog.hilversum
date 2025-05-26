@@ -12,10 +12,7 @@
     </div>
 </div>
 
-   <div tal:repeat="keyword  python: view.filter_fields">${keyword}
-   ${python: keyword/name}
-</div>
- 
+   
       
  
       

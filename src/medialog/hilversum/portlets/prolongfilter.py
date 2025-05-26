@@ -13,6 +13,8 @@ from zope.interface import implementer
 from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 from plone import api
+from zope.component import getUtility
+from zope.schema.interfaces import IVocabularyFactory
 
 
 from medialog.hilversum.keywords import get_keywords as keywords
@@ -88,10 +90,13 @@ class Renderer(base.Renderer):
         return not self.anonymous and self.keyword
 
     def filter_fields(self):
-        list = []
+        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.PrologKeywords")
+        vocab = factory(self.context)
+        filter_list = []
         for field in self.data.replace_fields:
-            value = medialog.hilversum.PrologKeywords.getTerm(field)
-        return ['1', '2']
+            value = vocab.getTerm(field)
+            filter_list.append(value)
+        return filter_list
     
     def site_url(self):
         return api.portal.get().absolute_url()
@@ -100,12 +105,15 @@ class Renderer(base.Renderer):
     def get_keyword(self):
         filters = []
         context = self.context
-        catalog = getToolByName(context, 'portal_catalog')        
-        for keyword in self.keywords:          
+        catalog = getToolByName(context, 'portal_catalog')     
+        for keyword in self.filter_fields():          
             # Get unique values from  index
-            index = catalog._catalog.getIndex(keyword[0])
+            index = catalog._catalog.getIndex(keyword.value)
             if hasattr(index, 'uniqueValues'):
-                filters.append({'name': keyword[0], 'title' : keyword[1], 'vals': sorted(index.uniqueValues())})            
+                filters.append({'name': keyword.value, 'title' : keyword.title, 'vals': sorted(index.uniqueValues())})            
         return filters
+    
+    
+    
 
  
