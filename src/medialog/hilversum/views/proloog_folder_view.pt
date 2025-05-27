@@ -6,6 +6,14 @@
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core" tal:define="batch view/batch">
 
+        <!-- <p>
+          <tal:repeat tal:repeat="filter view/get_filters">
+            <span class="enabled-filter filter-${filter/key}">
+              <a class="custom-background3 white" href="${portal_url}/proloog-collection/?collectionfilter=1&${filter/key}=${filter/value}">${filter/value}</a>
+            </span>
+          </tal:repeat >
+        </p> -->
+
         <tal:define tal:define="icons view/get_discipline_images">
           <p>
             <span tal:repeat="disiplin context/Subject">

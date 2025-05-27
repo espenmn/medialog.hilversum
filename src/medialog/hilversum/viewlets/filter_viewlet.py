@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from plone import api
 from medialog.hilversum.keywords import get_keywords as keywords
 from medialog.hilversum.keywords import get_discipline as discipline
+
 # from medialog.hilversum.keywords import get_keyword as keyword
 
 
@@ -47,3 +48,20 @@ class FilterViewlet(ViewletBase):
     
     def get_keywords(self):  
         return keywords(self)        
+    
+    # def get_filters(self):
+    #     allowed_keys = {k for k, _ in self.get_keywords(self)}
+    #     # Filter request.form for only those keys
+    #     return [
+    #         {'key': key, 'value': self.request.form.get(key)}
+    #         for key in self.request.form
+    #         if key in allowed_keys
+    #     ]
+        
+    def get_filters(self):
+        allowed_keys = {k for k, _ in self.get_keywords()}
+        return {
+            key: self.request.form.get(key)
+            for key in self.request.form
+            if key in allowed_keys
+        }

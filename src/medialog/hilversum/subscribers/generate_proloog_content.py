@@ -126,8 +126,10 @@ def handler(obj, event):
             "Bool": bool,
             "List": list,          
             "Tuple": tuple,
-            "Date": Timestamp,       
+            "Date": Timestamp,  
+            "RichText": RichTextValue,     
             "Datetime": Timestamp # Same here, use datetime.datetime if needed
+            
         }
 
         # A  loop to read the cell values
@@ -176,7 +178,6 @@ def handler(obj, event):
                 "prijs_per" : the_dict.get("Prijs per", None),
                 "tarief_leerling_groep" : the_dict.get("Tarief leerling/groep", None),
                 "tarief_begeleider" : the_dict.get("Tarief begeleider", None),
-                # "max_aantal_leerlingen_prijsberekening" : the_dict.get("Max. aantal leerlingen prijsberekening", None),
                 # "totaalprijs" : the_dict.get("Totaalprijs", None),
                 "omschrijving" : the_dict.get("Omschrijving", None),
                 "url_meer_informatie" : the_dict.get("Url meer informatie", None),
@@ -186,6 +187,12 @@ def handler(obj, event):
                 "extra_info_bij_inschrijven" : the_dict.get("Extra info bij inschrijven", None),
                 "extra_info_in_communicatie" : the_dict.get("Extra info in communicatie", None),
                 "verstuur_evaluatiemail" : the_dict.get("Verstuur evaluatiemail", None),
+                "pakketten" : the_dict.get("Pakketten", None),"" : the_dict.get("", None),
+                "podia_musea" : the_dict.get("Podia/Musea", None),"" : the_dict.get("", None),
+                "totaalprijs " : the_dict.get("Totaalprijs ", None),"" : the_dict.get("", None),
+                "url_overzicht" : the_dict.get("Url overzicht", None),"" : the_dict.get("", None),
+                "vinkje_materiaal" : the_dict.get("Vinkje materiaal", None),"" : the_dict.get("", None),
+                "volgeboekt" : the_dict.get("Volgeboekt", None),"" : the_dict.get("", None),                
                 "url_evaluatieformulier" : the_dict.get("Url evaluatieformulier", None),
                 "ondertekening_emails" : the_dict.get("Ondertekening emails", None),
                 "extern_id" : the_dict.get("Extern ID", None),
@@ -230,6 +237,9 @@ def handler(obj, event):
                             # Convert ints to string if field is string
                             if python_type == str:
                                 value = str(value)
+                               
+                            if python_type == RichTextValue: 
+                                value = RichTextValue(value)
                             
                             # CSV file has wrong data format for some entries
                             # Excel file also has similar problems

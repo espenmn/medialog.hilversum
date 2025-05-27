@@ -46,6 +46,8 @@
     color: white;
 }
 
+
+
 .filtercontainer {
     margin-bottom: 2rem;
 }
@@ -192,6 +194,8 @@ div.flex_start {
     justify-content: flex-start;
     flex-direction: row !important
 }
+
+.enabled-filter a {padding: 6px 10px; text-decoration: none; border-radius: 8px; border: 1px solid silver}
 
 table.sortable thead th {
     background-color: #DDD;

@@ -114,6 +114,16 @@ class Renderer(base.Renderer):
         return filters
     
     
+    # def get_filters(self):
+    #     allowed_keys = {k for k, _ in keywords()}
+    #     return {
+    #         key: self.request.form.get(key)
+    #         for key in self.request.form
+    #         if key in allowed_keys
+    #     }
+
+    
+    
     
 
  

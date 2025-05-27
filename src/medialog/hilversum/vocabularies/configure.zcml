@@ -16,13 +16,13 @@
     />
 
 
-    <utility
+    <!-- <utility
         component=".leerjaren_vocabulary.LeerjarenVocabularyFactory"
         name="medialog.hilversum.LeerjarenVocabulary"
-    />
+    /> -->
 
 
-    <utility
+    <!-- <utility
         component=".v_otypen_vocabulary.VOtypenVocabularyFactory"
         name="medialog.hilversum.VOtypenVocabulary"
     />
@@ -37,7 +37,7 @@
     <utility
         component=".schooljaar_vocabulary.SchooljaarVocabularyFactory"
         name="medialog.hilversum.SchooljaarVocabulary"
-    />
+    /> -->
 
 
     <utility

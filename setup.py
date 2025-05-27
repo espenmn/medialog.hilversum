@@ -58,6 +58,7 @@ setup(
         'chardet',
         'plone.api>=1.8.4',
         'plone.app.dexterity',
+        'collective.collectionfilter'
     ],
     extras_require={
         'test': [

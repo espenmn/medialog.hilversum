@@ -238,7 +238,7 @@
 
 
           <div class="container">
-            <h2>Andere Anbod van ${python: "".join(context.aanbieder)}:</h2>
+            <h2>Andere Aanbod van ${python: "".join(context.aanbieder)}:</h2>
 
             <div class="grid" tal:define="icons view/get_discipline_images">
               <tal:repeat tal:repeat="course view/courses">
