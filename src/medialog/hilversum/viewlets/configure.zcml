@@ -69,6 +69,15 @@
      permission="zope2.View"
      />    
 
+  <browser:viewlet
+     name="icons-filter-viewlet"
+     for="plone.app.contenttypes.interfaces.ICollection"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".filter_viewlet.FilterViewlet"
+     template="icon-filter-viewlet.pt"
+     permission="zope2.View"
+     />    
 
 
 </configure>
