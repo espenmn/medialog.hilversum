@@ -58,9 +58,7 @@
   <index name="naam" meta_type="FieldIndex">
     <indexed_attr value="naam"/>
   </index>
-  <index name="omschrijving" meta_type="FieldIndex">
-    <indexed_attr value="omschrijving"/>
-  </index>
+
   <index name="ondertekening_emails" meta_type="FieldIndex">
     <indexed_attr value="ondertekening_emails"/>
   </index>
@@ -171,7 +169,6 @@
   <column value="min_aantal_leerlingen"/>
   <column value="notitie"/>
   <column value="naam"/>
-  <column value="omschrijving"/>
   <column value="ondertekening_emails"/>
   <column value="onderwijstype"/>
   <column value="opbouwtijd"/>

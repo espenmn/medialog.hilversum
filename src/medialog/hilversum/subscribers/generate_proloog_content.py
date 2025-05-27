@@ -225,22 +225,27 @@ def handler(obj, event):
                     subjekter = None
                     # Replace only fields that are set in 'replace_fields'
                     if key in replace_fields or not item_exist != False:
-                        print(str(i) + ' ' + key + " : " + str(value))
-                    
                         if value and pd.notna(value) and value != "":
+                            
+                            #body text is a behavior
+                            if key == 'omschrijving':
+                                setattr(proloog, 'text', RichTextValue(value))
+                                continue
+                                
+                        
                             value_type = type(value)
                             field = getFields(schema)[key]
                             field_type = type(field).__name__   
                             # map bootstrap fields to comparable imported fields (types)
                             python_type = field_type_map.get(field_type, None)
                             
-                            # Convert ints to string if field is string
-                            if python_type == str:
-                                value = str(value)
-                               
                             if python_type == RichTextValue: 
                                 value = RichTextValue(value)
                             
+                            # Convert ints to string if field is string
+                            if python_type == str:
+                                value = str(value)                         
+                                                  
                             # CSV file has wrong data format for some entries
                             # Excel file also has similar problems
                             if value_type == Timestamp and not isinstance(value, datetime.datetime):        
@@ -262,6 +267,9 @@ def handler(obj, event):
                                 value = int(value)
                                 # can remove this next line later
                                 value_type = int
+                                
+                            if isinstance(value, str) and python_type == int:
+                                value = int(value)  
                                 
                             #convert strings to list for 'list' fields
                             if python_type == list:

@@ -22,13 +22,6 @@
       <widget hidden="False"/>
     </field>
 
-    <field name="omschrijving" type="plone.app.textfield.RichText">
-      <description/>
-      <title>Omschrijving</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
     <field name="expertise_aanbod" type="zope.schema.TextLine">
       <description/>
       <title>Expertise aanbod</title>
@@ -367,7 +360,7 @@
 
     <field name="url_overzicht" type="zope.schema.URI">
       <description/>
-      <title>"Url overzich</title>
+      <title>Url overzich</title>
       <required>False</required>
     </field>
  

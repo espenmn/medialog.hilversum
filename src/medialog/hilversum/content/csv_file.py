@@ -18,12 +18,18 @@ from medialog.hilversum import _
 
 def validate_excel_file(value):
     content_type = value.contentType
-    if content_type not in [
-        'application/vnd.ms-excel',  
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',   
-        'text/csv'  
-    ]:
-        raise Invalid(u"Only Excel files (.xls, .xlsx) and CSV files (.csv) are allowed.")
+    allowed_types = [
+        'application/vnd.ms-excel',  # .xls
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',  # .xlsx
+        'text/csv'  # .csv
+    ]
+    
+    if content_type not in allowed_types:
+        # Check file extension since attachements seem to loose info
+        filename = value.filename.lower()
+        allowed_extensions = ('.xls', '.xlsx', '.csv')
+        if not filename.endswith(allowed_extensions):
+            raise Invalid(u"Only Excel files (.xls, .xlsx) and CSV files (.csv) are allowed.")
     return True
 
 

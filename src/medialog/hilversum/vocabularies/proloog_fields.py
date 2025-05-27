@@ -29,9 +29,11 @@ class ProloogFields(object):
 
         #
         # create a list of SimpleTerm items:
-        terms = []
+        terms = [SimpleTerm(value='text', token='text', title='Omschrijving')]
         
         for name, field in sorted(IProloog.namesAndDescriptions()):
+            print(name)
+            print(field.title)
             label = field.title or name
             if name != 'ID':
                 terms.append(SimpleTerm(value=name, token=name, title=label))

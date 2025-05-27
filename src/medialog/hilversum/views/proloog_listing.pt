@@ -9,18 +9,18 @@
                 <table class="listing table-striped sortable pat-tablesorter">
                     <thead class="custom-background1">
                         <tr>
-                            <th>Naam</th>
-                            <th>Type</th>
-                            <th>Aantal Lessen</th>
-                            <th>Uitvoering op school</th>
-                            <th>Duur</th>
-                            <th>Start</th>
-                            <th>End</th>
-                            <th>Prijs Per</th>
-                            <th>Tarief Leerling Groep</th>
-                            <th>Max aantal leerlinge</th>
-                            <th>Extra info bij inschrijven</th>
-                            <th>Inschrijfbaar</th>
+                            <th i18n:translate="">Naam</th>
+                            <th i18n:translate="">Type</th>
+                            <th i18n:translate="">Aantal Lessen</th>
+                            <th i18n:translate="">Uitvoering op school</th>
+                            <th i18n:translate="">Duur</th>
+                            <th i18n:translate="">Start</th>
+                            <th i18n:translate="">End</th>
+                            <th i18n:translate="">Prijs Per</th>
+                            <th i18n:translate="">Tarief Leerling Groep</th>
+                            <th i18n:translate="">Max aantal leerlinge</th>
+                            <th i18n:translate="">Extra info bij inschrijven</th>
+                            <th i18n:translate="">Inschrijfbaar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +29,6 @@
                                 <a href="${course/getURL}">${course/naam|None}</a>
                             </td>
                             <td>${course/the_type|None}</td>
-
                             <td>${course/aantal_lessen|None}</td>
                             <td>${course/uitvoering_op_school|None}</td>
                             <td>${course/duur|None}</td>

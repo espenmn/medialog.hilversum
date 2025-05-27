@@ -21,20 +21,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     selects.forEach(function (select) {
         select.addEventListener('change', function () {
-            const item = this.value;
-            // const key = select.id;
-            var key = this.id.replace('dropdown-', '');
-
-            select.classList.remove('enabled');
             const siteUrl = document.body.dataset.portalUrl;
             const baseUrl = siteUrl + '/proloog-collection';
-            var url = baseUrl;
+            let params = new URLSearchParams();
+            select.classList.remove('enabled');
 
-            if (key && item) {
-                select.classList.add('enabled');
-                const query = 'collectionfilter=1&' + encodeURIComponent(key) + '=' + encodeURIComponent(item.replace(/^ /, ''));
-                url = baseUrl + '?' + query;
-            }
+            // Always include collectionfilter=1
+            params.set("collectionfilter", "1");
+
+            // Go through all selects and get their current value
+            selects.forEach(function (s) {
+                const k = s.id.replace("dropdown-", "");
+                const v = s.value.trim();
+                if (v) {
+                    params.set(k, v);
+                    if (s === select && k != v) {
+                        select.classList.add('enabled');
+                    }
+                }
+            });
+
+            const url = baseUrl + "?" + params.toString();
+            console.log("Fetching URL:", url);
 
             fetch(url, {
                 headers: {
@@ -58,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => {
                     console.error('Error fetching filtered content:', error);
                 });
-
         });
     });
 });
+
 
 // need to allow cookies for this
 document.addEventListener("DOMContentLoaded", function () {

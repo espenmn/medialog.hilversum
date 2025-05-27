@@ -3,16 +3,23 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
+
+
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core" tal:define="batch view/batch">
 
-        <!-- <p>
+        <p>
           <tal:repeat tal:repeat="filter view/get_filters">
             <span class="enabled-filter filter-${filter/key}">
-              <a class="custom-background3 white" href="${portal_url}/proloog-collection/?collectionfilter=1&${filter/key}=${filter/value}">${filter/value}</a>
+              <a class="" href="${portal_url}/proloog-collection/?collectionfilter=1&${filter/key}=${filter/value}">${filter/value}</a>
             </span>
           </tal:repeat >
-        </p> -->
+        </p>
+ 
+
+    <metal:description fill-slot="content-description">
+      <!-- Moved it ut to title-->
+    </metal:description>
 
         <tal:define tal:define="icons view/get_discipline_images">
           <p>
@@ -22,9 +29,7 @@
               </a>
             </span>
           </p>
-
           <div tal:condition="context/text" tal:content="structure context/text/output|None"></div>
-
           <div class="grid">
             <div tal:repeat="course batch">
               <div class="green_box">
@@ -54,22 +59,20 @@
                   </h4>
                   <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b>Geschikt voor: </b> ${course/schooljaar|None}
+                    <b i18n:translate="">Geschikt voor: </b> ${course/schooljaar|None}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b>Startdatum: </b> ${course/startdatum}
+                    <b i18n:translate="">Startdatum: </b> ${course/startdatum}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b>Prijs per:</b> ${course/prijs_per}
+                    <b i18n:translate="">Prijs per:</b> ${course/prijs_per}
                   </p>
-
                 </div>
                 <div class="custom-background2 white padding-10 margin-top-auto center text-center">
-                  <a class="white" href="${course/getURL}">Bekijk het aanbod</a>
+                  <a class="white" href="${course/getURL}" i18n:translate="">Bekijk het aanbod</a>
                 </div>
               </div>
             </div>
-
           </div>
           <div>
             <hr/>
