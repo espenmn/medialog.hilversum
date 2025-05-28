@@ -8,8 +8,8 @@
 
   <browser:viewlet
      name="favorite-viewlet"
-     for="plone.app.contenttypes.interfaces.IDocument"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     for="*"
+     manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".favorite_viewlet.FavoriteViewlet"
      template="favorite-viewlet.pt"
@@ -59,7 +59,7 @@
      permission="zope2.View"
      /> -->
 
-  <browser:viewlet
+  <!-- <browser:viewlet
      name="icon-filter-viewlet"
      for="medialog.hilversum.content.proloog.IProloog"
      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
@@ -67,7 +67,7 @@
      class=".filter_viewlet.FilterViewlet"
      template="icon-filter-viewlet.pt"
      permission="zope2.View"
-     />
+     /> -->
 
   <browser:viewlet
      name="filter-viewlet"

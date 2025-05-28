@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from plone.app.layout.viewlets import ViewletBase
+from plone import api
 
 
 class FavoriteViewlet(ViewletBase):
 
     def update(self):
-        self.message = self.get_message()
-
-    def get_message(self):
-        return u'My message'
-
-    def index(self):
-        return super(FavoriteViewlet, self).render()
+        self.portal_url = self.get_site_url()
+    
+    
+    def get_site_url(self):
+        return api.portal.get().absolute_url()

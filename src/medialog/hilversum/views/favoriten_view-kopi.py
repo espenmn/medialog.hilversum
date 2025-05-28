@@ -31,7 +31,6 @@ class FavoritenView(BrowserView):
 
     def get_favorites_list(self):
         items = self.get_favorites()
-        #dont need check, will only render if get_favorites returns items
         if items:
             itemlist = [item.UID for item in items]
             return ",".join(itemlist)
@@ -64,12 +63,21 @@ class FavoritenView(BrowserView):
         
         
         if favorites_from_cookie:
-            fav_list.extend(favorites_from_cookie.split(","))
-            # fav_list.extend([x.strip() for x in favorites_from_cookie.split(",")])
+            # fav_list.extend(favorites_from_cookie.split(","))
+            fav_list.extend([x.strip() for x in favorites_from_cookie.split(",")])
             
         if favorites_from_query:
             fav_list.extend(favorites_from_query)
-            
+            #add to cookie
+            new_fav = ",".join(fav_list)
+            request = self.request
+            response = request.response
+            response.setCookie(
+                "favorites",
+                new_fav,
+                path="/",
+                max_age=60 * 60 * 24 * 30
+            )
             
         if not fav_list:
             return []

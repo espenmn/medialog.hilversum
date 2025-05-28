@@ -1,3 +1,5 @@
-<div class="days_to_conf">
-    ${view/message}
+<div>
+    <a title="Naar favorieten" href="${view/portal_url}/favoriten-view" class="pat-tooltip" i18n:translate="">
+        <img src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="55"/>
+    </a>
 </div>
