@@ -55,7 +55,16 @@ class ProloogView(BrowserView):
         if cookie_value:
             uids = cookie_value.split(",")
             return self.context.UID() in uids
-        return None
+        return False
+
+    def has_fav(self):
+        request = self.request
+        cookie_value = request.cookies.get("favorites")
+        if cookie_value:
+            return True
+        return False
+    
+
 
     # def get_keywords(self): 
     #     return keywords()

@@ -6,6 +6,16 @@
 
  <!-- -*- extra stuff goes here -*- -->
 
+  <browser:viewlet
+     name="favorite-viewlet"
+     for="plone.app.contenttypes.interfaces.IDocument"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+     class=".favorite_viewlet.FavoriteViewlet"
+     template="favorite-viewlet.pt"
+     permission="zope2.View"
+     />
+
  <!-- class IAanbieder -->
 <!-- 
   <browser:viewlet

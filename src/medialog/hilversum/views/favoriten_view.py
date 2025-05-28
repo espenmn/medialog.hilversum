@@ -19,7 +19,9 @@ class FavoritenView(BrowserView):
 
     def __call__(self):
         # Implement your own actions:
-        return self.index()
+        self.back_url = self.get_back_url()
+        return super().__call__()
+        # return self.index()
 
     def favorites_list(self):
         items = self.get_favorites()
@@ -27,8 +29,13 @@ class FavoritenView(BrowserView):
         itemlist = [item.id for item in items]
         return ",".join(itemlist)
          
-
- 
+    def get_back_url(self):
+        request = self.request
+        referrer = request.get('HTTP_REFERER', '')
+        # Optionally, restrict to only internal URLs
+        if referrer and self.context.portal_url() in referrer:
+            return referrer
+        return self.context.absolute_url()  # fallback 
 
     def get_favorites(self):
         request = self.request

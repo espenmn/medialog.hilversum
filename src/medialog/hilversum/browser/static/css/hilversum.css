@@ -229,3 +229,10 @@ table.sortable thead th {
 }
 
 .whitesmoke {background-color: whitesmoke;}
+
+.buttonFavorite { border:0; box-shadow: none; display: inline-block !important; font-size: 130%;  text-align: center}
+
+.buttonfont {font-size: 130%; text-align: center;}
+.buttonfont a {text-decoration: none}
+
+a.dis_link { color: #333; text-decoration: none; font-size: 130%}

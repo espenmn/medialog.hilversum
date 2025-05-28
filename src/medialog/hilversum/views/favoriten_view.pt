@@ -7,11 +7,13 @@
       <metal:block define-macro="content">
         <tal:define tal:define="favorites view/get_favorites">
           <h2 i18n:translate="">Favorieten</h2>
+          
           <div tal:condition="favorites" class="margin-10-0">
             <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${view/favorites_list}&fav_mode=add" 
             class="button btn btn-standalon custom-background1 white" i18n:translate="">Join on Planned Culture</a>
             <a href="#" class="button btn btn-standalone custom-background3 white">Share or Print?</a>
           </div>
+          <div class="padding-10-0"> <a href="${view/back_url}" title="back" translate="">Terug</a></div>
           <div class="grid whitesmoke padding-20">
             <div tal:repeat="course favorites">
               <div class="green_box">
