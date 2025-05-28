@@ -18,6 +18,12 @@
                   <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
                 </div>
                 <h2>${item/Title}</h2>
+                <div>
+                  <span tal:repeat="disiplin_name item/Subject">
+                    <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" 
+                    title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
+                  </span>
+                </div>
               </a>
             </div>
 

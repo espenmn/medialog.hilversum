@@ -21,6 +21,14 @@ class FavoritenView(BrowserView):
         # Implement your own actions:
         return self.index()
 
+    def favorites_list(self):
+        items = self.get_favorites()
+        #dont need check, will only render if get_favorites returns items
+        itemlist = [item.id for item in items]
+        return ",".join(itemlist)
+         
+
+ 
 
     def get_favorites(self):
         request = self.request

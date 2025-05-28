@@ -72,6 +72,21 @@
     background: #FCFBFB;
 }
 
+
+
+.whitebox {
+    background: white;
+    border: 1px solid silver; 
+    margin: 0.7rem;
+    padding: 0.5%;
+    text-align: center;
+    min-height: 240px;
+}
+
+
+
+
+
 .course_info .green_box {
     height: auto;
 }

@@ -6,23 +6,20 @@
     <metal:content-core fill-slot="content">
       <metal:block define-macro="content">
         <tal:define tal:define="favorites view/get_favorites">
-
           <h2 i18n:translate="">Favorieten</h2>
-
           <div tal:condition="favorites" class="margin-10-0">
-            <a href="#" class="button btn btn-standalon custom-background1 white">Export maybe?</a>
-            <a href="#" class="button btn btn-standalone custom-background2">Or link to EasyForm?</a>
-            <a href="#" class="button btn btn-standalone custom-background3 white">Or Print?</a>
+            <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${view/favorites_list}&fav_mode=add" 
+            class="button btn btn-standalon custom-background1 white" i18n:translate="">Join on Planned Culture</a>
+            <a href="#" class="button btn btn-standalone custom-background3 white">Share or Print?</a>
           </div>
-
           <div class="grid whitesmoke padding-20">
             <div tal:repeat="course favorites">
-              <button type="button" name="buttonFavorite" class="btn button bbuttonFavorite">
-                <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18translate="Remove Favorite">
-                <img src="++plone++medialog.hilversum/remove_fav.png" width="30"></span>
-              </button>
               <div class="green_box">
-
+                <button type="button" name="buttonFavorite" class="btn button bbuttonFavorite">
+                  <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18translate="Remove Favorite">
+                    <img src="++plone++medialog.hilversum/remove_fav.png" width="30"/>
+                  </span>
+                </button>
                 <a href="${course/getURL}" tal:define="obj course/getObject">
                   <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
                     <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
@@ -52,7 +49,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </tal:define>
       </metal:block>
