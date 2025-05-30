@@ -153,6 +153,12 @@
                   </tr>
                   <tr>
                     <td>
+                      <span>Aanbieder: </span>
+                    </td>
+                    <td>${context/aanbieder}</td>
+                  </tr>
+                  <tr>
+                    <td>
                       <span>Aantal lessen: </span>
                     </td>
                     <td>${context/aantal_lessen}</td>
