@@ -15,10 +15,10 @@
                             <th i18n:translate="">Uitvoering op school</th>
                             <th i18n:translate="">Duur</th>
                             <th i18n:translate="">Start</th>
-                            <th i18n:translate="">End</th>
+                            <th i18n:translate="">Eind</th>
                             <th i18n:translate="">Prijs Per</th>
                             <th i18n:translate="">Tarief Leerling Groep</th>
-                            <th i18n:translate="">Max aantal leerlinge</th>
+                            <th i18n:translate="">Max aantal leerlingen</th>
                             <th i18n:translate="">Extra info bij inschrijven</th>
                             <th i18n:translate="">Inschrijfbaar</th>
                         </tr>

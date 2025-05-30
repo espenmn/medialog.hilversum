@@ -155,7 +155,7 @@
                     <td>
                       <span>Aanbieder: </span>
                     </td>
-                    <td>${context/aanbieder}</td>
+                    <td>${python: ", ".join(context.aanbieder)}</td>
                   </tr>
                   <tr>
                     <td>
