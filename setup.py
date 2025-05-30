@@ -51,7 +51,6 @@ setup(
     install_requires=[
         'setuptools',
         # -*- Extra requirements: -*-
-        #'z3c.jbot',
         'pandas', 
         'numpy',
         'openpyxl',
