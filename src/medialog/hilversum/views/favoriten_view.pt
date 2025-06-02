@@ -13,6 +13,8 @@
             <a class="button btn btn-standalone custom-background2 white" href="${view/share_url}" class="button btn btn-standalone custom-background2 white">
                Deel je favorieten
             </a>
+            <a href="#" onclick="window.print(); return false;" class="button btn btn-standalon custom-background2 white" i18n:translate="">Print Favorieten</a>
+
           </div>
           <div class="padding-10-0">
             <a href="${view/back_url}" title="back" translate="">Terug</a>

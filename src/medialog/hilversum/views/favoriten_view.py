@@ -78,6 +78,7 @@ class FavoritenView(BrowserView):
         # Assuming data-id is UUID or id; adapt as needed
         catalog = api.portal.get_tool("portal_catalog")
         results = catalog(UID=fav_list)  # Use UID=ids if data-id is UUID
+        return results
         # OR use id=ids if you're storing shortnames
 
         # Sort according to the original order
