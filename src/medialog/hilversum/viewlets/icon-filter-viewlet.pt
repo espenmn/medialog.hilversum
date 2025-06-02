@@ -1,25 +1,25 @@
 <div class="container iconcontainer filtercontainer padding-20-0" tal:define="site_url view/site_url">
   <div class="container" id="filter-section">
-    <div class="filter flex space-evenly">
+    <div class="filter flex space-evenly padding-40">
       <div class="po_type">
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=VO" id="vo_type">
           <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon" />
-Primair Onderwijs
+          <span i18n:translate="">Primair Onderwijs</span>
         </a>
       </div>
       <div class="vo_type">
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=PO" id="po_type">
           <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon" />
-Voortgezet Onderwijs
+          <span i18n:translate="">Voortgezet Onderwijs</span>
         </a>
       </div>
     </div>
 
     <div class="filter flex flex-wrap">
-      <div class="disciplin" tal:repeat="disiplin view/get_discipline">
+      <div class="disciplin" tal:repeat="disiplin view/get_discipline" class="padding-10 margin-10">
         <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${site_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
           <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" alt="${disiplin} icon" />
-${disiplin}
+${disiplin} 
         </a>
       </div>
     </div>
