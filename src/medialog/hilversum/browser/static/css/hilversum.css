@@ -13,15 +13,36 @@
     width: 30%;
 }
 
+.iconcontainer .filter div {
+    min-width: 240px;;
+}
+
+.iconcontainer .filter a {
+    text-decoration: none;
+    color: #333;
+}
+
+.space-around {
+    justify-content: space-around
+}
+
+.flex.space-evenly {
+    justify-content: space-evenly 
+}
+
+
 /* .text_info_wrapper .course_label   { border-bottom: 1px solid #DDD; margin-right: 10px} */
 
 /* .text_info_wrapper p:first-child .course_label { border-top: 1px solid #DDD; } */
 
-.text_info_wrapper p { margin: 2px;  display: flex; }
+.text_info_wrapper p {
+    margin: 2px;
+    display: flex;
+}
 
 .course_label {
     font-weight: 600;
-    color: #444; 
+    color: #444;
     margin-right: 6px;
 }
 
@@ -58,7 +79,9 @@
     flex-wrap: wrap
 }
 
-.flex-start {justify-content: flex-start}
+.flex-start {
+    justify-content: flex-start
+}
 
 .gap-1 {
     gap: 1rem
@@ -76,7 +99,7 @@
 
 .whitebox {
     background: white;
-    border: 1px solid silver; 
+    border: 1px solid silver;
     margin: 0.7rem;
     padding: 0.5%;
     text-align: center;
@@ -90,7 +113,7 @@
 .course_info .green_box {
     height: auto;
 }
- 
+
 
 .green_box:hover {
     box-shadow: 0 0 13px #AAA
@@ -134,7 +157,9 @@
     object-fit: cover;
 }
 
-.filtercontainer img  {max-width: 40px;}
+.filtercontainer img {
+    max-width: 40px;
+}
 
 .imagediv.logo {
     max-width: 150px;
@@ -214,7 +239,12 @@ div.flex_start {
     flex-direction: row !important
 }
 
-.enabled-filter a {padding: 6px 10px; text-decoration: none; border-radius: 8px; border: 1px solid silver}
+.enabled-filter a {
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid silver
+}
 
 table.sortable thead th {
     background-color: #DDD;
@@ -230,11 +260,29 @@ table.sortable thead th {
     padding: 25px;
 }
 
-.whitesmoke {background-color: whitesmoke;}
+.whitesmoke {
+    background-color: whitesmoke;
+}
 
-.buttonFavorite { border:0; box-shadow: none; display: inline-block !important; font-size: 130%;  text-align: center}
+.buttonFavorite {
+    border: 0;
+    box-shadow: none;
+    display: inline-block !important;
+    font-size: 130%;
+    text-align: center
+}
 
-.buttonfont {font-size: 130%; text-align: center;}
-.buttonfont a {text-decoration: none}
+.buttonfont {
+    font-size: 130%;
+    text-align: center;
+}
 
-a.dis_link { color: #333; text-decoration: none; font-size: 130%}
+.buttonfont a {
+    text-decoration: none
+}
+
+a.dis_link {
+    color: #333;
+    text-decoration: none;
+    font-size: 130%
+}
