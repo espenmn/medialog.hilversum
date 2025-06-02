@@ -10,7 +10,7 @@
                     <p>
                         <span tal:repeat="disiplin context/Subject">
                             <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
-                                <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
+                                <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image" height="50"/>
                             </a>
                         </span>
                     </p>
@@ -31,8 +31,8 @@
                                     <div class="discipline" tal:repeat="disiplin course/discipline">
                                         <a href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin}">
                                             <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
-                                                <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" width="50" height="50"/>
-                                                <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" title="${disiplin}" alt="${disiplin} icon" width="50" height="50" />
+                                                <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" />
+                                                <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" title="${disiplin}" alt="${disiplin} icon" />
                                             </tal:define>
                                         </a>
                                     </div>
