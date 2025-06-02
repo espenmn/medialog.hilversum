@@ -1,7 +1,6 @@
 <div class="container filtercontainer padding-20-0" tal:define="site_url view/site_url">
 
   <!-- ${view/selected_filters} -->
-
   <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
@@ -13,8 +12,7 @@
           <select id="dropdown-${key}" name="dropdown-${key}" tal:attributes="class python: 'enabled' if is_selected else None">
             <option value="" class="choose_one">${title}</option>
             <tal:repeat tal:repeat="item python: keyword['vals']">
-              <option tal:define="selected_item python: item in view.get_filters().values()" value="${item}" 
-              tal:attributes="selected python: selected_item;">
+              <option tal:define="selected_item python: item in view.get_filters().values()" value="${item}" tal:attributes="selected python: selected_item;">
                 ${item}
               </option>
             </tal:repeat>
@@ -22,6 +20,18 @@
 
         </tal:define>
       </tal:repeat>
+    </div>
+    <div class="filter flex">
+      <div class="vo_type">
+        <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=VO" id="vo_type">
+          <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon"  />
+ Primair Onderwijs
+        </a>
+        <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=PO" id="po_type">
+          <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon" />
+ Voortgezet Onderwijs
+        </a>
+      </div>
     </div>
     <div class="filter flex flex-start">
       <div class="disciplin" tal:repeat="disiplin view/get_discipline">
@@ -32,5 +42,6 @@
     </div>
   </div>
 </div>
+
       
  

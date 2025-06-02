@@ -134,6 +134,8 @@
     object-fit: cover;
 }
 
+.filtercontainer img  {max-width: 40px;}
+
 .imagediv.logo {
     max-width: 150px;
     max-height: 80px;
