@@ -1,21 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.getElementById('filter-toggle');
-    const filterSection = document.getElementById('filter-section');
-    const icon = document.getElementById('filter-icon');
+$(function () {
+    const $toggle = $('#filter-toggle');
+    const $filterSection = $('#filter-section');
+    const $icon = $('#filter-icon');
     const urlParams = new URLSearchParams(window.location.search);
-    const collectionFilter = urlParams.get("collectionfilter");
 
     if (urlParams.has("collectionfilter")) {
-        filterSection.classList.toggle('hidden');
-        icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
+        $filterSection.toggleClass('hidden');
+        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
     }
 
-    if (toggle) {
-        toggle.addEventListener('click', function () {
-            filterSection.classList.toggle('hidden');
-            icon.textContent = filterSection.classList.contains('hidden') ? '▶' : '▼';
-        });
-    }
+    $toggle.on('click', function () {
+        $filterSection.toggleClass('hidden');
+        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const collectionFilter = urlParams.get("collectionfilter");
 
     const selects = document.querySelectorAll('select[id^="dropdown-"]');
 

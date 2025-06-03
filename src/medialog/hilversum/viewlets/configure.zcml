@@ -72,7 +72,7 @@
   <browser:viewlet
      name="filter-viewlet"
      for="plone.app.contenttypes.interfaces.ICollection"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
      template="filter-viewlet.pt"
@@ -82,12 +82,13 @@
   <browser:viewlet
      name="icons-filter-viewlet"
      for="plone.app.contenttypes.interfaces.ICollection"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
      layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
      class=".filter_viewlet.FilterViewlet"
      template="icon-filter-viewlet.pt"
      permission="zope2.View"
      />    
+
 
 
 </configure>

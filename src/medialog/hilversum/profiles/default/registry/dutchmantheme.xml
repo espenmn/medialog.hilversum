@@ -65,7 +65,7 @@ margin-top: 2rem ;&#13;
     <value>222222</value>
   </record>
   <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.rules" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="rules">
-    <value>default</value>
+    <value>barceloneta</value>
   </record>
   <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.style" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="style">
     <value>dutchmanblue</value>

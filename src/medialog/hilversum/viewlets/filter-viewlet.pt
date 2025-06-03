@@ -21,7 +21,7 @@
         </tal:define>
       </tal:repeat>
     </div>
-    <div class="filter flex">
+    <!-- <div class="filter flex">
       <div class="vo_type">
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=VO" id="vo_type">
           <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon"  />
@@ -39,7 +39,7 @@
           <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" alt="${disiplin} icon" />
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 

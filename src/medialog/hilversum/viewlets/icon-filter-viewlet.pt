@@ -1,5 +1,5 @@
 <div class="container iconcontainer filtercontainer padding-20-0" tal:define="site_url view/site_url">
-  <div class="container" id="filter-section">
+  <div class="container" id="icon-filter-section">
     <div class="filter flex space-evenly padding-40">
       <div class="po_type">
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_typen=VO" id="vo_type">
