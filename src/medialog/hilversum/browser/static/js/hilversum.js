@@ -1,3 +1,22 @@
+// define(['jquery'], function ($) {
+//     $(document).ready(function () {
+//         const $toggle = $('#filter-toggle');
+//         const $filterSection = $('#filter-section');
+//         const $icon = $('#filter-icon');
+//         const urlParams = new URLSearchParams(window.location.search);
+
+//         if (urlParams.has("collectionfilter")) {
+//             $filterSection.toggleClass('hidden');
+//             $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
+//         }
+
+//         $toggle.on('click', function () {
+//             $filterSection.toggleClass('hidden');
+//             $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
+//         });
+//     });
+// });
+
 $(function () {
     const $toggle = $('#filter-toggle');
     const $filterSection = $('#filter-section');

@@ -6,20 +6,21 @@
   </button>
   <div class="container hidden" id="filter-section">
 
-    <div class="filter flex flex-start" tal:define="enabled_filters python: view.get_filters()">
-      <tal:repeat tal:repeat="keyword  view/keyword">
+    <div class="filter flex flex-start" tal:define="enabled_filters python: view.filters"> 
+
+      <tal:repeat tal:repeat="keyword view/keyword">
         <tal:define tal:define="key keyword/name; title keyword/title; is_selected python: key in enabled_filters">
           <select id="dropdown-${key}" name="dropdown-${key}" tal:attributes="class python: 'enabled' if is_selected else None">
             <option value="" class="choose_one">${title}</option>
             <tal:repeat tal:repeat="item python: keyword['vals']">
-              <option tal:define="selected_item python: item in view.get_filters().values()" value="${item}" tal:attributes="selected python: selected_item;">
+              <option tal:define="selected_item python: item in view.get_filters().vals()" value="${item}" tal:attributes="selected python: selected_item;">
                 ${item}
               </option>
             </tal:repeat>
           </select>
 
         </tal:define>
-      </tal:repeat>
+      </tal:repeat> 
     </div>
     <div class="filter flex">
       <div class="vo_type">
