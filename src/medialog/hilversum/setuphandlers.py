@@ -72,17 +72,17 @@ def post_install(context):
                 ]
         )
 
-    if not portal.get('proloogs-collections', False):
-        collection =  api.content.create(
-                type='Collection',
-                container=portal,
-                id='proloogs-collections',
-                title='Proloog 2s',
-                layout="proloogs-view",
-                query = [
-                        {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
-                ]
-        )
+#     if not portal.get('proloogs-collections', False):
+#         collection =  api.content.create(
+#                 type='Collection',
+#                 container=portal,
+#                 id='proloogs-collections',
+#                 title='Proloog 2s',
+#                 layout="proloogs-view",
+#                 query = [
+#                         {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
+#                 ]
+#         )
         
 
     if not portal.get('proloog-listing', False):

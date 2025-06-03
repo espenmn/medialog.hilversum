@@ -63,55 +63,55 @@
                 <b i18n:translate="">Aanvullende activiteit informatie</b>
               </p>
               <table>
-                <tr tal:condition="context/naam">
+                <tr>
                   <td>
                     <span i18n:translate="">Naam: </span>
                   </td>
                   <td>${context/naam}</td>
                 </tr>
-                <tr tal:condition="context/aanbieder">
+                <tr>
                   <td>
                     <span i18n:translate="">Aanbieder: </span>
                   </td>
                   <td>${python: ", ".join(context.aanbieder)}</td>
                 </tr>
-                <tr tal:condition="context/aantal_lessen">
+                <tr>
                   <td>
                     <span i18n:translate="">Aantal lessen: </span>
                   </td>
                   <td>${context/aantal_lessen}</td>
                 </tr>
-                <tr tal:condition="context/uitvoering_op_school">
+                <tr>
                   <td>
                     <span i18n:translate="">Uitvoering op school: </span>
                   </td>
                   <td>${context/uitvoering_op_school}</td>
                 </tr>
-                <tr tal:condition="context/duur">
+                <tr>
                   <td>
                     <span i18n:translate="">Duur: </span>
                   </td>
                   <td>${context/duur}</td>
                 </tr>
-                <tr tal:condition="context/startdatum">
+                <tr>
                   <td>
                     <span i18n:translate="">Startdatum: </span>
                   </td>
                   <td>${context/startdatum}</td>
                 </tr>
-                <tr tal:condition="context/einddatum">
+                <tr>
                   <td>
                     <span i18n:translate="">Einddatum: </span>
                   </td>
                   <td>${context/einddatum}</td>
                 </tr>
-                <tr tal:condition="context/prijs_per">
+                <tr>
                   <td>
                     <span i18n:translate="">Prijs per: </span>
                   </td>
                   <td>${context/prijs_per}</td>
                 </tr>
-                <tr tal:condition="context/tarief_leerling_groep">
+                <tr>
                   <td>
                     <span i18n:translate="">Tarief leerling/groep: </span>
                   </td>
@@ -119,77 +119,80 @@
                     <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
                   </td>
                 </tr>
-                <tr tal:condition="context/max_aantal_leerlingen">
+                <tr>
                   <td>
                     <span i18n:translate="">Max. aantal leerlingen: </span>
                   </td>
                   <td>${context/max_aantal_leerlingen}</td>
                 </tr>
-                <tr tal:condition="context/extra_info_bij_inschrijven">
+                <tr>
                   <td>
                     <span i18n:translate="">Extra info bij inschrijven: </span>
                   </td>
                   <td>${context/extra_info_bij_inschrijven}</td>
                 </tr>
-                <tr tal:condition="context/inschrijfbaar">
+                <tr>
                   <td>
                     <span i18n:translate="">Inschrijfbaar: </span>
                   </td>
                   <td>${context/inschrijfbaar}</td>
                 </tr>
-                <tr tal:condition="context/the_type">
+                <tr>
                   <td i18n:translate="">Type:</td>
                   <td>${context/the_type}</td>
                 </tr>
-                <tr tal:condition="context/clusters">
+                <tr>
                   <td i18n:translate="">Clusters:</td>
                   <td>${context/clusters}</td>
                 </tr>
-                <tr tal:condition="context/programma">
+                <tr>
                   <td i18n:translate="">Programma:</td>
                   <td>${context/programma}</td>
                 </tr>
-                <tr tal:condition="context/thema">
+                <tr>
                   <td i18n:translate="">Thema:</td>
                   <td>
                     <span tal:repeat="item context/thema">${item}</span>
                   </td>
                 </tr>
-                <tr tal:condition="context/vaste_personen">
+                <tr>
                   <td i18n:translate="">Vaste Personen:</td>
                   <td>${context/vaste_personen}</td>
                 </tr>
-                <tr tal:condition="context/blokje_persoon_inplannen">
+                <tr>
                   <td i18n:translate="">Blokje Persoon Inplannen:</td>
                   <td>${context/blokje_persoon_inplannen}</td>
                 </tr>
-                <tr tal:condition="context/schooljaar">
+                <tr>
                   <td i18n:translate="">Schooljaa:</td>
                   <td>${context/schooljaar}</td>
                 </tr>
-                <tr tal:condition="context/onderwijstype">
+                
+                
+                <tr>
                   <td i18n:translate="">onderwijstype:</td>
                   <td>
                     <span tal:repeat="item context/onderwijstype">${item}</span>
                   </td>
                 </tr>
-                <tr tal:condition="context/vo_typen">
+                <tr>
                   <td i18n:translate="">VO typen:</td>
                   <td>
                     <span tal:repeat="item context/vo_typen">${item}</span>
                   </td>
                 </tr>
-                <tr tal:condition="context/leerjaren">
+                <tr>
                   <td i18n:translate="">leerjaren:</td>
                   <td>
                     <span tal:repeat="item context/leerjaren">${item}</span>
                   </td>
                 </tr>
-                <tr tal:condition="context/tarief_begeleider">
+
+                <tr>
                   <td i18n:translate="">Tarief Begeleider:</td>
                   <td>${context/tarief_begeleider}</td>
                 </tr>
-                <tr tal:condition="context/max_aantal_leerlingen_prijsberekening">
+                <tr>
                   <td i18n:translate="">Max Aantal Leerlingen Prijsberekening:</td>
                   <td>${context/max_aantal_leerlingen_prijsberekening}
                   </td>

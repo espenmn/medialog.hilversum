@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum">
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.color1" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="color1">
+    <value>1E979C</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.color2" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="color2">
+    <value>D62265</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.color3" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="color3">
+    <value>0095CA</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.enable_overrides" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="enable_overrides">
+    <value>True</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.extra_css" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="extra_css">
+    <value>#below-portlets-wrapper-div  {&#13;
+    background: #0095CA;&#13;
+margin-top: 2rem ;&#13;
+}&#13;
+#below-portlets-wrapper {&#13;
+   padding: 1rem;&#13;
+   display: flex; &#13;
+  flex-wrap: wrap;&#13;
+   justify-content:  space-between;&#13;
+  margin-top: 1rem ;&#13;
+  color: white;&#13;
+&#13;
+}</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.font_load_url" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="font_load_url">
+    <value/>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.footer_background" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="footer_background">
+    <value>FFFFFF</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.footer_color" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="footer_color">
+    <value>0095CA</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.footerlink_color" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="footerlink_color">
+    <value>0095CA</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.footerlink_hover" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="footerlink_hover">
+    <value>D62265</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.footerlink_visited" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="footerlink_visited">
+    <value>0095CA</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.heading_font" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="heading_font">
+    <value>roboto</value>
+  </record>
+
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.load_css" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="load_css">
+    <value>True</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.nav_background" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="nav_background">
+    <value>0095CA</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.navlink_color" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="navlink_color">
+    <value>FFFFFF</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.navlink_hover" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="navlink_hover">
+    <value>D62265</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.navlink_visited" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="navlink_visited">
+    <value>222222</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.rules" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="rules">
+    <value>default</value>
+  </record>
+  <record name="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings.style" interface="medialog.dutchmantheme.interfaces.IMedialogDutchmanThemeSettings" field="style">
+    <value>dutchmanblue</value>
+  </record>
+</registry>
+  

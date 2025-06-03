@@ -26,9 +26,9 @@ class ProloogFolderView(CollectionView):
 
     def __call__(self):
         # Implement your own actions:
-        # portal_url = self.portal_url()
-        # discipline_images = self.get_discipline_images()
-        # filters = self.get_filters()
+        self.discipline_images = self.get_discipline_images()
+        self.portal_url = self.get_portal_url()
+        self.filters = self.get_filters()        
         return super(ProloogFolderView, self).__call__()
 
 
@@ -36,7 +36,7 @@ class ProloogFolderView(CollectionView):
         resource_dir = getUtility(IResourceDirectory, name='++plone++medialog.hilversum')
         return  resource_dir.listDirectory() 
     
-    def portal_url(self):
+    def get_portal_url(self):
         return api.portal.get().absolute_url()
     
     def get_filters(self):

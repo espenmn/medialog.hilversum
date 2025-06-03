@@ -6,22 +6,17 @@
 
 
     <metal:content-core fill-slot="content-core">
-      <metal:block define-macro="content-core" tal:define="batch view/batch">
+      <metal:block define-macro="content-core" tal:define="batch view/batch; portal_url view/portal_url">
 
-        <p>
-          <tal:repeat tal:repeat="filter view/get_filters">
-            <span class="enabled-filter filter-${filter/key}">
-              <a class="" href="${portal_url}/proloog-collection/?collectionfilter=1&${filter/key}=${filter/value}">${filter/value}</a>
-            </span>
-          </tal:repeat >
-        </p>
- 
+        <a class="btn button" href="${context/getURL|context/absolute_url}/@@proloog-listing">
+          <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/> Prolog Listing</a>
 
-    <metal:description fill-slot="content-description">
-      <!-- Moved it ut to title-->
-    </metal:description>
+        <hr/>
+        <metal:description fill-slot="content-description">
+          <!-- Moved it ut to title-->
+        </metal:description>
 
-        <tal:define tal:define="icons view/get_discipline_images">
+        <tal:define tal:define="icons view/discipline_images">
           <p>
             <span tal:repeat="disiplin context/Subject">
               <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
@@ -85,3 +80,6 @@
     </metal:content-core>
   </body>
 </html>
+
+
+ 

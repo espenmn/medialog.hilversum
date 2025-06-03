@@ -64,7 +64,7 @@
       <widget hidden="True"/>
     </field>
 
-    <field name="min_aantal_leerlingen" type="zope.schema.TextLine">
+    <field name="min_aantal_leerlingen" type="zope.schema.Int">
       <description/>
       <title>Min. aantal leerlingen</title>
       <required>False</required>

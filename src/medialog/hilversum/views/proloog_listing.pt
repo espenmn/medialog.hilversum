@@ -5,46 +5,41 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core" tal:define="batch view/batch">
+ 
 
-                <table class="listing table-striped sortable pat-tablesorter">
+                <a class="btn button" href="${context/getURL|context/absolute_url}/@@proloog-folder-view">
+                    <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_not_list.png" width="32"/>
+Over view</a>
+
+                <table class="listing table-striped sortable pat-tablesorter" tal:define="tablelist view/header_fields">
                     <thead class="custom-background1">
                         <tr>
-                            <th i18n:translate="">Naam</th>
-                            <th i18n:translate="">Type</th>
-                            <th i18n:translate="">Aantal Lessen</th>
-                            <th i18n:translate="">Uitvoering op school</th>
-                            <th i18n:translate="">Duur</th>
-                            <th i18n:translate="">Start</th>
-                            <th i18n:translate="">Eind</th>
-                            <th i18n:translate="">Prijs Per</th>
-                            <th i18n:translate="">Tarief Leerling Groep</th>
-                            <th i18n:translate="">Max aantal leerlingen</th>
-                            <th i18n:translate="">Extra info bij inschrijven</th>
-                            <th i18n:translate="">Inschrijfbaar</th>
+                            <th tal:repeat="field tablelist" i18n:translate="">${field/title}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr tal:repeat="course batch|None">
-                            <td>
-                                <a href="${course/getURL}">${course/naam|None}</a>
+                            <td tal:repeat="field tablelist">
+                                <tal:define tal:define="key field/value; field_value python:getattr(course, key, '')">
+                                    <a tal:condition="python: key=='naam'" href="${course/getURL}">${course/naam|None}</a>
+                                    <tal:condition tal:condition="python: key!='naam'">
+
+                                        <tal:block tal:condition="python: isinstance(field_value, (list, tuple))">
+                                            <span tal:repeat="item field_value" tal:content="item">Item</span>
+                                        </tal:block>
+
+                                        <tal:block tal:condition="python: not isinstance(field_value, (list, tuple))">
+                                            <a tal:condition="python: key == 'naam'" href="${course/getURL}" tal:content="field_value">Naam</a>
+                                            <tal:block tal:condition="python: key != 'naam'" tal:content="field_value">Value</tal:block>
+                                        </tal:block>
+
+                                    </tal:condition>
+
+                                </tal:define>
                             </td>
-                            <td>${course/the_type|None}</td>
-                            <td>${course/aantal_lessen|None}</td>
-                            <td>${course/uitvoering_op_school|None}</td>
-                            <td>${course/duur|None}</td>
-                            <td>${course/startdatum|None}</td>
-                            <td>${course/einddatum|None}</td>
-                            <td>${course/prijs_per|None}</td>
-                            <td>
-                                <span tal:repeat="value course/tarief_leerling_groep|None">${value} </span>
-                            </td>
-                            <td>${course/max_aantal_leerlingen|None}</td>
-                            <td>${course/extra_info_bij_inschrijven|None}</td>
-                            <td>${course/inschrijfbaar|None}</td>
                         </tr>
                     </tbody>
                 </table>
-
 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css" />
                 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesorter@2.32.0/dist/js/jquery.tablesorter.min.js"></script>

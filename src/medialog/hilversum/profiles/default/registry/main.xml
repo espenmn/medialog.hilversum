@@ -1,11 +1,28 @@
 <?xml version="1.0"?>
-<registry
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="medialog.hilversum"> 
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum">
   <records interface="Products.CMFPlone.interfaces.IBundleRegistry" prefix="plone.bundles/hilversum">
     <value key="jscompilation">++plone++medialog.hilversum/js/hilversum.js</value>
     <value key="csscompilation">++plone++medialog.hilversum/css/hilversum.css</value>
     <value key="enabled">True</value>
     <value key="compile">False</value>
-  </records> 
+  </records>
+
+  <records interface="medialog.hilversum.interfaces.IProloogSettings">
+    <value key="table_fields">
+      <element>naam</element>
+      <element>aanbieder</element>
+      <element>discipline</element>
+      <element>the_type</element>
+      <element>programma</element>
+      <element>thema</element>
+      <element>vo_typen</element>
+      <element>schooljaar</element>
+      <element>duur</element>
+    </value>
+    <value key="filter_fields"></value>
+    <value key="show_filter_icons"></value>
+  </records>
+
 </registry>
+
+ 

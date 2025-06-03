@@ -1,5 +1,5 @@
-<div class="green_box filtercontainer filter-section margin-20-0" tal:define="site_url view/site_url">
-<h4>Proloog Filters</h4>
+<div class="green_box custom-background1 filtercontainer filter-section margin-40-0 padding-20" tal:define="site_url view/site_url">
+<h5 class="white">Filters</h5>
     <div class="filter">
         <div tal:repeat="keyword  view/keyword">
             <tal:define tal:define="key keyword/name; title keyword/title">
@@ -13,6 +13,4 @@
 </div>
 
    
-      
- 
       

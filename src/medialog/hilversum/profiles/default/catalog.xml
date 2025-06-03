@@ -95,7 +95,7 @@
   <index name="tarief_begeleider" meta_type="FieldIndex">
     <indexed_attr value="tarief_begeleider"/>
   </index>
-  <index name="tarief_leerling_groep" meta_type="FieldIndex">
+  <index name="tarief_leerling_groep" meta_type="KeywordIndex">
     <indexed_attr value="tarief_leerling_groep"/>
   </index>
   <index name="thema" meta_type="KeywordIndex">
@@ -134,7 +134,7 @@
   <index name="vinkje_materiaal" meta_type="FieldIndex">
     <indexed_attr value="vinkje_materiaal"/>
   </index>
-  <index name="vo_typen" meta_type="FieldIndex">
+  <index name="vo_typen" meta_type="KeywordIndex">
     <indexed_attr value="vo_typen"/>
   </index>
   <index name="volgeboekt" meta_type="FieldIndex">

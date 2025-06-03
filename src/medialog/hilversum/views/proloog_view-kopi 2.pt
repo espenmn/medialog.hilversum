@@ -1,0 +1,299 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
+  <body>
+
+
+
+    <metal:content fill-slot="content">
+      <metal:block define-macro="content">
+
+
+
+
+        <div class="flex gap-1" tal:define="portal_url view/portal_url">
+
+          <div class="course_text">
+
+
+            <h1 class="documentFirstHeading">
+              <a href="${context/absolute_url}" class="no-underline">
+                <span class="custom-color2 bold">${context/Title}</span>
+              </a>
+              <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
+            </h1>
+            <p class="documentDescription lead">${context/Description}</p>
+
+            <p>
+              <span tal:repeat="disiplin context/discipline">
+                <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="dis_link pat-tooltip" title="${disiplin}">
+                  <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image" width="55"/>
+                ${disiplin} </a>
+              </span>
+            </p>
+
+            <div class="margin-10-0" tal:content="structure context/text/output|None"></div>
+
+            <!-- <hr/> -->
+
+
+            <div class="text_info_wrapper margin-20-0">
+              <p>
+                <strong class="course_label" i18n:translate="">Type:</strong>
+                <span>${context/the_type}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Aantal Lessen:</strong>
+                <span>${context/aantal_lessen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Uitvoering Op School:</strong>
+                <span>${context/uitvoering_op_school}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Clusters:</strong>
+                <span>${context/clusters}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Programma:</strong>
+                <span>${context/programma}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Thema:</strong>
+                <span tal:repeat="item context/thema">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Lesmateriaal Url:</strong>
+                <span>Should probably be hidden: 
+                  <a href="${context/lesmateriaal_url}">${context/lesmateriaal_url}</a>
+                </span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Aanbieder:</strong>
+                <span tal:repeat="item context/aanbieder">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Vaste Personen:</strong>
+                <span>${context/vaste_personen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Blokje Persoon Inplannen:</strong>
+                <span>${context/blokje_persoon_inplannen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Schooljaa:</strong>
+                <span>${context/schooljaar}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Duur:</strong>
+                <span>${context/duur}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Max Aantal Leerlingen:</strong>
+                <span>${context/max_aantal_leerlingen}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">onderwijstype:</strong>
+                <span tal:repeat="item context/onderwijstype">${item}</span>
+
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">VO typen:</strong>
+                <span tal:repeat="item context/vo_typen">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">leerjaren:</strong>
+                <span tal:repeat="item context/leerjaren">${item}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Tarief Leerling Groep:</strong>
+                <span tal:repeat="item context/tarief_leerling_groep">${item}</span>
+
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Tarief Begeleider:</strong>
+                <span>${context/tarief_begeleider}</span>
+              </p>
+              <p>
+                <strong class="course_label" i18n:translate="">Max Aantal Leerlingen Prijsberekening:</strong>
+                <span>${context/max_aantal_leerlingen_prijsberekening}
+                </span></p>
+              </div>
+              <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
+
+            </div>
+
+
+            <div class="course_info">
+              <div class="lead-image-wrapper" tal:define="scale context/@@images;
+                          img python:scale.scale('full', width=300, height=300)" tal:condition="img">
+                <img tal:replace="structure python: img.tag()" />
+              </div>
+
+              <tal:define tal:define="scales context/@@images;
+                 thumbnail python: scales.scale('image', width=500);">
+
+                <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                width thumbnail/width;
+                                height thumbnail/height" />
+
+                <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="500" alt="course_image"/>
+              </tal:define>
+
+              <div class="green_box custom-background1 padding-20 white">
+                <p>
+                  <b i18n:translate="">Aanvullende activiteit informatie</b>
+                </p>
+                <table>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Naam: </span>
+                    </td>
+                    <td i18n:translate="">${context/naam}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Aanbieder: </span>
+                    </td>
+                    <td i18n:translate="">${python: ", ".join(context.aanbieder)}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Aantal lessen: </span>
+                    </td>
+                    <td i18n:translate="">${context/aantal_lessen}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Uitvoering op school: </span>
+                    </td>
+                    <td>${context/uitvoering_op_school}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Duur: </span>
+                    </td>
+                    <td>${context/duur}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Startdatum: </span>
+                    </td>
+                    <td>${context/startdatum}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Einddatum: </span>
+                    </td>
+                    <td>${context/einddatum}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Prijs per: </span>
+                    </td>
+                    <td>${context/prijs_per}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Tarief leerling/groep: </span>
+                    </td>
+                    <td>
+                      <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Max. aantal leerlingen: </span>
+                    </td>
+                    <td>${context/max_aantal_leerlingen}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Extra info bij inschrijven: </span>
+                    </td>
+                    <td>${context/extra_info_bij_inschrijven}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span i18n:translate="">Inschrijfbaar: </span>
+                    </td>
+                    <td>${context/inschrijfbaar}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="custom-background3 padding-10 margin-10-0 buttonfont">
+                <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${context/id}&fav_mode=add" class="white" i18n:translate="">Join on PlannedCulture</a>
+              </div>
+
+              <div class="margin-10-0" tal:define="is_fav view/is_favorite; has_fav view/has_fav|None">
+                <button type="button" name="buttonFavorite" class="buttonFavorite green_box white custom-background1 padding-10">
+                  <span>
+                    <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
+                  </span>
+                  <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18translate="">Bewaar in mijn favouriet</span>
+                  <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Verwijderent in favouriet</span>
+                </button>
+                <div tal:condition="has_fav" class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
+                <div tal:condition="has_fav" class="aanbodMeta__box__buttons">
+                  <a href="${view/portal_url}/favoriten-view" class="aanbodMeta_box" i18n:translate="">Naar favorieten</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr/>
+
+
+          <div class="container">
+            <h2>
+              <span i18n:translate="">Andere Aanbod van</span> ${python: "".join(context.aanbieder)}:</h2>
+
+            <div class="grid" tal:define="icons view/get_discipline_images">
+              <tal:repeat tal:repeat="course view/courses">
+                <div class="green_box">
+                  <div class="padding-1 flex flex_start custom-background1 padding-5">
+
+                    <div class="discipline" tal:repeat="disiplin course/discipline">
+                      <tal:define tal:define='image python: disiplin.lower().replace(" ", "_")+".png"'>
+                        <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" alt="${disiplin} icon" />
+                        <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" alt="${disiplin} icon" />
+                      </tal:define>
+                    </div>
+
+                  </div>
+                  <a href="${course/getURL}" tal:define="obj course/getObject">
+                    <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                      <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                    width thumbnail/width;
+                                    height thumbnail/height" />
+                      <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="380" alt="course_image"/>
+                    </div>
+                  </a>
+                  <div class="padding-10 padding-5-0 custom-backgrund1">
+                    <h4>
+                      <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
+                    </h4>
+                    <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
+                    <p class="padding-0 margin-0 dark-grey">
+                      <b>Geschikt voor: </b> ${course/schooljaar|None}
+                    </p>
+                    <p class="padding-0 margin-0 dark-grey">
+                      <b>Startdatum: </b> ${course/startdatum}
+                    </p>
+                    <p class="padding-0 margin-0 dark-grey">
+                      <b>Prijs per:</b> ${course/prijs_per}
+                    </p>
+
+                  </div>
+                  <div class="custom-background2 white padding-10 margin-top-auto center text-center">
+                    <a class="white" href="${course/getURL}" i18n:translate="">Bekijk het aanbod</a>
+                  </div>
+                </div>
+              </tal:repeat>
+            </div>
+          </div>
+
+        </metal:block>
+      </metal:content>
+    </body>
+  </html>

@@ -41,5 +41,6 @@ def get_keywords(self):
                 ["onderwijstype",  "Onderwijstype"],
                 ["leerjaren",  "Leerjaren"],
                 ["tarief_leerling_groep",  "Tarief leerling/groep"],
-                ["tarief_begeleider",  "Tarief begeleider"]
+                ["tarief_begeleider",  "Tarief begeleider"],
+                ["vo_typen", "VO typen"]
         ]
