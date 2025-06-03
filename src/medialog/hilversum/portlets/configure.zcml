@@ -8,6 +8,14 @@
   <!-- '-*- extra stuff goes here -*-' -->
 
   <plone:portlet
+    name="medialog.hilversum.portlets.Prologicons"
+    interface=".prologicons.IPrologiconsPortlet"
+    assignment=".prologicons.Assignment"
+    renderer=".prologicons.Renderer"
+    addview=".prologicons.AddForm"
+    editview=".prologicons.EditForm" />
+    
+  <plone:portlet
     name="medialog.hilversum.portlets.Prolongfilter"
     interface=".prolongfilter.IProlongfilterPortlet"
     assignment=".prolongfilter.Assignment"

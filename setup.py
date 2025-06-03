@@ -57,7 +57,10 @@ setup(
         'chardet',
         'plone.api>=1.8.4',
         'plone.app.dexterity',
-        'collective.collectionfilter'
+        'collective.collectionfilter',
+        'medialog.magneticpopup',
+        'medialog.controlpanel',
+        'plone.app.jquery'
     ],
     extras_require={
         'test': [
