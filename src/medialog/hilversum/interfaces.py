@@ -18,7 +18,6 @@ class IMedialogHilversumLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
 
 
-
 class IProloogSettings(model.Schema):
     """Adds settings to medialog.controlpanel
     """
@@ -51,6 +50,7 @@ class IProloogSettings(model.Schema):
     
     show_filter_icons   = schema.Bool(
         title=u"Show filter icons",
+        description=u"Not in use, yet",
         required=False,
     )
 
