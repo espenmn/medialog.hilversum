@@ -1,7 +1,7 @@
-<div class="container filtercontainer padding-20-0" tal:define="site_url view/site_url">
+<div class="container filtercontainer padding-10 whitesmoke" tal:define="site_url view/site_url">
 
   <!-- ${view/selected_filters} -->
-  <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
+  <button id="filter-toggle" class="btn" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
   <div class="container hidden" id="filter-section">
@@ -21,10 +21,18 @@
         </tal:define>
       </tal:repeat>
     </div>
-    <div class="filter flex">
-      <div class="vo_type">
+    <div class="filter flex flex-start">
+      <div class="disciplin padding-10" tal:repeat="disiplin view/get_discipline">
+        <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${site_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
+          <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" alt="${disiplin} icon" />
+        </a>
+      </div>
+      <div>
+        &nbsp; &nbsp; &nbsp; 
+      </div>
+      <div class="vo_type padding-10">
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=VO" id="vo_type">
-          <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon"  />
+          <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon" />
  Primair Onderwijs
         </a>
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=PO" id="po_type">
@@ -32,13 +40,8 @@
  Voortgezet Onderwijs
         </a>
       </div>
-    </div>
-    <div class="filter flex flex-start">
-      <div class="disciplin" tal:repeat="disiplin view/get_discipline">
-        <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${site_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
-          <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" alt="${disiplin} icon" />
-        </a>
-      </div>
+
+
     </div>
   </div>
 </div>

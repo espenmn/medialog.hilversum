@@ -197,16 +197,19 @@
               </table>
             </div>
             <div class="custom-background3 padding-10 margin-10-0 buttonfont">
-              <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${context/id}&fav_mode=add" class="white" i18n:translate="">Join on PlannedCulture</a>
+              <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${context/id}&fav_mode=add" class="white" i18n:translate="">
+              Schrijf je hier in</a>
             </div>
 
             <div class="margin-10-0" tal:define="is_fav view/is_favorite; has_fav view/has_fav|None">
               <button type="button" name="buttonFavorite" class="buttonFavorite green_box white custom-background1 padding-10">
-                <span>
-                  <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
-                </span>
+
+                <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
+ &nbsp; 
+                
                 <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18translate="">Bewaar in mijn favouriet</span>
                 <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Verwijderent in favouriet</span>
+
               </button>
               <div tal:condition="has_fav" class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
               <div tal:condition="has_fav" class="aanbodMeta__box__buttons">

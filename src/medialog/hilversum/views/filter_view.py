@@ -47,7 +47,6 @@ class FilterView(CollectionView):
         catalog = getToolByName(context, 'portal_catalog')
         
         for keyword in self.get_keywords():  
-            # import pdb; pdb.set_trace()          
             # Get unique values from  index
             index = catalog._catalog.getIndex(keyword[0])
             if hasattr(index, 'uniqueValues'):

@@ -17,6 +17,7 @@
     min-width: 240px;;
 }
 
+.filter a,
 .iconcontainer .filter a {
     text-decoration: none;
     color: #333;
@@ -79,7 +80,8 @@
     flex-wrap: wrap
 }
 
-.flex-start {
+
+.flex.flex-start {
     justify-content: flex-start
 }
 
@@ -94,6 +96,8 @@
     flex-direction: column;
     background: #FCFBFB;
 }
+
+div.whitesmoke {background: whitesmoke}
 
 
 
