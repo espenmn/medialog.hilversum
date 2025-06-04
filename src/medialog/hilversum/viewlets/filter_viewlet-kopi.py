@@ -48,7 +48,7 @@ class FilterViewlet(ViewletBase):
         
    
     def filter_fields(self):
-        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.PrologKeywords")
+        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.ProloogKeywords")
         vocab = factory(self.context)
         filter_list = []
         for field in api.portal.get_registry_record('filter_fields', interface=IProloogSettings):

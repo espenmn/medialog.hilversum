@@ -9,7 +9,7 @@
       <metal:block define-macro="content-core" tal:define="batch view/batch; portal_url view/portal_url">
 
         <a class="btn button" href="${context/getURL|context/absolute_url}/@@proloog-listing">
-          <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/> Prolog Listing</a>
+          <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/> Proloog Listing</a>
 
         <hr/>
         <metal:description fill-slot="content-description">

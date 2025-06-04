@@ -33,7 +33,7 @@ class ProloogListing(CollectionView):
         
 
     def get_header_fields(self):
-        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.PrologKeywords")
+        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.ProloogKeywords")
         vocab = factory(self.context)
         filter_list = []
         for field in self.get_tablelist():

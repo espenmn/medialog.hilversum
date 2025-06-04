@@ -28,7 +28,7 @@ class IProlongfilterPortlet(IPortletDataProvider):
         description=u"Select the filters you want",
         default=['aanbieder', 'themea'],
         required=False,
-        value_type=schema.Choice(vocabulary='medialog.hilversum.PrologKeywords')
+        value_type=schema.Choice(vocabulary='medialog.hilversum.ProloogKeywords')
     )
 
 
@@ -90,7 +90,7 @@ class Renderer(base.Renderer):
         return not self.anonymous and self.keyword
 
     def filter_fields(self):
-        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.PrologKeywords")
+        factory = getUtility(IVocabularyFactory, name="medialog.hilversum.ProloogKeywords")
         vocab = factory(self.context)
         filter_list = []
         for field in self.data.replace_fields:

@@ -19,16 +19,16 @@ from urllib.parse import unquote
 
 
 
-class IPrologiconsPortlet(IPortletDataProvider):
+class IProloogiconsPortlet(IPortletDataProvider):
     place_str = schema.Bool(
         title=_(u'Show description'),
         required=False,
     )
 
 
-@implementer(IPrologiconsPortlet)
+@implementer(IProloogiconsPortlet)
 class Assignment(base.Assignment):
-    schema = IPrologiconsPortlet
+    schema = IProloogiconsPortlet
 
     def __init__(self, place_str='nothing'):
         self.place_str = place_str
@@ -39,8 +39,8 @@ class Assignment(base.Assignment):
 
 
 class AddForm(base.AddForm):
-    schema = IPrologiconsPortlet
-    form_fields = field.Fields(IPrologiconsPortlet)
+    schema = IProloogiconsPortlet
+    form_fields = field.Fields(IProloogiconsPortlet)
     label = _(u'Add Proloog Icon Portlet') 
 
     def create(self, data):
@@ -50,14 +50,14 @@ class AddForm(base.AddForm):
 
 
 class EditForm(base.EditForm):
-    schema = IPrologiconsPortlet
-    form_fields = field.Fields(IPrologiconsPortlet)
+    schema = IProloogiconsPortlet
+    form_fields = field.Fields(IProloogiconsPortlet)
     label = _(u'Edit Proloog Icon Portlet')
     description = _(u'This portlet shows Proloog Icons.')
 
 
 class Renderer(base.Renderer):
-    schema = IPrologiconsPortlet
+    schema = IProloogiconsPortlet
     _template = ViewPageTemplateFile('prologicons.pt')
 
     def __init__(self, *args):

@@ -18,7 +18,7 @@ class VocabItem(object):
 
 
 @implementer(IVocabularyFactory)
-class PrologKeywords(object):
+class ProloogKeywords(object):
     """
     """
 
@@ -29,4 +29,4 @@ class PrologKeywords(object):
         ])
 
 
-PrologKeywordsFactory = PrologKeywords()
+ProloogKeywordsFactory = ProloogKeywords()

@@ -22,9 +22,9 @@ class PortletIntegrationTest(unittest.TestCase):
     def test_prologicons_is_registered(self):
         portlet = getUtility(
             IPortletType,
-            name='medialog.hilversum.portlets.Prologicons',
+            name='medialog.hilversum.portlets.Proloogicons',
         )
-        self.assertEqual(portlet.addview, 'medialog.hilversum.portlets.Prologicons')
+        self.assertEqual(portlet.addview, 'medialog.hilversum.portlets.Proloogicons')
 
 
 class PortletFunctionalTest(unittest.TestCase):

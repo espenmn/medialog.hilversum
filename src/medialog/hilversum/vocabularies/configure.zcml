@@ -5,8 +5,8 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <utility
-        component=".prolog_keywords.PrologKeywordsFactory"
-        name="medialog.hilversum.PrologKeywords"
+        component=".prolog_keywords.ProloogKeywordsFactory"
+        name="medialog.hilversum.ProloogKeywords"
     />
 
 

@@ -37,7 +37,7 @@ class IProloogSettings(model.Schema):
         description=u"Select the filters you want for the viewlet",
         default=['aanbieder', 'themea'],
         required=False,
-        value_type=schema.Choice(vocabulary='medialog.hilversum.PrologKeywords')
+        value_type=schema.Choice(vocabulary='medialog.hilversum.ProloogKeywords')
     )
     
     table_fields   = schema.List(
@@ -45,7 +45,7 @@ class IProloogSettings(model.Schema):
         description=u"Select Table fields",
         default=['aanbieder', 'themea'],
         required=False,
-        value_type=schema.Choice(vocabulary='medialog.hilversum.PrologKeywords')
+        value_type=schema.Choice(vocabulary='medialog.hilversum.ProloogKeywords')
     )
     
     show_filter_icons   = schema.Bool(

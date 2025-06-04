@@ -8,8 +8,8 @@
   <!-- '-*- extra stuff goes here -*-' -->
 
   <plone:portlet
-    name="medialog.hilversum.portlets.Prologicons"
-    interface=".prologicons.IPrologiconsPortlet"
+    name="medialog.hilversum.portlets.Proloogicons"
+    interface=".prologicons.IProloogiconsPortlet"
     assignment=".prologicons.Assignment"
     renderer=".prologicons.Renderer"
     addview=".prologicons.AddForm"

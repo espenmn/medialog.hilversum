@@ -10,7 +10,7 @@ from zope.schema.interfaces import IVocabularyTokenized
 import unittest
 
 
-class PrologKeywordsIntegrationTest(unittest.TestCase):
+class ProloogKeywordsIntegrationTest(unittest.TestCase):
 
     layer = MEDIALOG_HILVERSUM_INTEGRATION_TESTING
 
@@ -20,7 +20,7 @@ class PrologKeywordsIntegrationTest(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
     def test_vocab_prolog_keywords(self):
-        vocab_name = 'medialog.hilversum.PrologKeywords'
+        vocab_name = 'medialog.hilversum.ProloogKeywords'
         factory = getUtility(IVocabularyFactory, vocab_name)
         self.assertTrue(IVocabularyFactory.providedBy(factory))
 

@@ -8,6 +8,14 @@
   xmlns="http://namespaces.plone.org/supermodel/schema" i18n:domain="medialog.hilversum">
 
   <schema>
+
+    <field name="id" type="zope.schema.TextLine">
+      <description/>
+      <title>ID</title>
+      <required>False</required>
+      <widget hidden="True"/>
+    </field>
+
     <field name="naam" type="zope.schema.TextLine">
       <description/>
       <title>Naam</title>
@@ -363,13 +371,8 @@
       <title>Url overzich</title>
       <required>False</required>
     </field>
- 
-    <field name="id" type="zope.schema.TextLine">
-      <description/>
-      <title>ID</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
+
+
 
   </schema>
 

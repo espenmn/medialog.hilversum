@@ -33,7 +33,7 @@ class FilterViewlet(ViewletBase):
     def get_keywords(self):
         """Return [(name, title), ...] using registry and vocabulary."""
         registry_names = api.portal.get_registry_record('filter_fields', interface=IProloogSettings)
-        vocab = getVocabularyRegistry().get(self.context, "medialog.hilversum.PrologKeywords")
+        vocab = getVocabularyRegistry().get(self.context, "medialog.hilversum.ProloogKeywords")
 
         keywords = []
         for name in registry_names:

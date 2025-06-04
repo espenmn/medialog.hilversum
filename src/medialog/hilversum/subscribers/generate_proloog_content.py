@@ -320,7 +320,7 @@ def handler(obj, event):
                                                           
                                                                     
                                 
-                            # update Prolog field 
+                            # update Proloog field 
                             setattr(proloog, key, value)  
                         else:
                             setattr(proloog, key, None)  
