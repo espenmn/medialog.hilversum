@@ -24,6 +24,7 @@ class FavoritenView(BrowserView):
         #self.portal_url = self.portal_url()
         self.favorites = self.get_favorites()
         self.favorites_list = self.get_favorites_list()
+        self.favorites_ids = self.get_favorites_ids()
         self.share_url = self.get_share_url()
         self.shared_favorites = self.get_shared_favorites()
         return super().__call__()
@@ -34,6 +35,14 @@ class FavoritenView(BrowserView):
         #dont need check, will only render if get_favorites returns items
         if items:
             itemlist = [item.UID for item in items]
+            return ",".join(itemlist)
+        return None
+         
+    def get_favorites_ids(self):
+        items = self.get_favorites()
+        #dont need check, will only render if get_favorites returns items
+        if items:
+            itemlist = [item.id for item in items]
             return ",".join(itemlist)
         return None
          

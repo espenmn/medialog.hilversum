@@ -55,11 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     });
-});
 
-
-// need to allow cookies for this
-document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".buttonFavorit").forEach(button => {
         button.addEventListener("click", function () {
             const id = this.getAttribute("data-id");
@@ -97,22 +93,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
-$(function () {
-    const $toggle = $('#filters-toggles');
-    const $filterSection = $('#filter-section');
-    const $icon = $('#filter-icon');
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has("collectionfilter")) {
-        $filterSection.toggleClass('hidden');
-        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
-    }
-
-    $toggle.on('click', function () {
-        $filterSection.toggleClass('hidden');
-        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
-    });
-});
 
 

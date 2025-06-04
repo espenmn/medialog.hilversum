@@ -9,8 +9,10 @@
           <h2 i18n:translate="">Uw Favorieten</h2>
 
           <div tal:condition="favorites" class="margin-10-0">
-            <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${view/favorites_list}&fav_mode=add" class="button btn btn-standalon custom-background2 white" i18n:translate="">Exporteer naar Planned Culture</a>
-            <a class="button btn btn-standalone custom-background2 white" href="${view/share_url}" class="button btn btn-standalone custom-background2 white">
+            <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${view/favorites_ids}&fav_mode=add" 
+              class="button btn btn-standalon custom-background2 white" i18n:translate="">Exporteer naar Planned Culture</a>
+            <a class="button btn btn-standalone custom-background2 white" href="${view/share_url}" 
+            class="button btn btn-standalone custom-background2 white">
                Deel je favorieten
             </a>
             <a href="#" onclick="window.print(); return false;" class="button btn btn-standalon custom-background2 white" i18n:translate="">Print Favorieten</a>
