@@ -16,363 +16,361 @@
       <widget hidden="True"/>
     </field>
 
-    <field name="naam" type="zope.schema.TextLine">
-      <description/>
-      <title>Naam</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
 
-    <field name="the_type" type="zope.schema.TextLine">
-      <description/>
-      <title>Type</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
+    <fieldset name="info" label="Info">
+      <form:description>General information about Proloog</form:description>
 
-    <field name="expertise_aanbod" type="zope.schema.TextLine">
-      <description/>
-      <title>Expertise aanbod</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="aantal_lessen" type="zope.schema.Int">
-      <description/>
-      <title>Aantal lessen</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="uitvoering_op_school" type="zope.schema.TextLine">
-      <description/>
-      <title>Uitvoering op school</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="speelvlak" type="zope.schema.TextLine">
-      <description/>
-      <title>Speelvlak</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="verduistering" type="zope.schema.TextLine">
-      <description/>
-      <title>Verduistering</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="opbouwtijd" type="zope.schema.Int">
-      <description/>
-      <title>Opbouwtijd</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="min_aantal_leerlingen" type="zope.schema.Int">
-      <description/>
-      <title>Min. aantal leerlingen</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="max_aantal_leerlingen_prijsberekening" type="zope.schema.TextLine">
-      <description/>
-      <title>Max. aantal leerlingen prijsberekening</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="ruimte_op_school" type="zope.schema.TextLine">
-      <description/>
-      <title>Ruimte op school</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="clusters" type="zope.schema.TextLine">
-      <description/>
-      <title>Clusters</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="programma" type="zope.schema.TextLine">
-      <description/>
-      <title>Programma</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="discipline" type="zope.schema.List">
-      <description/>
-      <title>Discipline</title>
-      <required>False</required>
-      <widget hidden="True"/>
-      <value_type type="zope.schema.TextLine" />
-    </field>
-
-    <field name="thema" type="zope.schema.List">
-      <description/>
-      <title>Thema</title>
-      <required>False</required>
-      <widget hidden="False"/>
-      <value_type type="zope.schema.TextLine" />
-    </field>
-
-    <field name="lesmateriaal_url" type="zope.schema.URI">
-      <description/>
-      <title>Lesmateriaal URL</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="aanbieder" type="zope.schema.List">
-      <description/>
-      <title>Aanbieder</title>
-      <required>False</required>
-      <widget hidden="True"/>
-      <value_type type="zope.schema.TextLine" />
-    </field>
-
-    <field name="bemiddelaar" type="zope.schema.TextLine">
-      <description/>
-      <title>Bemiddelaar</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="vaste_ruimte" type="zope.schema.TextLine">
-      <description/>
-      <title>Vaste ruimte</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="vaste_gezelschappen" type="zope.schema.TextLine">
-      <description/>
-      <title>Vaste gezelschappen</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="vaste_personen" type="zope.schema.TextLine">
-      <description/>
-      <title>Vaste personen</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="blokje_persoon_inplannen" type="zope.schema.TextLine">
-      <description/>
-      <title>Blokje persoon inplannen</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="schooljaar" type="zope.schema.TextLine">
-      <description/>
-      <title>Schooljaar</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="duur" type="zope.schema.Int">
-      <description/>
-      <title>Duur</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="max_aantal_leerlingen" type="zope.schema.Int">
-      <description/>
-      <title>Max. aantal leerlingen</title>
-      <required>True</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="onderwijstype" type="zope.schema.List">
-      <description/>
-      <title>Onderwijstype</title>
-      <required>True</required>
-      <widget hidden="False"/>
-      <value_type type="zope.schema.TextLine" />
-    </field>
-
-    <field name="vo_typen" type="zope.schema.List">
-      <description/>
-      <title>VO typen</title>
-      <required>False</required>
-      <widget hidden="False"/>
-      <value_type type="zope.schema.TextLine" />
-    </field>
-
-    <field name="leerjaren" type="zope.schema.List">
-      <description/>
-      <title>Leerjaren</title>
-      <required>False</required>
-      <widget hidden="False"/>
-      <value_type type="zope.schema.TextLine" />
-    </field>
-
-    <field name="inschrijfbaar" type="zope.schema.TextLine">
-      <description/>
-      <title>Inschrijfbaar</title>
-      <required>True</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="prijs_per" type="zope.schema.TextLine">
-      <description/>
-      <title>Prijs per</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="tarief_leerling_groep" type="zope.schema.List">
-      <description/>
-      <title>Tarief leerling/groep</title>
-      <required>False</required>
-      <widget hidden="False"/>
-      <value_type type="zope.schema.Int" />
-    </field>
-
-    <field name="tarief_begeleider" type="zope.schema.TextLine">
-      <description/>
-      <title>Tarief begeleider</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="max_aantal_leerlingen_prijsberekening" type="zope.schema.TextLine">
-      <description/>
-      <title>Max. aantal leerlingen prijsberekening</title>
-      <required>False</required>
-      <widget hidden="False"/>
-    </field>
-
-    <field name="totaalprijs" type="zope.schema.TextLine">
-      <description/>
-      <title>Totaalprijs</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="url_meer_informatie" type="zope.schema.URI">
-      <description/>
-      <title>Url meer informatie</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="startdatum" type="zope.schema.Date">
-      <description/>
-      <title>Startdatum</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="einddatum" type="zope.schema.Date">
-      <description/>
-      <title>Einddatum</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="notitie" type="zope.schema.TextLine">
-      <description/>
-      <title>Notitie</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="extra_info_bij_inschrijven" type="zope.schema.TextLine">
-      <description/>
-      <title>Extra info bij inschrijven</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="extra_info_in_communicatie" type="zope.schema.Text">
-      <description/>
-      <title>Extra info in communicatie</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="verstuur_evaluatiemail" type="zope.schema.TextLine">
-      <description/>
-      <title>Verstuur evaluatiemail</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="url_evaluatieformulier" type="zope.schema.TextLine">
-      <description/>
-      <title>Url evaluatieformulier</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="ondertekening_emails" type="zope.schema.TextLine">
-      <description/>
-      <title>Ondertekening emails</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="extern_id" type="zope.schema.TextLine">
-      <description/>
-      <title>Extern ID</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="the_code" type="zope.schema.TextLine">
-      <description/>
-      <title>Code</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="vinkje_materiaal" type="zope.schema.TextLine">
-      <description/>
-      <title>Vinkje materiaal</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="pakketten" type="zope.schema.TextLine">
-      <description/>
-      <title>Pakketten</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="volgeboekt" type="zope.schema.TextLine">
-      <description/>
-      <title>Volgeboekt</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="podia_musea" type="zope.schema.TextLine">
-      <description/>
-      <title>Podia/Musea</title>
-      <required>False</required>
-      <widget hidden="True"/>
-    </field>
-
-    <field name="url_overzicht" type="zope.schema.URI">
-      <description/>
-      <title>Url overzich</title>
-      <required>False</required>
-    </field>
+      <field name="naam" type="zope.schema.TextLine">
+        <description/>
+        <title>Naam</title>
+        <required>True</required>
+        <widget hidden="False"/>
+      </field>
 
 
+      <field name="the_type" type="zope.schema.TextLine">
+        <description/>
+        <title>Type</title>
+        <required>True</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="aanbieder" type="zope.schema.List">
+        <description/>
+        <title>Aanbieder</title>
+        <required>False</required>
+        <widget hidden="True"/>
+        <value_type type="zope.schema.TextLine" />
+      </field>
+
+      <field name="expertise_aanbod" type="zope.schema.TextLine">
+        <description/>
+        <title>Expertise aanbod</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="aantal_lessen" type="zope.schema.Int">
+        <description/>
+        <title>Aantal lessen</title>
+        <required>True</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="uitvoering_op_school" type="zope.schema.TextLine">
+        <description/>
+        <title>Uitvoering op school</title>
+        <required>False</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="speelvlak" type="zope.schema.TextLine">
+        <description/>
+        <title>Speelvlak</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="verduistering" type="zope.schema.TextLine">
+        <description/>
+        <title>Verduistering</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="opbouwtijd" type="zope.schema.Int">
+        <description/>
+        <title>Opbouwtijd</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="min_aantal_leerlingen" type="zope.schema.Int">
+        <description/>
+        <title>Min. aantal leerlingen</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="max_aantal_leerlingen_prijsberekening" type="zope.schema.TextLine">
+        <description/>
+        <title>Max. aantal leerlingen prijsberekening</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="ruimte_op_school" type="zope.schema.TextLine">
+        <description/>
+        <title>Ruimte op school</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="clusters" type="zope.schema.TextLine">
+        <description/>
+        <title>Clusters</title>
+        <required>False</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="programma" type="zope.schema.TextLine">
+        <description/>
+        <title>Programma</title>
+        <required>False</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="discipline" type="zope.schema.List">
+        <description/>
+        <title>Discipline</title>
+        <required>False</required>
+        <widget hidden="True"/>
+        <value_type type="zope.schema.TextLine" />
+      </field>
+
+      <field name="thema" type="zope.schema.List">
+        <description/>
+        <title>Thema</title>
+        <required>False</required>
+        <widget hidden="False"/>
+        <value_type type="zope.schema.TextLine" />
+      </field>
+
+      <field name="lesmateriaal_url" type="zope.schema.URI">
+        <description/>
+        <title>Lesmateriaal URL</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+
+      <field name="bemiddelaar" type="zope.schema.TextLine">
+        <description/>
+        <title>Bemiddelaar</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="vaste_ruimte" type="zope.schema.TextLine">
+        <description/>
+        <title>Vaste ruimte</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="vaste_gezelschappen" type="zope.schema.TextLine">
+        <description/>
+        <title>Vaste gezelschappen</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="vaste_personen" type="zope.schema.TextLine">
+        <description/>
+        <title>Vaste personen</title>
+        <required>False</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="blokje_persoon_inplannen" type="zope.schema.TextLine">
+        <description/>
+        <title>Blokje persoon inplannen</title>
+        <required>True</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="schooljaar" type="zope.schema.TextLine">
+        <description/>
+        <title>Schooljaar</title>
+        <required>False</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="duur" type="zope.schema.Int">
+        <description/>
+        <title>Duur</title>
+        <required>True</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="max_aantal_leerlingen" type="zope.schema.Int">
+        <description/>
+        <title>Max. aantal leerlingen</title>
+        <required>True</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="onderwijstype" type="zope.schema.List">
+        <description/>
+        <title>Onderwijstype</title>
+        <required>True</required>
+        <widget hidden="False"/>
+        <value_type type="zope.schema.TextLine" />
+      </field>
+
+      <field name="vo_typen" type="zope.schema.List">
+        <description/>
+        <title>VO typen</title>
+        <required>False</required>
+        <widget hidden="False"/>
+        <value_type type="zope.schema.TextLine" />
+      </field>
+
+      <field name="leerjaren" type="zope.schema.List">
+        <description/>
+        <title>Leerjaren</title>
+        <required>False</required>
+        <widget hidden="False"/>
+        <value_type type="zope.schema.TextLine" />
+      </field>
+
+      <field name="inschrijfbaar" type="zope.schema.TextLine">
+        <description/>
+        <title>Inschrijfbaar</title>
+        <required>True</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="prijs_per" type="zope.schema.TextLine">
+        <description/>
+        <title>Prijs per</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="tarief_leerling_groep" type="zope.schema.List">
+        <description/>
+        <title>Tarief leerling/groep</title>
+        <required>False</required>
+        <widget hidden="False"/>
+        <value_type type="zope.schema.Int" />
+      </field>
+
+      <field name="tarief_begeleider" type="zope.schema.TextLine">
+        <description/>
+        <title>Tarief begeleider</title>
+        <required>False</required>
+        <widget hidden="False"/>
+      </field>
+
+      <field name="totaalprijs" type="zope.schema.TextLine">
+        <description/>
+        <title>Totaalprijs</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="url_meer_informatie" type="zope.schema.URI">
+        <description/>
+        <title>Url meer informatie</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="startdatum" type="zope.schema.Date">
+        <description/>
+        <title>Startdatum</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="einddatum" type="zope.schema.Date">
+        <description/>
+        <title>Einddatum</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="notitie" type="zope.schema.TextLine">
+        <description/>
+        <title>Notitie</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="extra_info_bij_inschrijven" type="zope.schema.TextLine">
+        <description/>
+        <title>Extra info bij inschrijven</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="extra_info_in_communicatie" type="zope.schema.Text">
+        <description/>
+        <title>Extra info in communicatie</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="verstuur_evaluatiemail" type="zope.schema.TextLine">
+        <description/>
+        <title>Verstuur evaluatiemail</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="url_evaluatieformulier" type="zope.schema.TextLine">
+        <description/>
+        <title>Url evaluatieformulier</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="ondertekening_emails" type="zope.schema.TextLine">
+        <description/>
+        <title>Ondertekening emails</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="extern_id" type="zope.schema.TextLine">
+        <description/>
+        <title>Extern ID</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="the_code" type="zope.schema.TextLine">
+        <description/>
+        <title>Code</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="vinkje_materiaal" type="zope.schema.TextLine">
+        <description/>
+        <title>Vinkje materiaal</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="pakketten" type="zope.schema.TextLine">
+        <description/>
+        <title>Pakketten</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="volgeboekt" type="zope.schema.TextLine">
+        <description/>
+        <title>Volgeboekt</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="podia_musea" type="zope.schema.TextLine">
+        <description/>
+        <title>Podia/Musea</title>
+        <required>False</required>
+        <widget hidden="True"/>
+      </field>
+
+      <field name="url_overzicht" type="zope.schema.URI">
+        <description/>
+        <title>Url overzich</title>
+        <required>False</required>
+      </field>
+    </fieldset>
 
   </schema>
 
