@@ -26,9 +26,9 @@
                     <span>${title}</span>
                   </div>
                   <div class="filter__options" data-content=""  style="display: none;">
-                    <fieldset class="filter__options__container" data-filter-group="dropdown-${key}">
+                    <fieldset class="filter__options__container" data-filter-group="prolog-dropdown-${key}">
                       <label class="filter__option">
-                        <select id="dropdown-${key}" name="dropdown-${key}">
+                        <select id="prolog-dropdown-${key}" name="prolog-dropdown-${key}">
                           <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
                         </select>
                       </label>

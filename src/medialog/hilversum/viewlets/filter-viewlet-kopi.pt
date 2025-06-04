@@ -1,7 +1,7 @@
 <div class="container filtercontainer padding-20-0" tal:define="site_url view/site_url">
 
   <!-- ${view/selected_filters} -->
-  <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" i18translate="">
+  <button id="filters-toggles" class="btn btn-primary" style="cursor:pointer;" i18translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
   <div class="container hidden" id="filter-section">
@@ -10,7 +10,7 @@
 
       <tal:repeat tal:repeat="keyword view/keyword">
         <tal:define tal:define="key keyword/name; title keyword/title; is_selected python: key in enabled_filters">
-          <select id="dropdown-${key}" name="dropdown-${key}" tal:attributes="class python: 'enabled' if is_selected else None">
+          <select id="prolog-dropdown-${key}" name="prolog-dropdown-${key}" tal:attributes="class python: 'enabled' if is_selected else None">
             <option value="" class="choose_one">${title}</option>
             <tal:repeat tal:repeat="item python: keyword['vals']">
               <option tal:define="selected_item python: item in view.get_filters().vals()" value="${item}" tal:attributes="selected python: selected_item;">

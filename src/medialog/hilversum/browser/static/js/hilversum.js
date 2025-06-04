@@ -1,46 +1,10 @@
-// define(['jquery'], function ($) {
-//     $(document).ready(function () {
-//         const $toggle = $('#filter-toggle');
-//         const $filterSection = $('#filter-section');
-//         const $icon = $('#filter-icon');
-//         const urlParams = new URLSearchParams(window.location.search);
-
-//         if (urlParams.has("collectionfilter")) {
-//             $filterSection.toggleClass('hidden');
-//             $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
-//         }
-
-//         $toggle.on('click', function () {
-//             $filterSection.toggleClass('hidden');
-//             $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
-//         });
-//     });
-// });
-
-$(function () {
-    const $toggle = $('#filter-toggle');
-    const $filterSection = $('#filter-section');
-    const $icon = $('#filter-icon');
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has("collectionfilter")) {
-        $filterSection.toggleClass('hidden');
-        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
-    }
-
-    $toggle.on('click', function () {
-        $filterSection.toggleClass('hidden');
-        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
-    });
-});
-
 
 
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const collectionFilter = urlParams.get("collectionfilter");
 
-    const selects = document.querySelectorAll('select[id^="dropdown-"]');
+    const selects = document.querySelectorAll('select[id^="prolog-dropdown-"]');
 
     selects.forEach(function (select) {
         select.addEventListener('change', function () {
@@ -54,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Go through all selects and get their current value
             selects.forEach(function (s) {
-                const k = s.id.replace("dropdown-", "");
+                const k = s.id.replace("prolog-dropdown-", "");
                 const v = s.value.trim();
                 if (v) {
                     params.set(k, v);
@@ -132,4 +96,23 @@ document.addEventListener("DOMContentLoaded", function () {
         return match ? match[2] : null;
     }
 });
+
+
+$(function () {
+    const $toggle = $('#filters-toggles');
+    const $filterSection = $('#filter-section');
+    const $icon = $('#filter-icon');
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has("collectionfilter")) {
+        $filterSection.toggleClass('hidden');
+        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
+    }
+
+    $toggle.on('click', function () {
+        $filterSection.toggleClass('hidden');
+        $icon.text($filterSection.hasClass('hidden') ? '▶' : '▼');
+    });
+});
+
 

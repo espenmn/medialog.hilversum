@@ -29,7 +29,7 @@ def post_install(context):
                 type='Collection',
                 container=portal,
                 id='aambieders-collection',
-                title='Aambieders',
+                title='Aanbod',
                 layout="providers-view",
                 query = [
                         {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['aanbieder', 'Aanbieder']},

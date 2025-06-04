@@ -216,7 +216,7 @@ div.dropdowns {
     margin-bottom: 1rem;
 }
 
-#filter-toggle {
+#filters-toggles {
     margin-bottom: 10px
 }
 
@@ -226,7 +226,7 @@ div.portletWrapper .filter-section select {
     margin: 3px
 }
 
-#filter-toggle select,
+#filters-toggles select,
 .filter.flex select {
     width: 12%;
     max-width: 180px;

@@ -67,7 +67,7 @@
                   <td>
                     <span i18n:translate="">Naam: </span>
                   </td>
-                  <td>${context/naam}</td>
+                  <td>${context/Title}</td>
                 </tr>
                 <tr tal:condition="context/aanbieder">
                   <td>
@@ -223,7 +223,7 @@
 
         <div class="container">
           <h2>
-            <span i18n:translate="">Andere Aanbod van</span> ${python: "".join(context.aanbieder)}:</h2>
+            <span i18n:translate="">Andere aanbod van</span> ${python: "".join(context.aanbieder)}:</h2>
 
           <div class="grid" tal:define="icons view/get_discipline_images">
             <tal:repeat tal:repeat="course view/courses">

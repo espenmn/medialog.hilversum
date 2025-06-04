@@ -24,9 +24,8 @@
         <description/>
         <title>Naam</title>
         <required>True</required>
-        <widget hidden="False"/>
+        <widget hidden="True"/>
       </field>
-
 
       <field name="the_type" type="zope.schema.TextLine">
         <description/>
@@ -38,7 +37,7 @@
       <field name="aanbieder" type="zope.schema.List">
         <description/>
         <title>Aanbieder</title>
-        <required>False</required>
+        <required>True</required>
         <widget hidden="True"/>
         <value_type type="zope.schema.TextLine" />
       </field>

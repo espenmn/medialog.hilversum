@@ -3,7 +3,7 @@
     <div class="filter">
         <div tal:repeat="keyword  view/keyword">
             <tal:define tal:define="key keyword/name; title keyword/title">
-                <select id="dropdown-${key}" name="dropdown-${key}">
+                <select id="prolog-dropdown-${key}" name="prolog-dropdown-${key}">
                     <option value="" class="choose_one">${title}</option>
                     <option tal:repeat="item  python: keyword['vals']" value="${item}">${item}</option>
                 </select>

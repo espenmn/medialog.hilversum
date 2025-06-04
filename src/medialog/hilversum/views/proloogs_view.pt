@@ -12,15 +12,15 @@
             <option tal:repeat="aanbieder view/aanbieders" value="${aanbieder}"> ${aanbieder}</option>
           </select-->
           <!-- loop all keyword-->
-          <button id="filter-toggle" class="btn btn-primary" style="cursor:pointer;" 
+          <button id="filters-toggles" class="btn btn-primary" style="cursor:pointer;" 
             i18translate="">Toggle Filters <span id="filter-icon">▶</span></button>
           <div class="filter flex hidden" id="filter-section">
         
             <tal:repeat tal:repeat="keyword python: view.get_keywords()">
     
             <tal:define tal:define="key keyword; title python: view.get_keywords()[keyword]">
-              <!-- <label for="dropdown-${key}">${title}</label> -->
-              <select id="dropdown-${key}" name="dropdown-${key}">
+              <!-- <label for="prolog-dropdown-${key}">${title}</label> -->
+              <select id="prolog-dropdown-${key}" name="prolog-dropdown-${key}">
                 <option value="" class="choose-one">${title}</option>
                 <option tal:repeat="item python:view.get_keyword(key)" value="${item}">${item}</option>
               </select>
