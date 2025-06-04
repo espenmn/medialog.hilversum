@@ -1,4 +1,4 @@
-<div class="container filtercontainer padding-10 whitesmoke" tal:define="site_url view/site_url">
+<div  tal:condition="not: context/hide_prolog_viewlet|None" class="container filtercontainer padding-10 whitesmoke" tal:define="site_url view/site_url">
 
   <!-- ${view/selected_filters} -->
   <button id="filter-toggle" class="btn" style="cursor:pointer;" i18translate="">

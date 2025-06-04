@@ -24,7 +24,7 @@ class IProloogSettings(model.Schema):
 
     model.fieldset(
         'Proloog',
-        label=_(u'Prolog'),
+        label=_(u'Proloog'),
         fields=[
             'table_fields',
             'filter_fields',

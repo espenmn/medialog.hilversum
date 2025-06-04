@@ -8,7 +8,6 @@ from zope.component import getUtility
 from zope.schema.vocabulary import getVocabularyRegistry
 # from medialog.hilversum.keywords import get_keywords as keywords
 from medialog.hilversum.keywords import get_discipline as discipline
-
 from medialog.hilversum.interfaces import IProloogSettings
 
 # from medialog.hilversum.keywords import get_keyword as keyword
@@ -24,7 +23,7 @@ class FilterViewlet(ViewletBase):
         self.keyword = self.get_keyword()
         self.keywords = self.get_keywords()
         self.site_url = self.site_url()
-
+        
     def site_url(self):
         return api.portal.get().absolute_url()
 
@@ -34,7 +33,6 @@ class FilterViewlet(ViewletBase):
     def get_keywords(self):
         """Return [(name, title), ...] using registry and vocabulary."""
         registry_names = api.portal.get_registry_record('filter_fields', interface=IProloogSettings)
-        # vocab_name = 'medialog.hilversum.PrologKeywords'
         vocab = getVocabularyRegistry().get(self.context, "medialog.hilversum.PrologKeywords")
 
         keywords = []

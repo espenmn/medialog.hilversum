@@ -6,7 +6,7 @@
 
   <portlet
     addview="medialog.hilversum.portlets.Prologicons"
-    title="PrologIcons"
+    title="ProloogIcons"
     description="A portlet which can render weather of the given place."
     i18n:attributes="title title_prologicons;
                      description description_prologicons">

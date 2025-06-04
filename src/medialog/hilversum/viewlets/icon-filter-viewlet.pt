@@ -1,4 +1,5 @@
-<div class="container iconcontainer filtercontainer padding-20-0" tal:define="site_url view/site_url">
+<div  tal:condition="not: context/hide_icon_viewlet|None" 
+class="container iconcontainer filtercontainer padding-20-0" tal:define="site_url view/site_url">
   <div class="container" id="icon-filter-section">
     <div class="filter flex space-evenly padding-20">
       <div class="po_type">
