@@ -33,11 +33,11 @@
       <div class="vo_type padding-10">
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=VO" id="vo_type">
           <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon" />
- Primair Onderwijs
+Voortgezet Onderwijs
         </a>
         <a href="${site_url}/proloog-collection/?collectionfilter=1&vo_type=PO" id="po_type">
           <img src="++plone++medialog.hilversum/pointing-left.png" alt="thumb icon" />
- Voortgezet Onderwijs
+ Primair Onderwijs  
         </a>
       </div>
 
