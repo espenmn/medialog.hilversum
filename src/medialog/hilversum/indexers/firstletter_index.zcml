@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <adapter factory=".firstletter_index.dummy"
+    name="firstletter_index" />
+
+  <adapter factory=".firstletter_index.firstletter_index"
+    name="firstletter_index" />
+
+</configure>
