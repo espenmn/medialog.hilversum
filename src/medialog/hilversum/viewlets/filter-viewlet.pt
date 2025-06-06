@@ -46,8 +46,8 @@ Voortgezet Onderwijs
   </div>
 </div>
 <script>
-
-$(function () {
+var $ = jQuery.noConflict();
+$(document).ready(function(){
     const $toggle = $('#filters-toggles');
     const $filterSection = $('#filter-section');
     const $icon = $('#filter-icon');

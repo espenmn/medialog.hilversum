@@ -6,38 +6,47 @@
 
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core" tal:define="batch view/batch">
+        <div class="alphabet-filter text-center padding-2">
 
-        <div class="flex gap-1">
-          <tal:loop tal:repeat="item batch">
-            <div class="greybox" tal:define="obj item/getObject">
-              <a tal:attributes="href item/getURL">
+          <button tal:repeat="char python: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']" class="alphabet-btn" data-letter="${char}">${char}</button>
+          <button class="alphabet-btn" data-letter="all">All</button>
+        </div>
+        <div class="grid small">
+          <div tal:repeat="item batch">
+            <div class="green_box" tal:define="tit item/Title; letter python: tit[0]" tal:attributes="data-letter python: item['Title'][0].upper()">
+              <div class="padding-1 flex flex_start custom-background1 padding-5">
+                <span tal:repeat="disiplin_name item/Subject">
+                  <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
+                </span>
+              </div>
+              <a href="${item/getURL}" tal:define="obj item/getObject">
                 <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
                   <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
                   <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
                 </div>
-                <h2>${item/Title}</h2>
-                <div>
-                  <span tal:repeat="disiplin_name item/Subject">
-                    <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" 
-                    title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
-                  </span>
-                </div>
               </a>
-            </div>
+              <div class="padding-10 padding-5-0 custom-backgrund1  text-center">
+                <h5>
+                  <a class="black bold" href="${item/getURL}">${item/Title}</a>
+                </h5>
+                <p class="padding-0 margin-0 text-center">${item/Description}</p>
 
-          </tal:loop>
+              </div>
+              <div class="custom-background2 white padding-10 margin-top-auto center text-center">
+                <a class="white" href="${item/getURL}">Bekijk het aanbod xx</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div>
           <hr/>
         </div>
-
         <div>
           <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
         </div>
-
       </metal:block>
     </metal:content-core>
   </body>

@@ -9,9 +9,6 @@
     <metal:content fill-slot="content">
       <metal:block define-macro="content">
 
-
-
-
         <div class="flex gap-1" tal:define="portal_url view/portal_url">
 
           <div class="course_text">

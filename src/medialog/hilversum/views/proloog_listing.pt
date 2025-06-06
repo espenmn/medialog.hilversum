@@ -5,11 +5,11 @@
     <body>
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core" tal:define="batch view/batch">
- 
 
-                <a class="btn button" href="${context/getURL|context/absolute_url}/@@proloog-folder-view">
+                <button class="btn button to_folderview">
+                    <!-- ${context/getURL|context/absolute_url}/@@proloog-folder-view -->
                     <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_not_list.png" width="32"/>
-Over view</a>
+Overzicht</button>
 
                 <table class="listing table-striped sortable pat-tablesorter" tal:define="tablelist view/header_fields">
                     <thead class="custom-background1">
@@ -48,7 +48,7 @@ Over view</a>
                 jQuery(function(){
                     jQuery('table.sortable').tablesorter({ sortList: [[0,0],] });
                 });
-                </script>
+                </script>  
                 <div>
                     <hr/>
                 </div>
@@ -57,7 +57,13 @@ Over view</a>
                     <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
                 </div>
 
+
+
             </metal:block>
         </metal:content-core>
     </body>
+
+
+
+
 </html>

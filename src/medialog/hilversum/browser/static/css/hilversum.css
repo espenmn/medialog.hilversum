@@ -148,6 +148,11 @@ div.whitesmoke {background: whitesmoke}
     gap: 24px;
 }
 
+.grid.small {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 235px));
+    gap: 24px;
+}
+
 .hidden {
     display: none !important
 }

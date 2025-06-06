@@ -1,60 +1,86 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
+
     const urlParams = new URLSearchParams(window.location.search);
     const collectionFilter = urlParams.get("collectionfilter");
-
     const selects = document.querySelectorAll('select[id^="prolog-dropdown-"]');
+    const toFolderviewBtn = document.querySelector('.to_folderview');
 
+    // Function to build the query string from the selects
+    function buildParams() {
+        let params = new URLSearchParams();
+        params.set("collectionfilter", "1");
+
+        selects.forEach(function (s) {
+            const k = s.id.replace("prolog-dropdown-", "");
+            const v = s.value.trim();
+            if (v) {
+                params.set(k, v);
+            }
+        });
+
+        return params.toString();
+    }
+
+    // Function to perform fetch and update content
+    function fetchFilteredContent(url) {
+        console.log("Fetching URL:", url);
+        fetch(url, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
+            })
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newContent = doc.querySelector('#content-core');
+                const contentTarget = document.querySelector('#content-core');
+
+                if (newContent && contentTarget) {
+                    contentTarget.innerHTML = newContent.innerHTML;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching filtered content:', error);
+            });
+    }
+
+    // Event listener for selects
     selects.forEach(function (select) {
         select.addEventListener('change', function () {
-            const siteUrl = document.body.dataset.portalUrl;
-            const baseUrl = siteUrl + '/proloog-collection';
-            let params = new URLSearchParams();
+            const baseUrl = document.body.getAttribute('data-base-url');
+            const paramsStr = buildParams();
+
+            // Update UI for changed select
             select.classList.remove('enabled');
-
-            // Always include collectionfilter=1
-            params.set("collectionfilter", "1");
-
-            // Go through all selects and get their current value
             selects.forEach(function (s) {
                 const k = s.id.replace("prolog-dropdown-", "");
                 const v = s.value.trim();
-                if (v) {
-                    params.set(k, v);
-                    if (s === select && k != v) {
-                        select.classList.add('enabled');
-                    }
+                if (s === select && v) {
+                    select.classList.add('enabled');
                 }
             });
 
-            const url = baseUrl + "?" + params.toString();
-            console.log("Fetching URL:", url);
-
-            fetch(url, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.text();
-                })
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const newContent = doc.querySelector('#content-core');
-                    const contentTarget = document.querySelector('#content-core');
-
-                    if (newContent && contentTarget) {
-                        contentTarget.innerHTML = newContent.innerHTML;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching filtered content:', error);
-                });
+            const url = baseUrl + "?" + paramsStr;
+            fetchFilteredContent(url);
         });
     });
+
+    // Event listener for "to_folderview" button
+    if (toFolderviewBtn) {
+        toFolderviewBtn.addEventListener('click', function () {
+            alert('folderbutton');
+            const baseUrl = document.body.getAttribute('data-base-url');
+            const paramsStr = buildParams();
+            const url = baseUrl + "/prolong-folderview?" + paramsStr;
+            fetchFilteredContent(url);
+        });
+    }
+
+
 
     document.querySelectorAll(".buttonFavorit").forEach(button => {
         button.addEventListener("click", function () {
@@ -92,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return match ? match[2] : null;
     }
 });
+
 
 
 

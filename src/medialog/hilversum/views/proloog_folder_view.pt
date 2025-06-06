@@ -8,9 +8,9 @@
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core" tal:define="batch view/batch; portal_url view/portal_url">
 
-        <a class="btn button" href="${context/getURL|context/absolute_url}/@@proloog-listing">
-          <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/> Proloog Listing</a>
-
+        <button class="btn button to_listing" href="">
+          <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
+Lijstweergave</button>
         <hr/>
         <metal:description fill-slot="content-description">
           <!-- Moved it ut to title-->
@@ -54,6 +54,9 @@
                   </h4>
                   <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
                   <p class="padding-0 margin-0 dark-grey">
+                    <b i18n:translate="">Aanbieder: </b> ${python: ", ".join(course.aanbieder)}
+                  </p>
+                  <p class="padding-0 margin-0 dark-grey">
                     <b i18n:translate="">Geschikt voor: </b> ${course/schooljaar|None}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
@@ -72,10 +75,13 @@
           <div>
             <hr/>
           </div>
+
           <div>
             <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
           </div>
         </tal:define>
+
+
       </metal:block>
     </metal:content-core>
   </body>

@@ -90,7 +90,7 @@ def post_install(context):
                 type='Collection',
                 container=portal,
                 id='proloog-listing',
-                title='Proloog Listing',
+                title='Proloog Lijstweergave',
                 layout="proloog-listing",
                 query = [
                         {'i': 'portal_type', 'o': 'plone.app.querystring.operation.selection.any', 'v': ['Proloog', 'proloog']},
