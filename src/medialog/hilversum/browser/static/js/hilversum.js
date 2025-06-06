@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     const urlParams = new URLSearchParams(window.location.search);
     const collectionFilter = urlParams.get("collectionfilter");
     const selects = document.querySelectorAll('select[id^="prolog-dropdown-"]');
-    const toFolderviewBtn = document.querySelector('.to_folderview');
 
     // Function to build the query string from the selects
     function buildParams() {
@@ -41,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (newContent && contentTarget) {
                     contentTarget.innerHTML = newContent.innerHTML;
+                } else {
+                    console.warn("Could not find #content-core in response or target.");
                 }
             })
             .catch(error => {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Event listener for selects
+    // Event listener for select dropdowns
     selects.forEach(function (select) {
         select.addEventListener('change', function () {
             const baseUrl = document.body.getAttribute('data-base-url');
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // Update UI for changed select
             select.classList.remove('enabled');
             selects.forEach(function (s) {
-                const k = s.id.replace("prolog-dropdown-", "");
                 const v = s.value.trim();
                 if (s === select && v) {
                     select.classList.add('enabled');
@@ -69,47 +68,41 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Event listener for "to_folderview" button
-    if (toFolderviewBtn) {
-        toFolderviewBtn.addEventListener('click', function () {
-            alert('folderbutton');
-            const baseUrl = document.body.getAttribute('data-base-url');
-            const paramsStr = buildParams();
-            const url = baseUrl + "/prolong-folderview?" + paramsStr;
+    // Delegated event listeners for dynamic buttons
+    document.body.addEventListener('click', function (event) {
+        const baseUrl = document.body.getAttribute('data-base-url');
+        const paramsStr = buildParams();
+
+        if (event.target.matches('.to_folderview')) {
+            const url = baseUrl + "/@@proloog-folder-view?" + paramsStr;
             fetchFilteredContent(url);
-        });
-    }
+        }
 
+        if (event.target.matches('.to_listing')) {
+            const url = baseUrl + "/@@proloog-listing?" + paramsStr;
+            fetchFilteredContent(url);
+        }
+    });
 
-
+    // Favorites button handling
     document.querySelectorAll(".buttonFavorit").forEach(button => {
         button.addEventListener("click", function () {
             const id = this.getAttribute("data-id");
             const remove = this.getAttribute("data-remove") === "1";
 
-            // Get current cookie (if any)
             let favorites = getCookie("favorites");
             let favArray = favorites ? favorites.split(",") : [];
-            // console.log("Before removal:", favArray);
-            // console.log("ID to remove:", id);
 
             if (remove) {
-                // Remove the ID if it exists
                 favArray = favArray.filter(fav => fav !== id);
-                // alert("Removed from favorites!");
             } else {
-                // Add ID if it doesn't exist
                 if (!favArray.includes(id)) {
                     favArray.push(id);
-                    // alert("Added to favorites!");
                 }
             }
 
-            // console.log("After removal:", favArray);
-            // Set updated cookie (expires in 30 days)
             document.cookie = "favorites=" + favArray.join(",") + "; path=/; max-age=" + 60 * 60 * 24 * 30;
-            // alert('reloading');
-            location.reload(); // Reload the page to reflect changes
+            location.reload();
         });
     });
 
@@ -118,7 +111,3 @@ document.addEventListener('DOMContentLoaded', function () {
         return match ? match[2] : null;
     }
 });
-
-
-
-
