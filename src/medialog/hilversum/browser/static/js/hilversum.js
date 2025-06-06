@@ -42,6 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     console.warn("Could not find #content-core in response or target.");
                 }
+                const tables = document.querySelectorAll('table.sortable');
+                tables.forEach(function (table) {
+                    if (typeof $(table).tablesorter === 'function') {
+                        $(table).tablesorter({ sortList: [[0, 0]] });
+                    }
+                });
             })
             .catch(error => {
                 console.error('Error fetching filtered content:', error);
@@ -81,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.target.matches('.to_listing')) {
             const url = baseUrl + "/@@proloog-listing?" + paramsStr;
             fetchFilteredContent(url);
+            
         }
     });
 
@@ -110,4 +117,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
         return match ? match[2] : null;
     }
+
+    const tables = document.querySelectorAll('table.sortable');
+    tables.forEach(function (table) {
+        if (typeof $(table).tablesorter === 'function') {
+            $(table).tablesorter({ sortList: [[0, 0]] });
+        }
+    });
 });
+
+// function initTablesorter() {
+//     const tables = document.querySelectorAll('table.sortable');
+//     tables.forEach(function (table) {
+//         if (!table.classList.contains('tablesorter-applied') && typeof $(table).tablesorter === 'function') {
+//             $(table).tablesorter({ sortList: [[0, 0]] });
+//             table.classList.add('tablesorter-applied');
+//         }
+//     });
+// }
+
+ 
