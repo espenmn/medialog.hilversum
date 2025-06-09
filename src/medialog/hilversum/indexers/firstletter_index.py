@@ -14,4 +14,4 @@ def dummy(obj):
 @indexer(IDocument)  # ADJUST THIS!
 def firstletter_index(obj):
     """Calculate and return the value for the indexer"""
-    return obj.firstletter_index
+    return obj.Title()[0]

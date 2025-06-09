@@ -3,6 +3,9 @@
   <index name="bemiddelaar" meta_type="FieldIndex">
     <indexed_attr value="bemiddelaar"/>
   </index>
+    <index name="firstletter" meta_type="FieldIndex">
+    <indexed_attr value="firstletter"/>
+  </index>
   <index name="blokje_persoon_inplannen" meta_type="FieldIndex">
     <indexed_attr value="blokje_persoon_inplannen"/>
   </index>
@@ -198,4 +201,5 @@
   <column value="volgeboekt"/>
   <column value="aanbieder"/>
   <column value="aantal_lessen"/>
+   <column value="firstletter"/>
 </object>
