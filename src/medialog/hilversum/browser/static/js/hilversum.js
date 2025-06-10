@@ -87,9 +87,35 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.target.matches('.to_listing')) {
             const url = baseUrl + "/@@proloog-listing?" + paramsStr;
             fetchFilteredContent(url);
-            
+
         }
     });
+
+
+    // Delegated event listener for alphabet buttons
+    document.body.addEventListener("click", function (event) {
+        if (event.target.classList.contains("alphabet-btn")) {
+            const baseUrl = document.body.getAttribute("data-base-url") || window.location.pathname;
+            const letter = event.target.getAttribute("data-letter");
+
+            let params = new URLSearchParams();
+            params.set("collectionfilter", "1");
+
+            if (letter !== "all") {
+                params.set("firstletter", letter);
+            }
+
+            const url = baseUrl + "?" + params.toString();
+            fetchFilteredContent(url);
+
+            // Highlight active button
+            // TO Do, move this to viewlet so filter does not load with Ajax Load
+            document.querySelectorAll(".alphabet-btn").forEach(b => b.classList.remove("active"));
+            event.target.classList.add("active");             
+        }
+    });
+
+
 
     // Favorites button handling
     document.querySelectorAll(".buttonFavorit").forEach(button => {
@@ -136,4 +162,3 @@ document.addEventListener('DOMContentLoaded', function () {
 //     });
 // }
 
- 
