@@ -14,3 +14,11 @@ class IAanbieder(model.Schema):
 class Aanbieder(Item):
     """ Content-type class for Aanbieder
     """
+    
+# firstletter = schema.TextLine(
+#     title=u"For the index",
+#     required=False
+# )
+
+    
+    

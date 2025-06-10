@@ -1,9 +1,13 @@
-<model
-    xmlns="http://namespaces.plone.org/supermodel/schema"
-    xmlns:security="http://namespaces.plone.org/supermodel/security"
-    xmlns:form="http://namespaces.plone.org/supermodel/form"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="medialog.hilversum">
+<model xmlns="http://namespaces.plone.org/supermodel/schema"
+  xmlns:security="http://namespaces.plone.org/supermodel/security"
+  xmlns:form="http://namespaces.plone.org/supermodel/form"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum">
   <schema>
+    <!-- <field name="firstletter" type="zope.schema.TextLine">
+      <description/>
+      <title>For index</title>
+      <required>False</required> -->
+      <!-- <widget hidden="True"/> -->
+    <!-- </field> -->
   </schema>
 </model>

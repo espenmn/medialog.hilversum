@@ -8,12 +8,13 @@
       <metal:block define-macro="content-core" tal:define="batch view/batch">
         <div class="alphabet-filter text-center padding-2">
 
-          <button tal:repeat="char python: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']" class="alphabet-btn" data-letter="${char}">${char}</button>
+          <button tal:repeat="char view/firstletters" 
+            class="alphabet-btn" data-letter="${char}">${char}</button>
           <button class="alphabet-btn" data-letter="all">All</button>
         </div>
         <div class="grid small">
           <div tal:repeat="item batch">
-            <div class="green_box" tal:define="tit item/Title; letter python: tit[0]" tal:attributes="data-letter python: item['Title'][0].upper()">
+            <div class="green_box" tal:define="tit item/Title; letter python: tit[0]" tal:attributes="data-letter python: letter.upper()">
               <div class="padding-1 flex flex_start custom-background1 padding-5">
                 <span tal:repeat="disiplin_name item/Subject">
                   <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
