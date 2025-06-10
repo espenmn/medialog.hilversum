@@ -16,7 +16,8 @@ class ProvidersView(CollectionView):
     # If you want to define a template here, please remove the template from
     # the configure.zcml registration of this view.
     # template = ViewPageTemplateFile('providers_view.pt')
-
+    b_size = 999
+    
     def __call__(self):
         # Implement your own actions:
         self.firstletters = self.get_firstletters()
