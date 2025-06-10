@@ -83,11 +83,11 @@ class Renderer(base.Renderer):
     def render(self):
         return self._template()
 
-    @property
-    def available(self):
-        """Show the portlet only if there are one or more elements and
-        not an anonymous user."""
-        return not self.anonymous and self.keyword
+    # @property
+    # def available(self):
+    #     """Show the portlet only if there are one or more elements and
+    #     not an anonymous user."""
+    #     return not self.anonymous and self.keyword
 
     def filter_fields(self):
         factory = getUtility(IVocabularyFactory, name="medialog.hilversum.ProloogKeywords")
