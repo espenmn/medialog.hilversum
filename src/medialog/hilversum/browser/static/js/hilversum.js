@@ -36,22 +36,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 const doc = parser.parseFromString(html, 'text/html');
                 const newContent = doc.querySelector('#content-core');
                 const contentTarget = document.querySelector('#content-core');
-
+    
                 if (newContent && contentTarget) {
                     contentTarget.innerHTML = newContent.innerHTML;
                 } else {
                     console.warn("Could not find #content-core in response or target.");
                 }
-                const tables = document.querySelectorAll('table.sortable');
-                tables.forEach(function (table) {
-                    if (typeof $(table).tablesorter === 'function') {
-                        $(table).tablesorter({ sortList: [[0, 0]] });
-                    }
-                });
+    
+                // Return a resolved promise to chain the next `.then`
+                return Promise.resolve();
             })
+            .then(initTableSorter)
             .catch(error => {
                 console.error('Error fetching filtered content:', error);
             });
+    }
+    
+    function initTableSorter() {
+        const tables = document.querySelectorAll('table.sortable');
+        tables.forEach(function (table) {
+            if (typeof $(table).tablesorter === 'function') {
+                $(table).tablesorter({ sortList: [[0, 0]] });
+            }
+        });
     }
 
     // Event listener for select dropdowns
@@ -73,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchFilteredContent(url);
         });
     });
+
+    
 
     // Delegated event listeners for dynamic buttons
     document.body.addEventListener('click', function (event) {
@@ -151,14 +160,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-// function initTablesorter() {
-//     const tables = document.querySelectorAll('table.sortable');
-//     tables.forEach(function (table) {
-//         if (!table.classList.contains('tablesorter-applied') && typeof $(table).tablesorter === 'function') {
-//             $(table).tablesorter({ sortList: [[0, 0]] });
-//             table.classList.add('tablesorter-applied');
-//         }
-//     });
-// }
 
