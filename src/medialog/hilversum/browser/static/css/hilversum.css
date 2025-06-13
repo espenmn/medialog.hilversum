@@ -2,6 +2,11 @@ button.active {
     background: red !important
 }
 
+body.template-proloog-folder-view #viewlet-above-content-body,
+body.template-proloog-listing-view #viewlet-above-content-body {
+margin: 0;
+}
+
 #main-container .btn.button.to_listing {margin:0;}
 
 .template-favoriten-view #main-container,
