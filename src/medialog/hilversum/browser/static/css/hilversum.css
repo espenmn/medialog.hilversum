@@ -3,7 +3,7 @@ button.active {
 }
 
 body.template-proloog-folder-view #viewlet-above-content-body,
-body.template-proloog-listing-view #viewlet-above-content-body {
+body.template-proloog-listing #viewlet-above-content-body {
 margin: 0;
 }
 
