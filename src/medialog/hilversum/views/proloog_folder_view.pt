@@ -13,7 +13,7 @@
 Lijstweergave</button>
         <hr/>
         <metal:description fill-slot="content-description">
-          <!-- Moved it ut to title-->
+                      <p class="documentDescription lead">${context/Description}</p>
         </metal:description>
 
         <tal:define tal:define="icons view/discipline_images">
@@ -54,7 +54,7 @@ Lijstweergave</button>
                   </h4>
                   <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b i18n:translate="">Aanbieder: </b> ${python: ", ".join(course.aanbieder)}
+                    <b tal:condition="course/aanbieder" i18n:translate="">Aanbieder: </b> ${python: ", ".join(course.aanbieder)}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
                     <b i18n:translate="">Leerjaren: </b> ${course/leerjaren|None}

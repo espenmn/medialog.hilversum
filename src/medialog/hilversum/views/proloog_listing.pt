@@ -11,6 +11,7 @@
                     <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_not_list.png" width="32"/>
 Overzicht</button>
 
+             <!-- <p class="documentDescription lead">${context/Description}</p> -->
                 <table class="listing table-striped sortable pat-tablesorter" tal:define="tablelist view/header_fields">
                     <thead class="custom-background1">
                         <tr>
