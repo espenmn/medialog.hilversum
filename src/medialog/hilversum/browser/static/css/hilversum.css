@@ -7,6 +7,8 @@ body.template-proloog-listing-view #viewlet-above-content-body {
 margin: 0;
 }
 
+#iconcontainer {margin-bottom: 0; padding-bottom: 0}
+
 #main-container .btn.button.to_listing {margin:0;}
 
 .template-favoriten-view #main-container,
