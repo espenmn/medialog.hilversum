@@ -2,6 +2,8 @@ button.active {
     background: red !important
 }
 
+#main-container .btn.button.to_listing {margin:0;}
+
 .template-favoriten-view #main-container,
 .template-proloog-view #main-container {
     margin-top: 2rem;
