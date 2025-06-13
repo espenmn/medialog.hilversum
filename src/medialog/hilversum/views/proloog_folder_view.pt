@@ -14,9 +14,9 @@
           <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
 Lijstweergave</button>
         <hr/>
-        <metal:description fill-slot="content-description">
-                      <!-- <p class="documentDescription lead">${context/Description}</p> -->
-        </metal:description>
+ 
+                      <p class="documentDescription lead">${context/Description}</p>
+ 
 
         <tal:define tal:define="icons view/discipline_images">
           <p>
