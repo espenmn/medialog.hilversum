@@ -151,7 +151,7 @@ div.whitesmoke {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 332px));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 303px)); 
     gap: 24px;
 }
 

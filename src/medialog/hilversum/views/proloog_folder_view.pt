@@ -4,7 +4,9 @@
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
 
-
+        <metal:description fill-slot="content-description">
+                      <!-- <p class="documentDescription lead">${context/Description}</p> -->
+        </metal:description>
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core" tal:define="batch view/batch; portal_url view/portal_url">
 
@@ -13,7 +15,7 @@
 Lijstweergave</button>
         <hr/>
         <metal:description fill-slot="content-description">
-                      <p class="documentDescription lead">${context/Description}</p>
+                      <!-- <p class="documentDescription lead">${context/Description}</p> -->
         </metal:description>
 
         <tal:define tal:define="icons view/discipline_images">
