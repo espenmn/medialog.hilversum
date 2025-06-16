@@ -59,10 +59,10 @@ Lijstweergave</button>
                     <b tal:condition="course/aanbieder" i18n:translate="">Aanbieder: </b> ${python: ", ".join(course.aanbieder)}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b i18n:translate="">Leerjaren: </b> ${course/leerjaren|None}
+                    <b i18n:translate="">Leerjaren: </b> ${python: ", ".join(course.leerjaren)}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b i18n:translate="">Prijs: </b> ${course/tarief_leerling_groep|none}
+                    <b i18n:translate="">Prijs: </b> ${python: course.tarief_leerling_groep}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
                     <b i18n:translate="">Prijs per:</b> ${course/prijs_per|None}

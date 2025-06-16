@@ -122,7 +122,7 @@
                   </td>
                   <td>${context/max_aantal_leerlingen}</td>
                 </tr>
-                <tr tal:condition="context/extra_info_bij_inschrijven">
+                <!-- <tr tal:condition="context/extra_info_bij_inschrijven">
                   <td>
                     <span i18n:translate="">Extra info bij inschrijven: </span>
                   </td>
@@ -159,9 +159,9 @@
                 <tr tal:condition="context/blokje_persoon_inplannen">
                   <td i18n:translate="">Blokje Persoon Inplannen:</td>
                   <td>${context/blokje_persoon_inplannen}</td>
-                </tr>
+                </tr> -->
                 <tr tal:condition="context/schooljaar">
-                  <td i18n:translate="">Schooljaa:</td>
+                  <td i18n:translate="">Schooljaar:</td>
                   <td>${context/schooljaar}</td>
                 </tr>
                 <tr tal:condition="context/onderwijstype">
