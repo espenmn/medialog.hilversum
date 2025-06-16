@@ -5,56 +5,56 @@
   <body>
 
     <metal:content-core fill-slot="content-core">
-      <div tal:condition="context/text" tal:content="structure context/text/output|None">
-        <metal:block define-macro="content-core" tal:define="batch view/batch">
-          <div class="alphabet-filter text-center padding-2">
-            <button tal:repeat="char view/firstletters" class="alphabet-btn btn btn-primary" data-letter="${char}" type="button">${char}</button>
-            <button class="alphabet-btn btn btn-outline-primary" data-letter="all" type="button">All</button>
-            <hr/>
-          </div>
+            <div tal:condition="context/text" tal:content="structure context/text/output|None">
+      <metal:block define-macro="content-core" tal:define="batch view/batch">
+        <div class="alphabet-filter text-center padding-2">
+          <button tal:repeat="char view/firstletters" class="alphabet-btn btn btn-primary" data-letter="${char}" type="button">${char}</button>
+          <button class="alphabet-btn btn btn-outline-primary" data-letter="all" type="button">All</button>
+          <hr/>
+        </div>
 
 
 
 
-          <div class="grid small">
-            <div tal:repeat="item batch">
-              <div class="green_box">
-                <div class="padding-1 flex flex_start custom-background1 padding-5">
-                  <span tal:repeat="disiplin_name item/Subject">
-                    <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
-                  </span>
-                </div>
-                <a href="${item/getURL}" tal:define="obj item/getObject">
-                  <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
-                    <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+        <div class="grid small">
+          <div tal:repeat="item batch">
+            <div class="green_box">
+              <div class="padding-1 flex flex_start custom-background1 padding-5">
+                <span tal:repeat="disiplin_name item/Subject">
+                  <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
+                </span>
+              </div>
+              <a href="${item/getURL}" tal:define="obj item/getObject">
+                <div class="imagediv logo" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+                  <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
-                    <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
-                  </div>
-                </a>
-                <div class="padding-10 padding-5-0 custom-backgrund1  text-center">
-                  <h5>
-                    <a class="black bold" href="${item/getURL}">${item/Title}</a>
-                  </h5>
-                  <p class="padding-0 margin-0 text-center">${item/Description}</p>
+                  <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
+                </div>
+              </a>
+              <div class="padding-10 padding-5-0 custom-backgrund1  text-center">
+                <h5>
+                  <a class="black bold" href="${item/getURL}">${item/Title}</a>
+                </h5>
+                <p class="padding-0 margin-0 text-center">${item/Description}</p>
 
-                </div>
-                <div class="custom-background2 white padding-10 margin-top-auto center text-center">
-                  <a class="white" href="${item/getURL}">Bekijk het aanbod xx</a>
-                </div>
+              </div>
+              <div class="custom-background2 white padding-10 margin-top-auto center text-center">
+                <a class="white" href="${item/getURL}">Bekijk het aanbod</a>
               </div>
             </div>
           </div>
+        </div>
 
-          <div>
-            <hr/>
-          </div>
-          <div>
-            <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
-          </div>
-        </metal:block>
-      </metal:content-core>
-    </body>
-  </html>
+        <div>
+          <hr/>
+        </div>
+        <div>
+          <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
+        </div>
+      </metal:block>
+    </metal:content-core>
+  </body>
+</html>
 
  
