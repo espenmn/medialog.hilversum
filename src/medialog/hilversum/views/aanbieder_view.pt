@@ -3,17 +3,40 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
     <body>
-        <metal:content-core fill-slot="content-core">
-            <metal:block define-macro="content-core">
+        <metal:content-core fill-slot="content">
+            <metal:block define-macro="content">
 
                 <tal:define tal:define="icons view/get_discipline_images">
-                    <p>
-                        <span tal:repeat="disiplin context/Subject">
-                            <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
-                                <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image" height="50" width="50"/>
-                            </a>
-                        </span>
-                    </p>
+
+                    <div class="flex flex-wrap">
+                        <div class="textdiv">
+
+                            <h1>${context/Title}</h1>
+                            <p class="lead">${context/Description}</p>
+
+                            <p>
+                                <span tal:repeat="disiplin context/Subject">
+                                    <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
+                                        <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image" height="50" width="50"/>
+                                    </a>
+                                </span>
+                            </p>
+
+                            <div tal:content="structure context/text/output|None"></div>
+
+                        </div>
+                        <div class="logodiv">
+
+                            <div tal:define="scales context/@@images; thumbnail python: scales.scale('image', 'preview');">
+                                <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                    width thumbnail/width;
+                                    height thumbnail/height" />
+                                <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
+                            </div>
+                             <div class="margin-20-0" tal:content="structure context/infotext/output|None"></div>
+
+                        </div>
+                    </div> 
 
                     <a class="btn button btn-standalone" href="${context/getURL|context/absolute_url}/provider-view">
                         <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
@@ -22,7 +45,7 @@
                     <div tal:condition="context/text" tal:content="structure context/text/output|None">
                     </div>
 
-                    <h2>Anbod van ${context/Title}:</h2>
+                    <h2>Aanbod van ${context/Title}:</h2>
                     <div class="grid">
                         <div tal:repeat="course view/courses">
                             <div class="green_box">
@@ -69,8 +92,8 @@
                             </div>
                         </div>
                     </div>
-                </tal:define>
 
+                </tal:define>
             </metal:block>
         </metal:content-core>
     </body>

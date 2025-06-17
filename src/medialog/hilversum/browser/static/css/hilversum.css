@@ -2,6 +2,8 @@ button.active {
     background: red !important
 }
 
+.logodiv { width: 50%; max-width: 400px; min-width: 270px;}
+
 body.template-proloog-folder-view #viewlet-above-content-body,
 body.template-proloog-listing #viewlet-above-content-body {
 margin: 0;

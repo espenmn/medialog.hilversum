@@ -9,5 +9,10 @@
       <required>False</required> -->
       <!-- <widget hidden="True"/> -->
     <!-- </field> -->
+     <field name="infotext" type="plone.app.textfield.RichText">
+      <description/>
+      <required>False</required>
+      <title>Infotext</title>
+    </field>
   </schema>
 </model>
