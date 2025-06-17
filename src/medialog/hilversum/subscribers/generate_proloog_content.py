@@ -279,14 +279,22 @@ def handler(obj, event):
                                                                     
                             
                             # convert list of strings to list of ints for these
+                            # if key in ['tarief_leerling_groep']:
+                            #     if value_type == list:
+                            #         #Remove unset values
+                            #         if 'nvt' in value:
+                            #             value.remove('nvt')
+                            #         value = [int(x) for x in value]
+                            #     else:
+                            #         value = [value]
                             if key in ['tarief_leerling_groep']:
                                 if value_type == list:
                                     #Remove unset values
                                     if 'nvt' in value:
                                         value.remove('nvt')
-                                    value = [int(x) for x in value]
+                                    value = ",".join(value)
                                 else:
-                                    value = [value]
+                                    value = value
                             
                             #Not sure if leerjaren should be int, but it contains string ('ve')        
                             if key in ['leerjaren']:

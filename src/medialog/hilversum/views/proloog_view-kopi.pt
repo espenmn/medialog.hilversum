@@ -109,7 +109,7 @@
               </p>
               <p>
                 <strong class="course_label" i18n:translate="">Tarief Leerling Groep:</strong>
-                <span tal:repeat="item context/tarief_leerling_groep">${item}</span>
+                ${context/tarief_leerling_groep}
 
               </p>
               <p>

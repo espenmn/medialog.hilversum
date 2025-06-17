@@ -98,7 +98,7 @@
   <index name="tarief_begeleider" meta_type="FieldIndex">
     <indexed_attr value="tarief_begeleider"/>
   </index>
-  <index name="tarief_leerling_groep" meta_type="KeywordIndex">
+  <index name="tarief_leerling_groep" meta_type="FieldIndex">
     <indexed_attr value="tarief_leerling_groep"/>
   </index>
   <index name="thema" meta_type="KeywordIndex">

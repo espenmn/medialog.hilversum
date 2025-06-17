@@ -237,12 +237,19 @@
         <widget hidden="True"/>
       </field>
 
-      <field name="tarief_leerling_groep" type="zope.schema.List">
+      <!-- <field name="tarief_leerling_groep" type="zope.schema.List">
         <description/>
         <title>Tarief leerling/groep</title>
         <required>False</required>
         <widget hidden="False"/>
         <value_type type="zope.schema.Int" />
+      </field> -->
+      <!-- <field name="tarief_leerling_groep" type="zope.schema.Float"> -->
+       <field name="tarief_leerling_groep" type="zope.schema.TextLine">
+        <description/>
+        <title>Tarief leerling/groep</title>
+        <required>False</required>
+        <widget hidden="False"/>
       </field>
 
       <field name="tarief_begeleider" type="zope.schema.TextLine">
