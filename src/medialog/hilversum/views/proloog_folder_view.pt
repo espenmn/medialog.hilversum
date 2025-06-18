@@ -62,7 +62,7 @@ Lijstweergave</button>
                     <b i18n:translate="">Leerjaren: </b> ${python: ", ".join(course.leerjaren)}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b i18n:translate="">Prijs: </b> € ${python: course.tarief_leerling_groep}
+                    <b i18n:translate="">Prijs: </b> € ${python: course.tarief_leerling_groep.replace(",00", "")}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
                     <b i18n:translate="">Prijs per:</b> ${course/prijs_per|None}
