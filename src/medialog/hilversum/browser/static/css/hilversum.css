@@ -7,6 +7,11 @@ button.active {
     max-width: 400px;
     min-width: 270px;
 }
+.textdiv {
+    width: 50%;
+    max-width: 100vw;
+    min-width: 320px;
+}
 
 body.template-proloog-folder-view #viewlet-above-content-body,
 body.template-proloog-listing #viewlet-above-content-body {

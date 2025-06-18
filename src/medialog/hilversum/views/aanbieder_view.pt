@@ -7,7 +7,6 @@
             <metal:block define-macro="content">
 
                 <tal:define tal:define="icons view/get_discipline_images">
-
                     <div class="flex flex-wrap">
                         <div class="textdiv">
 
