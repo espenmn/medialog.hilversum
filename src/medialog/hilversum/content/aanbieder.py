@@ -3,6 +3,8 @@ from plone.dexterity.content import Item
 from plone.supermodel import model
 from zope.interface import implementer
 from zope import schema
+from plone.app.textfield import RichText
+from plone.app.textfield.interfaces import IRichText
 
 from medialog.hilversum import _
 
@@ -14,7 +16,11 @@ class IAanbieder(model.Schema):
 class Aanbieder(Item):
     """ Content-type class for Aanbieder
     """
-    
+    infotext = RichText(
+        title=u"Infotext",
+        required=False
+    )
+ 
 # firstletter = schema.TextLine(
 #     title=u"For the index",
 #     required=False
