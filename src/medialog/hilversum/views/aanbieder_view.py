@@ -36,4 +36,9 @@ class AanbiederView(BrowserView):
     
     def portal_url(self):
         return api.portal.get().absolute_url()
+    
+    
+    def iconlist(self):
+        # return self.context.portal_catalog(portal_type=['Proloog']d)
+        return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.Title())
         

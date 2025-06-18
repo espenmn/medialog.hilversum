@@ -41,8 +41,7 @@
                         <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
  Provider view</a>
                     <hr/>
-                    <div tal:condition="context/text" tal:content="structure context/text/output|None">
-                    </div>
+                   
 
                     <h2>Aanbod van ${context/Title}:</h2>
                     <div class="grid">
