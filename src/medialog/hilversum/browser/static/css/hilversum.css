@@ -2,16 +2,25 @@ button.active {
     background: red !important
 }
 
-.logodiv { width: 50%; max-width: 400px; min-width: 270px;}
+.logodiv {
+    width: 50%;
+    max-width: 400px;
+    min-width: 270px;
+}
 
 body.template-proloog-folder-view #viewlet-above-content-body,
 body.template-proloog-listing #viewlet-above-content-body {
-margin: 0;
+    margin: 0;
 }
 
-#iconcontainer {margin-bottom: 0; padding-bottom: 0}
+#iconcontainer {
+    margin-bottom: 0;
+    padding-bottom: 0
+}
 
-#main-container .btn.button.to_listing {margin:0;}
+#main-container .btn.button.to_listing {
+    margin: 0;
+}
 
 .template-favoriten-view #main-container,
 .template-proloog-view #main-container {
@@ -162,7 +171,7 @@ div.whitesmoke {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 303px)); 
+    grid-template-columns: repeat(auto-fit, minmax(230px, 303px));
     gap: 24px;
 }
 
