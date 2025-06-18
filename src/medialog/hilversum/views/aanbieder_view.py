@@ -22,23 +22,28 @@ class AanbiederView(BrowserView):
     
     def __call__(self):
         # Implement your own actions:
+        self.discipline_images = self.get_discipline_images()
+        self.portal_url = self.get_portal_url()
+        self.courses = self.get_courses()
+        self.disciplines = self.get_disciplines()
         return self.index()
-    
-    
-    def courses(self):
-        # return self.context.portal_catalog(portal_type=['Proloog']d)
-        return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.Title())
     
     # get the icons so we can check if they exist for the current course
     def get_discipline_images(self):
         resource_dir = getUtility(IResourceDirectory, name='++plone++medialog.hilversum')
         return  resource_dir.listDirectory() 
     
-    def portal_url(self):
+    def get_portal_url(self):
         return api.portal.get().absolute_url()
     
-    
-    def iconlist(self):
-        # return self.context.portal_catalog(portal_type=['Proloog']d)
+    def get_courses(self):
         return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.Title())
         
+    def get_disciplines(self):
+        prologs = self.courses
+        disciplines = []
+        for brain in prologs:
+            if hasattr(brain, 'discipline') and brain.discipline:
+                disciplines.extend(brain.discipline)
+        return sorted(list(set(disciplines)))
+           

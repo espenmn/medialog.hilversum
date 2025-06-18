@@ -70,7 +70,6 @@ def set_aanbieder_subjects(obj):
                     discipline = getattr(brain, 'discipline', None)
                     
                     if discipline:
-                        print(discipline)
                         aanbieder_obj.setSubject(discipline)
 
                 # Step 4: Set Subject of Aanbieder to these values

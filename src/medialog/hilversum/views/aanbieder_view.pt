@@ -6,7 +6,7 @@
         <metal:content-core fill-slot="content">
             <metal:block define-macro="content">
 
-                <tal:define tal:define="icons view/get_discipline_images">
+                <tal:define tal:define="icons view/discipline_images">
                     <div class="flex flex-wrap">
                         <div class="textdiv">
 
@@ -14,7 +14,7 @@
                             <p class="lead">${context/Description}</p>
 
                             <p>
-                                <span tal:repeat="disiplin context/Subject">
+                                <span tal:repeat="disiplin view/disciplines">
                                     <a tal:define="disiplin_name python: disiplin.lstrip().rstrip().replace(' ', '_')" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
                                         <img src="++plone++medialog.hilversum/${python: disiplin_name.lower()}.png" title="${disiplin}" alt="${disiplin}-image" height="50" width="50"/>
                                     </a>

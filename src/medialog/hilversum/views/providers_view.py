@@ -19,7 +19,6 @@ class ProvidersView(CollectionView):
     b_size = 999
     
     def __call__(self):
-        # Implement your own actions:
         self.firstletters = self.get_firstletters()
         self.portal_url = self.get_portal_url()
         return super(ProvidersView, self).__call__()
@@ -29,3 +28,4 @@ class ProvidersView(CollectionView):
 
     def get_firstletters(self):
         return sorted(set(self.context.portal_catalog.uniqueValuesFor('firstletter')))
+    

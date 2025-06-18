@@ -13,14 +13,11 @@
           <hr/>
         </div>
 
-
-
-
         <div class="grid small">
           <div tal:repeat="item batch">
             <div class="green_box">
               <div class="padding-1 flex flex_start custom-background1 padding-5">
-                <span tal:repeat="disiplin_name item/Subject">
+                <span tal:repeat="disiplin_name item/get_disciplines">
                   <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin_name}" alt="${disiplin_name}-image" width="40"/>
                 </span>
               </div>

@@ -16,16 +16,17 @@ Lijstweergave</button>
         <hr/>
 
         <!-- <p class="documentDescription lead">${context/Description}</p> -->
-
+ 
 
         <tal:define tal:define="icons view/discipline_images">
-          <p>
-            <span tal:repeat="disiplin context/Subject">
+          <!-- <p>
+    
+            <span tal:repeat="disiplin context/Subject">xxxxxx
               <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="pat-tooltip" title="${disiplin}">
                 <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image"/>
               </a>
             </span>
-          </p>
+          </p> -->
           <div tal:condition="context/text" tal:content="structure context/text/output|None"></div>
           <div class="grid">
             <div tal:repeat="course batch">
