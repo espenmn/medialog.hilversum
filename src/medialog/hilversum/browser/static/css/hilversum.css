@@ -2,6 +2,10 @@ button.active {
     background: red !important
 }
 
+#portal-logo {
+    max-width: 300px;
+}
+
 .logodiv {
     width: 50%;
     max-width: 400px;

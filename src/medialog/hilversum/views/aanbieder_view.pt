@@ -39,7 +39,7 @@
 
                     <a class="btn button btn-standalone" href="${context/getURL|context/absolute_url}/provider-view">
                         <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
- Provider view</a>
+ Lijstweergave</a>
                     <hr/>
                    
 

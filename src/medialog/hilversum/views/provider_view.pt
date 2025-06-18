@@ -7,7 +7,7 @@
             <metal:block define-macro="content-core">
                 <a class="btn button plone-background" href="${context/getURL|context/absolute_url}/aanbieder-view">
                     <img alt="list icon" src="${view/portal_url}/++plone++medialog.hilversum/menu_not_list.png" width="32"/>
- Aanbieder view</a>
+ Tegelweergave</a>
                 <hr/>
                 <p class="documentDescription>">Provider should be content, so it is possible to sort by google etc</p>
 
