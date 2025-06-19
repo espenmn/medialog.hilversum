@@ -1,7 +1,7 @@
-<div tal:condition="not: context/hide_prolog_viewlet|None" class="container filtercontainer padding-10 whitesmoke" tal:define="site_url view/site_url">
+<div tal:condition="not: context/hide_prolog_viewlet|None" class="container filtercontainer" tal:define="site_url view/site_url">
 
   <!-- ${view/selected_filters} -->
-  <button id="filters-toggles" class="btn custom-background2 button" style="cursor:pointer;" i18translate="">
+  <button id="filters-toggles" class="btn custom-background2 button white" style="cursor:pointer;" i18translate="">
             KIES HIER EEN FILTER <span id="filter-icon"> <i class="fa fa-chevron-right"> </i></span>
   </button>
   <div class="container hidden" id="filter-section">
