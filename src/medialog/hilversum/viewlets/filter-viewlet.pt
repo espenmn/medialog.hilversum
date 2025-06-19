@@ -2,7 +2,7 @@
 
   <!-- ${view/selected_filters} -->
   <button id="filters-toggles" class="btn" style="cursor:pointer;" i18translate="">
-            Toggle Filters <span id="filter-icon">▶</span>
+            KIES HIER EEN FILTER > <span id="filter-icon">▶</span>
   </button>
   <div class="container hidden" id="filter-section">
 
