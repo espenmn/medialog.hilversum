@@ -76,7 +76,7 @@
                                         <b>Geschikt voor: </b> ${course/schooljaar|None}
                                     </p>
                                     <p class="padding-0 margin-0 dark-grey">
-                                        <b>Startdatum: </b> ${course/startdatum}
+                                        <b>Startdatum: </b> ${python:course.startdatum.strftime('%d-%m-%Y')} 
                                     </p>
                                     <p class="padding-0 margin-0 dark-grey">
                                         <b>Prijs per:</b> ${course/prijs_per}

@@ -97,13 +97,13 @@
                   <td>
                     <span i18n:translate="">Startdatum: </span>
                   </td>
-                  <td>${context/startdatum}</td>
+                  <td>${python:context.startdatum.strftime('%d-%m-%Y')}</td>
                 </tr>
                 <tr>
                   <td>
                     <span i18n:translate="">Einddatum: </span>
                   </td>
-                  <td>${context/einddatum}</td>
+                  <td>${python:context.einddatum.strftime('%d-%m-%Y')}</td>
                 </tr>
                 <tr>
                   <td>

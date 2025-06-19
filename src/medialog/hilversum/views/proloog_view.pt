@@ -94,13 +94,13 @@
                   <td>
                     <span i18n:translate="">Startdatum: </span>
                   </td>
-                  <td>${context/startdatum}</td>
+                  <td tal:content="python:context.startdatum.strftime('%d-%m-%Y')"></td>
                 </tr>
                 <tr tal:condition="context/einddatum">
                   <td>
                     <span i18n:translate="">Einddatum: </span>
                   </td>
-                  <td>${context/einddatum}</td>
+                  <td tal:content="python:context.einddatum.strftime('%d-%m-%Y')"></td>
                 </tr>
                 <tr tal:condition="context/prijs_per">
                   <td>
@@ -252,8 +252,8 @@
                     <b>Geschikt voor: </b> ${course/schooljaar|None}
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
-                    <b>Startdatum: </b> ${course/startdatum}
-                  </p>
+                    <b>Startdatum: </b> ${python:course.startdatum.strftime('%d-%m-%Y')}
+                                     
                   <p class="padding-0 margin-0 dark-grey">
                     <b>Prijs per:</b> ${course/prijs_per}
                   </p>
