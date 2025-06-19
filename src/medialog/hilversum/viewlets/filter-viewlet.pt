@@ -2,7 +2,7 @@
 
   <!-- ${view/selected_filters} -->
   <button id="filters-toggles" class="btn" style="cursor:pointer;" i18translate="">
-            KIES HIER EEN FILTER  <span id="filter-icon"> <i class="fa fa-chevron-right"> </i</span>
+            KIES HIER EEN FILTER <span id="filter-icon"> <i class="fa fa-chevron-right"> </i></span>
   </button>
   <div class="container hidden" id="filter-section">
 
