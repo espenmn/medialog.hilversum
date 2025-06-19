@@ -4,7 +4,7 @@
   <button id="filters-toggles" class="btn custom-background2 button white" style="cursor:pointer;" i18translate="">
             KIES HIER EEN FILTER <span id="filter-icon"> <i class="fa fa-chevron-right"> </i></span>
   </button>
-  <div class="container hidden whitesmoke" id="filter-section">
+  <div class="container hidden whitesmoke padding-10" id="filter-section">
 
     <div class="filter flex flex-start" tal:define="enabled_filters python: view.get_filters()">
       <tal:repeat tal:repeat="keyword  view/keyword">
