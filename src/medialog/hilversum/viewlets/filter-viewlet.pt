@@ -55,12 +55,12 @@ $(document).ready(function(){
 
     if (urlParams.has("collectionfilter")) {
         $filterSection.toggleClass('hidden');
-        $icon.text($filterSection.hasClass('hidden') ? '<i class="fa fa-chevron-right"> </i>' : '<i class="fa fa-chevron-down"> </i>');
+        $icon.html($filterSection.hasClass('hidden') ? '<i class="fa fa-chevron-right"> </i>' : '<i class="fa fa-chevron-down"> </i>');
     }
 
     $toggle.on('click', function () {
         $filterSection.toggleClass('hidden');
-        $icon.text($filterSection.hasClass('hidden') ? '<i class="fa fa-chevron-right"> </i>' : '<i class="fa fa-chevron-down"> </i>');
+        $icon.html($filterSection.hasClass('hidden') ? '<i class="fa fa-chevron-right"> </i>' : '<i class="fa fa-chevron-down"> </i>');
     });
 });
 </script>
