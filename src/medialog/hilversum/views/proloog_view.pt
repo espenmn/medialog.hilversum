@@ -178,8 +178,7 @@
                 </tr>
                 <tr tal:condition="context/leerjaren">
                   <td i18n:translate="">leerjaren:</td>
-                  <td>
-                    <span tal:repeat="item context/leerjaren">${item}</span>
+                  <td> ${python: ", ".join(context.leerjaren)} 
                   </td>
                 </tr>
                 <tr tal:condition="context/tarief_begeleider">
