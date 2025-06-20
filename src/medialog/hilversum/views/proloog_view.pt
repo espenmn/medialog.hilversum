@@ -116,14 +116,14 @@
                   <td>
                     <span i18n:translate="">Prijs per: </span>
                   </td>
-                  <td>€ ${context/prijs_per}</td>
+                  <td>${context/prijs_per}</td>
                 </tr>
                 <tr tal:condition="context/tarief_leerling_groep">
                   <td>
                     <span i18n:translate="">Tarief leerling/groep: </span>
                   </td>
                   <td>
-                    <span>${tarief_leerling_groep} </span>
+                    <span>€ ${tarief_leerling_groep} </span>
                   </td>
                 </tr>
                 <tr tal:condition="context/max_aantal_leerlingen">
