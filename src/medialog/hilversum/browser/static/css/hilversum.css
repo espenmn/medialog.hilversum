@@ -11,6 +11,8 @@ button.active {
     
 }
 
+#filters-toggles:hover { opacity: 0.9}
+
 #portal-logo {
     max-width: 300px;
 }
