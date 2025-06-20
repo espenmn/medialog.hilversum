@@ -123,7 +123,7 @@
                     <span i18n:translate="">Tarief leerling/groep: </span>
                   </td>
                   <td>
-                    <span tal:repeat="value context/tarief_leerling_groep">${value} </span>
+                    <span>${tarief_leerling_groep} </span>
                   </td>
                 </tr>
                 <tr tal:condition="context/max_aantal_leerlingen">
