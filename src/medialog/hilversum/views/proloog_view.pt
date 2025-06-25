@@ -3,9 +3,6 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum" metal:use-macro="context/main_template/macros/master">
   <body>
-
-
-
     <metal:content fill-slot="content">
       <metal:block define-macro="content">
 
@@ -26,7 +23,8 @@
               <span tal:repeat="disiplin context/discipline">
                 <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="dis_link pat-tooltip" title="${disiplin}">
                   <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image" width="55"/>
-                ${disiplin} </a>
+                  <span>${disiplin}</span>
+                </a>
               </span>
             </p>
 
@@ -35,8 +33,11 @@
             <!-- <hr/> -->
             <div tal:condition="context/notitie|None">
               <p>
-                <b i18n:translate="">Notitie: </b><br/> 
-               ${context/notitie}</p>
+                <b i18n:translate="">Notitie: </b>
+                <br/>
+ 
+               ${context/notitie}
+              </p>
             </div>
 
             <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
@@ -132,61 +133,7 @@
                   </td>
                   <td>${context/max_aantal_leerlingen}</td>
                 </tr>
-                <!-- <tr tal:condition="context/extra_info_bij_inschrijven">
-                  <td>
-                    <span i18n:translate="">Extra info bij inschrijven: </span>
-                  </td>
-                  <td>${context/extra_info_bij_inschrijven}</td>
-                </tr>
-                <tr tal:condition="context/inschrijfbaar">
-                  <td>
-                    <span i18n:translate="">Inschrijfbaar: </span>
-                  </td>
-                  <td>${context/inschrijfbaar}</td>
-                </tr>
-                <tr tal:condition="context/the_type">
-                  <td i18n:translate="">Type:</td>
-                  <td>${context/the_type}</td>
-                </tr>
-                <tr tal:condition="context/clusters">
-                  <td i18n:translate="">Clusters:</td>
-                  <td>${context/clusters}</td>
-                </tr>
-                <tr tal:condition="context/programma">
-                  <td i18n:translate="">Programma:</td>
-                  <td>${context/programma}</td>
-                </tr>
-                <tr tal:condition="context/thema">
-                  <td i18n:translate="">Thema:</td>
-                  <td>
-                    <span tal:repeat="item context/thema">${item}</span>
-                  </td>
-                </tr>
-                <tr tal:condition="context/vaste_personen">
-                  <td i18n:translate="">Vaste Personen:</td>
-                  <td>${context/vaste_personen}</td>
-                </tr>
-                <tr tal:condition="context/blokje_persoon_inplannen">
-                  <td i18n:translate="">Blokje Persoon Inplannen:</td>
-                  <td>${context/blokje_persoon_inplannen}</td>
-                </tr> -->
-                <!-- <tr tal:condition="context/schooljaar">
-                  <td i18n:translate="">Schooljaar:</td>
-                  <td>${context/schooljaar}</td>
-                </tr> -->
-                <!-- <tr tal:condition="context/onderwijstype">
-                  <td i18n:translate="">onderwijstype:</td>
-                  <td>
-                    <span tal:repeat="item context/onderwijstype">${item}</span>
-                  </td>
-                </tr> -->
-                <!-- <tr tal:condition="context/vo_typen">
-                  <td i18n:translate="">VO typen:</td>
-                  <td>
-                    <span tal:repeat="item context/vo_typen">${item}</span>
-                  </td>
-                </tr> -->
-                
+
                 <tr tal:condition="context/tarief_begeleider">
                   <td i18n:translate="">Tarief Begeleider:</td>
                   <td>${context/tarief_begeleider}</td>
@@ -207,8 +154,8 @@
               <button type="button" name="buttonFavorite" class="buttonFavorite green_box white custom-background1 padding-10">
 
                 <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
- &nbsp; 
-                
+                <span>&nbsp; </span>
+
                 <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18translate="">Bewaar in mijn favouriet</span>
                 <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Verwijderent in favouriet</span>
 
