@@ -223,7 +223,7 @@
         <hr/>
 
 
-        <div class="container">
+        <div class="aanbod_container row">
           <h2>
             <span i18n:translate="">Andere aanbod van</span> ${python: "".join(context.aanbieder)}:</h2>
 

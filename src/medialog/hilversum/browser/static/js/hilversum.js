@@ -2,6 +2,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const collectionFilter = urlParams.get("collectionfilter");
     const selects = document.querySelectorAll('select[id^="prolog-dropdown-"]');
+    const baseUrl = document.body.getAttribute('data-base-url');
+    
+ 
+
+
+    document.getElementById('clear-filters').addEventListener('click', function () {
+        const selects = document.querySelectorAll('select[id^="prolog-dropdown-"]');
+        selects.forEach(select => {
+          select.selectedIndex = 0; // Set to first option
+          select.classList.remove('enabled'); //remove 'selected color'
+        });
+    
+        // Optional: trigger form submission or event after reset
+        // document.querySelector('form').submit(); 
+        const paramsStr = buildParams();
+        const url = baseUrl + "?" + paramsStr;
+        fetchFilteredContent(url);
+      });
 
     // Function to build the query string from the selects
     function buildParams() {
