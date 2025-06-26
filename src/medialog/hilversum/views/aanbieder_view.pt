@@ -91,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div tal:condition="ontext/text_bottom|None" tal:content="structure context/text_bottom/output|None"></div>
+                    <div tal:condition="context/text_bottom|None" tal:replace="structure context/text_bottom/output|None"></div>
 
                 </tal:define>
             </metal:block>
