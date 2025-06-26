@@ -124,7 +124,7 @@
                     <span i18n:translate="">Tarief leerling/groep: </span>
                   </td>
                   <td>
-                    <span>€ ${python: context/tarief_leerling_groep.replace(",00", "").replace(".00", "").replace(".0", "").replace(",0", "")} </span>
+                    <span>€ ${python: context.tarief_leerling_groep.replace(",00", "").replace(".00", "").replace(".0", "").replace(",0", "")} </span>
                   </td>
                 </tr>
                 <tr tal:condition="context/max_aantal_leerlingen">
