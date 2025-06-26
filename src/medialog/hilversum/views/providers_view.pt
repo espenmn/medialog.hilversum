@@ -49,6 +49,8 @@
         <div>
           <tal:batchnavigation define="batchnavigation nocall:context/@@batchnavigation" replace="structure python:batchnavigation(batch)" />
         </div>
+         <div tal:condition="context/text_bottom|None" tal:content="structure context/text_bottom/output|None"></div>
+
       </metal:block>
     </metal:content-core>
   </body>
