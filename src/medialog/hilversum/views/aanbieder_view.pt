@@ -91,6 +91,8 @@
                         </div>
                     </div>
 
+                    <div tal:content="structure context/text_bottom/output|None"></div>
+
                 </tal:define>
             </metal:block>
         </metal:content-core>
