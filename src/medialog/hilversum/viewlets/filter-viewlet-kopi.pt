@@ -1,7 +1,7 @@
 <div class="container filtercontainer padding-20-0" tal:define="site_url view/site_url">
 
   <!-- ${view/selected_filters} -->
-  <button id="filters-toggles" class="btn btn-primary" style="cursor:pointer;" i18translate="">
+  <button id="filters-toggles" class="btn btn-primary" style="cursor:pointer;" i18n:translate="">
             Toggle Filters <span id="filter-icon">▶</span>
   </button>
   <div class="container hidden" id="filter-section">

@@ -25,7 +25,7 @@
             <div tal:repeat="course favorites">
               <div class="green_box">
                 <button type="button" name="buttonFavorite" class="btn button bbuttonFavorite">
-                  <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18translate="Remove Favorite">
+                  <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18n:translate="Remove Favorite">
                     <img src="++plone++medialog.hilversum/remove_fav.png" width="30"/>
                   </span>
                 </button>

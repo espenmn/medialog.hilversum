@@ -13,7 +13,7 @@
           </select-->
           <!-- loop all keyword-->
           <button id="filters-toggles" class="btn btn-primary" style="cursor:pointer;" 
-            i18translate="">Toggle Filters <span id="filter-icon">▶</span></button>
+            i18n:translate="">Toggle Filters <span id="filter-icon">▶</span></button>
           <div class="filter flex hidden" id="filter-section">
         
             <tal:repeat tal:repeat="keyword python: view.get_keywords()">

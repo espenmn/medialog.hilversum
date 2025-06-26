@@ -156,8 +156,8 @@
                 <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
                 <span>&nbsp; </span>
 
-                <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18translate="">Bewaar in mijn favouriet</span>
-                <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18translate="">Verwijderent in favouriet</span>
+                <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18n:translate="">Bewaar in mijn favouriet</span>
+                <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18n:translate="">Verwijderent in favouriet</span>
 
               </button>
               <div tal:condition="has_fav" class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
