@@ -164,7 +164,7 @@
                   <td>${context/blokje_persoon_inplannen}</td>
                 </tr>
                 <tr>
-                  <td i18n:translate="">Schooljaa:</td>
+                  <td i18n:translate="">Schooljaar:</td>
                   <td>${context/schooljaar}</td>
                 </tr>
                 

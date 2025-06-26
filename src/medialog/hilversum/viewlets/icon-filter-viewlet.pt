@@ -20,7 +20,7 @@ class="container iconcontainer filtercontainer padding-0" tal:define="site_url v
       <div class="disciplin" tal:repeat="disiplin view/get_discipline" class="padding-10 margin-10">
         <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${site_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" id="${python: disiplin_name.lower()}">
           <img src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" alt="${disiplin} icon" />
-          <span>${disiplin}</span>
+          <span i18n:translate="">${disiplin}</span>
         </a>
       </div>
     </div>

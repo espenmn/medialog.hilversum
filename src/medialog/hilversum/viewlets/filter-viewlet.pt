@@ -2,7 +2,7 @@
 
   <!-- ${view/selected_filters} -->
   <div class="orangebox">
-  <button id="filters-toggles" class="btn custom-background2 button white" style="cursor:pointer;" i18translate="">
+  <button id="filters-toggles" class="btn custom-background2 button white" style="cursor:pointer;" i18n:translate="">
             KIES HIER EEN FILTER <span id="filter-icon"> <i class="fa fa-chevron-right"> </i></span>
   </button>
   </div>
@@ -22,7 +22,7 @@
 
         </tal:define>
       </tal:repeat>
-      <button type="button" id="clear-filters" class="btn standalone clear-button">✕ Clear Filters</button>
+      <button type="button" id="clear-filters" class="btn standalone clear-button" translate="">✕ Filters resetten</button>
     </div>
     <div class="filter flex flex-start">
       <div class="disciplin padding-10" tal:repeat="disiplin view/get_discipline">
