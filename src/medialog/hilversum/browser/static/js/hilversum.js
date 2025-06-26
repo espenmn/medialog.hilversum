@@ -75,9 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Filter select change handler
     selects.forEach(select => {
         select.addEventListener('change', function () {
-            selects.forEach(s => s.classList.remove('enabled'));
+
             if (select.value.trim()) {
                 select.classList.add('enabled');
+            }
+
+            if (select.selectedIndex === 0) {
+                select.classList.remove('enabled');
             }
 
             const url = baseUrl + "?" + buildParams();
