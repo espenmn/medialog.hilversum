@@ -79,7 +79,7 @@
                   <td>${python: ", ".join(context.aanbieder)}</td>
                 </tr>
                 <tr tal:condition="context/leerjaren">
-                  <td i18n:translate="">LEERJAREN:</td>
+                  <td i18n:translate="">Leerjaren:</td>
                   <td> ${python: ", ".join(context.leerjaren)} 
                   </td>
                 </tr>
