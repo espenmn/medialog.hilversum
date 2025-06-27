@@ -273,6 +273,9 @@ div.dropdowns {
     margin-bottom: 1rem;
 }
 
+#filter-section .filter.flex { 
+    flex-direction: row;
+}
 
 div.portletWrapper .filter-section select {
     max-width: 80% !important;
