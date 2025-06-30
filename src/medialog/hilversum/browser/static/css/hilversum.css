@@ -198,8 +198,8 @@ div.whitesmoke {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 303px));
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));  
+    xgrid-template-columns: repeat(auto-fit, minmax(230px, 303px));
+    grid-template-columns: repeat(auto-fit, minmax(303px, 1fr));  
     gap: 24px;
 }
 
