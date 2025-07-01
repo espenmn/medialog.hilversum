@@ -220,6 +220,12 @@ div.whitesmoke {
     gap: 24px;
 }
 
+@media screen and (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+}
+
 @media screen and (max-width: 480px) {
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(303px, 1fr));
