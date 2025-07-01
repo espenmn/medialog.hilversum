@@ -1,24 +1,41 @@
-.section-oog-voor-cultuur-in-onderwijs #portal-breadcrumbs {display: none}
- 
+.section-oog-voor-cultuur-in-onderwijs #portal-breadcrumbs {
+    display: none
+}
+
 button.active {
     background: red !important
 }
-.orangebox {background: #d78132; width: 100%; height: 3.5rem; border-radius: 2px }
 
-#clear-filters {padding-top: 2px}
-#clear-filters:hover {text-decoration: underline;}
+.orangebox {
+    background: #d78132;
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 2px
+}
+
+#clear-filters {
+    padding-top: 2px
+}
+
+#clear-filters:hover {
+    text-decoration: underline;
+}
 
 #filters-toggles {
     margin: -10px 0 20px 20px;
     padding: 15px 20px;
     border-radius: 2px;
-    
+
 }
 
-.green_box > .padding-1 { min-height: 3.1rem;}
+.green_box>.padding-1 {
+    min-height: 3.1rem;
+}
 
 
-#filters-toggles:hover { opacity: 0.8}
+#filters-toggles:hover {
+    opacity: 0.8
+}
 
 #portal-logo {
     max-width: 300px;
@@ -29,6 +46,7 @@ button.active {
     max-width: 400px;
     min-width: 270px;
 }
+
 .textdiv {
     width: 50%;
     max-width: 100vw;
@@ -198,9 +216,14 @@ div.whitesmoke {
 
 .grid {
     display: grid;
-    xgrid-template-columns: repeat(auto-fit, minmax(230px, 303px));
-    grid-template-columns: repeat(auto-fit, minmax(303px, 1fr));  
+    grid-template-columns: repeat(auto-fit, minmax(230px, 303px));
     gap: 24px;
+}
+
+@media screen and (min-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(303px, 1fr));
+    }
 }
 
 .grid.small {
@@ -276,7 +299,7 @@ div.dropdowns {
     margin-bottom: 1rem;
 }
 
-#filter-section .filter.flex { 
+#filter-section .filter.flex {
     flex-direction: row;
 }
 
