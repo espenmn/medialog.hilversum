@@ -26,7 +26,7 @@
                   <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />
-                  <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
+                  <!-- <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/> -->
                 </div>
               </a>
               <div class="padding-10 padding-5-0 custom-backgrund1  text-center">
