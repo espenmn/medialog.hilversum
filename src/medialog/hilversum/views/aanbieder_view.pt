@@ -66,7 +66,7 @@
                                                     width thumbnail/width;
                                                     height thumbnail/height" 
                                                     loading="lazy" />
-                                        <!-- <img tal:condition="not: thumbnail"loading="lazy" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" loading="lazy" width="380" alt="course_image"/> -->
+                                        <img tal:condition="not: thumbnail"loading="lazy" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" loading="lazy" width="380" alt="course_image"/>
                                     </div>
                                 </a>
                                 <div class="padding-10 padding-5-0 custom-backgrund1">
