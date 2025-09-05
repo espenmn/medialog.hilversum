@@ -147,7 +147,7 @@
               </table>
             </div>
             <div class="custom-background3 padding-10 margin-10-0 buttonfont">
-              <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${context/extern_id|context/id}&fav_mode=add" class="white" i18n:translate="">
+              <a href="https://prolooghilversum.plannedculture.nl/school/2/participant_selections/new?activity_ids=${context/extern_id|context/id}&fav_mode=add" class="white" i18n:translate="">
               Schrijf je hier in</a>
             </div>
 
