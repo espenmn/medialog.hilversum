@@ -34,7 +34,7 @@ class FavoritenView(BrowserView):
         items = self.get_favorites()
         #dont need check, will only render if get_favorites returns items
         if items:
-            itemlist = [item.UID for item in items]
+            itemlist = [item.extern_id if item.extern_id else item.id for item in items]
             return ",".join(itemlist)
         return None
          
