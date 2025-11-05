@@ -4,6 +4,8 @@
 
  <!-- -*- extra stuff goes here -*- -->
 
+  <include file="vo_typen.zcml" />
+
   <include file="firstletter_index.zcml" />
 
 </configure>

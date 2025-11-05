@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <adapter factory=".vo_typen.dummy"
+    name="vo_typen" />
+
+  <adapter factory=".vo_typen.vo_typen"
+    name="vo_typen" />
+
+</configure>
