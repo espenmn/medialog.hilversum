@@ -15,17 +15,19 @@ def dummy(obj):
 @indexer(IProloog)
 def vo_typen(obj):
     """Calculate and return the value for the indexer"""
-    attribute_name = "vo_typen"
-    attribute_value = getattr(obj, attribute_name, None)
+    # attribute_name = "vo_typen"
+    attribute_value = getattr(obj, "vo_typen", None)
 
     if not attribute_value:
         return None
-
+    
     # Clean and filter values
     result = [
-        x.strip().replace('-', ' ').replace('‚Äì', ' ')
+        x.strip().replace('-', ' ').replace('‚Äì', ' ').replace('  ', ' ')
         for x in attribute_value
         if x and x.strip()
     ]
-
+    
+    obj.vo_typen = result
+    
     return result or None
