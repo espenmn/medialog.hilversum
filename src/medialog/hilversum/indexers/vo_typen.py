@@ -4,20 +4,21 @@ from plone.app.contenttypes.interfaces import IDocument
 from plone.dexterity.interfaces import IDexterityContent
 from plone.indexer import indexer
 
-
+from medialog.hilversum.content.proloog import  IProloog
+ 
 @indexer(IDexterityContent)
 def dummy(obj):
     """ Dummy to prevent indexing other objects thru acquisition """
     raise AttributeError('This field should not indexed here!')
 
 
-@indexer(IDocument)  # ADJUST THIS!
+@indexer(IProloog) 
 def vo_typen(obj):
     """Calculate and return the value for the indexer"""
     attribute_value = None
-    attribute_name = "vo_typen"
-
+    attribute_name = "vo_typen"    
     attribute_value = getattr(obj, attribute_name)
-    if not attribute_value:
-        return attribute_value
-    return attribute_value
+    if attribute_value:
+        result = [x.strip().replace('-', ' ').replace('‚Äì', ' ') for x in attribute_value]
+        return result 
+    return None

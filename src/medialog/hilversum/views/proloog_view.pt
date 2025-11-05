@@ -168,6 +168,11 @@
             </div>
           </div>
         </div>
+        <p><b i18n:translate="">Geschikt voor:</b><br/>
+        <span tal:repeat="vo_type context/vo_typen|None">
+          ${vo_type}<tal:block tal:condition="not:repeat/vo_type/end">, </tal:block>
+          </span>
+        </p>
         <hr/>
 
 
