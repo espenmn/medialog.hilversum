@@ -21,4 +21,3 @@ def vo_typen(obj):
     if attribute_value:
         result = [x.strip().replace('-', ' ').replace('‚Äì', ' ') for x in attribute_value]
         return result 
-    return None
