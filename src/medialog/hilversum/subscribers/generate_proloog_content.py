@@ -138,7 +138,7 @@ def handler(obj, event):
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
             the_title = str(the_dict['Naam'])
-            the_id = str(the_dict['ID'])
+            the_id = str(int(float(value)))
             aanbieder = None
             
             # Fields to use to add content and their names
