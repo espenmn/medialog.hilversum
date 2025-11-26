@@ -138,6 +138,7 @@ def handler(obj, event):
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
             the_title = str(the_dict['Naam'])
+            import pdb; pdb.set_trace()
             the_id = str(int(float(value)))
             aanbieder = None
             
