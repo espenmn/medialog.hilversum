@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <adapter factory=".id_index.dummy"
+    name="id_index" />
+
+  <adapter factory=".id_index.id_index"
+    name="id_index" />
+
+</configure>

@@ -198,7 +198,7 @@ def handler(obj, event):
                 "the_code" : the_dict.get("Code", None), 
             }
             
-            #Create content only if it does not exist
+            #Create content only if it does not exist in root folder
             item_exist = portal.get(the_id, False)            
             
             
@@ -211,7 +211,7 @@ def handler(obj, event):
                 )
                 
             else:
-                proloog = portal.get(the_id)    
+                proloog = portal.get(the_id)  
                 
                 
             ## check for replace and IMPORTANT, that the content type is 'Proloog'
