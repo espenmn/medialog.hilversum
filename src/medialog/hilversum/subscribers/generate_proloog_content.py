@@ -138,8 +138,22 @@ def handler(obj, event):
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
             the_title = str(the_dict['Naam'])
-            the_id = str(int(float(the_dict['ID'])))
-            aanbieder = None
+            
+            if the_title == 'nan':
+                continue 
+            
+            valuen = the_dict['ID']
+            the_id = str(valuen)
+             
+            # Float → "306.0"
+            if isinstance(valuen, float) and valuen.is_integer():
+                the_id = str(int(valuen))
+
+            # Int → "306"
+            if isinstance(valuen, int):
+                the_id = str(valuen)
+
+            #aanbieder = None
             
             # Fields to use to add content and their names
             # Added fallback if they do not exist
