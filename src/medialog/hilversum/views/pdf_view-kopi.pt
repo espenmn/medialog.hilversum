@@ -1,0 +1,450 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.hilversum">
+  <body tal:define="portal_url view/portal_url" class="pdf-export">
+    <link rel="stylesheet" href="${portal_url}/++plone++medialog.hilversum/css/hilversum.css" />
+    <link rel="stylesheet" href="${portal_url}/++theme++dutchman-theme/dutchmanblue/theme.min.css"/>
+
+    <h1 class="documentFirstHeading">
+      <a href="${context/absolute_url}" class="no-underline">
+        <span class="custom-color2 bold">${context/Title}</span>
+      </a>
+      <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
+    </h1>
+    <p class="documentDescription lead">${context/Description}</p>
+    <p>
+      <span tal:repeat="disiplin context/discipline">
+        <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="dis_link pat-tooltip" title="${disiplin}">
+          <img class="disiplin" src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image" width="55"/>
+          <span>${disiplin}</span>
+        </a>
+      </span>
+    </p>
+
+    <div class="flex gap-1 font-90">
+      <div class="pdf_course_text course_text">
+        <div class="margin-10-0" tal:content="structure context/text/output|None"></div>
+        <div tal:condition="context/notitie|None">
+          <p>
+            <b i18n:translate="">Notitie: </b>
+            <br/>
+ 
+               ${context/notitie}
+          </p>
+        </div>
+        <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
+        <hr/>
+        <p>
+          <b i18n:translate="">Geschikt voor:</b>
+          <br/>
+          <span tal:repeat="vo_type context/vo_typen|None">
+          ${vo_type}<tal:block tal:condition="not:repeat/vo_type/end">, </tal:block>
+          </span>
+        </p>
+      </div>
+
+
+      <div class="course_info pdf_course_info">
+
+        <tal:define tal:define="scales context/@@images;
+                 thumbnail python: scales.scale('image', width=500);">
+
+          <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                width thumbnail/width;
+                                height thumbnail/height" />
+
+        </tal:define>
+
+        <div class="info_box padding-10">
+          <p>
+            <b i18n:translate="">Aanvullende activiteit informatie</b>
+          </p>
+          <table>
+            <tr tal:condition="context/naam">
+              <td>
+                <span i18n:translate="">Naam: </span>
+              </td>
+              <td>${context/Title}</td>
+            </tr>
+            <tr tal:condition="context/aanbieder">
+              <td>
+                <span i18n:translate="">Aanbieder: </span>
+              </td>
+              <td>${python: ", ".join(context.aanbieder)}</td>
+            </tr>
+            <tr tal:condition="context/leerjaren">
+              <td i18n:translate="">Leerjaren:</td>
+              <td> ${python: ", ".join(context.leerjaren)} 
+              </td>
+            </tr>
+            <tr tal:condition="context/aantal_lessen">
+              <td>
+                <span i18n:translate="">Aantal lessen: </span>
+              </td>
+              <td>${context/aantal_lessen}</td>
+            </tr>
+            <tr tal:condition="context/uitvoering_op_school">
+              <td>
+                <span i18n:translate="">Uitvoering op school: </span>
+              </td>
+              <td>${context/uitvoering_op_school}</td>
+            </tr>
+            <tr tal:condition="context/duur">
+              <td>
+                <span i18n:translate="">Duur (in minuten): </span>
+              </td>
+              <td>${context/duur}</td>
+            </tr>
+            <tr tal:condition="context/startdatum">
+              <td>
+                <span i18n:translate="">Startdatum: </span>
+              </td>
+              <td tal:content="python:context.startdatum.strftime('%d-%m-%Y')"></td>
+            </tr>
+            <tr tal:condition="context/einddatum">
+              <td>
+                <span i18n:translate="">Einddatum: </span>
+              </td>
+              <td tal:content="python:context.einddatum.strftime('%d-%m-%Y')"></td>
+            </tr>
+            <tr tal:condition="context/prijs_per">
+              <td>
+                <span i18n:translate="">Prijs per: </span>
+              </td>
+              <td>${context/prijs_per}</td>
+            </tr>
+            <tr tal:condition="context/tarief_leerling_groep">
+              <td>
+                <span i18n:translate="">Tarief leerling/groep: </span>
+              </td>
+              <td>
+                <span>€ ${python: context.tarief_leerling_groep.replace(",00", "").replace(".00", "").replace(".0", "").replace(",0", "")} </span>
+              </td>
+            </tr>
+            <tr tal:condition="context/max_aantal_leerlingen">
+              <td>
+                <span i18n:translate="">Max. aantal leerlingen: </span>
+              </td>
+              <td>${context/max_aantal_leerlingen}</td>
+            </tr>
+
+            <tr tal:condition="context/tarief_begeleider">
+              <td i18n:translate="">Tarief Begeleider:</td>
+              <td>${context/tarief_begeleider}</td>
+            </tr>
+            <tr tal:condition="context/max_aantal_leerlingen_prijsberekening">
+              <td i18n:translate="">Max Aantal Leerlingen Prijsberekening:</td>
+              <td>${context/max_aantal_leerlingen_prijsberekening}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <h1 class="documentFirstHeading page-break-before">
+      <a href="${context/absolute_url}" class="no-underline">
+        <span class="custom-color2 bold">${context/Title}</span>
+      </a>
+      <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
+    </h1>
+
+    <p class="documentDescription lead">${context/Description}</p>
+
+    <p>
+      <span tal:repeat="disiplin context/discipline">
+        <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="dis_link pat-tooltip" title="${disiplin}">
+          <img class="disiplin" src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image" width="55"/>
+          <span>${disiplin}</span>
+        </a>
+      </span>
+    </p>
+
+    <tal:define tal:define="scales context/@@images;
+                 thumbnail python: scales.scale('image', height=400);">
+
+
+
+      <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                width thumbnail/width;
+                                height thumbnail/height" />
+
+    </tal:define>
+
+    <hr/>
+
+    <div class="flex gap-1 font-90">
+      <div class="pdf_course_text course_text">
+        <div class="margin-10-0" tal:content="structure context/text/output|None"></div>
+        <div tal:condition="context/notitie|None">
+          <p>
+            <b i18n:translate="">Notitie: </b>
+            <br/>
+ 
+               ${context/notitie}
+          </p>
+        </div>
+        <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
+        <hr/>
+        <p>
+          <b i18n:translate="">Geschikt voor:</b>
+          <br/>
+          <span tal:repeat="vo_type context/vo_typen|None">
+          ${vo_type}<tal:block tal:condition="not:repeat/vo_type/end">, </tal:block>
+          </span>
+        </p>
+      </div>
+
+
+      <div class="course_info pdf_course_info">
+        <div class="info_box padding-10">
+          <p>
+            <b i18n:translate="">Aanvullende activiteit informatie</b>
+          </p>
+          <table>
+            <tr tal:condition="context/naam">
+              <td>
+                <span i18n:translate="">Naam: </span>
+              </td>
+              <td>${context/Title}</td>
+            </tr>
+            <tr tal:condition="context/aanbieder">
+              <td>
+                <span i18n:translate="">Aanbieder: </span>
+              </td>
+              <td>${python: ", ".join(context.aanbieder)}</td>
+            </tr>
+            <tr tal:condition="context/leerjaren">
+              <td i18n:translate="">Leerjaren:</td>
+              <td> ${python: ", ".join(context.leerjaren)} 
+              </td>
+            </tr>
+            <tr tal:condition="context/aantal_lessen">
+              <td>
+                <span i18n:translate="">Aantal lessen: </span>
+              </td>
+              <td>${context/aantal_lessen}</td>
+            </tr>
+            <tr tal:condition="context/uitvoering_op_school">
+              <td>
+                <span i18n:translate="">Uitvoering op school: </span>
+              </td>
+              <td>${context/uitvoering_op_school}</td>
+            </tr>
+            <tr tal:condition="context/duur">
+              <td>
+                <span i18n:translate="">Duur (in minuten): </span>
+              </td>
+              <td>${context/duur}</td>
+            </tr>
+            <tr tal:condition="context/startdatum">
+              <td>
+                <span i18n:translate="">Startdatum: </span>
+              </td>
+              <td tal:content="python:context.startdatum.strftime('%d-%m-%Y')"></td>
+            </tr>
+            <tr tal:condition="context/einddatum">
+              <td>
+                <span i18n:translate="">Einddatum: </span>
+              </td>
+              <td tal:content="python:context.einddatum.strftime('%d-%m-%Y')"></td>
+            </tr>
+            <tr tal:condition="context/prijs_per">
+              <td>
+                <span i18n:translate="">Prijs per: </span>
+              </td>
+              <td>${context/prijs_per}</td>
+            </tr>
+            <tr tal:condition="context/tarief_leerling_groep">
+              <td>
+                <span i18n:translate="">Tarief leerling/groep: </span>
+              </td>
+              <td>
+                <span>€ ${python: context.tarief_leerling_groep.replace(",00", "").replace(".00", "").replace(".0", "").replace(",0", "")} </span>
+              </td>
+            </tr>
+            <tr tal:condition="context/max_aantal_leerlingen">
+              <td>
+                <span i18n:translate="">Max. aantal leerlingen: </span>
+              </td>
+              <td>${context/max_aantal_leerlingen}</td>
+            </tr>
+
+            <tr tal:condition="context/tarief_begeleider">
+              <td i18n:translate="">Tarief Begeleider:</td>
+              <td>${context/tarief_begeleider}</td>
+            </tr>
+            <tr tal:condition="context/max_aantal_leerlingen_prijsberekening">
+              <td i18n:translate="">Max Aantal Leerlingen Prijsberekening:</td>
+              <td>${context/max_aantal_leerlingen_prijsberekening}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <h1 class="documentFirstHeading page-break-before">
+      <a href="${context/absolute_url}" class="no-underline">
+        <span class="custom-color2 bold">${context/Title}</span>
+      </a>
+      <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
+    </h1>
+
+
+    <p class="documentDescription lead">${context/Description}</p>
+
+
+    <p>
+      <span tal:repeat="disiplin context/discipline">
+        <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="dis_link pat-tooltip" title="${disiplin}">
+          <img class="disiplin" src="++plone++medialog.hilversum/${python: disiplin_name.replace(' ', '_').lower()}.png" title="${disiplin}" alt="${disiplin}-image" width="55"/>
+          <span>${disiplin}</span>
+        </a>
+      </span>
+    </p>
+
+
+
+
+    <div class="xflex gap-1 font-90">
+      <div class="xpdf_course_text xcourse_text">
+        <div class="margin-10-0" tal:content="structure context/text/output|None"></div>
+        <div tal:condition="context/notitie|None">
+          <p>
+            <b i18n:translate="">Notitie: </b>
+            <br/>
+ 
+               ${context/notitie}
+          </p>
+        </div>
+        <div tal:replace="structure context/extra_info_in_communicatie">Extra info here</div>
+        <hr/>
+        <p>
+          <b i18n:translate="">Geschikt voor:</b>
+          <br/>
+          <span tal:repeat="vo_type context/vo_typen|None">
+          ${vo_type}<tal:block tal:condition="not:repeat/vo_type/end">, </tal:block>
+          </span>
+        </p>
+      </div>
+
+
+      <div class="border-1 flex">
+
+        <tal:define tal:define="scales context/@@images;
+                  thumbnail python: scales.scale('image', width=300);">
+
+
+          <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
+                                  width thumbnail/width;
+                                  height thumbnail/height" />
+
+        </tal:define>
+        <div class="info_box padding-40">
+          <p>
+            <b i18n:translate="">Aanvullende activiteit informatie</b>
+          </p>
+          <table>
+            <tr tal:condition="context/naam">
+              <td>
+                <span i18n:translate="">Naam: </span>
+              </td>
+              <td>${context/Title}</td>
+            </tr>
+            <tr tal:condition="context/aanbieder">
+              <td>
+                <span i18n:translate="">Aanbieder: </span>
+              </td>
+              <td>${python: ", ".join(context.aanbieder)}</td>
+            </tr>
+            <tr tal:condition="context/leerjaren">
+              <td i18n:translate="">Leerjaren:</td>
+              <td> ${python: ", ".join(context.leerjaren)} 
+              </td>
+            </tr>
+            <tr tal:condition="context/aantal_lessen">
+              <td>
+                <span i18n:translate="">Aantal lessen: </span>
+              </td>
+              <td>${context/aantal_lessen}</td>
+            </tr>
+            <tr tal:condition="context/uitvoering_op_school">
+              <td>
+                <span i18n:translate="">Uitvoering op school: </span>
+              </td>
+              <td>${context/uitvoering_op_school}</td>
+            </tr>
+            <tr tal:condition="context/duur">
+              <td>
+                <span i18n:translate="">Duur (in minuten): </span>
+              </td>
+              <td>${context/duur}</td>
+            </tr>
+            <tr tal:condition="context/startdatum">
+              <td>
+                <span i18n:translate="">Startdatum: </span>
+              </td>
+              <td tal:content="python:context.startdatum.strftime('%d-%m-%Y')"></td>
+            </tr>
+            <tr tal:condition="context/einddatum">
+              <td>
+                <span i18n:translate="">Einddatum: </span>
+              </td>
+              <td tal:content="python:context.einddatum.strftime('%d-%m-%Y')"></td>
+            </tr>
+            <tr tal:condition="context/prijs_per">
+              <td>
+                <span i18n:translate="">Prijs per: </span>
+              </td>
+              <td>${context/prijs_per}</td>
+            </tr>
+            <tr tal:condition="context/tarief_leerling_groep">
+              <td>
+                <span i18n:translate="">Tarief leerling/groep: </span>
+              </td>
+              <td>
+                <span>€ ${python: context.tarief_leerling_groep.replace(",00", "").replace(".00", "").replace(".0", "").replace(",0", "")} </span>
+              </td>
+            </tr>
+            <tr tal:condition="context/max_aantal_leerlingen">
+              <td>
+                <span i18n:translate="">Max. aantal leerlingen: </span>
+              </td>
+              <td>${context/max_aantal_leerlingen}</td>
+            </tr>
+
+            <tr tal:condition="context/tarief_begeleider">
+              <td i18n:translate="">Tarief Begeleider:</td>
+              <td>${context/tarief_begeleider}</td>
+            </tr>
+            <tr tal:condition="context/max_aantal_leerlingen_prijsberekening">
+              <td i18n:translate="">Max Aantal Leerlingen Prijsberekening:</td>
+              <td>${context/max_aantal_leerlingen_prijsberekening}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </body>
+</html>
