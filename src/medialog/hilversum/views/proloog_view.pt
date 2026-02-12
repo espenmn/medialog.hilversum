@@ -7,10 +7,7 @@
       <metal:block define-macro="content">
 
         <div class="flex gap-1" tal:define="portal_url view/portal_url">
-
           <div class="course_text">
-
-
             <h1 class="documentFirstHeading">
               <a href="${context/absolute_url}" class="no-underline">
                 <span class="custom-color2 bold">${context/Title}</span>
@@ -56,8 +53,7 @@
 
               <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
-                                height thumbnail/height" 
-                                loading="lazy" />
+                                height thumbnail/height" loading="lazy" />
 
               <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" width="500" alt="course_image"/>
             </tal:define>
@@ -157,10 +153,15 @@
                 <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
                 <span>&nbsp; </span>
 
-                 <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18n:translate="">Bewaar in mijn favoriet</span>
-                 <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18n:translate="">Verwijderent in favoriet</span>
+                <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18n:translate="">Bewaar in mijn favoriet</span>
+                <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18n:translate="">Verwijderent in favoriet</span>
 
               </button>
+
+              <div class="custom-background3 padding-10 margin-10-0 buttonfont">
+                <a href="${context/getURL|context/absolute_url}/@@asPdf" class="white" i18n:translate="">Bewaar als PDF</a>                
+              </div>
+
               <div tal:condition="has_fav" class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
               <div tal:condition="has_fav" class="aanbodMeta__box__buttons">
                 <a href="${view/portal_url}/favoriten-view" class="aanbodMeta_box" i18n:translate="">Naar favorieten</a>
@@ -168,8 +169,10 @@
             </div>
           </div>
         </div>
-        <p><b i18n:translate="">Geschikt voor:</b><br/>
-        <span tal:repeat="vo_type context/vo_typen|None">
+        <p>
+          <b i18n:translate="">Geschikt voor:</b>
+          <br/>
+          <span tal:repeat="vo_type context/vo_typen|None">
           ${vo_type}<tal:block tal:condition="not:repeat/vo_type/end">, </tal:block>
           </span>
         </p>
@@ -197,8 +200,7 @@
                   <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
                     <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
-                                    height thumbnail/height" 
-                                    loading="lazy" />
+                                    height thumbnail/height" loading="lazy" />
                     <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" loading="lazy" width="380" alt="course_image"/>
                   </div>
                 </a>

@@ -7,6 +7,15 @@
  <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
+    name="pdf-view"
+    for="*"
+    class=".p_d_f_view.PDFView"
+    template="pdf_view.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
+  <browser:page
     name="filter-view"
     for="plone.app.contenttypes.interfaces.ICollection"
     class=".filter_view.FilterView"

@@ -152,6 +152,8 @@ def handler(obj, event):
             # Int → "306"
             if isinstance(valuen, int):
                 the_id = str(valuen)
+                
+            import pdb; pdb.set_trace()
 
             #aanbieder = None
             
