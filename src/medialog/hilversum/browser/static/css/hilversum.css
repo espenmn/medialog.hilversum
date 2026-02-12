@@ -251,6 +251,11 @@ div.whitesmoke {
     object-fit: cover;
 }
 
+img.disiplin {
+    width: 8mm;
+    height: 8mm
+}
+
 .filtercontainer img {
     max-width: 40px;
 }
@@ -570,3 +575,33 @@ a.dis_link {
     cursor: pointer;
     background-color: #e6bf99
 }
+
+
+/* PDF print CSS */
+.page-break-before {
+    page-break-before: always;
+}
+
+div.font-90 {
+    font-size: 80%;
+}
+
+div.font-80 {
+    font-size: 80%;
+}
+
+.pdf_course_text.course_text {
+    width: 60%;
+}
+
+div.pdf_course_info {
+    width: 35% !important;
+    min-width: 100px !important;
+    background-color: #FAFAFA !important;
+}
+
+.border-1 {
+    border: 1px solid #BBB;
+    background-color: #FAFAFA !important;
+}
+ 
