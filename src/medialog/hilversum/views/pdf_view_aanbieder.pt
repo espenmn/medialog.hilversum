@@ -60,11 +60,11 @@
             </div>
           </div>
 
-          <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
+          <div class="pdfimagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
             <a href="${course/getURL}">
               <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                                     width thumbnail/width;
-                                                    height thumbnail/height" loading="lazy" />
+                                                    height thumbnail/height"  />
             </a>
           </div>
 
