@@ -9,10 +9,8 @@
           <h2 i18n:translate="">Uw Favorieten</h2>
 
           <div tal:condition="favorites" class="margin-10-0">
-            <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${view/favorites_ids}&fav_mode=add" 
-              class="button btn btn-standalon custom-background2 white" i18n:translate="">Exporteer naar Planned Culture</a>
-            <a class="button btn btn-standalone custom-background2 white" href="${view/share_url}" 
-            class="button btn btn-standalone custom-background2 white">
+            <a href="https://prolooghilversum.plannedculture.nl/?activity_ids=${view/favorites_ids}&fav_mode=add" class="button btn btn-standalon custom-background2 white" i18n:translate="">Exporteer naar Planned Culture</a>
+            <a class="button btn btn-standalone custom-background2 white" href="${view/share_url}" class="button btn btn-standalone custom-background2 white">
                Deel je favorieten
             </a>
             <a href="#" onclick="window.print(); return false;" class="button btn btn-standalon custom-background2 white" i18n:translate="">Print Favorieten</a>
@@ -24,11 +22,18 @@
           <div class="grid whitesmoke padding-20">
             <div tal:repeat="course favorites">
               <div class="green_box">
-                <button type="button" name="buttonFavorite" class="btn button bbuttonFavorite">
-                  <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18n:translate="Remove Favorite">
-                    <img src="++plone++medialog.hilversum/remove_fav.png" width="30"/>
-                  </span>
-                </button>
+                <div style="text-align: center">
+                  <button type="button" name="buttonFavorite" class="btn button bbuttonFavorite">
+                    <span class="buttonFavorit" data-remove="1" data-id="${course/UID}" i18n:translate="Remove Favorite">
+                      <img src="++plone++medialog.hilversum/remove_fav.png" width="30"/>
+                    </span>
+                  </button>
+
+                  <a href="${course/getURL}/@@pdf-view" class="buttonFavorit" i18n:translate="Save PDF">
+                    <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf.png" width="30"/>
+                  </a>
+                </div>
+
                 <a href="${course/getURL}" tal:define="obj course/getObject">
                   <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
                     <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
@@ -37,6 +42,7 @@
                     <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" loading="lazy" width="380" alt="course_image"/>
                   </div>
                 </a>
+
                 <div class="padding-10 padding-5-0 custom-backgrund1">
                   <h4>
                     <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
@@ -47,7 +53,7 @@
                   </p>
                   <p class="padding-0 margin-0 dark-grey">
                     <b>Startdatum: </b> ${python:course.startdatum.strftime('%d-%m-%Y')}
-                    </p>
+                  </p>
                   <p class="padding-0 margin-0 dark-grey">
                     <b>Prijs per:</b> ${course/prijs_per}
                   </p>
