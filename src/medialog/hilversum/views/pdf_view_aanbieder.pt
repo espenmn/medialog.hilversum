@@ -8,7 +8,7 @@
 
     <tal:define tal:define="icons view/discipline_images">
       <div class="xflex xflex-wrap">
-        <div class="textdiv">
+        <div class="xtextdiv">
           <h2>${context/Title}</h2>
           <p class="lead">${context/Description}</p>
           <p>
