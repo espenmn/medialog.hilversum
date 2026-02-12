@@ -43,16 +43,16 @@ class PDFView(ProloogView):
         # set in configure.zcml, use template if we need 'options'
         html = self.index()
 
-        # pdf = HTML(
-        #     string=html,
-        #     base_url=self.context.absolute_url(),
-        #     url_fetcher=custom_fetcher
-        # ).write_pdf()
-        
         pdf = HTML(
             string=html,
-            base_url=self.context.absolute_url()
+            base_url=self.context.absolute_url(),
+            url_fetcher=custom_fetcher
         ).write_pdf()
+        
+        # pdf = HTML(
+        #     string=html,
+        #     base_url=self.context.absolute_url()
+        # ).write_pdf()
 
 
         self.request.response.setHeader(
