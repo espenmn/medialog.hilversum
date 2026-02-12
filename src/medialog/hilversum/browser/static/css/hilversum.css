@@ -611,8 +611,11 @@ div.pdf_course_info {
     gap: 12px;
 }
 
-.xpdfimagediv img {
+.pdfimagediv img  {
    min-width: 300px;;
+   max-height: 300px;
+   width: auto;
+   height: auto;
 }
 
 .halves > div { width: 50%; min-width: 50%}
