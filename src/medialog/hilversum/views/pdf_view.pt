@@ -27,7 +27,7 @@
     </p>
 
     <div class="pdfimagediv" tal:define="scales context/@@images;
-                 thumbnail python: scales.scale('image', 'large');">
+                 thumbnail python: scales.scale('image', 'larger');">
 
       <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
