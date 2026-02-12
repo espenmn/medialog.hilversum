@@ -27,7 +27,7 @@
     </p>
 
     <div class="pdfimagediv" tal:define="scales context/@@images;
-                 thumbnail python: scales.scale('image', width=500, height=300);">
+                 thumbnail python: scales.scale('image', width=500);">
 
 
 
