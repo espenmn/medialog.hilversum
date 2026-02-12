@@ -27,7 +27,7 @@
     </p>
 
     <tal:define tal:define="scales context/@@images;
-                 thumbnail python: scales.scale('image', height=400);">
+                 thumbnail python: scales.scale('image', width=500);">
 
 
 

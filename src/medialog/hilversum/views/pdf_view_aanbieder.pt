@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="${portal_url}/++theme++dutchman-theme/dutchmanblue/theme.min.css"/>
 
     <tal:define tal:define="icons view/discipline_images">
-      <div class="flex flex-wrap">
+      <div class="xflex xflex-wrap">
         <div class="textdiv">
           <h2>${context/Title}</h2>
           <p class="lead">${context/Description}</p>

@@ -4,7 +4,8 @@
 from Products.Five.browser import BrowserView
 from zope.interface import implementer
 from zope.interface import Interface
-from weasyprint import HTML
+from weasyprint import HTML, default_url_fetcher
+import requests
 from plone import api
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
