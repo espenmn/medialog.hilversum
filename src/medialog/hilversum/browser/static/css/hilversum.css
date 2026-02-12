@@ -604,4 +604,9 @@ div.pdf_course_info {
     border: 1px solid #BBB;
     background-color: #FAFAFA !important;
 }
- 
+
+.pdfgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(115px, 151px));
+    gap: 12px;
+}

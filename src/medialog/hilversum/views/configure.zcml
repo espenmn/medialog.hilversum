@@ -4,11 +4,20 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="medialog.hilversum">
 
- <!-- -*- extra stuff goes here -*- -->
+ <!-- -*- PDF view for anbieder and Proloog with same name-*- -->
 
   <browser:page
     name="pdf-view"
-    for="*"
+    for="medialog.hilversum.content.aanbieder.IAanbieder"
+    class=".pdf_view_aanbieder.PDFView"
+    template="pdf_view_aanbieder.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
+ <browser:page
+    name="pdf-view"
+    for="medialog.hilversum.content.proloog.IProloog"
     class=".pdf_view.PDFView"
     template="pdf_view.pt"
     permission="zope2.View"
