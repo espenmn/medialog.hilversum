@@ -9,7 +9,7 @@
   <browser:page
     name="pdf-view"
     for="*"
-    class=".p_d_f_view.PDFView"
+    class=".pdf_view.PDFView"
     template="pdf_view.pt"
     permission="zope2.View"
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from medialog.hilversum.testing import MEDIALOG_HILVERSUM_FUNCTIONAL_TESTING
 from medialog.hilversum.testing import MEDIALOG_HILVERSUM_INTEGRATION_TESTING
-from medialog.hilversum.views.p_d_f_view import IPDFView
+from medialog.hilversum.views.pdf_view import IPDFView
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID

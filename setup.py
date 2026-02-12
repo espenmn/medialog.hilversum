@@ -60,7 +60,8 @@ setup(
         'collective.collectionfilter',
         'medialog.magneticpopup',
         'medialog.controlpanel',
-        'plone.app.jquery'
+        'plone.app.jquery',
+        'weasyprint'
     ],
     extras_require={
         'test': [
