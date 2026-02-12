@@ -44,7 +44,7 @@ class PDFView(AanbiederView):
 
         self.request.response.setHeader(
             "Content-Disposition",
-            f'attachment; filename="{self.context.id}.pdf"',
+            f'attachment; filename="{self.context.Title()}.pdf"',
         )
 
         return pdf
