@@ -610,3 +610,13 @@ div.pdf_course_info {
     grid-template-columns: repeat(auto-fit, minmax(115px, 151px));
     gap: 12px;
 }
+
+.imagediv, .imagediv img {
+    min-width: 300px;;
+}
+
+.halves > div { width: 50%; min-width: 50%}
+
+.halves .imagediv  img { width: 50%; margin: 0; padding: 0}
+
+.margin-5-0  { margin: 5px 0; }
