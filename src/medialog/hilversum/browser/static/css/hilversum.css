@@ -612,8 +612,7 @@ div.pdf_course_info {
 }
 
 .pdfimagediv img  {
-   min-width: 300px;;
-   max-height: 300px;
+   max-height: 370px;
    width: auto;
    height: auto;
 }
