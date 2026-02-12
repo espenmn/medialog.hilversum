@@ -617,6 +617,13 @@ div.pdf_course_info {
    height: auto;
 }
 
+.pdfimagediv.aanbiederimage img
+.aanbiederimage img {
+    max-height: 300px;
+    width: auto;
+    height: auto;
+ }
+
 .halves > div { width: 50%; min-width: 50%}
 
 .halves .imagediv  img { width: 50%; margin: 0; padding: 0}
