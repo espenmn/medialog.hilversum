@@ -20,7 +20,7 @@
           </p>
           <div tal:content="structure context/text/output|None"></div>
         </div>
-        <div tal:define="scales context/@@images; thumbnail python: scales.scale('image', width=100);">
+        <div tal:define="scales context/@@images; thumbnail python: scales.scale('image', width=500);">
           <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
                                     height thumbnail/height" />

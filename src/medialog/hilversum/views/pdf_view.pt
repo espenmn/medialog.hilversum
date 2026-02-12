@@ -26,8 +26,8 @@
       </span>
     </p>
 
-    <tal:define tal:define="scales context/@@images;
-                 thumbnail python: scales.scale('image', width=500);">
+    <div class="pdfimagediv" tal:define="scales context/@@images;
+                 thumbnail python: scales.scale('image', width=500, height=300);">
 
 
 
