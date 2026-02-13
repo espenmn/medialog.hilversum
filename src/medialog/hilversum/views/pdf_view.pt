@@ -13,7 +13,7 @@
         <span class="custom-color2 bold">${context/Title}</span>
       </a>
       <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
-      <img alt="logodiv" height="32px" src="${aanbieder/getURL}/@@images/image/icon" />
+      <img alt="logodiv" height="40px" src="${aanbieder/getURL}/@@images/image/tile" />
     </h1>
 
     <p class="documentDescription lead">${context/Description}</p>
