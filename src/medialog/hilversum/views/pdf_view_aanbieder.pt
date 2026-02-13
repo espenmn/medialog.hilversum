@@ -44,9 +44,9 @@
             </div>
 
             <div class="padding-20">
-              <h4>
+              <h3>
                 <a class="custom-color2 bold" href="${course/getURL}">${course/naam}</a>
-              </h4>
+              </h3>
               <p class="padding-0 margin-0 dark-grey">${course/Description}</p>
               <p class="padding-0 margin-0 dark-grey">
                 <b>Geschikt voor: </b> ${course/schooljaar|None}
