@@ -5,18 +5,25 @@
   <body>
 
     <!-- <metal:description fill-slot="content-description"> -->
-      <!-- <p class="documentDescription lead">${context/Description}</p> -->
+    <!-- <p class="documentDescription lead">${context/Description}</p> -->
     <!-- </metal:description> -->
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core" tal:define="batch view/batch; portal_url view/portal_url">
 
-        <button class="btn button to_listing" href="">
-          <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
+        <div class="flex">
+          <button class="btn button to_listing" href="">
+            <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
 Lijstweergave</button>
+&nbsp; &nbsp;
+ 
+          <a href="${context/getURL|context/absolute_url}/@@pdf-view" i18n:translate="">
+            <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf.png" alt="heart icon" title="download pdf" width="22"/>
+          </a>
+        </div>
         <hr/>
 
         <!-- <p class="documentDescription lead">${context/Description}</p> -->
- 
+
 
         <tal:define tal:define="icons view/discipline_images">
           <!-- <p>
@@ -47,8 +54,7 @@ Lijstweergave</button>
                   <div class="imagediv" tal:define="scales obj/@@images; thumbnail python: scales.scale('image', 'preview');">
                     <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                     width thumbnail/width;
-                                    height thumbnail/height" 
-                                    loading="lazy" />
+                                    height thumbnail/height" loading="lazy" />
                     <img tal:condition="not: thumbnail" src="https://www.politistikoparko.com/wp-content/uploads/2023/05/theatriko_paixnidi_eikona1.jpg" loading="lazy" width="380" alt="course_image"/>
                   </div>
                 </a>
