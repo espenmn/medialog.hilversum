@@ -5,14 +5,15 @@
   <body tal:define="portal_url view/portal_url" class="pdf-export">
     <link rel="stylesheet" href="${portal_url}/++plone++medialog.hilversum/css/hilversum.css" />
     <link rel="stylesheet" href="${portal_url}/++theme++dutchman-theme/dutchmanblue/theme.min.css"/>
- 
 
 
-    <h1 class="documentFirstHeading page-break-before flex" tal:define="aanbieder view/get_aanbieder|None">
-      <span><a href="${context/absolute_url}" class="no-underline">
-        <span class="custom-color2 bold">${context/Title}</span>
-      </a>
-      <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
+
+    <h1 class="documentFirstHeading page-break-before flex" style="justify-content: space-between" tal:define="aanbieder view/get_aanbieder|None">
+      <span>
+        <a href="${context/absolute_url}" class="no-underline">
+          <span class="custom-color2 bold">${context/Title}</span>
+        </a>
+        <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
       </span>
       <img alt="logodiv" height="45" style="margin-right: auto; height: 45px" src="${aanbieder/getURL}/@@images/image/mini" />
     </h1>
