@@ -63,10 +63,12 @@ class ProloogView(BrowserView):
         if cookie_value:
             return True
         return False
-    
 
     def get_keywords(self): 
         return keywords(self)
+    
+    def get_aanbieder(self):
+        return self.context.portal_catalog(portal_type=['Aanbieder'], title=self.context.aanbieder)[0]
     
     
     # def get_keywords(self): 
