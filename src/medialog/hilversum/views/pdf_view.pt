@@ -9,11 +9,12 @@
 
 
     <h1 class="documentFirstHeading page-break-before flex" tal:define="aanbieder view/get_aanbieder|None">
-      <a href="${context/absolute_url}" class="no-underline">
+      <span><a href="${context/absolute_url}" class="no-underline">
         <span class="custom-color2 bold">${context/Title}</span>
       </a>
       <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
-      <img alt="logodiv" height="45px" style="margin-right: auto" src="${aanbieder/getURL}/@@images/image/mini" />
+      </span>
+      <img alt="logodiv" height="45" style="margin-right: auto; height: 45px" src="${aanbieder/getURL}/@@images/image/mini" />
     </h1>
 
     <p class="documentDescription lead">${context/Description}</p>
