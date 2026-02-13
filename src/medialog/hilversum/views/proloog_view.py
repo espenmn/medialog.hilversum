@@ -68,7 +68,9 @@ class ProloogView(BrowserView):
         return keywords(self)
     
     def get_aanbieder(self):
-        return self.context.portal_catalog(portal_type=['Aanbieder'], title=self.context.aanbieder)[0]
+        aanbieder = self.context.portal_catalog(portal_type=['Aanbieder'], title=self.context.aanbieder)
+        if aanbieder:
+            return aanbieder[0]
     
     
     # def get_keywords(self): 
