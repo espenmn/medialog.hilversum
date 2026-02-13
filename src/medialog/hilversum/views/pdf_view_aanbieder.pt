@@ -29,74 +29,63 @@
       </div>
 
       <table class="course-table" style="width:100%; border-collapse: collapse;">
-  <tbody tal:repeat="course view/courses" >
+        <tbody tal:repeat="course view/courses" style="page-break-inside:avoid;">
+          <tr class="border-1" tal:define="obj course/getObject" style="font-size:80%">
+            <!-- Discipline icons -->
+            <td>
+              <div class="discipline" tal:repeat="disiplin course/discipline">
+                <a href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin}">
+                  <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
+                    <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" />
+                    <img tal:condition="python: image not in icons" src="++plone++medialog.hilversum/missing.png" title="${disiplin}" alt="${disiplin} icon" />
+                  </tal:define>
+                </a>
+              </div>
+            </td>
 
-    <tr class="border-1" tal:define="obj course/getObject" style="font-size:80%">
 
-      <!-- Discipline icons -->
-      <td>
-        <div class="discipline" tal:repeat="disiplin course/discipline">
-          <a href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin}">
-            <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
-              <img tal:condition="python: image in icons"
-                   src="++plone++medialog.hilversum/${image}"
-                   class="pat-tooltip"
-                   title="${disiplin}"
-                   alt="${disiplin} icon" />
-              <img tal:condition="python: image not in icons"
-                   src="++plone++medialog.hilversum/missing.png"
-                   title="${disiplin}"
-                   alt="${disiplin} icon" />
-            </tal:define>
-          </a>
-        </div>
-      </td>
-
- 
-      <td class="aanbiederimage"
-          tal:define="scales obj/@@images;
+            <td class="aanbiederimage" tal:define="scales obj/@@images;
                       thumbnail python: scales.scale('image','thumb');">
-        <a href="${course/getURL}">
-          <img tal:condition="thumbnail"
-               tal:attributes="src thumbnail/url;
+              <a href="${course/getURL}">
+                <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                width thumbnail/width;
                                height thumbnail/height" />
-        </a>
-      </td>
+              </a>
+            </td>
 
-      <!-- Course info -->
-      <td>
-        <h2>
-          <a class="custom-color2 bold" href="${course/getURL}">
+            <!-- Course info -->
+            <td>
+              <h2>
+                <a class="custom-color2 bold" href="${course/getURL}">
             ${course/naam}
-          </a>
-        </h2>
-      </td>
-      <td>${course/Description}</td>
-        <td class="dark-grey">
-          <b>Geschikt voor:</b> ${course/schooljaar|None}
-        </td>
-        <td class="dark-grey">
-          <b>Startdatum:</b>
+                </a>
+              </h2>
+            </td>
+            <td>${course/Description}</td>
+            <td class="dark-grey">
+              <b>Geschikt voor:</b> ${course/schooljaar|None}
+            </td>
+            <td class="dark-grey">
+              <b>Startdatum:</b>
           ${python:course.startdatum.strftime('%d-%m-%Y')}
-        </td>
-        <td class="dark-grey">
-          <b>Prijs per:</b> ${course/prijs_per} 
-      </td>
+            </td>
+            <td class="dark-grey">
+              <b>Prijs per:</b> ${course/prijs_per} 
+            </td>
 
-      
 
-      <!-- Action -->
-      <td class="custom-background2 white padding-10 center text-center">
-        <a class="white" href="${course/getURL}">
+
+            <!-- Action -->
+            <td class="custom-background2 white padding-10 center text-center">
+              <a class="white" href="${course/getURL}">
           Bekijk het aanbod
-        </a>
-      </td>
+              </a>
+            </td>
 
-    </tr>
+          </tr>
 
-  </tbody>
-</table>
+        </tbody>
+      </table>
 
       <div tal:condition="context/text_bottom|None" tal:content="structure context/text_bottom/output|None"></div>
     </tal:define>
