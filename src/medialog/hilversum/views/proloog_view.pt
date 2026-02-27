@@ -12,7 +12,7 @@
               <a href="${context/absolute_url}" class="no-underline">
                 <span class="custom-color2 bold">${context/Title}</span>
               </a>
-              <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
+              <span tal:define="anb view/get_aanbieder" class="small no_underline"><a href="${anb/getURL}">${anb/Title}</a></span>
             </h1>
             <p class="documentDescription lead">${context/Description}</p>
             <p>
@@ -177,6 +177,7 @@
           </span>
         </p>
         <p tal:define="the_anbieder view/get_aanbieder">
+         <img tal:define="anb view/get_aanbieder" src="${anb/getURL}/@@images/image/mini" width="36"> 
           <b>${the_anbieder/Title}:</b>
           <span tal:condition="the_anbieder/address">${the_anbieder/address} | </span>
           <span tal:condition="the_anbieder/web">${the_anbieder/web} | </span>

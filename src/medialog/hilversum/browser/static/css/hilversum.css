@@ -638,6 +638,13 @@ div.pdf_course_info {
     margin: 5px 0;
 }
 
+.no_underline a { text-decoration: none !important;     
+    color: var(--bs-heading-color); 
+}
+
+.no_underline a:hover { text-decoration: none !important;     
+    text-decoration: underline !important; 
+}
 
 .spinner {
     width: 40px;
