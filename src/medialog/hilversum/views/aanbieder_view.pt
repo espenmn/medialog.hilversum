@@ -92,7 +92,7 @@
                             <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
  Lijstweergave</a>
 
-                        <span>
+                        <span tal:condition="not: portal_state/anonymous">
                             <a href="${context/getURL|context/absolute_url}/@@pdf-view"   class="pdf-download-link" i18n:translate="">
                                 <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf.png" alt="pdf icon" title="download pdf" width="22"/>
                             </a>
