@@ -611,20 +611,46 @@ div.pdf_course_info {
     gap: 12px;
 }
 
-.pdfimagediv img  {
-   max-height: 400px;
-   width: auto;
-   height: auto;
+.pdfimagediv img {
+    max-height: 400px;
+    width: auto;
+    height: auto;
 }
 
 .aanbiederimage img {
     max-height: 300px;
     width: auto;
     height: auto;
- }
+}
 
-.halves > div { width: 50%; min-width: 50%}
+.halves>div {
+    width: 50%;
+    min-width: 50%
+}
 
-.halves .imagediv  img { width: 50%; margin: 0; padding: 0}
+.halves .imagediv img {
+    width: 50%;
+    margin: 0;
+    padding: 0
+}
 
-.margin-5-0  { margin: 5px 0; }
+.margin-5-0 {
+    margin: 5px 0;
+}
+
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ccc;
+    border-top: 4px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 10px 0;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -30,7 +30,17 @@
   <index name="extern_id" meta_type="FieldIndex">
     <indexed_attr value="extern_id"/>
   </index>
- 
+  
+    <index name="web" meta_type="FieldIndex">
+    <indexed_attr value="web"/>
+  </index>
+    <index name="e_mail" meta_type="FieldIndex">
+    <indexed_attr value="e_mail"/>
+  </index>
+   <index name="address" meta_type="FieldIndex">
+    <indexed_attr value="address"/>
+  </index>
+
   <index name="id" meta_type="FieldIndex">
     <indexed_attr value="id"/>
   </index>
@@ -150,7 +160,9 @@
     <indexed_attr value="aantal_lessen"/>
   </index>
 
-
+  <column value="address"/>
+  <column value="e_mail"/>
+  <column value="web"/>
   <column value="bemiddelaar"/>
   <column value="blokje_persoon_inplannen"/>
   <column value="clusters"/>

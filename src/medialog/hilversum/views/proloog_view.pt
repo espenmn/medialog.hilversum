@@ -15,7 +15,6 @@
               <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
             </h1>
             <p class="documentDescription lead">${context/Description}</p>
-
             <p>
               <span tal:repeat="disiplin context/discipline">
                 <a tal:define="disiplin_name python: disiplin.lstrip().rstrip()" href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin_name}" class="dis_link pat-tooltip" title="${disiplin}">
@@ -73,7 +72,8 @@
                   <td>
                     <span i18n:translate="">Aanbieder: </span>
                   </td>
-                  <td>${python: ", ".join(context.aanbieder)}</td>
+                  <td>${python: ", ".join(context.aanbieder)}<br/>
+                  </td>
                 </tr>
                 <tr tal:condition="context/leerjaren">
                   <td i18n:translate="">Leerjaren:</td>
@@ -148,17 +148,18 @@
             </div>
 
             <div class="margin-10-0" tal:define="is_fav view/is_favorite; has_fav view/has_fav|None">
-              <button type="button" name="buttonFavorite" class="buttonFavorite green_box white custom-background1 padding-10"
-               style="display: flex; align-items: center;  ">
+              <button type="button" name="buttonFavorite" class="buttonFavorite green_box white custom-background1 padding-10" style="display: flex; align-items: center;  ">
 
-                <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>&nbsp;
+                <img class="white-background" src="++plone++medialog.hilversum/hart_oranje.png" alt="heart icon" width="32"/>
+&nbsp;
                 <span tal:condition="not: is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Toevoegen aan favoriet lijst" i18n:translate="">Bewaar in mijn favoriet</span>
                 <span tal:condition="is_fav" class="buttonFavorit white pat-tooltip" data-id="${context/UID}" title="Verwijderen aan favoriet lijst" data-remove="1" i18n:translate="">Verwijderent in favoriet</span>
               </button>
 
               <div class="custom-background3 padding-10 margin-10-0 buttonfont">
                 <a href="${context/getURL|context/absolute_url}/@@pdf-view" class="white" i18n:translate="">
-                <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf_white.png" alt="heart icon" width="32"/>&nbsp;Bewaar als PDF</a>
+                  <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf_white.png" alt="heart icon" width="32"/>
+&nbsp;Bewaar als PDF</a>
               </div>
 
               <div tal:condition="has_fav" class="aanbodMeta__box__label margin-10-0" i18n:translate="">Deel of print je favorieten of exporteer ze naar het plansysteem om in te schrijven.</div>
@@ -174,6 +175,12 @@
           <span tal:repeat="vo_type context/vo_typen|None">
           ${vo_type}<tal:block tal:condition="not:repeat/vo_type/end">, </tal:block>
           </span>
+        </p>
+        <p tal:define="the_anbieder view/get_aanbieder">
+          <b>${the_anbieder/Title}:</b>
+          <span tal:condition="the_anbieder/address">${the_anbieder/address} | </span>
+          <span tal:condition="the_anbieder/web">${the_anbieder/web} | </span>
+          <span tal:condition="the_anbieder/e_mail">${the_anbieder/e_mail}</span>
         </p>
         <hr/>
 

@@ -32,6 +32,56 @@
                                     height thumbnail/height" loading="lazy" />
                                 <img tal:condition="not: thumbnail" src="https://www.lapisit.nl/@@site-logo/LapisIT-5%20400.png" alt="item_image"/>
                             </div>
+                            <div>
+                                <p>
+                                    <hr/>
+                                    <span tal:condition="context/address|None">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <!-- Roof -->
+                                            <path d="M8 28 L32 8 L56 28" />
+
+                                            <!-- House body -->
+                                            <rect x="16" y="28" width="32" height="28" rx="2" />
+
+                                            <!-- Door -->
+                                            <rect x="28" y="40" width="8" height="16" rx="1" />
+                                        </svg>
+                                     ${context/address}<br/>
+                                    </span>
+                                    <span tal:condition="context/web|None">
+                                        <a href="${context/web}" class="black" alt="link to website">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <!-- Outer circle -->
+                                                <circle cx="32" cy="32" r="28"/>
+
+                                                <!-- Vertical longitude lines -->
+                                                <ellipse cx="32" cy="32" rx="12" ry="28"/>
+                                                <line x1="32" y1="4" x2="32" y2="60"/>
+
+                                                <!-- Horizontal latitude lines -->
+                                                <ellipse cx="32" cy="32" rx="28" ry="12"/>
+                                                <line x1="4" y1="32" x2="60" y2="32"/>
+                                            </svg>
+                                     ${context/web}</a>
+                                        <br/>
+                                    </span>
+                                    <span tal:condition="context/e_mail|None">
+                                        <a href="mailto:${context/e_mail}" class="black" alt="link to email">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <!-- Envelope body -->
+                                                <rect x="8" y="16" width="48" height="32" rx="3" />
+
+                                                <!-- Flap -->
+                                                <path d="M8 18 L32 36 L56 18" />
+
+                                                <!-- Inner fold lines -->
+                                                <path d="M8 46 L24 30" />
+                                                <path d="M56 46 L40 30" />
+                                            </svg>
+                                     ${context/e_mail}</a>
+                                    </span>
+                                </p>
+                            </div>
                             <div class="margin-20-0" tal:content="structure context/infotext/output|None"></div>
 
                         </div>
@@ -42,10 +92,20 @@
                             <img alt="list icon" src="${portal_url}/++plone++medialog.hilversum/menu_list.png" width="32"/>
  Lijstweergave</a>
 
+                        <span>
+                            <a href="${context/getURL|context/absolute_url}/@@pdf-view"   class="pdf-download-link" i18n:translate="">
+                                <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf.png" alt="pdf icon" title="download pdf" width="22"/>
+                            </a>
 
-                        <!-- <a href="${context/getURL|context/absolute_url}/@@pdf-view" i18n:translate="">
-                            <img src="${view/portal_url}/++plone++medialog.hilversum/download_pdf.png" alt="heart icon" title="download pdf" width="22"/>
-                        </a> -->
+                            <a href="${context/getURL|context/absolute_url}/@@pdf-catalog-view" class="pdf-download-link" i18n:translate="">
+                                <img src="${view/portal_url}/++plone++medialog.hilversum/book-arrow-download.webp" alt="catalog icon" title="download pdf" width="26"/>
+                            </a>
+                        </span>
+                    </div>
+
+                    <div id="pdf-spinner" style="display:none;" class="flex info">
+                        <div class="spinner"></div>
+                        PDF-bestand wordt gegenereerd, even geduld alstublieft
                     </div>
 
 
@@ -101,7 +161,16 @@
                     </div>
 
                     <div tal:condition="context/text_bottom|None" tal:content="structure context/text_bottom/output|None"></div>
-
+                    <script>
+                            $(document).ready(function () {
+                                const $link = $(".pdf-download-link");
+                                const $spinner = $("#pdf-spinner");
+                                $link.on("click", function () {
+                                    $spinner.show();
+                                    $spinner.fadeOut(5000);
+                                });
+                            });
+                    </script>
                 </tal:define>
             </metal:block>
         </metal:content-core>

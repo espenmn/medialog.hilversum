@@ -15,6 +15,15 @@
     layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
     />
 
+  <browser:page
+    name="pdf-catalog-view"
+    for="medialog.hilversum.content.aanbieder.IAanbieder"
+    class=".pdf_view_aanbieder.PDFView"
+    template="pdf_catalog_view_aanbieder.pt"
+    permission="zope2.View"
+    layer="medialog.hilversum.interfaces.IMedialogHilversumLayer"
+    />
+
  <browser:page
     name="pdf-view"
     for="medialog.hilversum.content.proloog.IProloog"

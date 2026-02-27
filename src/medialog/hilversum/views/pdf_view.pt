@@ -147,7 +147,19 @@
           </table>
         </div>
       </div>
+     
+
     </div>
+ 
+ 
+      <p style="font-size: 8pt" tal:define="the_anbieder view/get_aanbieder">
+        <b>${the_anbieder/Title}:</b>
+        <span tal:condition="the_anbieder/address">${the_anbieder/address} | </span>
+        <span tal:condition="the_anbieder/web">${the_anbieder/web} | </span>
+        <span tal:condition="the_anbieder/e_mail">${the_anbieder/e_mail}</span>
+      </p>
+ 
+
 
   </body>
 </html>

@@ -5,6 +5,8 @@ from zope.interface import implementer
 from zope import schema
 from plone.app.textfield import RichText
 from plone.app.textfield.interfaces import IRichText
+# from zope.schema import email  
+from plone.schema import Email
 # from zope.component import getUtility
 from plone import api
 
@@ -16,7 +18,22 @@ class IAanbieder(model.Schema):
     infotext = RichText(
         title=u"Infotext",
         required=False
+    )   
+ 
+    address = schema.TextLine(
+        title=u"Address",
+        required=False
     )
+    
+    web = schema.URI(
+        title=u"Web",
+        required=False
+    )
+    
+    e_mail = Email(            
+        title=u"e-mail",
+        required=False
+    ) 
 
 @implementer(IAanbieder)
 class Aanbieder(Item):
