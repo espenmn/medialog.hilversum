@@ -6,18 +6,17 @@
     <link rel="stylesheet" href="${portal_url}/++plone++medialog.hilversum/css/hilversum.css" />
     <link rel="stylesheet" href="${portal_url}/++theme++dutchman-theme/dutchmanblue/theme.min.css"/>
 
-    <h1 class="documentFirstHeading page-break-before flex" style="justify-content: space-between" tal:define="aanbieder view/get_aanbieder|None">
+    <h1 class="documentFirstHeading page-break-before flex" style="justify-content: space-between" 
+      tal:define="aanbieder view/get_aanbieder|None">
       <span>
         <a href="${context/absolute_url}" class="no-underline">
           <span class="custom-color2 bold">${context/Title}</span>
         </a>
         <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
       </span>
-      <img alt=" " height="45" style="margin-left: auto; height: 45px" src="${aanbieder/getURL|aanbieder/absolute_url}/@@images/image/mini" />
+      <img alt=" " height="45" 
+        style="margin-left: auto; height: 45px" src="${aanbieder/getURL|None}/@@images/image/mini" />
     </h1>
-     <img alt=" " height="45" style="margin-left: auto; height: 45px" src="${aanbieder/getURL|aanbieder/absolute_url}/@@images/image/mini" />
-   
-    ${aanbieder/getURL|aanbieder/absolute_url}/@@images/image/mini
 
     <p class="documentDescription lead">${context/Description}</p>
 
