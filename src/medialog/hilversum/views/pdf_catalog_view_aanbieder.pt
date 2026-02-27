@@ -37,16 +37,15 @@
 
             <!-- Copied from pdf-view -->
             <h1 class="documentFirstHeading page-break-before flex"
-             style="justify-content: space-between" 
-             tal:define="aanbieder view/get_aanbieder|None">
+               style="justify-content: space-between">
               <span>
                 <a href="${obj/absolute_url}" class="no-underline">
                   <span class="custom-color2 bold">${obj/Title}</span>
                 </a>
-                <span class="small" tal:repeat="aanb obj/aanbieder"> – ${aanb}</span>
+                <span class="small"> – ${context/Title}</span>
               </span>              
               <img alt=" " height="45" 
-                style="margin-left: auto; height: 45px" src="${aanbieder/getURL|None}/@@images/image/mini" />
+                style="margin-left: auto; height: 45px" src="${context/getURL|context/absolute_url}/@@images/image/mini" />
             </h1>
             <p class="documentDescription lead">${obj/Description}</p>
             <p>
