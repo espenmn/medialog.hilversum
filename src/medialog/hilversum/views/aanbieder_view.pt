@@ -167,7 +167,7 @@
                                 const $spinner = $("#pdf-spinner");
                                 $link.on("click", function () {
                                     $spinner.show();
-                                    $spinner.fadeOut(${python: len(view.courses)000});
+                                    $spinner.fadeOut(8000);
                                 });
                             });
                     </script>
