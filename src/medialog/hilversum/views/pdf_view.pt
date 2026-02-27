@@ -15,6 +15,9 @@
       </span>
       <img alt=" " height="45" style="margin-left: auto; height: 45px" src="${aanbieder/getURL|aanbieder/absolute_url}/@@images/image/mini" />
     </h1>
+     <img alt=" " height="45" style="margin-left: auto; height: 45px" src="${aanbieder/getURL|aanbieder/absolute_url}/@@images/image/mini" />
+   
+    ${aanbieder/getURL|aanbieder/absolute_url}/@@images/image/mini
 
     <p class="documentDescription lead">${context/Description}</p>
 
