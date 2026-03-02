@@ -38,14 +38,14 @@ class PDFView(ProloogView):
     # template = ViewPageTemplateFile('pdf_view.pt')
     
     def get_long(self):
-        return len(self.context.text.raw) < 700
+        return len(self.context.text.raw) < 710
 
     def __call__(self):
 
         # Render a dedicated template for PDF
         # set in configure.zcml, use template if we need 'options'
         html = self.index()
-        self.long = self.get_long()
+        # self.long = self.get_long()
 
         pdf = HTML(
             string=html,
