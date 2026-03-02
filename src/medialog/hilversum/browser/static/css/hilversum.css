@@ -646,6 +646,10 @@ div.pdf_course_info {
     text-decoration: underline !important; 
 }
 
+.title_and_aanb {
+    max-width: 83%;
+}
+
 .spinner {
     width: 40px;
     height: 40px;
