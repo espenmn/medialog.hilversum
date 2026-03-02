@@ -36,12 +36,16 @@ def custom_fetcher(url):
 class PDFView(ProloogView):
     # We might want to define different templates for different content types (?)
     # template = ViewPageTemplateFile('pdf_view.pt')
+    
+    def get_long(self):
+        return len(self.context.text.raw) < 700
 
     def __call__(self):
 
         # Render a dedicated template for PDF
         # set in configure.zcml, use template if we need 'options'
         html = self.index()
+        self.long = self.get_long()
 
         pdf = HTML(
             string=html,

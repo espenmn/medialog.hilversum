@@ -26,6 +26,7 @@ class AanbiederView(BrowserView):
         self.portal_url = self.get_portal_url()
         self.courses = self.get_courses()
         self.disciplines = self.get_disciplines()
+        self.long = self.get_long()
         return self.index()
     
     # get the icons so we can check if they exist for the current course
@@ -38,6 +39,10 @@ class AanbiederView(BrowserView):
     
     def get_courses(self):
         return self.context.portal_catalog(portal_type=['Proloog'], aanbieder=self.context.Title())
+    
+    def get_long(self):
+        import pdb; pdb.set_trace()
+        return 1
         
     def get_disciplines(self):
         prologs = self.courses
