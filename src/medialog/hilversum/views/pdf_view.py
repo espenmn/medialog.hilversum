@@ -38,7 +38,9 @@ class PDFView(ProloogView):
     # template = ViewPageTemplateFile('pdf_view.pt')
     
     def get_long(self):
-        return len(self.context.text.raw) < 710
+        if hasattr(self.context, 'long'):
+            return self.context.long
+        return len(self.context.text.raw) > 710
 
     def __call__(self):
 
@@ -68,5 +70,8 @@ class PDFView(ProloogView):
             "Content-Disposition",
             f'attachment; filename="{self.context.Title()}.pdf"',
         )
+        
+        api.portal.show_message(message=f"PDF generated", type='info')                
+           
 
         return pdf
