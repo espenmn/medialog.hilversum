@@ -71,7 +71,7 @@ class PDFView(ProloogView):
             f'attachment; filename="{self.context.Title()}.pdf"',
         )
         
-        api.portal.show_message(message=f"PDF generated", type='info')                
+        # api.portal.show_message(message=f"PDF generated", type='info')                
            
 
         return pdf
