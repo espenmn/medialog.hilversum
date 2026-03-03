@@ -152,6 +152,8 @@
     <div tal:condition="view/get_long" class="pdfimagediv teaser" tal:define="scales context/@@images;
                  thumbnail python: scales.scale('image', 'teaser');">
 
+      <hr/>
+
       <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
                                 height thumbnail/height" />
