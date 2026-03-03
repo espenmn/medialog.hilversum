@@ -6,18 +6,16 @@
     <link rel="stylesheet" href="${portal_url}/++plone++medialog.hilversum/css/hilversum.css" />
     <link rel="stylesheet" href="${portal_url}/++theme++dutchman-theme/dutchmanblue/theme.min.css"/>
 
-    <h1 class="documentFirstHeading page-break-before flex" style="justify-content: space-between" 
-      tal:define="aanbieder view/get_aanbieder|None">
+    <h1 class="documentFirstHeading page-break-before flex" style="justify-content: space-between" tal:define="aanbieder view/get_aanbieder|None">
       <span class="title_and_aanb">
         <a href="${context/absolute_url}" class="no-underline">
           <span class="custom-color2 bold">${context/Title}</span>
         </a>
         <span class="small" tal:repeat="aanb context/aanbieder"> – ${aanb}</span>
       </span>
-      <img alt=" " height="45" 
-        style="margin-left: auto; height: 45px" src="${aanbieder/getURL|None}/@@images/image/mini" />
+      <img alt=" " height="45" style="margin-left: auto; height: 45px" src="${aanbieder/getURL|None}/@@images/image/mini" />
     </h1>
- 
+
     <p class="documentDescription lead">${context/Description}</p>
 
     <p>
@@ -149,16 +147,17 @@
         </div>
       </div>
 
-       <div tal:condition="view/get_long" class="pdfimagediv" tal:define="scales context/@@images;
+    </div>
+
+    <div tal:condition="view/get_long" class="pdfimagediv" tal:define="scales context/@@images;
                  thumbnail python: scales.scale('image', 'larger');">
 
       <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
                                 height thumbnail/height" />
     </div>
-     
 
-    </div>
- 
+
+
   </body>
 </html>
