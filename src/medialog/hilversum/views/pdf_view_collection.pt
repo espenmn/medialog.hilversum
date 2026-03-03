@@ -11,7 +11,7 @@
       <p class="lead">${context/Description}</p>
       <div tal:content="structure context/text/output|None"></div>
     </div>
-
+ 
     <tal:define tal:define="icons view/discipline_images">
       <div tal:condition="context/text" tal:content="structure context/text/output|None"></div>
 
@@ -20,7 +20,7 @@
         <div class="flex flex-wrap border-1 halves margin-0" tal:define="obj course/getObject">
           <div>
             <div class="flex flex_start custom-background1 padding-5" style="background-color: #1E979C !important;">
-              <div class="discipline" tal:repeat="disiplin course/discipline">
+              <div tal:condition="course/discipline|None" class="discipline" tal:repeat="disiplin course/discipline">
                 <a href="${portal_url}/proloog-collection/?collectionfilter=1&discipline=${disiplin}">
                   <tal:define tal:define='image python: disiplin.lower().lstrip().rstrip().replace(" ", "_")+".png"'>
                     <img tal:condition="python: image in icons" src="++plone++medialog.hilversum/${image}" class="pat-tooltip" title="${disiplin}" alt="${disiplin} icon" />
@@ -38,7 +38,7 @@
               <p class="padding-0 margin-0 dark-grey">
                 <b>Geschikt voor: </b> ${course/schooljaar|None}
               </p>
-              <p class="padding-0 margin-0 dark-grey">
+              <p class="padding-0 margin-0 dark-grey" tal:condition="course/startdatum|None">
                 <b>Startdatum: </b> ${python:course.startdatum.strftime('%d-%m-%Y')} 
               </p>
               <p class="padding-0 margin-0 dark-grey">
