@@ -176,21 +176,15 @@
                 </div>
               </div>
             </div>
-            <div tal:condition="long_text" class="pdfimagediv" tal:define="scales obj/@@images;
-                 thumbnail python: scales.scale('image', 'larger');">
+            <div tal:condition="long_text" class="pdfimagediv teaser" tal:define="scales obj/@@images;
+                 thumbnail python: scales.scale('image', 'large');">
 
               <img tal:condition="thumbnail" tal:attributes="src thumbnail/url;
                                 width thumbnail/width;
                                 height thumbnail/height" />
-
             </div>
-
           </div>
-
         </div>
-
-
-
       </div>
       <div tal:condition="context/text_bottom|None" tal:content="structure context/text_bottom/output|None"></div>
     </tal:define>
