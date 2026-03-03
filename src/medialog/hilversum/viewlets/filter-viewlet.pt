@@ -108,6 +108,17 @@ var $ = jQuery.noConflict();
             window.location.href = url.toString();
         });
 
+        const $pdfLink = $('#pdf-view-link');
+
+        if ($pdfLink.length) {
+                const currentParams = window.location.search;
+
+                if (currentParams) {
+                  const baseUrl = $pdfLink.attr('href').split('?')[0];
+                  $pdfLink.attr('href', baseUrl + currentParams);
+                }
+        }
+
     });
 })(jQuery);
 </script>
