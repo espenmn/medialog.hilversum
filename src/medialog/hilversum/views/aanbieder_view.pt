@@ -45,8 +45,7 @@
 
                                             <!-- Door -->
                                             <rect x="28" y="40" width="8" height="16" rx="1" />
-                                        </svg>
-                                     ${context/address}<br/>
+                                        </svg>${context/address}<br/>
                                     </span>
                                     <span tal:condition="context/web|None">
                                         <a href="${context/web}" class="black" alt="link to website">
@@ -61,8 +60,7 @@
                                                 <!-- Horizontal latitude lines -->
                                                 <ellipse cx="32" cy="32" rx="28" ry="12"/>
                                                 <line x1="4" y1="32" x2="60" y2="32"/>
-                                            </svg>
-                                     ${context/web}</a>
+                                            </svg>${context/web}</a>
                                         <br/>
                                     </span>
                                     <span tal:condition="context/e_mail|None">
@@ -77,8 +75,7 @@
                                                 <!-- Inner fold lines -->
                                                 <path d="M8 46 L24 30" />
                                                 <path d="M56 46 L40 30" />
-                                            </svg>
-                                     ${context/e_mail}</a>
+                                            </svg>${context/e_mail}</a>
                                     </span>
                                 </p>
                             </div>
