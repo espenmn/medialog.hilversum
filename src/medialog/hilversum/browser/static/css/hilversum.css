@@ -47,8 +47,7 @@ button.active {
     min-width: 270px;
 }
 
-.logodiv svg,
-.logodiv .svgimage { 
+.svgimage {
     margin-right: 0.5rem;
 }
 
