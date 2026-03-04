@@ -47,6 +47,10 @@ button.active {
     min-width: 270px;
 }
 
+#logodiv svg { 
+    margin-right: 0.5rem;
+}
+
 .textdiv {
     width: 50%;
     max-width: 100vw;
