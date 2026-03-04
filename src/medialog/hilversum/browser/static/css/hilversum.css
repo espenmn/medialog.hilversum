@@ -49,6 +49,7 @@ button.active {
 
 .svgimage {
     margin-right: 0.5rem;
+    min-width: 2rem;
 }
 
 .textdiv {
