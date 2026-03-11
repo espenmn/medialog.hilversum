@@ -315,6 +315,10 @@ option.choose_one {
     font-size: 6pt;
 }
 
+.footertext img {
+   height: 20px; width: auto; 
+}
+
 div.dropdowns {
     background: whitesmoke;
     padding: 10px;
