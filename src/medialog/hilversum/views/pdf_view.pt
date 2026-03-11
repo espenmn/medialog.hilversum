@@ -159,6 +159,14 @@
                                 height thumbnail/height" />
     </div>
 
+    <p tal:define="the_anbieder view/get_aanbieder">
+         <img tal:define="anb view/get_aanbieder" src="${anb/getURL}/@@images/image/mini" width="36"> 
+          <b>${the_anbieder/Title}:</b>
+          <span tal:condition="the_anbieder/address">${the_anbieder/address} | </span>
+          <span tal:condition="the_anbieder/web">${the_anbieder/web} | </span>
+          <span tal:condition="the_anbieder/e_mail">${the_anbieder/e_mail}</span>
+    </p>
+
 
   </body>
 </html>
