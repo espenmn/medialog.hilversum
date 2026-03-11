@@ -304,8 +304,14 @@ option.choose_one {
     padding: 5px
 }
 
-.small {
+.small, .footertext {
     font-size: 0.8rem;
+}
+
+.footertext {
+    color: #555;
+    margin-top: 1rem;
+    padding-top: 1rem;
 }
 
 div.dropdowns {
