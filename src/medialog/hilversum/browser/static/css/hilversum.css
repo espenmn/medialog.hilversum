@@ -316,7 +316,7 @@ option.choose_one {
 }
 
 .footertext img {
-   height: 20px; width: auto; 
+   height: 20px; width: auto; margin-right: 1rem;
 }
 
 div.dropdowns {
