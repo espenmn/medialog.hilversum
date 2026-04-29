@@ -243,9 +243,7 @@ def handler(obj, event):
                     plone.api.content.rename(obj=item_exist, new_id=the_id) 
                     # To do: check if we need this
                     # item_exist.reindexObject()
-                
-                
-            
+
             if not item_exist:
                 proloog = plone.api.content.create(
                     type='Proloog',
