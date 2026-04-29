@@ -26,7 +26,6 @@ import re
 import chardet
 
 
-
 def parse_date(value):
     date_formats = ['%d-%m-%Y', '%d/%m/%y', '%Y-%m-%d', '%m/%d/%y', '%d.%m.%Y']
     
@@ -75,10 +74,7 @@ def set_aanbieder_subjects(obj):
                 # Step 4: Set Subject of Aanbieder to these values
                 aanbieder_obj.reindexObject(idxs=['Subject'])
 
-                    
-
-
-
+ 
 def handler(obj, event):
     """ Crete content from CSV file
     """
@@ -131,9 +127,21 @@ def handler(obj, event):
             
         }
 
+
+        if replace_content:
+            brains = plone.api.content.find(portal_type='Proloog')
+
+            for brain in brains:
+                item = brain.getObject()
+                old_id = item.getId()
+                new_id = f"{old_id}_old"
+                print(new_id)
+                plone.api.content.rename(obj=item, new_id=new_id) 
+                
+ 
         # A  loop to read the cell values
         # check if item exists
-        # Add content if not / # update fields / overwrite or not
+        # Add content if not / # update fields / overwrite or not   
             
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
@@ -141,6 +149,9 @@ def handler(obj, event):
             
             if the_title == 'nan':
                 continue 
+            
+            old_id = the_dict.get('Extern ID')
+            the_old_id = str(old_id)
             
             valuen = the_dict['ID']
             the_id = str(valuen)
@@ -152,6 +163,14 @@ def handler(obj, event):
             # Int → "306"
             if isinstance(valuen, int):
                 the_id = str(valuen)
+                
+             # Float → "306.0"
+            if isinstance(old_id, float) and old_id.is_integer():
+                the_old_id = str(int(old_id))
+
+            # Int → "306"
+            if isinstance(old_id, int):
+                the_old_id = str(old_id)
 
             #aanbieder = None
             
@@ -213,8 +232,19 @@ def handler(obj, event):
             }
             
             #Create content only if it does not exist in root folder
-            item_exist = portal.get(the_id, False)            
-            
+            if not the_old_id or the_old_id == 'nan':
+                the_id = f'{the_id}_old' 
+                item_exist = portal.get(the_id, False)
+                          
+            else:
+                find_id =  f'{the_old_id}_old' 
+                item_exist = portal.get(find_id, False)  
+                if item_exist: 
+                    plone.api.content.rename(obj=item_exist, new_id=the_id) 
+                    # To do: check if we need this
+                    # item_exist.reindexObject()
+                
+                
             
             if not item_exist:
                 proloog = plone.api.content.create(
@@ -356,7 +386,29 @@ def handler(obj, event):
     set_aanbieder_subjects(obj)
     message = "{} changes".format(changes) 
     plone.api.portal.show_message(message=message, request=None, type='info') 
+    
+    # Rename all items back, remove 'old'
+    brains = plone.api.content.find(portal_type='Proloog')
 
+    for brain in brains:
+        obj = brain.getObject()
+        old_id = obj.getId()
+        
+        # Sjekk om ID-en slutter på '_old'
+        if not old_id.endswith('_old'):
+            continue
+
+        new_id = old_id.replace('_old', '').replace('_old', '')
+        parent = obj.aq_parent
+
+        # Sjekk for duplikater i mappen
+        if new_id in parent.objectIds():
+            print(f"Skipper {old_id}: {new_id} eksisterer allerede.")
+            continue
+
+        # Bruk plone.api for å endre navn
+        plone.api.content.rename(obj=obj, new_id=new_id)
+        # print(f"Endret {old_id} til {new_id}")
                 
-    # obj.reindexObject()
+ 
         

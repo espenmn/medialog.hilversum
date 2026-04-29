@@ -47,7 +47,7 @@ class ICsvFile(model.Schema):
     
     replace = schema.Bool(
         title=_(u'Override existing values'),
-        description=_(u'Should we replace existing values of content already added'),
+        description=_(u'Should we replace existing values for existing content / items already present'),
         required=False,
         default=False,
     )
