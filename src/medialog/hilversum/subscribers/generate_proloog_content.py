@@ -145,9 +145,13 @@ def handler(obj, event):
             
         for i in range(0, len(my_dict)):
             the_dict = my_dict[i]
-            the_title = str(the_dict['Naam'])
+            try:
+                the_title = str(the_dict['Naam']) 
+            except KeyError:
+                the_title = 'nan'
             
             if the_title == 'nan':
+                plone.api.portal.show_message(message="Item had no Title, skipping", request=None, type='info') 
                 continue 
             
             old_id = the_dict.get('Extern ID')
