@@ -150,9 +150,9 @@ def handler(obj, event):
             except KeyError:
                 the_title = 'nan'
             
-            if the_title == 'nan':
-                plone.api.portal.show_message(message="Item had no Title, skipping", request=None, type='info') 
-                continue 
+            #if the_title == 'nan':
+            #    plone.api.portal.show_message(message="Item had no Title, skipping", request=None, type='info') 
+            #    continue 
             
             old_id = the_dict.get('Extern ID')
             the_old_id = str(old_id)
@@ -247,14 +247,14 @@ def handler(obj, event):
                     plone.api.content.rename(obj=item_exist, new_id=the_id) 
                     # To do: check if we need this
                     # item_exist.reindexObject()
-
-            if not item_exist:
-                proloog = plone.api.content.create(
-                    type='Proloog',
-                    title = the_title,
-                    id = the_id,                
-                    container=portal
-                )
+            if the_title != 'nan':
+                if not item_exist:
+                    proloog = plone.api.content.create(
+                        type='Proloog',
+                        title = the_title,
+                        id = the_id,                
+                        container=portal
+                    )
                 
             else:
                 proloog = portal.get(the_id)  
@@ -381,7 +381,8 @@ def handler(obj, event):
                     changes += 1
                     
                 # transaction.commit()  # TO DO, check if this is needed  
-                proloog.setTitle(the_title)  
+                if the_title != 'nan':
+                    proloog.setTitle(the_title)  
                 proloog.reindexObject()  # Ensure catalog is updated for this proloog 
     
     # Update all Aanbieders with subject
