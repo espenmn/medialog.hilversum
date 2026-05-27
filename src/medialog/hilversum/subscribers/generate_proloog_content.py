@@ -261,7 +261,7 @@ def handler(obj, event):
                 
                 
             ## check for replace and IMPORTANT, that the content type is 'Proloog'
-            if proloog.Type() == "Proloog" and (replace_content or not item_exist != False):
+            if proloog and proloog.Type() == "Proloog" and (replace_content or not item_exist != False):
                 # if replace_content or not item_exist:
                 # print( str(i) + ' : ' + the_title)
                 
