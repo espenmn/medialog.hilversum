@@ -16,7 +16,8 @@ import datetime
 from zope.schema import Date
 from zope.schema import getFields
 from Products.CMFCore.utils import getToolByName
-
+from OFS.CopySupport import CopyError
+from zExceptions import ResourceLockedError 
 
 import pandas as pd
 from io import BytesIO
@@ -136,7 +137,15 @@ def handler(obj, event):
                 old_id = item.getId()
                 new_id = f"{old_id}_old"
                 print(new_id)
-                plone.api.content.rename(obj=item, new_id=new_id) 
+                try:
+                    plone.api.content.rename(obj=item, new_id=new_id) 
+                except CopyError:
+                    plone.api.portal.show_message(message=f"Item {old_id} could not be renamed", request=None, type='warning') 
+                     
+                except ResourceLockedError:
+                    plone.api.portal.show_message(message=f"Item {old_id} was locked by other user", request=None, type='warning') 
+                    
+                    
                 
  
         # A  loop to read the cell values
@@ -235,18 +244,24 @@ def handler(obj, event):
                 "the_code" : the_dict.get("Code", None), 
             }
             
+            proloog = None
+            
             #Create content only if it does not exist in root folder
             if not the_old_id or the_old_id == 'nan':
-                the_id = f'{the_id}_old' 
                 item_exist = portal.get(the_id, False)
-                          
+                if not item_exist:
+                    the_id = f'{the_id}_old' 
+                    item_exist = portal.get(the_id, False)                    
+                     
             else:
                 find_id =  f'{the_old_id}_old' 
                 item_exist = portal.get(find_id, False)  
                 if item_exist: 
                     plone.api.content.rename(obj=item_exist, new_id=the_id) 
                     # To do: check if we need this
-                    # item_exist.reindexObject()
+                    item_exist.reindexObject()
+                    
+                    
             if the_title != 'nan':
                 if not item_exist:
                     proloog = plone.api.content.create(
@@ -259,6 +274,8 @@ def handler(obj, event):
             else:
                 proloog = portal.get(the_id)  
                 
+            if not proloog:
+                proloog = item_exist
                 
             ## check for replace and IMPORTANT, that the content type is 'Proloog'
             if proloog and proloog.Type() == "Proloog" and (replace_content or not item_exist != False):
